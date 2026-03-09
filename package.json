@@ -2,14 +2,12 @@
   "name": "joyhand-frontend",
   "version": "0.1.0",
   "private": true,
- 
   "scripts": {
-    "dev": "next dev --turbo", 
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint"
   },
-
   "dependencies": {
     "@portabletext/react": "^6.0.2",
     "lucide-react": "^0.575.0",
