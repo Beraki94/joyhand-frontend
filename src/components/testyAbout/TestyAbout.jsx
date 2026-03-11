@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { PiShieldCheckFill, PiArrowRightBold } from "react-icons/pi";
 import "./TestyAbout.css";
 
 export default function TestyAbout() {
@@ -14,13 +16,11 @@ export default function TestyAbout() {
       ([entry]) => {
         if (entry.isIntersecting) {
           section.classList.add("is-visible");
-        } else {
-          section.classList.remove("is-visible");
         }
       },
       {
-        threshold: 0.2,
-        rootMargin: "0px 0px -80px 0px",
+        threshold: 0.1, // Trigger faster on mobile
+        rootMargin: "0px 0px -50px 0px",
       }
     );
 
@@ -35,46 +35,51 @@ export default function TestyAbout() {
     <section ref={sectionRef} className="testy-about">
       <div className="container testy-about__container">
 
-        {/* LEFT SIDE */}
+        {/* LEFT SIDE: VISUAL GRID */}
         <div className="testy-about__visual-grid">
 
           <div className="testy-about__top-row">
-
+            {/* TECH CARD */}
             <div className="testy-about__card">
               <div className="testy-about__card-header">
+                <div className="testy-about__card-icon">
+                   <PiShieldCheckFill size={20} />
+                </div>
                 <span className="testy-about__card-brand">
-                  Complete Energy System
+                  Smart Storage Systems
                 </span>
               </div>
 
               <p className="testy-about__quote">
-                Power your home with
-                <span className="text-primary"> solar panels</span>,
-                smart <span className="text-primary">battery storage</span>,
-                and reliable <span className="text-primary">power stations</span>.
+                Power your infrastructure with 
+                <span className="text-primary"> solar technology</span>, 
+                high-density <span className="text-primary">battery storage</span>, 
+                and intelligent <span className="text-primary">power management</span>.
               </p>
 
-              <button className="testy-about__card-btn">
+              <Link href="/products" className="testy-about__card-btn">
                 Explore Solutions
-              </button>
+              </Link>
             </div>
 
+            {/* SMALL IMAGE */}
             <div className="testy-about__img-wrapper testy-about__img-wrapper--small">
               <Image
                 src="/images/factoryImg/factory2.jpg"
-                alt="Solar installation worker"
+                alt="JoyHand Manufacturing Facility"
                 fill
                 className="testy-about__image"
                 sizes="(max-width:768px) 100vw, 50vw"
+                priority
               />
             </div>
-
           </div>
 
+          {/* LARGE IMAGE */}
           <div className="testy-about__img-wrapper testy-about__img-wrapper--large">
             <Image
               src="/images/factoryImg/factory1.jpg"
-              alt="Solar powered home"
+              alt="Advanced Solar Implementation"
               fill
               className="testy-about__image"
               sizes="(max-width:768px) 100vw, 50vw"
@@ -83,29 +88,33 @@ export default function TestyAbout() {
 
         </div>
 
-        {/* RIGHT SIDE */}
+        {/* RIGHT SIDE: CONTENT */}
         <div className="testy-about__content">
 
           <div className="testy-about__tag">
             <span className="testy-about__tag-square"></span>
-            SMART POWER SOLUTIONS
+            SMART POWER INFRASTRUCTURE
           </div>
 
           <h2 className="testy-about__heading">
-            Engineered for the Next Energy Era
+            Engineered for the Next Generation Energy Era
           </h2>
 
           <ul className="testy-about__list">
-            <li>High-efficiency solar panels for maximum energy output</li>
-            <li>Advanced lithium battery storage systems</li>
-            <li>Backup power stations for uninterrupted supply</li>
-            <li>Intelligent energy monitoring & management</li>
-            <li>Electric mobility power solutions</li>
+            <li>High-efficiency solar systems for industrial output</li>
+            <li>Advanced lithium-ion battery storage architecture</li>
+            <li>Intelligent real-time energy monitoring systems</li>
+            <li>Certified OEM/ODM manufacturing excellence</li>
+            <li>Sustainable electric mobility power platforms</li>
           </ul>
 
           <div className="testy-about__actions">
-            <button className="btn">GET A FREE QUOTE</button>
-            <button className="btn btn--secondary">VIEW PRODUCTS</button>
+            <Link href="/contact" className="btn">
+              GET A FREE QUOTE
+            </Link>
+            <Link href="/products" className="btn btn--secondary">
+              VIEW PRODUCTS
+            </Link>
           </div>
 
         </div>

@@ -17,7 +17,7 @@ const InnovationShowcase = () => {
           section.classList.remove("is-visible");
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.15 } // Trigger earlier for mobile
     );
 
     if (section) observer.observe(section);
@@ -30,22 +30,22 @@ const InnovationShowcase = () => {
     {
       title: "ODM Development",
       icon: <PiFlask />,
-      content: "Custom product development for global brands."
+      content: "Custom hardware development and software integration for global energy brands."
     },
     {
       title: "OEM Production",
       icon: <PiBuildings />,
-      content: "High-volume manufacturing with strict quality control."
+      content: "Scalable high-volume manufacturing with rigorous ISO/TS certified quality control."
     },
     {
-      title: "Engineering Expertise",
+      title: "Engineering Labs",
       icon: <PiLightning />,
-      content: "Energy system design and optimization."
+      content: "Dedicated R&D teams focused on energy density and power management optimization."
     },
     {
-      title: "Quality Assurance",
+      title: "Quality Control",
       icon: <PiLightbulb />,
-      content: "International Manufacturing standards."
+      content: "End-to-end testing protocols ensuring international safety and performance standards."
     }
   ];
 
@@ -57,9 +57,9 @@ const InnovationShowcase = () => {
         </video>
         <div className="innovation-section__overlay">
           <div className="container innovation-section__hero-content">
-            <h2 className="innovation-section__title">Advanced Manufacturing Capabilities</h2>
+            <h2 className="innovation-section__title">Advanced Manufacturing</h2>
             <p className="innovation-section__subtitle">
-              Pioneering the future of technology through automated gigafactories and rigorous scientific research.
+              Pioneering next-generation energy storage through automated gigafactories and scientific excellence.
             </p>
           </div>
         </div>
@@ -78,14 +78,14 @@ const InnovationShowcase = () => {
                 <h4 className="innovation-card__title">{item.title}</h4>
               </div>
 
-              {/* DESCRIPTION: Appears on hover */}
+              {/* CONTENT: Hidden until Hover/Tap */}
               <div className="innovation-card__hover-content">
                 <p className="innovation-card__description">{item.content}</p>
               </div>
 
-              {/* LINK: Visible by default, hidden on hover, fixed position */}
+              {/* LINK: Hidden on Hover/Tap */}
               <div className="innovation-card__link">
-                Discover Technology <span>→</span>
+                Tech Specs <span>→</span>
               </div>
             </div>
           ))}

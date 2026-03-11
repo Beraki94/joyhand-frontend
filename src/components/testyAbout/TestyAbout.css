@@ -1,356 +1,309 @@
 /* ========================================
    TESTY ABOUT SECTION
 ======================================== */
-
 .testy-about {
-  padding: 80px 0;
-  background: linear-gradient(to bottom, #f1f5f9, #ffffff);
+  padding: var(--spacing-8) 0;
+  background: linear-gradient(to bottom, #f8fafc, #ffffff);
   overflow: hidden;
 }
-
-/* CONTAINER */
 
 .testy-about__container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 48px;
+  gap: var(--spacing-6);
   align-items: center;
 }
 
 /* ========================================
    LEFT VISUAL GRID
 ======================================== */
-
 .testy-about__visual-grid {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: var(--spacing-3);
+  z-index: 1;
 }
 
-/* NFC PULSE ANIMATION */
-
+/* NFC Corner Pulse Effect */
 .testy-about__visual-grid::before {
   content: "";
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background: var(--primary-color);
-  top: -16px;
-  left: -16px;
-  opacity: 0.15;
-  border-radius: 10px;
-
-  animation: nfcPulse 2.5s ease-in-out infinite;
+  top: -20px;
+  left: -20px;
+  opacity: 0.1;
+  border-radius: 20px;
+  animation: nfcPulse 3s ease-in-out infinite;
+  z-index: -1;
 }
 
 @keyframes nfcPulse {
-
-  0% {
-    transform: scale(0.9);
-    opacity: 0.35;
-  }
-
-  50% {
-    transform: scale(1.3);
-    opacity: 0.15;
-  }
-
-  100% {
-    transform: scale(0.9);
-    opacity: 0.35;
-  }
-
+  0%, 100% { transform: scale(0.8); opacity: 0.2; }
+  50% { transform: scale(1.2); opacity: 0.05; }
 }
-
-/* TOP ROW */
 
 .testy-about__top-row {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: var(--spacing-3);
 }
 
 /* ========================================
-   CARD
+   THE TECH CARD (BEM: block)
 ======================================== */
-
 .testy-about__card {
   background: var(--secondary-color);
   color: var(--neutral-white);
-  padding: 28px;
-  border-radius: 10px;
-
+  padding: var(--spacing-5);
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 240px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
 
-  min-height: 220px;
-
-  transition: transform .35s ease, box-shadow .35s ease;
+/* Hardware Circuit Pattern Overlay */
+.testy-about__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 127, 65, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .testy-about__card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(18, 27, 45, 0.18);
-}
-
-/* CARD HEADER */
-
-.testy-about__card-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* NFC ICON */
-
-.testy-about__card-icon {
-  width: 32px;
-  height: 32px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: var(--primary-color);
-  border-radius: 6px;
-
-  color: white;
-
-  box-shadow: 0 4px 12px rgba(255,127,65,0.4);
+  box-shadow: 0 25px 50px rgba(18, 27, 45, 0.25);
+  border-color: var(--primary-color-light);
 }
 
 .testy-about__card-brand {
-  font-weight: 600;
-  font-size: var(--font-size-sm);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary-color-light);
+  position: relative;
+  z-index: 2;
 }
-
-/* TEXT */
 
 .testy-about__quote {
   font-size: var(--font-size-md);
   line-height: 1.6;
-  margin-top: 16px;
+  margin: var(--spacing-3) 0;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
 }
 
-/* BUTTON */
+.testy-about__quote span.text-primary {
+  color: var(--primary-color);
+  font-weight: 700;
+}
 
 .testy-about__card-btn {
   background: var(--neutral-white);
   color: var(--secondary-color);
-
-  padding: 10px 22px;
-
-  border-radius: 40px;
-
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 700;
   width: max-content;
-
   cursor: pointer;
-
-  transition: all .3s ease;
+  transition: var(--transition);
+  position: relative;
+  z-index: 2;
 }
 
 .testy-about__card-btn:hover {
   background: var(--primary-color);
   color: white;
+  transform: scale(1.05);
 }
 
 /* ========================================
    IMAGES
 ======================================== */
-
 .testy-about__img-wrapper {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 15px 40px rgba(18,27,45,0.08);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(18, 27, 45, 0.1);
+  background: var(--neutral-light);
 }
 
 .testy-about__img-wrapper--small {
   width: 100%;
-  height: 220px;
+  height: 240px;
 }
 
 .testy-about__img-wrapper--large {
   width: 100%;
-  height: 260px;
-  border: 2px solid var(--accent-color-dark);
+  height: 280px;
+  border: 1px solid rgba(18, 27, 45, 0.1);
 }
 
 .testy-about__image {
   object-fit: cover;
-  transition: transform .7s ease;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .testy-about__img-wrapper:hover .testy-about__image {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 /* ========================================
    RIGHT CONTENT
 ======================================== */
-
 .testy-about__content {
-  max-width: 540px;
+  max-width: 580px;
 }
 
 .testy-about__tag {
   display: flex;
   align-items: center;
-  gap: 8px;
-
-  color: var(--accent-color-dark);
-  font-weight: 700;
-  font-size: var(--font-size-sm);
-  letter-spacing: 1px;
-  margin-bottom: 16px;
+  gap: 10px;
+  color: var(--primary-color);
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--spacing-3);
 }
 
 .testy-about__tag-square {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background: var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color);
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 
 .testy-about__heading {
-  font-size: clamp(28px, 4vw, 40px);
-  margin-bottom: 24px;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   color: var(--secondary-color);
+  margin-bottom: var(--spacing-4);
+  line-height: 1.2;
 }
-
-.testy-about__heading::after {
-  content: "";
-  display: block;
-  width: 72px;
-  height: 4px;
-  background: var(--accent-color-dark);
-  margin-top: 16px;
-}
-
-/* LIST */
 
 .testy-about__list {
-  margin-bottom: 32px;
+  margin-bottom: var(--spacing-5);
+  list-style: none;
 }
 
 .testy-about__list li {
   position: relative;
-  padding-left: 28px;
-  margin-bottom: 12px;
+  padding-left: 32px;
+  margin-bottom: var(--spacing-2);
   color: var(--neutral-medium);
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
 .testy-about__list li::before {
   content: "✔";
   position: absolute;
   left: 0;
-  color: var(--accent-color-dark);
+  color: var(--primary-color);
+  font-weight: 900;
 }
-
-/* ACTIONS */
 
 .testy-about__actions {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-3);
 }
 
 /* ========================================
-   SCROLL ANIMATION
+   SCROLL ANIMATIONS (Synced)
 ======================================== */
-
-/* LEFT SIDE START */
-
 .testy-about__visual-grid {
-
   opacity: 0;
-  transform: translateX(-70px);
-
-  will-change: transform, opacity;
-
-  transition:
-    opacity .9s cubic-bezier(.16,1,.3,1),
-    transform .9s cubic-bezier(.16,1,.3,1);
-
+  transform: translateX(-40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-/* RIGHT SIDE START */
 
 .testy-about__content {
-
   opacity: 0;
-  transform: translateX(70px);
-
-  will-change: transform, opacity;
-
-  transition:
-    opacity .9s cubic-bezier(.16,1,.3,1),
-    transform .9s cubic-bezier(.16,1,.3,1);
-
+  transform: translateX(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* LEFT ENTER */
-
-.testy-about.is-visible .testy-about__visual-grid {
-
-  opacity: 1;
-  transform: translateX(0);
-
-}
-
-/* RIGHT ENTER */
-
+.testy-about.is-visible .testy-about__visual-grid,
 .testy-about.is-visible .testy-about__content {
-
   opacity: 1;
   transform: translateX(0);
+}
 
-  transition-delay: .25s;
-
+/* DESKTOP DELAY ONLY */
+@media (min-width: 1024px) {
+  .testy-about.is-visible .testy-about__content {
+    transition-delay: 0.2s;
+  }
 }
 
 /* ========================================
-   TABLET
+   RESPONSIVE BREAKPOINTS
 ======================================== */
-
-@media (min-width:768px){
-
-  .testy-about__top-row{
-    flex-direction:row;
+@media (min-width: 768px) {
+  .testy-about__top-row {
+    flex-direction: row;
   }
-
-  .testy-about__img-wrapper--small{
-    height:240px;
+  
+  .testy-about__actions {
+    flex-direction: row;
   }
-
-  .testy-about__img-wrapper--large{
-    height:300px;
+  
+  .testy-about__img-wrapper--small {
+    flex: 1;
+    height: 300px;
   }
-
-  .testy-about__actions{
-    flex-direction:row;
+  
+  .testy-about__card {
+    flex: 1.2;
   }
-
 }
 
-/* ========================================
-   DESKTOP
-======================================== */
-
-@media (min-width:1024px){
-
-  .testy-about__container{
-    grid-template-columns:1fr 1fr;
-    gap:64px;
+@media (min-width: 1024px) {
+  .testy-about__container {
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--spacing-8);
   }
 
-  .testy-about__img-wrapper--large{
-    height:340px;
+  .testy-about__img-wrapper--large {
+    height: 360px;
   }
+}
 
+@media (max-width: 767px) {
+  .testy-about {
+    padding: var(--spacing-6) 0;
+  }
+  
+  .testy-about__card {
+    min-height: 200px;
+    padding: var(--spacing-4);
+  }
+  
+  .testy-about__heading {
+    text-align: center;
+  }
+  
+  .testy-about__heading::after {
+    margin: 16px auto 0;
+  }
 }
