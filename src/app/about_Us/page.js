@@ -1,6 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { PiLinkedinLogo, PiArrowRight } from "react-icons/pi";
+import { PiLinkedinLogo, PiArrowRight, PiShieldCheckFill } from "react-icons/pi";
 import PageHeader from "@/components/pageHeader/PageHeader";
 import Trustee from "@/components/Trustee/Trustee";
 import SectionHeader from "@/components/sectionHeader/SectionHeader";
@@ -26,12 +28,12 @@ export default function AboutPage() {
     <main className="about-page">
       <PageHeader title="About JoyHand" pageImage="/images/pageHeadImg/pageheader1.jpg" />
 
-      {/* ================= INTRO ================= */}
+      {/* ================= INTRO (NFC ANIMATION) ================= */}
       <section className="about-intro">
         <div className="container about-intro__container">
           <div className="about-intro__content">
             <SectionHeader 
-              badge="About JoyHand" 
+              badge="Innovation Leader" 
               title="A unique combination of solar energy and advanced battery technology"
             />
             <div className="about-intro__description">
@@ -39,14 +41,29 @@ export default function AboutPage() {
               <p>Our engineering teams combine expertise in solar technology and battery management to deliver scalable energy products.</p>
             </div>
           </div>
+
           <div className="about-intro__visual">
-            <div className="about-intro__image-wrapper">
-              <Image src="/images/solarImg/panel.home.jpg" alt="Solar expertise" fill className="about-intro__img" />
+            <div className="nfc-scanner">
+              <div className="nfc-scanner__ring"></div>
+              <div className="nfc-scanner__ring nfc-scanner__ring--delayed"></div>
+              <div className="about-intro__image-wrapper">
+                <Image 
+                  src="/images/solarImg/panel.home.jpg" 
+                  alt="Solar expertise" 
+                  fill 
+                  className="about-intro__img" 
+                  priority
+                />
+                <div className="nfc-status">
+                  <div className="nfc-status__dot"></div>
+                  <span>System Verified</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
+    <Trustee />
       {/* ================= CAPABILITIES ================= */}
       <section className="capabilities">
         <div className="container">
@@ -54,42 +71,49 @@ export default function AboutPage() {
           <div className="capabilities__grid">
             {["Solar Energy Systems", "Energy Storage Technology", "Electric Mobility Power"].map((cap, i) => (
               <div key={i} className="capabilities__card">
-                <h3 className="capabilities__card-title">{cap}</h3>
+                <div className="capabilities__card-header">
+                   <h3 className="capabilities__card-title">{cap}</h3>
+                   <PiShieldCheckFill className="capabilities__card-badge" />
+                </div>
                 <p className="capabilities__card-text">Advanced systems engineered for residential and industrial energy optimization.</p>
-                <PiArrowRight className="capabilities__card-icon" />
+                <div className="capabilities__card-link">
+                   <span>Learn More</span>
+                   <PiArrowRight />
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <Trustee />
-
-      {/* ================= TEAM ================= */}
+      {/* ================= TEAM (CIRCULAR DESIGN) ================= */}
       <section className="team-section">
         <div className="container">
-          <SectionHeader badge="Our Team" title="The People Powering JoyHand" center />
+          <SectionHeader badge="Leadership" title="The Experts Behind JoyHand" center />
           <div className="team-section__grid">
             {team.map((member, idx) => (
               <div key={idx} className="team-card">
-                <div className="team-card__header">
-                  <div className="team-card__image-container">
+                <div className="team-card__visual-container">
+                  <div className="team-card__visual">
                     <Image src={member.image} alt={member.name} fill className="team-card__img" />
                   </div>
-                  <div className="team-card__info">
-                    <h4 className="team-card__name">{member.name}</h4>
-                    <p className="team-card__role">{member.title}</p>
-                    <PiLinkedinLogo className="team-card__social" />
-                  </div>
+                  {/* LinkedIn Icon as requested */}
+                  <a href="#" className="team-card__linkedin" aria-label="LinkedIn Profile">
+                    <PiLinkedinLogo size={24} weight="fill" />
+                  </a>
                 </div>
-                <p className="team-card__bio">{member.bio}</p>
+                <div className="team-card__content">
+                  <h4 className="team-card__name">{member.name}</h4>
+                  <span className="team-card__role">{member.title}</span>
+                  <p className="team-card__bio">{member.bio}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
+      {/* ================= CTA (BOTTOM MARGIN) ================= */}
       <section className="cta-banner">
         <div className="container">
           <div className="cta-banner__wrapper">
@@ -98,7 +122,7 @@ export default function AboutPage() {
               <p className="cta-banner__subtitle">Ready to develop next-generation energy solutions?</p>
             </div>
             <Link href="/contact" className="btn btn--secondary cta-banner__btn">
-              Start a Project <PiArrowRight />
+              Get Started <PiArrowRight weight="bold" />
             </Link>
           </div>
         </div>

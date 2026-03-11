@@ -1,137 +1,201 @@
-/* Intro Section */
-.about-intro {
-  padding: var(--spacing-8) 0;
-}
+/* ================= INTRO & NFC SCANNER ================= */
+.about-intro { padding: var(--spacing-8) 0; overflow: hidden; }
 
 .about-intro__container {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: var(--spacing-6);
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--spacing-8);
   align-items: center;
+}
+
+.about-intro__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.nfc-scanner {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
 }
 
 .about-intro__image-wrapper {
   position: relative;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 40px;
   overflow: hidden;
-  border: 8px solid var(--accent-color-light);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  z-index: 2;
+  border: 2px solid var(--accent-color-light);
+  box-shadow: 0 30px 60px rgba(18, 27, 45, 0.2);
 }
 
-.about-intro__img {
-  object-fit: cover;
+.about-intro__img { object-fit: cover; transition: transform 0.8s ease; }
+.nfc-scanner:hover .about-intro__img { transform: scale(1.1); }
+
+/* NFC Rings Animation */
+.nfc-scanner__ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; height: 100%;
+  border: 1px solid var(--primary-color);
+  border-radius: 50px;
+  animation: nfc-pulse 3s linear infinite;
+  opacity: 0;
 }
 
-/* Capabilities Grid */
-.capabilities {
-  padding: var(--spacing-8) 0;
-  background-color: var(--neutral-light);
+.nfc-scanner__ring--delayed { animation-delay: 1.5s; }
+
+.nfc-status {
+  position: absolute;
+  bottom: 25px; left: 25px;
+  background: rgba(18, 27, 45, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 3;
 }
 
-.capabilities__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-4);
+.nfc-status__dot {
+  width: 8px; height: 8px;
+  background: var(--accent-color-dark);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-color-dark);
 }
+
+/* ================= CAPABILITIES ================= */
+.capabilities { padding: var(--spacing-8) 0; background: var(--neutral-light); }
+.capabilities__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-4); margin-top: var(--spacing-6); }
 
 .capabilities__card {
   background: var(--neutral-white);
-  padding: var(--spacing-5);
+  padding: var(--spacing-6);
   border-radius: var(--spacing-2);
   transition: var(--transition);
-  border-bottom: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
 }
 
-.capabilities__card:hover {
-  transform: translateY(-8px);
-  border-color: var(--primary-color);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
+.capabilities__card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+.capabilities__card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--spacing-3); }
+.capabilities__card-badge { color: var(--primary-color); font-size: 2rem; opacity: 0.2; }
+.capabilities__card-link { margin-top: auto; padding-top: var(--spacing-4); display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--primary-color); cursor: pointer; }
 
-.capabilities__card-icon {
-  margin-top: var(--spacing-3);
-  color: var(--primary-color);
-  font-size: var(--font-size-xl);
-}
-
-/* Team Section */
-.team-section {
-  padding: var(--spacing-8) 0;
-}
-
-.team-section__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-4);
+/* ================= TEAM SECTION (CIRCULAR) ================= */
+.team-section { padding: var(--spacing-8) 0; }
+.team-section__grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: var(--spacing-8); 
+  margin-top: var(--spacing-8); 
 }
 
 .team-card {
-  background: var(--neutral-white);
-  padding: var(--spacing-4);
-  border: 1px solid var(--neutral-light);
-  border-radius: var(--spacing-2);
-}
-
-.team-card__header {
   display: flex;
-  gap: var(--spacing-3);
-  margin-bottom: var(--spacing-3);
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.team-card__image-container {
+.team-card__visual-container {
   position: relative;
-  width: 80px;
-  height: 80px;
-  border-radius: var(--spacing-1);
+  width: 260px; /* Large circular images */
+  height: 260px;
+  margin-bottom: var(--spacing-4);
+}
+
+.team-card__visual {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
   overflow: hidden;
-  flex-shrink: 0;
+  border: 4px solid var(--neutral-white);
+  box-shadow: 0 20px 40px rgba(18, 27, 45, 0.1);
+  position: relative;
+  transition: var(--transition);
 }
 
-.team-card__social {
-  color: var(--primary-color);
-  font-size: 1.5rem;
-  margin-top: var(--spacing-1);
-  cursor: pointer;
+.team-card:hover .team-card__visual {
+  border-color: var(--primary-color);
+  transform: scale(1.02);
 }
 
-/* CTA Banner */
-.cta-banner {
-  padding-bottom: var(--spacing-8);
+.team-card__img { object-fit: cover; transition: 0.5s ease; }
+.team-card:hover .team-card__img { transform: scale(1.1); }
+
+/* LinkedIn Floating Icon */
+.team-card__linkedin {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: var(--primary-color);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(255, 127, 65, 0.3);
+  transition: var(--transition);
+  z-index: 10;
+  border: 4px solid var(--neutral-white);
+}
+
+.team-card__linkedin:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.1) rotate(15deg);
+}
+
+.team-card__name { color: var(--secondary-color); font-size: 1.5rem; margin-bottom: 5px; }
+.team-card__role { color: var(--primary-color); font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; margin-bottom: var(--spacing-3); display: block; }
+.team-card__bio { color: var(--neutral-medium); font-size: 0.95rem; line-height: 1.6; max-width: 420px; }
+
+/* ================= CTA BANNER & PADDING ================= */
+.cta-banner { 
+  padding: var(--spacing-6) 0 var(--spacing-8); 
+  margin-bottom: 60px; /* Safe space before footer */
 }
 
 .cta-banner__wrapper {
   background: var(--secondary-color);
-  padding: var(--spacing-6);
+  padding: var(--spacing-8);
   border-radius: var(--spacing-3);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--neutral-white);
+  color: white;
 }
 
-.cta-banner__title {
-  color: var(--neutral-white);
-  margin-bottom: var(--spacing-1);
+.cta-banner__title { color: white; margin-bottom: 8px; }
+
+/* ================= ANIMATIONS ================= */
+@keyframes nfc-pulse {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0; }
 }
 
-.cta-banner__btn {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-2);
-}
-
-/* Responsive */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 992px) {
-  .about-intro__container {
-    grid-template-columns: 1fr;
-  }
-  .capabilities__grid {
-    grid-template-columns: 1fr;
-  }
-  .cta-banner__wrapper {
-    flex-direction: column;
-    text-align: center;
-    gap: var(--spacing-4);
-  }
+  .about-intro__container { grid-template-columns: 1fr; text-align: center; }
+  .about-intro__visual { order: -1; margin-bottom: var(--spacing-4); }
+  .capabilities__grid { grid-template-columns: repeat(2, 1fr); }
+  .team-card__visual-container { width: 220px; height: 220px; }
+}
+
+@media (max-width: 768px) {
+  .capabilities__grid, .team-section__grid { grid-template-columns: 1fr; }
+  .cta-banner__wrapper { flex-direction: column; text-align: center; gap: var(--spacing-5); }
+  .team-card__visual-container { width: 200px; height: 200px; }
 }

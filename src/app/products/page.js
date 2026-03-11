@@ -11,29 +11,23 @@ const ProductsContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   
-  // 1. Get category from URL. Default to "all" if missing.
   const categoryQuery = searchParams.get("category") || "all"; 
 
-  // 2. Generate categories list (Memoized for performance)
   const categories = useMemo(() => {
     const unique = [...new Set(productData.map((p) => p.category))];
     return ["all", ...unique];
   }, []);
 
-  // 3. Determine active category by matching URL query to our list
-  // This replaces the useState/useEffect combo
   const activeCategory = useMemo(() => {
     return categories.find(cat => cat.toLowerCase() === categoryQuery.toLowerCase()) || "all";
   }, [categoryQuery, categories]);
 
-  // 4. Filter products based on the active category
   const filteredProducts = useMemo(() => {
     return activeCategory === "all" 
       ? productData 
       : productData.filter((p) => p.category === activeCategory);
   }, [activeCategory]);
 
-  // 5. Handle clicks: Update the URL instead of local state
   const handleCategoryClick = (cat) => {
     if (cat === "all") {
       router.push("/products");
@@ -44,7 +38,11 @@ const ProductsContent = () => {
 
   return (
     <main className="products-page">
-    	<PageHeader title="Energy Solutions" pageImage="/images/pageHeadImg/pageheader2.jpg" />
+      {/* Dynamic Header title */}
+      <PageHeader 
+        title={activeCategory === "all" ? "Energy Solutions" : `${activeCategory}`} 
+        pageImage="/images/pageHeadImg/pageheader2.jpg" 
+      />
 
       <section className="products-page__section">
         <div className="container">
