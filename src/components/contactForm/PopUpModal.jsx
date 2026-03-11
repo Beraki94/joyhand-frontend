@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { PiXBold, PiFactoryDuotone, PiChatsCircleDuotone } from "react-icons/pi";
+import { useState, useEffect } from "react";
+import { PiXBold, PiFactoryDuotone, PiChatsCircleDuotone, PiCheckCircleFill, PiWarningCircleFill } from "react-icons/pi";
 import "./PopUpModal.css";
 
 const PopUpModal = ({ isOpen, onClose, mode = "quote" }) => {
   const isQuote = mode === "quote";
 
-  // Initializing state directly. 
-  // Because we will use a "key" in the parent, this resets automatically.
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -18,96 +16,90 @@ const PopUpModal = ({ isOpen, onClose, mode = "quote" }) => {
     message: ""
   });
 
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState("idle"); // idle, loading, success, error
   const [touched, setTouched] = useState({});
+
+  // Prevent scroll when modal is open
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "unset";
+    return () => (document.body.style.overflow = "unset");
+  }, [isOpen]);
+
+  if (!isOpen) return null;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleBlur = (e) => {
-    const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
-  };
-
-  const validate = () => {
-    const errors = {};
-    if (formData.firstName.trim().length < 2) errors.firstName = true;
-    if (!/\S+@\S+\.\S+/.test(formData.email)) errors.email = true;
-    if (isQuote && !formData.companyName.trim()) errors.companyName = true;
-    if (formData.message.trim().length < 10) errors.message = true;
-    return errors;
-  };
-
-  const errors = validate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const allFields = Object.keys(formData).reduce((acc, key) => ({ ...acc, [key]: true }), {});
-    setTouched(allFields);
-
-    if (Object.keys(errors).length > 0) return;
-
     setStatus("loading");
-    try {
-      const response = await fetch("https://formspree.io", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, mode })
-      });
-      if (response.ok) setStatus("success");
-      else setStatus("error");
-    } catch {
-      setStatus("error");
-    }
+    // Simulate API Call
+    setTimeout(() => setStatus("success"), 1500);
   };
-
-  if (!isOpen) return null;
 
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-        <button className="modal__close" onClick={onClose}><PiXBold size={24} /></button>
+        <button className="modal__close" onClick={onClose} aria-label="Close Modal">
+          <PiXBold size={20} />
+        </button>
         
         <header className="modal__header">
-          <div className="modal__icon-box">
-            {isQuote ? <PiFactoryDuotone size={48} /> : <PiChatsCircleDuotone size={48} />}
+          <div className="modal__nfc-visual">
+            <div className="modal__nfc-ring"></div>
+            <div className="modal__icon-box">
+              {isQuote ? <PiFactoryDuotone size={40} /> : <PiChatsCircleDuotone size={40} />}
+            </div>
           </div>
-          <h3 className="modal__title">{isQuote ? "Request OEM/ODM Quote" : "Contact Our Team"}</h3>
+          <h3 className="modal__title">
+            {isQuote ? "Request OEM/ODM Quote" : "Technical Consultation"}
+          </h3>
+          <p className="modal__subtitle">
+            {isQuote ? "Specify your requirements for custom battery systems." : "Get direct access to our engineering team."}
+          </p>
         </header>
 
-        <form className="modal__form" onSubmit={handleSubmit} noValidate>
-          <div className="modal__grid">
-            <input name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} onBlur={handleBlur} 
-              className={touched.firstName && errors.firstName ? "modal__input modal__input--error" : "modal__input"} />
-            <input name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} className="modal__input" />
+        {status === "success" ? (
+          <div className="modal__success-state">
+            <PiCheckCircleFill size={60} className="modal__success-icon" />
+            <h4>Request Received</h4>
+            <p>Our engineers will review your specs and contact you within 24 hours.</p>
+            <button className="btn btn--primary" onClick={onClose}>Close Terminal</button>
           </div>
-
-          <input type="email" name="email" placeholder="Business Email" value={formData.email} onChange={handleChange} onBlur={handleBlur}
-            className={touched.email && errors.email ? "modal__input modal__input--error" : "modal__input"} />
-
-          {isQuote && (
+        ) : (
+          <form className="modal__form" onSubmit={handleSubmit}>
             <div className="modal__grid">
-              <input name="companyName" placeholder="Company Name" value={formData.companyName} onChange={handleChange} onBlur={handleBlur}
-                className={touched.companyName && errors.companyName ? "modal__input modal__input--error" : "modal__input"} />
-              <select name="orderVolume" className="modal__input" onChange={handleChange} value={formData.orderVolume}>
-                <option value="">Volume</option>
-                <option value="100-1000">100-1000</option>
-                <option value="1000+">1000+</option>
-              </select>
+              <div className="modal__field">
+                <input name="firstName" placeholder="First Name" required className="modal__input" onChange={handleChange} />
+              </div>
+              <div className="modal__field">
+                <input name="lastName" placeholder="Last Name" required className="modal__input" onChange={handleChange} />
+              </div>
             </div>
-          )}
 
-          <textarea name="message" placeholder="Message..." rows="4" value={formData.message} onChange={handleChange} onBlur={handleBlur}
-            className={touched.message && errors.message ? "modal__input modal__input--error" : "modal__input"} />
+            <input type="email" name="email" placeholder="Business Email" required className="modal__input" onChange={handleChange} />
 
-          <button type="submit" className="btn btn--primary modal__submit" disabled={status === "loading"}>
-            {status === "loading" ? "Sending..." : "Submit"}
-          </button>
-          
-          {status === "success" && <p className="modal__status--success">Sent Successfully! 🎉</p>}
-        </form>
+            {isQuote && (
+              <div className="modal__grid">
+                <input name="companyName" placeholder="Company Name" required className="modal__input" onChange={handleChange} />
+                <select name="orderVolume" className="modal__input" onChange={handleChange}>
+                  <option value="">Expected Volume</option>
+                  <option value="100-1000">100 - 1000 Units</option>
+                  <option value="1000+">1000+ Units</option>
+                </select>
+              </div>
+            )}
+
+            <textarea name="message" placeholder="Technical requirements or message..." rows="4" required className="modal__input" onChange={handleChange} />
+
+            <button type="submit" className="btn btn--primary modal__submit" disabled={status === "loading"}>
+              {status === "loading" ? "Processing Transmission..." : "Transmit Inquiry"}
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
