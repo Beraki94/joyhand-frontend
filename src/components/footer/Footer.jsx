@@ -24,6 +24,7 @@ export default function Footer() {
             {/* Added inline style filter as a fallback and ensured object-fit */}
             <Image 
               src="/logos/joyhand-logo.png" 
+              className="footer__logo-img"
               alt="JOYHAND Energy" 
               width={150} 
               height={50} 

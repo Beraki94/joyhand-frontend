@@ -177,6 +177,9 @@
   .footer__container {
     grid-template-columns: repeat(2, 1fr);
   }
+  .footer__logo-img {
+    width: 120px; /* 15 * 8 */
+  }
 }
 
 @media screen and (max-width: 768px) {
