@@ -1,7 +1,15 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { PiXLogo, PiFacebookLogo, PiInstagramLogo, PiLinkedinLogo, PiEnvelopeSimple, PiPhone, PiMapPin, PiArrowRight } from "react-icons/pi";
+import { 
+  PiXLogo, 
+  PiFacebookLogo, 
+  PiInstagramLogo, 
+  PiLinkedinLogo, 
+  PiEnvelopeSimple, 
+  PiPhone, 
+  PiMapPin 
+} from "react-icons/pi";
 import "./Footer.css";
 
 export default function Footer() {
@@ -13,8 +21,19 @@ export default function Footer() {
         {/* BRAND SECTION */}
         <div className="footer__brand">
           <Link href="/" className="footer__logo">
-            {/* Using a light version of logo if background is dark */}
-            <Image src="/logos/joyhand-logo.png" alt="JOYHAND Energy" width={150} height={50} priority />
+            {/* Added inline style filter as a fallback and ensured object-fit */}
+            <Image 
+              src="/logos/joyhand-logo.png" 
+              alt="JOYHAND Energy" 
+              width={150} 
+              height={50} 
+              priority 
+              style={{ 
+                filter: "brightness(0) invert(1)", 
+                display: "block",
+                height: "auto" 
+              }}
+            />
           </Link>
           <p className="footer__description">
             Your global partner in sustainable energy. Specializing in OEM/ODM manufacturing of Tier-1 solar storage and e-mobility solutions.
@@ -30,10 +49,10 @@ export default function Footer() {
         <div className="footer__column">
           <h4 className="footer__title">Platforms</h4>
           <ul className="footer__list">
-            <li><Link href="/products?cat=storage" className="footer__link"><PiArrowRight /> Storage Batteries</Link></li>
-            <li><Link href="/products?cat=inverters" className="footer__link"><PiArrowRight /> Solar Inverters</Link></li>
-            <li><Link href="/products?cat=portable" className="footer__link"><PiArrowRight /> Portable Power</Link></li>
-            <li><Link href="/services" className="footer__link"><PiArrowRight /> OEM/ODM Services</Link></li>
+            <li><Link href="/products?cat=storage" className="footer__link"> Storage Batteries</Link></li>
+            <li><Link href="/products?cat=inverters" className="footer__link"> Solar Inverters</Link></li>
+            <li><Link href="/products?cat=portable" className="footer__link"> Portable Power</Link></li>
+            <li><Link href="/services" className="footer__link"> OEM/ODM Services</Link></li>
           </ul>
         </div>
 

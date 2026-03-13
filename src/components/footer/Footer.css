@@ -5,7 +5,7 @@
   background-color: var(--secondary-color);
   padding-top: var(--spacing-8);
   color: var(--neutral-white);
-  border-top: 4px solid var(--primary-color); /* Brand accent line */
+  border-top: 4px solid var(--primary-color);
 }
 
 .footer__container {
@@ -22,15 +22,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-3);
-}
-
-.footer__logo {
-  filter: brightness(0) invert(1); /* Forces logo to white if it's dark */
-  transition: opacity 0.3s ease;
-}
-
-.footer__logo:hover {
-  opacity: 0.8;
 }
 
 .footer__description {
@@ -62,7 +53,6 @@
 .footer__social-link:hover {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
-  color: var(--neutral-white);
   transform: translateY(-4px);
   box-shadow: 0 10px 20px rgba(255, 127, 65, 0.2);
 }
@@ -80,7 +70,6 @@
   position: relative;
 }
 
-/* Subtle underline for titles */
 .footer__title::after {
   content: "";
   position: absolute;
@@ -106,7 +95,6 @@
   transition: all 0.3s ease;
 }
 
-/* Arrow Icon styling */
 .footer__link svg {
   font-size: 12px;
   color: var(--primary-color);
@@ -156,7 +144,7 @@
 ===================================================== */
 .footer__bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: var(--spacing-4) 0;
+  padding: var(--spacing-3) 0;
   background-color: var(--secondary-color-dark);
 }
 
@@ -185,28 +173,27 @@
 /* =====================================================
    RESPONSIVE
 ===================================================== */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 992px) {
   .footer__container {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-6);
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
   .footer {
-    padding-top: var(--spacing-6);
     text-align: center;
   }
 
   .footer__container {
     grid-template-columns: 1fr;
-    gap: var(--spacing-5);
+    gap: var(--spacing-6);
   }
 
   .footer__brand, 
-  .footer__contact-item {
+  .footer__column {
     align-items: center;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
 
   .footer__title::after {
@@ -214,12 +201,23 @@
     transform: translateX(-50%);
   }
 
-  .footer__link {
-    justify-content: center;
+  .footer__description {
+    max-width: 100%;
+  }
+
+  /* --- FIX FOR SMALLER BOTTOM ON MOBILE --- */
+  .footer__bottom {
+    padding: var(--spacing-2) 0; /* Reduced from spacing-3 */
   }
 
   .footer__bottom-container {
     flex-direction: column;
-    gap: var(--spacing-3);
+    gap: 8px; /* Tightened gap between lines */
+    text-align: center;
+  }
+
+  .footer__legal-links {
+    gap: var(--spacing-2); /* Narrower gap between Privacy/Terms */
+    margin-bottom: 4px;
   }
 }
