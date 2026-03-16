@@ -4,39 +4,51 @@
 .home-blog {
   padding: var(--spacing-8) 0;
   background-color: var(--neutral-light);
-  overflow: hidden; /* Prevents horizontal scroll on the whole page */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle background pattern (optional) */
+.home-blog::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,127,65,0.03) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 /* ===============================
-   HORIZONTAL SCROLL (THE SLEEK PART)
+   HORIZONTAL SCROLL 
 ================================= */
 .home-blog__slider-wrapper {
   position: relative;
-  /* Visual cue: Fades the right side to show more content exists */
-  -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
-  mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  width: 100%;
+  margin-bottom: var(--spacing-2);
 }
 
-/* ===============================
-   HOME BLOG SECTION
-================================= */
 .home-blog__slider {
   display: flex;
-  /* 1. Gap from your 8-point system */
-  gap: var(--spacing-3); 
+  gap: var(--spacing-3);
   
-  /* 2. Enable horizontal scrolling */
+  /* FORCE horizontal scroll */
   overflow-x: auto;
   overflow-y: hidden;
   
-  /* 3. Snapping for that 'sleek' feel */
-  scroll-snap-type: x mandatory;
+  /* Make sure container doesn't wrap */
+  flex-wrap: nowrap;
   
-  /* 4. Ensure container doesn't stretch beyond its parent */
+  /* Ensure content is wider than container */
   width: 100%;
   
-  /* Optional: Hide scrollbar but keep functionality */
-  scrollbar-width: none; 
+  padding: var(--spacing-2) 0 var(--spacing-4);
+  cursor: grab;
+  
+  /* Hide scrollbar */
+  scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
@@ -44,15 +56,75 @@
   display: none;
 }
 
-.home-blog__item {
-  flex: 0 0 320px; /* Base width on 8-point system (40 * 8) */
-  scroll-snap-align: start;
-  transition: var(--transition);
+/* Active grab cursor when dragging */
+.home-blog__slider:active {
+  cursor: grabbing;
 }
 
-/* Hover effect for a "Sleek" feel */
+/* Blog Items */
+.home-blog__item {
+  flex: 0 0 320px; /* Fixed width, won't shrink */
+  scroll-snap-align: start;
+  transition: var(--transition);
+  position: relative;
+}
+
 .home-blog__item:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px);
+}
+
+/* ===============================
+   SCROLL HINT
+================================= */
+.home-blog__scroll-hint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--spacing-3);
+  color: var(--neutral-medium);
+  font-size: 0.85rem;
+}
+
+.home-blog__scroll-hint span {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.home-blog__scroll-indicator {
+  display: flex;
+  gap: 6px;
+}
+
+.home-blog__scroll-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  opacity: 0.3;
+  animation: scrollPulse 1.5s ease-in-out infinite;
+}
+
+.home-blog__scroll-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.home-blog__scroll-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.3; 
+  }
+  50% { 
+    transform: scale(1.3); 
+    opacity: 1; 
+    background: var(--primary-color);
+  }
 }
 
 /* ===============================
@@ -61,37 +133,69 @@
 .home-blog__footer {
   margin-top: var(--spacing-4);
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .home-blog__link {
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   transition: var(--transition);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--spacing-1);
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-5);
+  background: white;
+  border-radius: 50px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+  border: 1px solid rgba(255,127,65,0.1);
+  text-decoration: none;
 }
 
 .home-blog__link:hover {
-  color: var(--primary-color-dark);
-  padding-right: var(--spacing-1); /* Subtle movement */
+  color: var(--primary-color);
+  gap: var(--spacing-3);
+  box-shadow: 0 8px 25px rgba(255,127,65,0.15);
+  border-color: var(--primary-color);
+}
+
+.home-blog__link-icon {
+  transition: transform 0.3s ease;
+}
+
+.home-blog__link:hover .home-blog__link-icon {
+  transform: translateX(5px);
 }
 
 /* ===============================
-   RESPONSIVE (MOBILE FIRST)
+   RESPONSIVE
 ================================= */
+@media (max-width: 992px) {
+  .home-blog__item {
+    flex: 0 0 300px;
+  }
+}
+
 @media (max-width: 768px) {
   .home-blog {
     padding: var(--spacing-6) 0;
   }
 
   .home-blog__item {
-    flex: 0 0 280px; /* Slightly smaller cards on mobile */
+    flex: 0 0 280px;
   }
+  
+  .home-blog__link {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .home-blog__scroll-hint span {
+    font-size: 0.65rem;
+  }
+}
 
-  .home-blog__slider-wrapper {
-    -webkit-mask-image: none; /* Remove fade on mobile for full visibility */
-    mask-image: none;
+@media (max-width: 480px) {
+  .home-blog__item {
+    flex: 0 0 260px;
   }
 }

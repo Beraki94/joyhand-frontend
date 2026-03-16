@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import { PiArrowRight } from 'react-icons/pi';
 import './CtaBanner.css';
 
 const CtaBanner = () => {
@@ -9,19 +11,33 @@ const CtaBanner = () => {
         <div className="cta-banner__grid-overlay"></div>
         
         <div className="cta-banner__content">
-          <span className="cta-banner__badge">Manufacturing & Supply Chain Partnership</span>
-          <h2 className="cta-banner__title">Scale Your Energy Brand With Our Infrastructure</h2>
+          <span className="cta-banner__badge">Sourcing & Supply Chain Partnership</span>
+          <h2 className="cta-banner__title">Scale Your Energy Brand Through Our Partner Network</h2>
           <p className="cta-banner__description">
-            Partner with JoyHand to develop and manufacture next-generation energy solutions. 
-            From concept to global distribution, we provide the OEM/ODM excellence your brand requires.
+            Partner with JoyHand to source and customize next-generation energy solutions through our network of vetted manufacturing partners. 
+            From concept to global distribution, we provide the OEM/ODM excellence your brand requires — without the factory risk.
           </p>
+          <div className="cta-banner__stats">
+            <div className="cta-banner__stat">
+              <span className="cta-banner__stat-number">50+</span>
+              <span className="cta-banner__stat-label">Partner Factories</span>
+            </div>
+            <div className="cta-banner__stat">
+              <span className="cta-banner__stat-number">100%</span>
+              <span className="cta-banner__stat-label">On-site Audited</span>
+            </div>
+            <div className="cta-banner__stat">
+              <span className="cta-banner__stat-number">12</span>
+              <span className="cta-banner__stat-label">Countries</span>
+            </div>
+          </div>
           <div className="cta-banner__actions">
-            <button className="cta-banner__button btn">
-              Start Your Project
-            </button>
-            <button className="cta-banner__button--outline btn">
-              View OEM Catalog
-            </button>
+            <Link href="/contact" className="cta-banner__button btn">
+              Start Your Sourcing Project <PiArrowRight />
+            </Link>
+            <Link href="/services" className="cta-banner__button--outline btn">
+              View Sourcing Services
+            </Link>
           </div>
         </div>
       </div>

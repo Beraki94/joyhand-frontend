@@ -3,7 +3,14 @@
 import React, { use } from "react";
 import { blogPosts } from "@/data";
 import Link from "next/link";
-import { PiArrowLeft, PiCalendarBlank, PiUser, PiArrowRight } from "react-icons/pi";
+import { 
+  PiArrowLeft, 
+  PiCalendarBlank, 
+  PiUser, 
+  PiArrowRight,
+  PiFactory,
+  PiShieldCheck
+} from "react-icons/pi";
 import { PortableText } from "@portabletext/react";
 import PageHeader from "@/components/pageHeader/PageHeader";
 import "../blog.css";
@@ -39,7 +46,7 @@ export default function BlogDetailsPage({ params: paramsPromise }) {
         <div className="container">
           <h1 className="blog-details-notfound__title">404</h1>
           <h2 className="blog-details-notfound__subtitle">Article Not Found</h2>
-          <Link href="/blog" className="btn btn--secondary">Return to Insights</Link>
+          <Link href="/blog" className="btn btn--secondary">Browse Sourcing Insights</Link>
         </div>
       </main>
     );
@@ -59,7 +66,7 @@ export default function BlogDetailsPage({ params: paramsPromise }) {
 
       <div className="container blog-details__container">
         <Link href="/blog" className="blog-details__back">
-          <PiArrowLeft weight="bold" /> Back to Insights Catalog
+          <PiArrowLeft weight="bold" /> Back to Sourcing Insights
         </Link>
 
         <div className="blog-details__main-layout">
@@ -67,12 +74,14 @@ export default function BlogDetailsPage({ params: paramsPromise }) {
             
             <div className="blog-details__meta-row">
               <span className="blog-details__meta-item">
-                <PiUser weight="bold" /> JoyHand Engineering
+                <PiUser weight="bold" /> JoyHand Sourcing Team
               </span>
               <span className="blog-details__meta-item">
                 <PiCalendarBlank weight="bold" /> {new Date().toLocaleDateString()}
               </span>
-              {blogPost.category && <span className="solar-badge">{blogPost.category}</span>}
+              {blogPost.category && (
+                <span className="blog-details__category-badge">{blogPost.category}</span>
+              )}
             </div>
 
             <div className="blog-details__content">
@@ -94,23 +103,28 @@ export default function BlogDetailsPage({ params: paramsPromise }) {
 
           <aside className="blog-details__sidebar">
             <div className="sidebar-card sidebar-card--cta">
-              <h4 className="sidebar-card__title">Need a Custom Solution?</h4>
+              <div className="sidebar-card__icon">
+                <PiFactory size={24} />
+              </div>
+              <h4 className="sidebar-card__title">Need Help Sourcing?</h4>
               <p className="sidebar-card__text">
-                Consult with our engineering team for high-performance OEM/ODM solar and battery storage platforms.
+                Connect with our team to find vetted manufacturers for your specific product requirements.
               </p>
               <Link href="/contact" className="btn btn--primary sidebar-card__btn">
-                Talk to an Expert <PiArrowRight weight="bold" />
+                Talk to a Sourcing Expert <PiArrowRight weight="bold" />
               </Link>
             </div>
 
             <div className="sidebar-card sidebar-card--white">
-              <h4 className="sidebar-card__title" style={{ color: "var(--secondary-color)" }}>
-                Technical Categories
-              </h4>
+              <div className="sidebar-card__icon">
+                <PiShieldCheck size={24} />
+              </div>
+              <h4 className="sidebar-card__title">Sourcing Categories</h4>
               <ul className="sidebar-card__list">
-                <li>Solar Storage Systems</li>
-                <li>Lithium Battery Tech</li>
-                <li>Electric Mobility Power</li>
+                <li>Battery Storage Systems</li>
+                <li>Solar Inverters</li>
+                <li>EV Charging Infrastructure</li>
+                <li>Portable Power Stations</li>
               </ul>
             </div>
           </aside>
