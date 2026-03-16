@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { PiShieldCheckFill } from "react-icons/pi";
+import { PiShieldCheckFill, PiFactory, PiGlobe, PiHandshake } from "react-icons/pi";
 import "./BusinessModel.css";
 
 export default function BusinessModel() {
@@ -50,36 +50,46 @@ export default function BusinessModel() {
 
           <div className="businessModel__top-row">
 
-            {/* TECHNOLOGY CARD */}
+            {/* SOURCING PARTNER CARD */}
 
             <div className="businessModel__card">
 
               <div className="businessModel__card-header">
 
                 <div className="businessModel__card-icon">
-                  <PiShieldCheckFill size={20} />
+                  <PiHandshake size={20} />
                 </div>
 
                 <span className="businessModel__card-brand">
-                  ENGINEERED ENERGY TECHNOLOGY
+                  TRUSTED SOURCING NETWORK
                 </span>
 
               </div>
 
               <p className="businessModel__quote">
-                We design and supply
-                <span className="text-primary"> clean energy technologies</span>
-                and
-                <span className="text-primary"> electric mobility platforms</span>
-                for companies building the next generation of
-                <span className="text-primary"> sustainable infrastructure</span>.
+                We connect global distributors with 
+                <span className="text-primary"> vetted manufacturers</span> of 
+                <span className="text-primary"> clean energy technologies</span> and
+                <span className="text-primary"> electric mobility platforms</span> — 
+                handling quality control, logistics, and factory coordination every step of the way.
               </p>
 
+              <div className="businessModel__card-features">
+                <div className="businessModel__card-feature">
+                  <PiFactory size={14} />
+                  <span>50+ partner factories</span>
+                </div>
+                <div className="businessModel__card-feature">
+                  <PiGlobe size={14} />
+                  <span>12+ countries served</span>
+                </div>
+              </div>
+
               <Link
-                href="/products"
+                href="/services"
                 className="businessModel__card-btn"
               >
-                Explore Energy Solutions
+                Explore Sourcing Services
               </Link>
 
             </div>
@@ -91,7 +101,7 @@ export default function BusinessModel() {
 
               <Image
                 src="/images/factoryImg/factory2.jpg"
-                alt="Electric motorcycle mobility platform"
+                alt="Electric motorcycle mobility platform sourced from partner factories"
                 fill
                 className="businessModel__image"
                 sizes="(max-width:768px) 100vw, 50vw"
@@ -109,7 +119,7 @@ export default function BusinessModel() {
 
             <Image
               src="/images/factoryImg/factory1.jpg"
-              alt="Industrial solar power installation and lithium battery storage systems"
+              alt="Industrial solar power installation and lithium battery storage systems from vetted manufacturers"
               fill
               className="businessModel__image"
               sizes="(max-width:768px) 100vw, 50vw"
@@ -128,7 +138,7 @@ export default function BusinessModel() {
 
             <span className="businessModel__tag-square"></span>
 
-            GLOBAL ENERGY PARTNER
+            YOUR SOURCING PARTNER
 
           </div>
 
@@ -146,22 +156,23 @@ export default function BusinessModel() {
             JoyHand partners with distributors, infrastructure developers, and emerging 
             energy brands worldwide. Through our network of certified factories, dedicated 
             engineering support, and streamlined global logistics, we help companies source, 
-            customize, and scale reliable clean energy technologies for international markets.
+            customize, and scale reliable clean energy technologies for international markets — 
+            without the risk of dealing with unknown suppliers.
 
           </p>
 
 
           <ul className="businessModel__list">
 
-            <li>OEM & ODM partnerships with vetted manufacturers</li>
+            <li><strong>Factory Matching:</strong> We connect you with specialized manufacturers based on your specifications</li>
 
-            <li>Global sourcing and logistics for solar and storage products</li>
+            <li><strong>Quality Assurance:</strong> On-site audits and inspections before any product leaves the facility</li>
 
-            <li>Electric mobility platforms sourced from specialized factories</li>
+            <li><strong>Logistics Managed:</strong> Container consolidation, shipping, and customs clearance handled end-to-end</li>
 
-            <li>Engineering bridge between your specs and factory capabilities</li>
+            <li><strong>Engineering Bridge:</strong> Technical liaison between your requirements and factory capabilities</li>
 
-            <li>International logistics and supply chain coordination</li>
+            <li><strong>Scalable Partnerships:</strong> From pilot orders to full container loads, we grow with you</li>
 
           </ul>
 
@@ -172,14 +183,14 @@ export default function BusinessModel() {
               href="/contact"
               className="btn"
             >
-              GET A FREE QUOTE
+              START SOURCING
             </Link>
 
             <Link
               href="/products"
               className="btn btn--secondary"
             >
-              VIEW PRODUCTS
+              VIEW PRODUCT CATALOG
             </Link>
 
           </div>

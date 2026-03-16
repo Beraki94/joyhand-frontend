@@ -1,4 +1,6 @@
 import "./Hero.css";
+import Link from "next/link";
+import { PiArrowRight } from "react-icons/pi";
 
 export default function Hero() {
   return (
@@ -27,14 +29,16 @@ export default function Hero() {
       <div className="container hero__container">
         <div className="hero__content">
 
-          <p className="hero__subtitle">
-            Certified Solar & E-Vehicle OEM/ODM
-          </p>
+          <div className="hero__badge-wrapper">
+            <span className="hero__badge">
+              ⚡ Global Sourcing Partner
+            </span>
+          </div>
 
           <h1 className="hero__title">
 
             <span className="hero__title-line">
-              Custom Energy &
+              Source Custom Energy &
             </span>
 
             <span className="hero__title-line hero__title-line--highlight">
@@ -44,31 +48,59 @@ export default function Hero() {
           </h1>
 
           <p className="hero__desc">
-            JoyHand is a leading <strong>OEM/ODM supplier</strong> of
-            high-performance <strong>lithium-ion batteries</strong>,
+            JoyHand is a trusted <strong>OEM/ODM sourcing partner</strong> connecting 
+            global distributors with vetted manufacturers of <strong>lithium-ion batteries</strong>,
             <strong> solar inverters</strong>, and
-            <strong> electric motorcycles</strong>. We offer scalable
-            private label manufacturing and factory-direct solar
-            solutions for global distributors.
+            <strong> electric motorcycles</strong>. We handle quality control, 
+            logistics, and factory coordination so you can scale with confidence.
           </p>
+
+          <div className="hero__stats">
+            <div className="hero__stat-item">
+              <span className="hero__stat-number">50+</span>
+              <span className="hero__stat-label">Distributor Partners</span>
+            </div>
+            <div className="hero__stat-divider"></div>
+            <div className="hero__stat-item">
+              <span className="hero__stat-number">12</span>
+              <span className="hero__stat-label">Countries Served</span>
+            </div>
+            <div className="hero__stat-divider"></div>
+            <div className="hero__stat-item">
+              <span className="hero__stat-number">100%</span>
+              <span className="hero__stat-label">Factories Audited</span>
+            </div>
+          </div>
 
           <div className="hero__actions">
 
-            <button className="btn hero__cta">
-              Explore Products
-            </button>
+            <Link href="/products" className="btn hero__cta">
+              Explore Products <PiArrowRight />
+            </Link>
 
-            <button className="btn btn--secondary hero__cta-secondary">
-              Request Quote
-            </button>
+            <Link href="/contact" className="btn btn--secondary hero__cta-secondary">
+              Request Sourcing Quote
+            </Link>
 
           </div>
+
+          <p className="hero__trust-note">
+            <span className="hero__trust-icon">✓</span> Direct access to ISO/TS16949 certified factories
+          </p>
 
         </div>
       </div>
 
       {/* Animated Graphic */}
-      <div className="hero__sun-graphic"></div>
+      <div className="hero__sun-graphic">
+        <div className="hero__graphic-particles"></div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="hero__scroll-indicator">
+        <span className="hero__scroll-text">Discover Partners</span>
+        <div className="hero__scroll-line"></div>
+      </div>
 
     </section>
   );

@@ -1,4 +1,6 @@
-/* Fallback values included in case your global variables aren't defined */
+/* ========================================
+   ENERGY PLATFORMS SECTION
+======================================== */
 .energy-platforms {
   padding: var(--spacing-8, 64px) 0;
   background-color: var(--neutral-white, #ffffff);
@@ -12,9 +14,12 @@
   margin-top: var(--spacing-6, 48px);
 }
 
+/* ========================================
+   PLATFORM CARD
+======================================== */
 .platform-card {
   position: relative;
-  height: 440px;
+  height: 460px;
   border-radius: var(--spacing-2, 16px);
   overflow: hidden;
   isolation: isolate;
@@ -40,8 +45,12 @@
   height: 100%;
   width: 100%;
   text-decoration: none;
+  position: relative;
 }
 
+/* ========================================
+   IMAGE & OVERLAY
+======================================== */
 .platform-card__image-wrapper {
   position: absolute;
   inset: 0;
@@ -62,10 +71,13 @@
     rgba(18, 27, 45, 0.6) 40%,
     transparent 100%
   );
-  transition: opacity 0.4s ease, background 0.4s ease;
+  transition: all 0.4s ease;
   z-index: 2;
 }
 
+/* ========================================
+   CONTENT
+======================================== */
 .platform-card__content {
   position: relative;
   z-index: 3;
@@ -76,220 +88,85 @@
   justify-content: flex-end;
 }
 
-.platform-card__badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--primary-color-light, #ffcfb3);
-  margin-bottom: var(--spacing-1, 8px);
-}
-
 .platform-card__title {
   color: var(--neutral-white, #ffffff);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   margin-bottom: var(--spacing-1, 8px);
-  font-weight: 600;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .platform-card__description {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
-  line-height: 1.5; 
-  max-height: 3rem;
-  overflow: hidden;
-  margin-bottom: var(--spacing-4, 32px);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-3, 24px);
+  max-width: 90%;
 }
 
-.platform-card__footer {
+/* Source note - appears on hover */
+.platform-card__source-note {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-top: var(--spacing-3, 24px);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.platform-card__cta {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--neutral-white, #ffffff);
-}
-
-.platform-card__icon-wrapper {
-  width: 40px;
-  height: 40px;
-  background-color: var(--primary-color, #ff7f41);
-  color: var(--neutral-white, #ffffff);
-  border-radius: var(--spacing-1, 8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-/* Hover States */
-.platform-card:hover .platform-card__image {
-  transform: scale(1.1);
-}
-
-.platform-card:hover .platform-card__icon-wrapper {
-  background-color: var(--neutral-white, #ffffff);
-  color: var(--primary-color, #ff7f41);
-  transform: rotate(45deg);
-}
-
-.platform-card:hover .platform-card__overlay {
-  background: linear-gradient(
-    to top,
-    rgba(255, 127, 65, 0.9) 0%,
-    rgba(18, 27, 45, 0.75) 60%,
-    transparent 100%
-  );
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-  .energy-platforms__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .energy-platforms {
-    padding: 48px 16px;
-  }
-  
-  .energy-platforms__grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .platform-card {
-    height: 380px;
-  }
-}
-/* Fallback values included in case your global variables aren't defined */
-.energy-platforms {
-  padding: var(--spacing-8, 64px) 0;
-  background-color: var(--neutral-white, #ffffff);
-  overflow: hidden;
-}
-
-.energy-platforms__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-4, 32px);
-  margin-top: var(--spacing-6, 48px);
-}
-
-.platform-card {
-  position: relative;
-  height: 440px;
-  border-radius: var(--spacing-2, 16px);
-  overflow: hidden;
-  isolation: isolate;
-  
-  /* Initial State (Invisible) */
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  padding: 8px 16px;
+  border-radius: 50px;
+  width: fit-content;
+  margin-bottom: var(--spacing-3, 24px);
   opacity: 0;
-  transform: translateY(40px);
-  transition: 
-    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: var(--delay, 0s);
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.15);
 }
 
-/* Triggered by JS IntersectionObserver */
-.energy-platforms--is-visible .platform-card {
+.platform-card:hover .platform-card__source-note {
   opacity: 1;
   transform: translateY(0);
 }
 
-.platform-card__link {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  text-decoration: none;
+.platform-card__source-note svg {
+  color: var(--primary-color, #ff7f41);
 }
 
-.platform-card__image-wrapper {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+.platform-card__source-note span {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
-.platform-card__image {
-  object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.platform-card__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(18, 27, 45, 0.98) 5%,
-    rgba(18, 27, 45, 0.6) 40%,
-    transparent 100%
-  );
-  transition: opacity 0.4s ease, background 0.4s ease;
-  z-index: 2;
-}
-
-.platform-card__content {
-  position: relative;
-  z-index: 3;
-  height: 100%;
-  padding: var(--spacing-4, 32px);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.platform-card__badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--primary-color-light, #ffcfb3);
-  margin-bottom: var(--spacing-1, 8px);
-}
-
-.platform-card__title {
-  color: var(--neutral-white, #ffffff);
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-1, 8px);
-  font-weight: 600;
-}
-
-.platform-card__description {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
-  line-height: 1.5; 
-  max-height: 3rem;
-  overflow: hidden;
-  margin-bottom: var(--spacing-4, 32px);
-}
-
+/* ========================================
+   FOOTER
+======================================== */
 .platform-card__footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: var(--spacing-3, 24px);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
+  transition: border-color 0.3s ease;
+}
+
+.platform-card:hover .platform-card__footer {
+  border-top-color: var(--primary-color, #ff7f41);
 }
 
 .platform-card__cta {
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--neutral-white, #ffffff);
+  transition: transform 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.platform-card:hover .platform-card__cta {
+  transform: translateX(-5px);
 }
 
 .platform-card__icon-wrapper {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   background-color: var(--primary-color, #ff7f41);
   color: var(--neutral-white, #ffffff);
   border-radius: var(--spacing-1, 8px);
@@ -297,9 +174,12 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255,127,65,0.3);
 }
 
-/* Hover States */
+/* ========================================
+   HOVER STATES
+======================================== */
 .platform-card:hover .platform-card__image {
   transform: scale(1.1);
 }
@@ -308,21 +188,29 @@
   background-color: var(--neutral-white, #ffffff);
   color: var(--primary-color, #ff7f41);
   transform: rotate(45deg);
+  box-shadow: 0 6px 16px rgba(255,127,65,0.4);
 }
 
 .platform-card:hover .platform-card__overlay {
   background: linear-gradient(
     to top,
-    rgba(255, 127, 65, 0.9) 0%,
-    rgba(18, 27, 45, 0.75) 60%,
-    transparent 100%
+    rgba(255, 127, 65, 0.95) 0%,
+    rgba(18, 27, 45, 0.8) 70%,
+    rgba(18, 27, 45, 0.4) 100%
   );
 }
 
-/* Responsive */
+/* ========================================
+   RESPONSIVE
+======================================== */
 @media (max-width: 1200px) {
   .energy-platforms__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  .platform-card {
+    height: 440px;
   }
 }
 
@@ -334,9 +222,90 @@
   .energy-platforms__grid {
     grid-template-columns: 1fr;
     gap: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .platform-card {
-    height: 380px;
+    height: 400px;
+  }
+  
+  .platform-card__title {
+    font-size: 1.5rem;
+  }
+  
+  .platform-card__description {
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-2, 16px);
+  }
+  
+  .platform-card__source-note {
+    margin-bottom: var(--spacing-2, 16px);
+  }
+  
+  /* Mobile tap state */
+  .platform-card:active .platform-card__image {
+    transform: scale(1.1);
+  }
+  
+  .platform-card:active .platform-card__icon-wrapper {
+    background-color: var(--neutral-white, #ffffff);
+    color: var(--primary-color, #ff7f41);
+    transform: rotate(45deg);
+  }
+  
+  .platform-card:active .platform-card__overlay {
+    background: linear-gradient(
+      to top,
+      rgba(255, 127, 65, 0.95) 0%,
+      rgba(18, 27, 45, 0.8) 70%,
+      rgba(18, 27, 45, 0.4) 100%
+    );
+  }
+  
+  .platform-card:active .platform-card__source-note {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .platform-card:active .platform-card__cta {
+    transform: translateX(-5px);
+  }
+}
+
+@media (max-width: 480px) {
+  .platform-card {
+    height: 360px;
+  }
+  
+  .platform-card__content {
+    padding: 24px;
+  }
+  
+  .platform-card__title {
+    font-size: 1.3rem;
+  }
+  
+  .platform-card__description {
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-2, 12px);
+  }
+  
+  .platform-card__source-note {
+    padding: 6px 12px;
+  }
+  
+  .platform-card__source-note span {
+    font-size: 0.75rem;
+  }
+  
+  .platform-card__icon-wrapper {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .platform-card__cta {
+    font-size: 0.85rem;
   }
 }

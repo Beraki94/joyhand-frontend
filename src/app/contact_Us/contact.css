@@ -113,7 +113,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--primary-color);
+  color: var(--accent-color-dark);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 1px;

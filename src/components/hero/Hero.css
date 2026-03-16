@@ -7,10 +7,7 @@
   min-height: calc(100vh - var(--header-height));
   display: flex;
   align-items: center;
-
-  /* spacing based on your 8pt system */
   padding: var(--spacing-8) 0;
-
   overflow: hidden;
   background-color: var(--secondary-color-dark);
 }
@@ -40,13 +37,12 @@
   position: absolute;
   inset: 0;
   z-index: 2;
-
   background: linear-gradient(
     90deg,
-    rgba(18, 27, 45, 0.92) 20%,
-    rgba(18, 27, 45, 0.75) 45%,
-    rgba(18, 27, 45, 0.45) 70%,
-    rgba(18, 27, 45, 0.15) 100%
+    rgba(18, 27, 45, 0.95) 20%,
+    rgba(18, 27, 45, 0.8) 45%,
+    rgba(18, 27, 45, 0.5) 70%,
+    rgba(18, 27, 45, 0.2) 100%
   );
 }
 
@@ -61,24 +57,38 @@
 }
 
 .hero__content {
-  max-width: 620px;
+  max-width: 680px;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-4);
 }
 
-.hero__subtitle {
-  color: var(--accent-color-dark);
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+/* Badge */
+.hero__badge-wrapper {
+  margin-bottom: var(--spacing-2);
 }
 
+.hero__badge {
+  display: inline-block;
+  background: rgba(255, 127, 65, 0.15);
+  backdrop-filter: blur(10px);
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 127, 65, 0.3);
+  animation: fadeInUp 0.8s ease;
+}
+
+/* Title */
 .hero__title {
   display: flex;
   flex-direction: column;
   line-height: 1.1;
+  animation: fadeInUp 0.8s ease 0.1s both;
 }
 
 .hero__title-line {
@@ -92,32 +102,73 @@
     var(--primary-color),
     var(--primary-color-light)
   );
-
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Description */
 .hero__desc {
   color: rgba(255, 255, 255, 0.85);
   font-size: var(--font-size-md);
   line-height: 1.7;
-  max-width: 520px;
-  text-align: justify;
+  max-width: 560px;
+  animation: fadeInUp 0.8s ease 0.2s both;
 }
 
-/* =====================================================
-   ACTION BUTTONS
-===================================================== */
+.hero__desc strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
 
+/* Stats */
+.hero__stats {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  margin: var(--spacing-2) 0;
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.hero__stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__stat-number {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1.2;
+  font-family: var(--font-family-heading);
+}
+
+.hero__stat-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero__stat-divider {
+  width: 1px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Actions */
 .hero__actions {
   display: flex;
   gap: var(--spacing-3);
   margin-top: var(--spacing-2);
+  animation: fadeInUp 0.8s ease 0.4s both;
 }
 
 .hero__cta {
   padding: var(--spacing-3) var(--spacing-6);
   box-shadow: 0 10px 30px rgba(255, 127, 65, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .hero__cta:hover {
@@ -125,8 +176,41 @@
   box-shadow: 0 14px 40px rgba(255, 127, 65, 0.45);
 }
 
+.hero__cta svg {
+  transition: transform 0.3s ease;
+}
+
+.hero__cta:hover svg {
+  transform: translateX(5px);
+}
+
 .hero__cta-secondary {
   padding: var(--spacing-3) var(--spacing-6);
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.hero__cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+/* Trust Note */
+.hero__trust-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  margin-top: var(--spacing-2);
+  animation: fadeInUp 0.8s ease 0.5s both;
+}
+
+.hero__trust-icon {
+  color: var(--primary-color);
+  font-weight: 700;
 }
 
 /* =====================================================
@@ -138,25 +222,20 @@
   right: -5%;
   top: 45%;
   transform: translateY(-50%);
-
   width: 600px;
   height: 600px;
-
   border-radius: 50%;
   pointer-events: none;
   z-index: 5;
-
   background: radial-gradient(
     circle,
-    rgba(255, 127, 65, 0.2) 0%,
+    rgba(255, 127, 65, 0.15) 0%,
     transparent 70%
   );
-
   border: 1px solid rgba(255, 127, 65, 0.1);
 }
 
 /* Pulse rings */
-
 .hero__sun-graphic::before,
 .hero__sun-graphic::after {
   content: "";
@@ -172,34 +251,100 @@
   animation-delay: 2s;
 }
 
-/* rotating tech grid */
-
+/* Rotating tech grid */
 .hero__sun-graphic::before {
   background-image: radial-gradient(
     var(--primary-color) 1px,
     transparent 1px
   );
-
   background-size: 20px 20px;
   mask-image: radial-gradient(circle, black 30%, transparent 70%);
   border: none;
-  opacity: 0.3;
+  opacity: 0.2;
+  animation: heroRotate 30s linear infinite;
+}
 
-  animation: heroRotate 20s linear infinite;
+/* Particles */
+.hero__graphic-particles {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 127, 65, 0.1) 0%,
+    transparent 50%
+  );
+  filter: blur(20px);
+  animation: heroPulse 8s ease infinite;
+}
+
+/* =====================================================
+   SCROLL INDICATOR
+===================================================== */
+
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: var(--spacing-6);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.5s forwards;
+}
+
+.hero__scroll-text {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(
+    to bottom,
+    var(--primary-color),
+    transparent
+  );
+  animation: scrollBounce 2s ease infinite;
 }
 
 /* =====================================================
    ANIMATIONS
 ===================================================== */
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes heroPulse {
   0% {
     transform: scale(0.5);
     opacity: 0.5;
   }
-
   100% {
-    transform: scale(1.2);
+    transform: scale(1.3);
     opacity: 0;
   }
 }
@@ -208,9 +353,19 @@
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0.5);
+    opacity: 0.5;
   }
 }
 
@@ -218,20 +373,52 @@
    MOBILE
 ===================================================== */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
+  .hero__stats {
+    gap: var(--spacing-3);
+  }
+  
+  .hero__stat-number {
+    font-size: 1.5rem;
+  }
+}
 
+@media screen and (max-width: 768px) {
   .hero {
     padding: var(--spacing-8) 0;
+    text-align: center;
   }
 
   .hero__content {
     align-items: center;
     text-align: center;
+    max-width: 100%;
+  }
+
+  .hero__desc {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__stats {
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .hero__actions {
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__cta,
+  .hero__cta-secondary {
+    width: 100%;
+    justify-content: center;
   }
 
   .hero__sun-graphic {
@@ -244,5 +431,25 @@
 
   .hero__title-line {
     font-size: 2.4rem;
+  }
+  
+  .hero__scroll-indicator {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero__stats {
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+  
+  .hero__stat-divider {
+    display: none;
+  }
+  
+  .hero__badge {
+    font-size: 0.65rem;
+    padding: 6px 12px;
   }
 }
