@@ -9,7 +9,6 @@ const PageHeader = ({ title, pageImage, subtitle }) => {
       className="page-header"
       style={{ backgroundImage: `url(${pageImage})` }}
     >
-
       {/* Overlay */}
       <div className="page-header__overlay"></div>
 
@@ -17,9 +16,7 @@ const PageHeader = ({ title, pageImage, subtitle }) => {
       <div className="page-header__glow"></div>
 
       <div className="container page-header__container">
-
         <div className="page-header__content">
-
           <nav className="page-header__breadcrumb">
             <Link href="/" className="page-header__breadcrumb-link">
               Home
@@ -41,11 +38,8 @@ const PageHeader = ({ title, pageImage, subtitle }) => {
               {subtitle}
             </p>
           )}
-
         </div>
-
       </div>
-
     </section>
   );
 };

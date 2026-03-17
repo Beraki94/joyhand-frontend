@@ -1,60 +1,138 @@
-/* SectionHeader.css */
-
+/* =====================================================
+   SECTION HEADER - Mobile First
+===================================================== */
 .section-header {
-  margin-bottom: var(--spacing-5);
-  max-width: 700px;
+  margin-bottom: var(--spacing-4); /* Smaller on mobile */
+  max-width: 100%;
 }
 
+@media screen and (min-width: 768px) {
+  .section-header {
+    margin-bottom: var(--spacing-5);
+    max-width: 700px;
+  }
+}
+
+/* Center alignment modifier */
 .section-header--center {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
-/* The Solar Badge - Enhanced with your Brand Colors */
+/* =====================================================
+   SOLAR BADGE - Mobile First
+===================================================== */
 .solar-badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-1);
-  background: var(--accent-color-light); /* Light peach/cream */
+  gap: 6px; /* Smaller on mobile */
+  background: var(--accent-color-light);
   color: var(--primary-color);
-  padding: 6px 16px;
+  padding: 4px 12px; /* Smaller on mobile */
   border-radius: 100px;
-  font-size: var(--font-size-sm);
+  font-size: 0.7rem; /* Smaller on mobile */
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: var(--spacing-2);
   border: 1px solid rgba(255, 127, 65, 0.2);
+  width: fit-content;
+}
+
+@media screen and (min-width: 768px) {
+  .solar-badge {
+    gap: var(--spacing-1);
+    padding: 6px 16px;
+    font-size: var(--font-size-sm);
+  }
 }
 
 .solar-badge__icon {
+  width: 14px; /* Fixed size */
+  height: 14px;
   fill: var(--primary-color);
   filter: drop-shadow(0 0 5px var(--primary-color-light));
 }
 
-/* Title Styling */
+@media screen and (min-width: 768px) {
+  .solar-badge__icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* =====================================================
+   TITLE - Mobile First
+===================================================== */
 .section-header__title {
   color: var(--secondary-color);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  margin-bottom: var(--spacing-2);
+  font-size: clamp(1.5rem, 5vw, 1.75rem); /* Smaller on mobile */
+  margin-bottom: var(--spacing-1);
   line-height: 1.2;
+  font-weight: 700;
 }
 
-/* Subtitle Styling */
+@media screen and (min-width: 480px) {
+  .section-header__title {
+    font-size: clamp(1.6rem, 4.5vw, 2rem);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .section-header__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing-2);
+  }
+}
+
+/* =====================================================
+   SUBTITLE - Mobile First
+===================================================== */
 .section-header__subtitle {
   color: var(--neutral-medium);
-  font-size: var(--font-size-md);
-  max-width: 600px;
+  font-size: 0.9rem; /* Smaller on mobile */
+  max-width: 100%;
+  line-height: 1.5;
 }
 
-/* Accent Bar */
+@media screen and (min-width: 768px) {
+  .section-header__subtitle {
+    font-size: var(--font-size-md);
+    max-width: 600px;
+  }
+}
+
+.section-header--center .section-header__subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =====================================================
+   ACCENT BAR - Mobile First
+===================================================== */
 .section-header__bar {
-  width: 50px;
-  height: 4px;
+  width: 40px; /* Smaller on mobile */
+  height: 3px; /* Thinner on mobile */
   background: var(--accent-color-dark);
   margin-top: var(--spacing-2);
   border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.section-header:hover .section-header__bar {
+  width: 50px; /* Expands on hover */
+}
+
+@media screen and (min-width: 768px) {
+  .section-header__bar {
+    width: 50px;
+    height: 4px;
+  }
+  
+  .section-header:hover .section-header__bar {
+    width: 60px;
+  }
 }
 
 .section-header--center .section-header__bar {
@@ -62,9 +140,78 @@
   margin-right: auto;
 }
 
-/* Mobile adjustments */
-@media screen and (max-width: 768px) {
+/* =====================================================
+   NFC ANIMATION FOR BADGE (Optional)
+===================================================== */
+@keyframes badgePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 127, 65, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(255, 127, 65, 0.1);
+  }
+}
+
+.solar-badge {
+  animation: badgePulse 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .solar-badge {
+    animation: none;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE (480px and below)
+===================================================== */
+@media screen and (max-width: 480px) {
   .section-header {
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-3);
+  }
+  
+  .solar-badge {
+    padding: 3px 10px;
+    font-size: 0.65rem;
+    gap: 4px;
+  }
+  
+  .solar-badge__icon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .section-header__title {
+    font-size: 1.4rem;
+  }
+  
+  .section-header__subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .section-header__bar {
+    width: 35px;
+    height: 2px;
+  }
+}
+
+/* =====================================================
+   PERFORMANCE OPTIMIZATIONS
+===================================================== */
+.section-header__bar,
+.solar-badge {
+  will-change: transform, width;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-header__bar,
+  .solar-badge,
+  .section-header__bar:hover {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .section-header:hover .section-header__bar {
+    width: 40px;
   }
 }

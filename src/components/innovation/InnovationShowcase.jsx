@@ -81,7 +81,6 @@ const InnovationShowcase = () => {
 
   return (
     <section ref={sectionRef} className="innovation-section">
-      {/* HERO VIDEO */}
       <div className="innovation-section__hero">
         <video autoPlay loop muted playsInline className="innovation-section__video">
           <source src="/videos/heroImg/factory3.mp4" type="video/mp4" />
@@ -92,11 +91,9 @@ const InnovationShowcase = () => {
             <span className="innovation-section__badge">
               Why Distributors Trust Us
             </span>
-
             <h2 className="innovation-section__title">
               Your Bridge to Vetted Manufacturing Partners
             </h2>
-
             <p className="innovation-section__subtitle">
               From factory selection to final delivery, JoyHand gives energy companies the confidence to scale.
               We stand behind every shipment with rigorous quality control.
@@ -105,13 +102,13 @@ const InnovationShowcase = () => {
         </div>
       </div>
 
-      {/* GRID */}
       <div className="innovation-section__container container">
         <div className="innovation-grid">
           {pillars.map((item, index) => (
             <div
               key={index}
               className="innovation-card"
+              /* FIXED LINE BELOW */
               style={{ "--delay": `${index * 0.1}s` }}
             >
               <div className="innovation-card__main">

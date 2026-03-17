@@ -1,55 +1,81 @@
 /* ===============================
-   HOME BLOG SECTION
+   HOME BLOG SECTION - Mobile First
 ================================= */
 .home-blog {
-  padding: var(--spacing-8) 0;
+  padding: var(--spacing-5) 0; /* Smaller on mobile */
   background-color: var(--neutral-light);
   overflow: hidden;
   position: relative;
 }
 
-/* Subtle background pattern (optional) */
+@media screen and (min-width: 768px) {
+  .home-blog {
+    padding: var(--spacing-7) 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .home-blog {
+    padding: var(--spacing-8) 0;
+  }
+}
+
+/* Subtle background pattern - smaller on mobile */
 .home-blog::before {
   content: '';
   position: absolute;
   top: 0;
   right: 0;
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
   background: radial-gradient(circle, rgba(255,127,65,0.03) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
 
+@media screen and (min-width: 768px) {
+  .home-blog::before {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .home-blog::before {
+    width: 300px;
+    height: 300px;
+  }
+}
+
 /* ===============================
-   HORIZONTAL SCROLL 
+   HORIZONTAL SCROLL - Mobile First
 ================================= */
 .home-blog__slider-wrapper {
   position: relative;
   width: 100%;
   margin-bottom: var(--spacing-2);
+  padding: 0; /* Remove any default padding */
 }
 
 .home-blog__slider {
   display: flex;
-  gap: var(--spacing-3);
-  
-  /* FORCE horizontal scroll */
+  gap: var(--spacing-2); /* Smaller gap on mobile */
   overflow-x: auto;
   overflow-y: hidden;
-  
-  /* Make sure container doesn't wrap */
   flex-wrap: nowrap;
-  
-  /* Ensure content is wider than container */
   width: 100%;
-  
-  padding: var(--spacing-2) 0 var(--spacing-4);
+  padding: var(--spacing-2) 0 var(--spacing-3); /* Smaller padding on mobile */
   cursor: grab;
-  
-  /* Hide scrollbar */
   scrollbar-width: none;
   -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+@media screen and (min-width: 768px) {
+  .home-blog__slider {
+    gap: var(--spacing-3);
+    padding: var(--spacing-2) 0 var(--spacing-4);
+  }
 }
 
 .home-blog__slider::-webkit-scrollbar {
@@ -61,50 +87,103 @@
   cursor: grabbing;
 }
 
-/* Blog Items */
+/* Blog Items - Mobile First */
 .home-blog__item {
-  flex: 0 0 320px; /* Fixed width, won't shrink */
+  flex: 0 0 260px; /* Smaller on mobile */
   scroll-snap-align: start;
   transition: var(--transition);
   position: relative;
 }
 
-.home-blog__item:hover {
-  transform: translateY(-8px);
+@media screen and (min-width: 480px) {
+  .home-blog__item {
+    flex: 0 0 280px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home-blog__item {
+    flex: 0 0 300px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .home-blog__item {
+    flex: 0 0 320px;
+  }
+}
+
+.home-blog__item:hover,
+.home-blog__item:active {
+  transform: translateY(-6px); /* Slightly smaller lift on mobile */
+}
+
+@media screen and (min-width: 768px) {
+  .home-blog__item:hover {
+    transform: translateY(-8px);
+  }
 }
 
 /* ===============================
-   SCROLL HINT
+   SCROLL HINT - Mobile First
 ================================= */
 .home-blog__scroll-hint {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  margin-top: var(--spacing-3);
+  gap: 8px; /* Smaller on mobile */
+  margin-top: var(--spacing-2);
   color: var(--neutral-medium);
-  font-size: 0.85rem;
+  font-size: 0.75rem; /* Smaller on mobile */
+}
+
+@media screen and (min-width: 768px) {
+  .home-blog__scroll-hint {
+    gap: 12px;
+    margin-top: var(--spacing-3);
+    font-size: 0.85rem;
+  }
 }
 
 .home-blog__scroll-hint span {
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-size: 0.7rem;
+  font-size: 0.6rem; /* Smaller on mobile */
   font-weight: 500;
 }
 
+@media screen and (min-width: 768px) {
+  .home-blog__scroll-hint span {
+    font-size: 0.7rem;
+  }
+}
+
+/* Scroll Indicator Dots */
 .home-blog__scroll-indicator {
   display: flex;
-  gap: 6px;
+  gap: 4px; /* Smaller on mobile */
+}
+
+@media screen and (min-width: 768px) {
+  .home-blog__scroll-indicator {
+    gap: 6px;
+  }
 }
 
 .home-blog__scroll-dot {
-  width: 6px;
-  height: 6px;
+  width: 4px; /* Smaller on mobile */
+  height: 4px;
   border-radius: 50%;
   background: var(--primary-color);
   opacity: 0.3;
   animation: scrollPulse 1.5s ease-in-out infinite;
+}
+
+@media screen and (min-width: 768px) {
+  .home-blog__scroll-dot {
+    width: 6px;
+    height: 6px;
+  }
 }
 
 .home-blog__scroll-dot:nth-child(2) {
@@ -128,12 +207,19 @@
 }
 
 /* ===============================
-   FOOTER & LINK
+   FOOTER & LINK - Mobile First
 ================================= */
 .home-blog__footer {
-  margin-top: var(--spacing-4);
+  margin-top: var(--spacing-3);
   display: flex;
   justify-content: center;
+  padding: 0 var(--spacing-2);
+}
+
+@media screen and (min-width: 768px) {
+  .home-blog__footer {
+    margin-top: var(--spacing-4);
+  }
 }
 
 .home-blog__link {
@@ -142,60 +228,121 @@
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-2) var(--spacing-5);
+  justify-content: center;
+  gap: var(--spacing-1); /* Smaller on mobile */
+  padding: var(--spacing-2) var(--spacing-4); /* Smaller on mobile */
   background: white;
   border-radius: 50px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.03);
   border: 1px solid rgba(255,127,65,0.1);
   text-decoration: none;
+  width: 100%; /* Full width on mobile */
+  font-size: 0.85rem; /* Smaller on mobile */
 }
 
-.home-blog__link:hover {
+@media screen and (min-width: 480px) {
+  .home-blog__link {
+    width: auto;
+    min-width: 200px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home-blog__link {
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-5);
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .home-blog__link {
+    font-size: 1rem;
+  }
+}
+
+.home-blog__link:hover,
+.home-blog__link:active {
   color: var(--primary-color);
-  gap: var(--spacing-3);
+  gap: var(--spacing-2); /* Slightly larger on hover */
   box-shadow: 0 8px 25px rgba(255,127,65,0.15);
   border-color: var(--primary-color);
+}
+
+@media screen and (min-width: 768px) {
+  .home-blog__link:hover {
+    gap: var(--spacing-3);
+  }
 }
 
 .home-blog__link-icon {
   transition: transform 0.3s ease;
 }
 
-.home-blog__link:hover .home-blog__link-icon {
+.home-blog__link:hover .home-blog__link-icon,
+.home-blog__link:active .home-blog__link-icon {
   transform: translateX(5px);
 }
 
 /* ===============================
-   RESPONSIVE
+   SMALL MOBILE (480px and below)
 ================================= */
-@media (max-width: 992px) {
-  .home-blog__item {
-    flex: 0 0 300px;
-  }
-}
-
-@media (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .home-blog {
-    padding: var(--spacing-6) 0;
-  }
-
-  .home-blog__item {
-    flex: 0 0 280px;
+    padding: var(--spacing-4) 0;
   }
   
-  .home-blog__link {
-    width: 100%;
-    justify-content: center;
+  .home-blog__item {
+    flex: 0 0 240px; /* Even smaller on very small phones */
+  }
+  
+  .home-blog__slider {
+    gap: var(--spacing-2);
+    padding: var(--spacing-1) 0 var(--spacing-3);
   }
   
   .home-blog__scroll-hint span {
-    font-size: 0.65rem;
+    font-size: 0.55rem;
+  }
+  
+  .home-blog__scroll-dot {
+    width: 3px;
+    height: 3px;
+  }
+  
+  .home-blog__link {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: 0.8rem;
+  }
+  
+  .home-blog__footer {
+    margin-top: var(--spacing-2);
   }
 }
 
-@media (max-width: 480px) {
-  .home-blog__item {
-    flex: 0 0 260px;
+/* ===============================
+   PERFORMANCE OPTIMIZATIONS
+================================= */
+.home-blog__slider,
+.home-blog__item,
+.home-blog__link {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-blog__slider,
+  .home-blog__item,
+  .home-blog__link,
+  .home-blog__scroll-dot {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .home-blog__item:hover {
+    transform: none;
+  }
+  
+  .home-blog__slider {
+    scroll-behavior: auto;
   }
 }

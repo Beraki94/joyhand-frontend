@@ -8,7 +8,8 @@ import {
   PiLinkedinLogo, 
   PiEnvelopeSimple, 
   PiPhone, 
-  PiMapPin 
+  PiMapPin,
+  PiArrowRight
 } from "react-icons/pi";
 import "./Footer.css";
 
@@ -20,12 +21,11 @@ export default function Footer() {
       <div className="container footer__container">
         {/* BRAND SECTION */}
         <div className="footer__brand">
-          <Link href="/" className="footer__logo">
-            {/* Added inline style filter as a fallback and ensured object-fit */}
+          <Link href="/" className="footer__logo" aria-label="JoyHand Home">
             <Image 
               src="/logos/joyhand-logo.png" 
               className="footer__logo-img"
-              alt="JOYHAND Energy" 
+              alt="JOYHAND Energy - Global Sourcing Partner" 
               width={150} 
               height={50} 
               priority 
@@ -42,7 +42,7 @@ export default function Footer() {
           </p>
           <div className="footer__social">
             <a href="#" className="footer__social-link" aria-label="LinkedIn"><PiLinkedinLogo size={18} /></a>
-            <a href="#" className="footer__social-link" aria-label="X"><PiXLogo size={18} /></a>
+            <a href="#" className="footer__social-link" aria-label="X (Twitter)"><PiXLogo size={18} /></a>
             <a href="#" className="footer__social-link" aria-label="Facebook"><PiFacebookLogo size={18} /></a>
           </div>
         </div>
@@ -51,10 +51,10 @@ export default function Footer() {
         <div className="footer__column">
           <h4 className="footer__title">Platforms</h4>
           <ul className="footer__list">
-            <li><Link href="/products?cat=storage" className="footer__link"> Storage Batteries</Link></li>
-            <li><Link href="/products?cat=inverters" className="footer__link"> Solar Inverters</Link></li>
-            <li><Link href="/products?cat=portable" className="footer__link"> Portable Power</Link></li>
-            <li><Link href="/services" className="footer__link"> OEM/ODM Services</Link></li>
+            <li><Link href="/products?cat=storage" className="footer__link">Storage Batteries</Link></li>
+            <li><Link href="/products?cat=inverters" className="footer__link">Solar Inverters</Link></li>
+            <li><Link href="/products?cat=portable" className="footer__link">Portable Power</Link></li>
+            <li><Link href="/services" className="footer__link">OEM/ODM Services</Link></li>
           </ul>
         </div>
 
@@ -62,9 +62,9 @@ export default function Footer() {
         <div className="footer__column">
           <h4 className="footer__title">Company</h4>
           <ul className="footer__list">
-            <li><Link href="/about" className="footer__link">Our Factory</Link></li>
+            <li><Link href="/about" className="footer__link">Our Factory Network</Link></li>
             <li><Link href="/partnership" className="footer__link">Partnership Hub</Link></li>
-            <li><Link href="/insights" className="footer__link">Energy Insights</Link></li>
+            <li><Link href="/insights" className="footer__link">Sourcing Insights</Link></li>
             <li><Link href="/contact" className="footer__link">Contact Support</Link></li>
           </ul>
         </div>
@@ -89,6 +89,7 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* BOTTOM BAR */}
       <div className="footer__bottom">
         <div className="container footer__bottom-container">
           <div className="footer__legal-links">
@@ -96,9 +97,20 @@ export default function Footer() {
             <Link href="/terms">Terms of Service</Link>
           </div>
           <p className="footer__copyright">© {year} JOYHAND Energy. All Rights Reserved.</p>
-          <p className="footer__credit">Design by Beraki Digital</p>
+          <p className="footer__credit">
+            Design by <a href="#" className="footer__credit-link">Beraki Digital</a>
+          </p>
         </div>
       </div>
+
+      {/* BACK TO TOP BUTTON - Mobile Only */}
+      <button 
+        className="footer__back-to-top"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+      >
+        <PiArrowRight className="footer__back-to-top-icon" />
+      </button>
     </footer>
   );
 }

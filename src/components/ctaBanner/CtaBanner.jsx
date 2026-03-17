@@ -17,20 +17,7 @@ const CtaBanner = () => {
             Partner with JoyHand to source and customize next-generation energy solutions through our network of vetted manufacturing partners. 
             From concept to global distribution, we provide the OEM/ODM excellence your brand requires — without the factory risk.
           </p>
-          <div className="cta-banner__stats">
-            <div className="cta-banner__stat">
-              <span className="cta-banner__stat-number">50+</span>
-              <span className="cta-banner__stat-label">Partner Factories</span>
-            </div>
-            <div className="cta-banner__stat">
-              <span className="cta-banner__stat-number">100%</span>
-              <span className="cta-banner__stat-label">On-site Audited</span>
-            </div>
-            <div className="cta-banner__stat">
-              <span className="cta-banner__stat-number">12</span>
-              <span className="cta-banner__stat-label">Countries</span>
-            </div>
-          </div>
+          
           <div className="cta-banner__actions">
             <Link href="/contact" className="cta-banner__button btn">
               Start Your Sourcing Project <PiArrowRight />

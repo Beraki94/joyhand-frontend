@@ -1,4 +1,3 @@
-/* SectionHeader.jsx */
 import "./SectionHeader.css";
 import { Zap } from "lucide-react";
 

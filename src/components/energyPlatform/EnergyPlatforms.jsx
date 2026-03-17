@@ -14,7 +14,6 @@ const FEATURED_CATEGORIES = [
     slug: "batteries",
     image: "/images/homeProImg/homepro4.jpg",
     desc: "LFP battery systems for residential & industrial",
-    badge: "Residential",
     sourceNote: "Sourced from ISO-certified factories"
   },
   {
@@ -23,7 +22,6 @@ const FEATURED_CATEGORIES = [
     slug: "inverters",
     image: "/images/homeProImg/homepro2.jpg",
     desc: "High-efficiency pure sine wave inverters",
-    badge: "Commercial",
     sourceNote: "Tier-1 component suppliers"
   },
   {
@@ -32,7 +30,6 @@ const FEATURED_CATEGORIES = [
     slug: "portable",
     image: "/images/homeProImg/homepro3.jpg",
     desc: "Rugged units for emergency & off-grid",
-    badge: "Mobile",
     sourceNote: "OEM branding available"
   },
   {
@@ -41,7 +38,6 @@ const FEATURED_CATEGORIES = [
     slug: "mobility",
     image: "/images/homeProImg/homepro1.jpg",
     desc: "Battery platforms for e-bikes & scooters",
-    badge: "EV Tech",
     sourceNote: "Long cycle life cells"
   },
 ];
@@ -83,7 +79,6 @@ const EnergyPlatforms = () => {
             <article
               key={platform.id}
               className="platform-card"
-              style={{ "--delay": `${index * 0.15}s` }}
             >
               <Link
                 href={`/products?category=${platform.slug}`}
@@ -96,7 +91,7 @@ const EnergyPlatforms = () => {
                     alt={`${platform.title} sourcing solutions from partner factories`}
                     fill
                     className="platform-card__image"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     priority={index < 2}
                   />
                   <div className="platform-card__overlay"></div>
@@ -104,7 +99,6 @@ const EnergyPlatforms = () => {
 
                 <div className="platform-card__content">
                   <div className="platform-card__header">
-
                     <h3 className="platform-card__title">
                       {platform.title}
                     </h3>

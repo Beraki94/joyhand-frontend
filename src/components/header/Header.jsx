@@ -9,7 +9,8 @@ import {
   PiEnvelopeSimple,
   PiList,
   PiCaretDownBold,
-  PiX
+  PiX,
+  PiArrowRight
 } from "react-icons/pi";
 import PopUpModal from "../contactForm/PopUpModal";
 import "./Header.css";
@@ -38,10 +39,13 @@ export default function Header() {
   
   const pathName = usePathname();
 
-  // Handle scroll effect for glassmorphism sharpening
+  // Handle scroll effect for glassmorphism
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -51,18 +55,44 @@ export default function Header() {
     setActiveDropdown(null);
   };
 
+  // Handle mobile dropdown
   const handleMobileDropdown = (name, e) => {
-    if (window.innerWidth <= 992) {
-      e.preventDefault();
-      setActiveDropdown(activeDropdown === name ? null : name);
-    }
+    e.preventDefault();
+    e.stopPropagation();
+    setActiveDropdown(activeDropdown === name ? null : name);
   };
+
+  // Close menu on escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape" && isMenuOpen) {
+        setIsMenuOpen(false);
+        setActiveDropdown(null);
+      }
+    };
+    
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [isMenuOpen]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
       <header className={`header ${scrolled ? "header--scrolled" : ""}`}>
         
-        {/* TOP BAR - Dark Premium Style */}
+        {/* TOP BAR - Desktop only */}
         <div className="header__top">
           <div className="container header__top-container">
             <div className="header__contact">
@@ -78,15 +108,20 @@ export default function Header() {
           </div>
         </div>
 
-        {/* MAIN NAV - Glassmorphism Style */}
+        {/* MAIN NAV */}
         <div className="header__main">
           <div className="container header__main-container">
             
             {/* LOGO */}
-            <Link href="/" className="header__logo" onClick={closeMenu}>
+            <Link 
+              href="/" 
+              className="header__logo" 
+              onClick={closeMenu}
+              aria-label="JoyHand Home"
+            >
               <Image
                 src="/logos/joyhand-logo.png"
-                alt="JOYHAND Logo"
+                alt="JOYHAND Energy - Global Sourcing Partner"
                 width={150}
                 height={50}
                 className="header__logo-img"
@@ -94,8 +129,8 @@ export default function Header() {
               />
             </Link>
 
-            {/* DESKTOP NAV */}
-            <nav className="header__nav">
+            {/* DESKTOP NAV (992px+) */}
+            <nav className="header__nav" aria-label="Desktop navigation">
               {links.map((link, idx) => (
                 <div key={idx} className="header__nav-item">
                   <Link
@@ -109,7 +144,7 @@ export default function Header() {
                   </Link>
 
                   {link.subLinks && (
-                    <ul className="header__dropdown">
+                    <ul className="header__dropdown" aria-label={`${link.name} submenu`}>
                       {link.subLinks.map((sub, sIdx) => (
                         <li key={sIdx}>
                           <Link
@@ -131,6 +166,7 @@ export default function Header() {
               <button
                 className="btn btn--outline header__cta-desktop"
                 onClick={() => setIsModalOpen(true)}
+                aria-label="Get a quote"
               >
                 Get a Quote
               </button>
@@ -138,7 +174,8 @@ export default function Header() {
               <button 
                 className="header__mobile-toggle" 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label="Toggle Menu"
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMenuOpen}
               >
                 {isMenuOpen ? <PiX size={32} /> : <PiList size={32} />}
               </button>
@@ -146,14 +183,25 @@ export default function Header() {
           </div>
         </div>
 
-        {/* MOBILE OVERLAY MENU - Dark Premium Theme */}
-        <div className={`header__mobile-menu ${isMenuOpen ? "header__mobile-menu--open" : ""}`}>
-          <nav className="header__mobile-nav">
+        {/* MOBILE OVERLAY MENU */}
+        <div 
+          className={`header__mobile-menu ${isMenuOpen ? "header__mobile-menu--open" : ""}`}
+          aria-hidden={!isMenuOpen}
+        >
+          <nav className="header__mobile-nav" aria-label="Mobile navigation">
             {links.map((link, idx) => (
               <div key={idx} className="header__mobile-item">
                 <div
                   className="header__mobile-link-wrapper"
                   onClick={(e) => link.subLinks && handleMobileDropdown(link.name, e)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      handleMobileDropdown(link.name, e);
+                    }
+                  }}
+                  aria-expanded={activeDropdown === link.name}
                 >
                   <Link
                     href={link.href}
@@ -168,14 +216,18 @@ export default function Header() {
                       className={`header__mobile-caret ${
                         activeDropdown === link.name ? "header__mobile-caret--open" : ""
                       }`}
+                      aria-hidden="true"
                     />
                   )}
                 </div>
 
                 {link.subLinks && (
-                  <ul className={`header__mobile-sub ${
-                    activeDropdown === link.name ? "header__mobile-sub--open" : ""
-                  }`}>
+                  <ul 
+                    className={`header__mobile-sub ${
+                      activeDropdown === link.name ? "header__mobile-sub--open" : ""
+                    }`}
+                    aria-label={`${link.name} submenu`}
+                  >
                     {link.subLinks.map((sub, sIdx) => (
                       <li key={sIdx}>
                         <Link
@@ -192,15 +244,26 @@ export default function Header() {
               </div>
             ))}
 
+            {/* Mobile Contact Info */}
+            <div className="header__mobile-contact">
+              <a href="tel:+8613060850617" className="header__mobile-contact-item">
+                <PiPhone size={18} />
+                <span>+86 130 6085 0617</span>
+              </a>
+              <a href="mailto:info@joyhand.com" className="header__mobile-contact-item">
+                <PiEnvelopeSimple size={18} />
+                <span>info@joyhand.com</span>
+              </a>
+            </div>
+
             <button
-              className="btn btn--primary mt-4 w-full"
-              style={{ width: '100%' }}
+              className="btn btn--primary header__mobile-cta"
               onClick={() => {
                 closeMenu();
                 setIsModalOpen(true);
               }}
             >
-              Get a Quote
+              Get a Quote <PiArrowRight />
             </button>
           </nav>
         </div>
