@@ -1,81 +1,43 @@
-"use client";
-
-import React, { useMemo, Suspense } from "react";
-import { useSearchParams, useRouter } from "next/navigation"; 
+import { Suspense } from "react";
+import { productData, getCategories } from "@/data";
 import ProductCard from "@/components/productCard/ProductCard";
-import { productData } from "@/data";
 import PageHeader from "@/components/pageHeader/PageHeader";
-import "./Products.css"; 
+import ProductsFilter from "./ProductsFilter";
+import "./products.css";
 
-const ProductsContent = () => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  
-  const categoryQuery = searchParams.get("category") || "all"; 
+export const metadata = {
+  title: "Energy Solutions | Batteries & Inverters | JoyHand",
+  description: "Explore JoyHand's range of LFP batteries, hybrid inverters, and energy storage solutions for residential and commercial applications. OEM/ODM sourcing available.",
+  keywords: "solar batteries, lithium battery, hybrid inverter, energy storage, LFP battery, solar inverter",
+};
 
-  const categories = useMemo(() => {
-    const unique = [...new Set(productData.map((p) => p.category))];
-    return ["all", ...unique];
-  }, []);
-
-  const activeCategory = useMemo(() => {
-    return categories.find(cat => cat.toLowerCase() === categoryQuery.toLowerCase()) || "all";
-  }, [categoryQuery, categories]);
-
-  const filteredProducts = useMemo(() => {
-    return activeCategory === "all" 
-      ? productData 
-      : productData.filter((p) => p.category === activeCategory);
-  }, [activeCategory]);
-
-  const handleCategoryClick = (cat) => {
-    if (cat === "all") {
-      router.push("/products");
-    } else {
-      router.push(`/products?category=${encodeURIComponent(cat)}`);
-    }
-  };
+async function ProductsContent({ category }) {
+  const filteredProducts = category && category !== "all"
+    ? productData.filter(p => p.category === category)
+    : productData;
 
   return (
     <main className="products-page">
-      {/* Dynamic Header title */}
       <PageHeader 
-        title={activeCategory === "all" ? "Energy Solutions" : `${activeCategory}`} 
+        title={category && category !== "all" 
+          ? `${category.charAt(0).toUpperCase() + category.slice(1)} Solutions` 
+          : "Energy Solutions"}
+        subtitle="High-performance batteries and inverters sourced from vetted manufacturing partners"
         pageImage="/images/pageHeadImg/pageheader2.jpg" 
       />
 
       <section className="products-page__section">
         <div className="container">
+          <ProductsFilter categories={getCategories()} activeCategory={category} />
           
-          <nav className="products-page__filter" aria-label="Product Categories">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`products-page__filter-btn ${
-                  activeCategory === cat ? "products-page__filter-btn--active" : ""
-                }`}
-                onClick={() => handleCategoryClick(cat)}
-              >
-                {cat.charAt(0).toUpperCase() + cat.slice(1)}
-              </button>
-            ))}
-          </nav>
-
           <div className="products-page__grid">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  images={product.images}
-                  title={product.title}
-                  description={product.description}
-                  specifications={product.specifications}
-                  slug={product.slug}
-                />
+                <ProductCard key={product.id} product={product} />
               ))
             ) : (
               <div className="products-page__empty text-center">
-                <p>No products found in &quot;{activeCategory}&quot;</p>
+                <p>No products found in this category</p>
               </div>
             )}
           </div>
@@ -83,14 +45,14 @@ const ProductsContent = () => {
       </section>
     </main>
   );
-};
+}
 
-const ProductsPage = () => {
+export default async function ProductsPage({ searchParams }) {
+  const { category } = await searchParams;
+  
   return (
-    <Suspense fallback={<div className="container mt-3">Loading Solutions...</div>}>
-      <ProductsContent />
+    <Suspense fallback={<div className="container mt-3">Loading solutions...</div>}>
+      <ProductsContent category={category} />
     </Suspense>
   );
-};
-
-export default ProductsPage;
+}
