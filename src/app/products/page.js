@@ -3,7 +3,7 @@ import { productData, getCategories } from "@/data";
 import ProductCard from "@/components/productCard/ProductCard";
 import PageHeader from "@/components/pageHeader/PageHeader";
 import ProductsFilter from "./ProductsFilter";
-import "./products.css";
+import "./Products.css";
 
 export const metadata = {
   title: "Energy Solutions | Batteries & Inverters | JoyHand",
