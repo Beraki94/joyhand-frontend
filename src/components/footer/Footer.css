@@ -139,26 +139,24 @@
   flex-direction: column;
   gap: 12px;
   width: 100%;
-  list-style: none; /* Remove default list styles */
+  list-style: none;
 }
 
 .footer__link {
   color: rgba(255, 255, 255, 0.7);
   font-size: var(--font-size-sm);
-  display: inline-block; /* Simple block without bullet */
+  display: inline-block;
   transition: all 0.3s ease;
   text-decoration: none;
   position: relative;
-  padding-left: 0; /* Remove any padding */
+  padding-left: 0;
 }
 
 .footer__link:hover,
 .footer__link:active {
   color: var(--primary-color);
-  transform: translateX(5px); /* Simple slide effect */
+  transform: translateX(5px);
 }
-
-/* No bullets or arrows - clean and minimal */
 
 /* =====================================================
    CONTACT INFO - NFC STYLE
@@ -173,7 +171,7 @@
   position: relative;
   width: 100%;
   padding: var(--spacing-1) 0;
-  list-style: none; /* Remove any list styling */
+  list-style: none;
 }
 
 .footer__icon {
@@ -281,53 +279,6 @@
 .footer__credit-link:hover {
   color: var(--neutral-white);
   text-decoration: underline;
-}
-
-/* =====================================================
-   BACK TO TOP BUTTON - Mobile Only
-===================================================== */
-.footer__back-to-top {
-  position: fixed;
-  bottom: var(--spacing-4);
-  right: var(--spacing-4);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: var(--shadow-lg);
-  transition: var(--transition);
-  z-index: var(--z-above);
-  opacity: 0.9;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.footer__back-to-top:hover,
-.footer__back-to-top:active {
-  background-color: var(--secondary-color);
-  transform: translateY(-4px);
-  opacity: 1;
-}
-
-.footer__back-to-top-icon {
-  transform: rotate(-90deg);
-  transition: transform 0.3s ease;
-}
-
-.footer__back-to-top:hover .footer__back-to-top-icon {
-  transform: rotate(-90deg) translateY(-4px);
-}
-
-/* Hide on desktop */
-@media screen and (min-width: 992px) {
-  .footer__back-to-top {
-    display: none;
-  }
 }
 
 /* =====================================================
@@ -530,13 +481,6 @@
   .footer__legal-links {
     gap: var(--spacing-2);
   }
-  
-  .footer__back-to-top {
-    width: 42px;
-    height: 42px;
-    bottom: var(--spacing-3);
-    right: var(--spacing-3);
-  }
 }
 
 /* =====================================================
@@ -547,15 +491,13 @@
 }
 
 .footer__social-link,
-.footer__link,
-.footer__back-to-top {
+.footer__link {
   will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .footer__link,
   .footer__social-link,
-  .footer__back-to-top,
   .footer__icon {
     transition: none !important;
     animation: none !important;

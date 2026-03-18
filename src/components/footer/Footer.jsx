@@ -8,8 +8,7 @@ import {
   PiLinkedinLogo, 
   PiEnvelopeSimple, 
   PiPhone, 
-  PiMapPin,
-  PiArrowRight
+  PiMapPin
 } from "react-icons/pi";
 import "./Footer.css";
 
@@ -102,15 +101,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-
-      {/* BACK TO TOP BUTTON - Mobile Only */}
-      <button 
-        className="footer__back-to-top"
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        aria-label="Back to top"
-      >
-        <PiArrowRight className="footer__back-to-top-icon" />
-      </button>
     </footer>
   );
 }
