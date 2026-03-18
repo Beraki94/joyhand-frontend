@@ -16,12 +16,13 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  font-size: 18px; /* Base font size set to 18px for better readability */
 }
 
 body {
   min-height: 100vh;
   font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
+  font-size: 1rem; /* 18px */
   line-height: 1.6;
   color: var(--neutral-dark);
   background: var(--neutral-white);
@@ -65,29 +66,29 @@ main {
   --error-color: #e63946;
   --success-color: #2a9d8f;
 
-  /* Spacing - 8pt system */
-  --spacing-1: 0.5rem;   /* 8px */
-  --spacing-2: 1rem;     /* 16px */
-  --spacing-3: 1.5rem;   /* 24px */
-  --spacing-4: 2rem;     /* 32px */
-  --spacing-5: 2.5rem;   /* 40px */
-  --spacing-6: 3rem;     /* 48px */
-  --spacing-7: 3.5rem;   /* 56px */
-  --spacing-8: 4rem;     /* 64px */
-  --spacing-9: 4.5rem;   /* 72px */
-  --spacing-10: 5rem;    /* 80px */
+  /* Spacing - 8pt system (based on 18px base) */
+  --spacing-1: 0.5rem;   /* 9px */
+  --spacing-2: 1rem;     /* 18px */
+  --spacing-3: 1.5rem;   /* 27px */
+  --spacing-4: 2rem;     /* 36px */
+  --spacing-5: 2.5rem;   /* 45px */
+  --spacing-6: 3rem;     /* 54px */
+  --spacing-7: 3.5rem;   /* 63px */
+  --spacing-8: 4rem;     /* 72px */
+  --spacing-9: 4.5rem;   /* 81px */
+  --spacing-10: 5rem;    /* 90px */
 
-  /* Typography - Mobile First */
-  --font-size-base: 16px;
-  --font-size-xs: 0.75rem;   /* 12px */
-  --font-size-sm: 0.875rem;  /* 14px */
-  --font-size-md: 1rem;      /* 16px */
-  --font-size-lg: 1.125rem;  /* 18px */
-  --font-size-xl: 1.25rem;   /* 20px */
-  --font-size-2xl: 1.5rem;   /* 24px */
-  --font-size-3xl: 1.875rem; /* 30px */
-  --font-size-4xl: 2.25rem;  /* 36px */
-  --font-size-5xl: 3rem;     /* 48px */
+  /* Typography - Based on 18px root */
+  --font-size-base: 1rem;      /* 18px */
+  --font-size-xs: 0.75rem;     /* 13.5px */
+  --font-size-sm: 0.875rem;    /* 15.75px */
+  --font-size-md: 1rem;        /* 18px */
+  --font-size-lg: 1.125rem;    /* 20.25px */
+  --font-size-xl: 1.25rem;     /* 22.5px */
+  --font-size-2xl: 1.5rem;     /* 27px */
+  --font-size-3xl: 1.875rem;   /* 33.75px */
+  --font-size-4xl: 2.25rem;    /* 40.5px */
+  --font-size-5xl: 3rem;       /* 54px */
 
   /* Font Families */
   --font-family-base: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -119,8 +120,10 @@ main {
 @media screen and (min-width: 768px) {
   :root {
     --header-height: 90px;
-    --font-size-4xl: 2.5rem;  /* 40px */
-    --font-size-5xl: 3.5rem;  /* 56px */
+  }
+  
+  html {
+    font-size: 17px; /* Slightly smaller on tablet */
   }
 }
 
@@ -128,8 +131,10 @@ main {
 @media screen and (min-width: 1024px) {
   :root {
     --header-height: 110px;
-    --font-size-4xl: 3rem;    /* 48px */
-    --font-size-5xl: 4rem;    /* 64px */
+  }
+  
+  html {
+    font-size: 16px; /* Back to standard on desktop */
   }
 }
 
@@ -137,13 +142,15 @@ main {
 @media screen and (min-width: 1440px) {
   :root {
     --header-height: 120px;
-    --font-size-4xl: 3.5rem;  /* 56px */
-    --font-size-5xl: 4.5rem;  /* 72px */
+  }
+  
+  html {
+    font-size: 16px;
   }
 }
 
 /* =====================================================
-   TYPOGRAPHY (Mobile First)
+   TYPOGRAPHY
 ===================================================== */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
@@ -179,7 +186,7 @@ p {
 }
 
 /* =====================================================
-   CONTAINER (Mobile First)
+   CONTAINER
 ===================================================== */
 .container {
   width: 100%;
@@ -240,8 +247,24 @@ p {
   }
 }
 
+/* Tablet and up container padding */
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: var(--spacing-5);
+    padding-right: var(--spacing-5);
+  }
+}
+
+/* Desktop and up container padding */
+@media screen and (min-width: 1024px) {
+  .container {
+    padding-left: var(--spacing-6);
+    padding-right: var(--spacing-6);
+  }
+}
+
 /* =====================================================
-   BUTTONS (Mobile First)
+   BUTTONS
 ===================================================== */
 .btn {
   display: inline-flex;
@@ -322,7 +345,7 @@ p {
 }
 
 /* =====================================================
-   GRID SYSTEM (Mobile First)
+   GRID SYSTEM
 ===================================================== */
 .grid {
   display: grid;
@@ -332,7 +355,7 @@ p {
 .grid--2,
 .grid--3,
 .grid--4 {
-  grid-template-columns: 1fr; /* Mobile: single column */
+  grid-template-columns: 1fr;
 }
 
 /* Small tablets */
@@ -479,7 +502,30 @@ img {
 }
 
 /* =====================================================
-   NFC ANIMATION (Reusable)
+   TOUCH TARGET OPTIMIZATION
+===================================================== */
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .footer__link,
+  .header__nav-link,
+  .blog-card__link,
+  .service-card__link {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 16px;
+  }
+  
+  .footer__list {
+    gap: 16px;
+  }
+  
+  .header__nav-item {
+    margin: 8px 0;
+  }
+}
+
+/* =====================================================
+   NFC ANIMATION
 ===================================================== */
 .nfc-pulse {
   position: relative;
@@ -515,7 +561,7 @@ img {
 }
 
 /* =====================================================
-   LOADING ANIMATIONS (Performance Optimized)
+   LOADING ANIMATIONS
 ===================================================== */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -555,7 +601,6 @@ img {
   }
 }
 
-/* Performance-friendly animation classes */
 .animate-fade-in {
   animation: fadeIn 0.5s ease forwards;
 }
@@ -565,49 +610,15 @@ img {
 }
 
 /* =====================================================
-   RESPONSIVE BREAKPOINTS REFERENCE
-   Mobile: 0 - 639px
-   Small Tablet: 640px - 767px
-   Tablet: 768px - 1023px
-   Desktop: 1024px - 1279px
-   Large Desktop: 1280px - 1439px
-   XL Desktop: 1440px - 1599px
-   XXL Desktop: 1600px+
+   ACCESSIBILITY - Respect user preferences
 ===================================================== */
-
-/* Tablet and up */
-@media screen and (min-width: 768px) {
-  .container {
-    padding-left: var(--spacing-5);
-    padding-right: var(--spacing-5);
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
-
-/* Desktop and up */
-@media screen and (min-width: 1024px) {
-  .container {
-    padding-left: var(--spacing-6);
-    padding-right: var(--spacing-6);
-  }
-}
-
-
-/* =====================================================
-   SIMPLE MOBILE TEXT BOOST
-===================================================== */
-@media screen and (max-width: 768px) {
-  /* Increase ALL text by 15% on mobile */
-  html {
-    font-size: 17px; /* Bigger base size */
-  }
-  
-  /* Ensure buttons are touch-friendly */
-  .btn {
-    padding: 14px 24px;
-    font-size: 1rem;
-  }
-}
-
 
 /* =====================================================
    NOT FOUND PAGE
@@ -660,3 +671,13 @@ img {
   background: var(--primary-color);
   transform: translateY(-2px);
 }
+
+/* =====================================================
+   RESPONSIVE BREAKPOINTS REFERENCE
+   Mobile: 0 - 639px (base 18px)
+   Small Tablet: 640px - 767px (base 18px)
+   Tablet: 768px - 1023px (base 17px)
+   Desktop: 1024px - 1279px (base 16px)
+   Large Desktop: 1280px - 1439px (base 16px)
+   XL Desktop: 1440px+ (base 16px)
+===================================================== */
