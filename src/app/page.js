@@ -14,7 +14,7 @@ export default function Home() {
       <InnovationShowcase />
       <EnergyPlatforms />
       <CtaBanner />     
-      
+      <HomeBlogSection />
     </>
   );
 }
