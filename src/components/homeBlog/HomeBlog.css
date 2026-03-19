@@ -1,358 +1,85 @@
-/* =====================================================
-   HOME BLOG SECTION - Enhanced
-===================================================== */
 .home-blog {
-  padding: var(--spacing-6) 0;
-  background-color: var(--neutral-light);
+  padding: var(--spacing-8) 0;
+  background: var(--neutral-white);
+}
+
+.home-blog__carousel {
+  margin: var(--spacing-6) 0 var(--spacing-4);
   overflow: hidden;
-  position: relative;
 }
 
-@media screen and (min-width: 768px) {
-  .home-blog {
-    padding: var(--spacing-8) 0;
-  }
-}
-
-/* =====================================================
-   CONTENT WRAPPER
-===================================================== */
-.home-blog__content-wrapper {
-  position: relative;
+.home-blog__track {
   display: flex;
-  align-items: center;
-  gap: var(--spacing-2);
-  margin-top: var(--spacing-5);
-}
-
-@media screen and (max-width: 768px) {
-  .home-blog__content-wrapper {
-    gap: 0;
-  }
-}
-
-/* =====================================================
-   SLIDER WRAPPER
-===================================================== */
-.home-blog__slider-wrapper {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 16px;
-}
-
-/* Gradient Fade Overlays */
-.home-blog__fade {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 80px;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
-
-.home-blog__fade--left {
-  left: 0;
-  background: linear-gradient(to right, var(--neutral-light), transparent);
-}
-
-.home-blog__fade--right {
-  right: 0;
-  background: linear-gradient(to left, var(--neutral-light), transparent);
-}
-
-@media screen and (max-width: 768px) {
-  .home-blog__fade {
-    width: 40px;
-  }
-}
-
-/* =====================================================
-   SLIDER
-===================================================== */
-.home-blog__slider {
-  display: flex;
-  gap: var(--spacing-4);
+  gap: 24px;
   overflow-x: auto;
-  overflow-y: hidden;
-  flex-wrap: nowrap;
-  width: 100%;
-  padding: var(--spacing-2) 0 var(--spacing-4);
-  cursor: grab;
+  scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  -ms-overflow-style: none;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  padding: 4px 0 20px;
+  cursor: grab;
 }
 
-.home-blog__slider::-webkit-scrollbar {
+.home-blog__track::-webkit-scrollbar {
   display: none;
 }
 
-.home-blog__slider:active {
-  cursor: grabbing;
-}
-
-/* =====================================================
-   BLOG ITEMS
-===================================================== */
-.home-blog__item {
-  flex: 0 0 280px;
+.home-blog__slide {
+  flex: 0 0 300px;
   scroll-snap-align: start;
-  transition: transform 0.3s ease;
 }
 
-@media screen and (min-width: 480px) {
-  .home-blog__item {
-    flex: 0 0 300px;
-  }
-}
-
-@media screen and (min-width: 640px) {
-  .home-blog__item {
+@media (min-width: 768px) {
+  .home-blog__slide {
     flex: 0 0 320px;
   }
 }
 
-.home-blog__item:hover {
-  transform: translateY(-8px);
+.home-blog__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0 30px;
 }
 
-/* =====================================================
-   NAVIGATION BUTTONS
-===================================================== */
-.home-blog__nav-btn {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
+.home-blog__dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: white;
-  border: 1px solid rgba(255, 127, 65, 0.2);
-  color: var(--primary-color);
+  background: var(--neutral-medium);
+  opacity: 0.3;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  transition: var(--transition);
-  box-shadow: var(--shadow-sm);
-  flex-shrink: 0;
-  z-index: 3;
+  transition: all 0.3s ease;
 }
 
-@media screen and (min-width: 768px) {
-  .home-blog__nav-btn {
-    display: flex;
-  }
-}
-
-.home-blog__nav-btn:hover:not(:disabled) {
+.home-blog__dot--active {
+  opacity: 1;
   background: var(--primary-color);
-  color: white;
-  transform: scale(1.1);
-  border-color: var(--primary-color);
-  box-shadow: var(--shadow-md);
-}
-
-.home-blog__nav-btn--disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-.home-blog__nav-btn svg {
+  transform: scale(1.3);
   width: 24px;
-  height: 24px;
+  border-radius: 4px;
 }
 
-/* =====================================================
-   SCROLL HINT
-===================================================== */
-.home-blog__scroll-hint {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-2);
-  margin-top: var(--spacing-3);
-  transition: opacity 0.5s ease;
-}
-
-.home-blog__scroll-hint--hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.home-blog__scroll-text {
-  color: var(--neutral-medium);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-2);
-}
-
-.home-blog__scroll-arrow {
-  color: var(--primary-color);
-  font-size: 1rem;
-  animation: scrollBounce 1.5s ease infinite;
-}
-
-.home-blog__scroll-arrow:first-child {
-  animation-delay: 0s;
-}
-
-.home-blog__scroll-arrow:last-child {
-  animation-delay: 0.3s;
-}
-
-@keyframes scrollBounce {
-  0%, 100% {
-    transform: translateX(0);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translateX(5px);
-    opacity: 1;
-  }
-}
-
-.home-blog__scroll-indicator {
-  display: flex;
-  gap: 6px;
-}
-
-.home-blog__scroll-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--primary-color);
-  opacity: 0.3;
-  animation: scrollPulse 1.5s ease-in-out infinite;
-}
-
-.home-blog__scroll-dot:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.home-blog__scroll-dot:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@keyframes scrollPulse {
-  0%, 100% { 
-    transform: scale(1); 
-    opacity: 0.3; 
-  }
-  50% { 
-    transform: scale(1.3); 
-    opacity: 1; 
-    background: var(--primary-color);
-  }
-}
-
-/* =====================================================
-   PROGRESS BAR
-===================================================== */
-.home-blog__progress {
-  width: 100%;
-  height: 3px;
-  background: rgba(255, 127, 65, 0.1);
-  border-radius: 10px;
-  margin-top: var(--spacing-3);
-  overflow: hidden;
-}
-
-.home-blog__progress-bar {
-  height: 100%;
-  background: var(--primary-color);
-  width: 0%;
-  transition: width 0.1s linear;
-  border-radius: 10px;
-}
-
-/* =====================================================
-   FOOTER LINK
-===================================================== */
 .home-blog__footer {
-  margin-top: var(--spacing-5);
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .home-blog__link {
-  font-weight: 600;
-  color: var(--secondary-color);
-  transition: var(--transition);
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-2) var(--spacing-5);
-  background: white;
-  border-radius: 50px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(255,127,65,0.1);
-  text-decoration: none;
-}
-
-.home-blog__link:hover,
-.home-blog__link:active {
+  gap: 8px;
   color: var(--primary-color);
-  gap: var(--spacing-3);
-  box-shadow: var(--shadow-md);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 28px;
+  border: 1px solid rgba(255,127,65,0.2);
+  border-radius: 50px;
+  transition: var(--transition);
+}
+
+.home-blog__link:hover {
+  background: var(--primary-color);
+  color: white;
+  gap: 12px;
   border-color: var(--primary-color);
-  transform: translateY(-2px);
-}
-
-.home-blog__link-icon {
-  transition: transform 0.3s ease;
-}
-
-.home-blog__link:hover .home-blog__link-icon {
-  transform: translateX(5px);
-}
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-@media screen and (max-width: 480px) {
-  .home-blog__item {
-    flex: 0 0 260px;
-  }
-  
-  .home-blog__scroll-text {
-    font-size: 0.7rem;
-  }
-  
-  .home-blog__progress {
-    display: none; /* Hide progress bar on very small screens */
-  }
-  
-  .home-blog__fade--left,
-  .home-blog__fade--right {
-    width: 30px;
-  }
-}
-
-/* =====================================================
-   PERFORMANCE OPTIMIZATIONS
-===================================================== */
-.home-blog__slider {
-  will-change: transform;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .home-blog__slider,
-  .home-blog__item,
-  .home-blog__link,
-  .home-blog__scroll-dot,
-  .home-blog__nav-btn {
-    transition: none !important;
-    animation: none !important;
-  }
-  
-  .home-blog__item:hover {
-    transform: none;
-  }
 }

@@ -108,8 +108,7 @@ const InnovationShowcase = () => {
             <div
               key={index}
               className="innovation-card"
-              /* FIXED LINE BELOW */
-              style={{ "--delay": `${index * 0.1}s` }}
+             
             >
               <div className="innovation-card__main">
                 <div className="innovation-card__icon">{item.icon}</div>

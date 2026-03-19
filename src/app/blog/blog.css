@@ -30,23 +30,24 @@
   color: inherit;
 }
 
-/* Image Section - Matching product card */
+/* Image Section - NO PADDING, NO BORDER RADIUS */
 .blog-card__image-wrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: var(--neutral-white);
-  
-  /* Remove display: flex, align-items, justify-content, padding */
+  background: var(--neutral-light);
+  /* Removed any padding, border-radius */
 }
 
 .blog-card__image {
-  object-fit: cover; /* ← CHANGED FROM 'contain' TO 'cover' */
+  object-fit: cover;
   width: 100%;
   height: 100%;
   transition: transform 0.6s ease;
+  border-radius: 0; /* Ensure no border radius */
 }
+
 .blog-card:hover .blog-card__image,
 .blog-card:active .blog-card__image {
   transform: scale(1.03);
@@ -107,11 +108,8 @@
   margin-bottom: var(--spacing-1);
   line-height: 1.3;
   font-weight: 700;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
   overflow: hidden;
-  line-clamp: 2;
+  max-height: 2.6em; /* 2 lines * 1.3 line-height */
 }
 
 @media screen and (min-width: 768px) {
@@ -127,11 +125,8 @@
   color: var(--neutral-medium);
   line-height: 1.4;
   margin-bottom: var(--spacing-2);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
   overflow: hidden;
-  line-clamp: 2;
+  max-height: 2.8em; /* 2 lines * 1.4 line-height */
   flex: 1;
 }
 
@@ -139,6 +134,7 @@
   .blog-card__excerpt {
     font-size: 0.85rem;
     line-height: 1.5;
+    max-height: 3em; /* 2 lines * 1.5 line-height */
   }
 }
 
@@ -409,11 +405,8 @@
   font-weight: 600;
   color: var(--secondary-color);
   line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
   overflow: hidden;
-  line-clamp: 2;
+  max-height: 2.6em; /* 2 lines * 1.3 line-height */
 }
 
 @media screen and (min-width: 768px) {
@@ -582,12 +575,12 @@
   
   .blog-card__title {
     font-size: 1rem;
+    max-height: 2.6em;
   }
   
   .blog-card__excerpt {
     font-size: 0.75rem;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+    max-height: 2.8em;
   }
   
   .blog-card__read-time {

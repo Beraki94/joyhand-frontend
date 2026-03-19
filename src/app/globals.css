@@ -13,10 +13,12 @@
 html {
   height: 100%;
   scroll-behavior: smooth;
+  font-size: 18px; /* Stable base for all browsers */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-size: 18px; /* Base font size set to 18px for better readability */
 }
 
 body {
@@ -28,6 +30,7 @@ body {
   background: var(--neutral-white);
   overflow-x: hidden;
   position: relative;
+  width: 100%;
 }
 
 main {
@@ -96,7 +99,7 @@ main {
 
   /* Transitions */
   --transition-fast: all 0.2s ease;
-  --transition: all 0.3s ease;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 0.5s ease;
 
   /* Shadows */
@@ -116,41 +119,27 @@ main {
   --z-toast: 1100;
 }
 
-/* Tablet and up */
+/* Tablet and up - Keep font size stable */
 @media screen and (min-width: 768px) {
   :root {
     --header-height: 90px;
   }
-  
-  html {
-    font-size: 17px; /* Slightly smaller on tablet */
-  }
 }
 
-/* Desktop and up */
 @media screen and (min-width: 1024px) {
   :root {
     --header-height: 110px;
   }
-  
-  html {
-    font-size: 16px; /* Back to standard on desktop */
-  }
 }
 
-/* Large Desktop */
 @media screen and (min-width: 1440px) {
   :root {
     --header-height: 120px;
   }
-  
-  html {
-    font-size: 16px;
-  }
 }
 
 /* =====================================================
-   TYPOGRAPHY
+   TYPOGRAPHY - Using clamp for fluid typography
 ===================================================== */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
@@ -161,14 +150,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: var(--font-size-4xl);
+  font-size: clamp(2.2rem, 5vw, var(--font-size-5xl));
   color: var(--primary-color);
   font-weight: 800;
 }
 
-h2 { font-size: var(--font-size-3xl); }
-h3 { font-size: var(--font-size-2xl); }
-h4 { font-size: var(--font-size-xl); }
+h2 { font-size: clamp(1.8rem, 4vw, var(--font-size-4xl)); }
+h3 { font-size: clamp(1.5rem, 3vw, var(--font-size-3xl)); }
+h4 { font-size: clamp(1.25rem, 2.5vw, var(--font-size-2xl)); }
 h5 { font-size: var(--font-size-lg); }
 h6 { font-size: var(--font-size-md); }
 
@@ -177,77 +166,60 @@ p {
   color: var(--neutral-medium);
 }
 
-/* Tablet */
-@media screen and (min-width: 768px) {
-  h1 { font-size: var(--font-size-5xl); }
-  h2 { font-size: var(--font-size-4xl); }
-  h3 { font-size: var(--font-size-3xl); }
-  h4 { font-size: var(--font-size-2xl); }
-}
-
 /* =====================================================
-   CONTAINER - FIXED: Better proportions for all screens
+   CONTAINER - THE CROSS-BROWSER FIX
+   Uses fluid padding instead of breakpoint jumps
 ===================================================== */
 .container {
   width: 100%;
-  padding-left: var(--spacing-3);
-  padding-right: var(--spacing-3);
+  max-width: 1440px; /* Cap at large screens */
   margin-left: auto;
   margin-right: auto;
+  /* Fluid padding that scales smoothly */
+  padding-left: clamp(1rem, 4vw, 4rem);
+  padding-right: clamp(1rem, 4vw, 4rem);
 }
 
-/* Small tablets */
+/* =====================================================
+   GRID SYSTEM - CROSS-BROWSER FIX
+   minmax(0, 1fr) prevents Edge stretching issues
+===================================================== */
+.grid {
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+.grid--2,
+.grid--3,
+.grid--4 {
+  grid-template-columns: 1fr;
+}
+
 @media screen and (min-width: 640px) {
-  .container {
-    max-width: 600px;
-    padding-left: var(--spacing-4);
-    padding-right: var(--spacing-4);
+  .grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* Tablets */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 720px;
-    padding-left: var(--spacing-5);
-    padding-right: var(--spacing-5);
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* Small desktops/laptops - FIXED: Wider */
 @media screen and (min-width: 1024px) {
-  .container {
-    max-width: 960px; /* Increased from 960px to 1140px */
-    padding-left: var(--spacing-6);
-    padding-right: var(--spacing-6);
+  .grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .grid--4 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* Desktops - FIXED: Much wider */
 @media screen and (min-width: 1280px) {
-  .container {
-    max-width: 1200px; /* Increased from 1140px to 1280px */
-  }
-}
-
-/* Large desktops - FIXED: Even wider */
-@media screen and (min-width: 1440px) {
-  .container {
-    max-width: 1360px; /* Increased from 1320px to 1400px */
-  }
-}
-
-/* Extra large desktops - FIXED: Maximize space usage */
-@media screen and (min-width: 1600px) {
-  .container {
-    max-width: 1520px; /* Increased from 1440px to 1520px */
-  }
-}
-
-/* Ultra-wide - FIXED: Better use of space */
-@media screen and (min-width: 1920px) {
-  .container {
-    max-width: 1680px; /* Increased from 1600px to 1680px */
+  .grid--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -259,8 +231,8 @@ p {
   align-items: center;
   justify-content: center;
   gap: var(--spacing-2);
-  padding: var(--spacing-2) var(--spacing-4);
-  font-size: var(--font-size-sm);
+  padding: 0.8rem 2rem;
+  font-size: var(--font-size-md);
   font-weight: 600;
   color: var(--neutral-white);
   background-color: var(--primary-color);
@@ -316,76 +288,6 @@ p {
   width: 100%;
 }
 
-/* Tablet */
-@media screen and (min-width: 768px) {
-  .btn {
-    padding: var(--spacing-2) var(--spacing-5);
-    font-size: var(--font-size-md);
-    min-width: 160px;
-  }
-}
-
-/* Desktop */
-@media screen and (min-width: 1024px) {
-  .btn {
-    min-width: 180px;
-  }
-}
-
-/* =====================================================
-   GRID SYSTEM
-===================================================== */
-.grid {
-  display: grid;
-  gap: var(--spacing-3);
-}
-
-.grid--2,
-.grid--3,
-.grid--4 {
-  grid-template-columns: 1fr;
-}
-
-/* Small tablets */
-@media screen and (min-width: 640px) {
-  .grid--2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Tablets */
-@media screen and (min-width: 768px) {
-  .grid--3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .grid--4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Desktops */
-@media screen and (min-width: 1024px) {
-  .grid--3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .grid--4 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Large desktops */
-@media screen and (min-width: 1280px) {
-  .grid--4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  .gap-lg {
-    gap: var(--spacing-4);
-  }
-}
-
 /* =====================================================
    IMAGES
 ===================================================== */
@@ -394,20 +296,6 @@ img {
   max-width: 100%;
   height: auto;
   border-radius: var(--spacing-1);
-}
-
-.image-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--spacing-2);
-}
-
-.image-wrapper img {
-  transition: transform var(--transition-slow);
-}
-
-.image-wrapper:hover img {
-  transform: scale(1.05);
 }
 
 /* =====================================================
@@ -436,17 +324,6 @@ img {
 .mb-5 { margin-bottom: var(--spacing-5); }
 .mb-6 { margin-bottom: var(--spacing-6); }
 .mb-8 { margin-bottom: var(--spacing-8); }
-
-.my-1 { margin-top: var(--spacing-1); margin-bottom: var(--spacing-1); }
-.my-2 { margin-top: var(--spacing-2); margin-bottom: var(--spacing-2); }
-.my-3 { margin-top: var(--spacing-3); margin-bottom: var(--spacing-3); }
-.my-4 { margin-top: var(--spacing-4); margin-bottom: var(--spacing-4); }
-
-/* Padding utilities */
-.p-1 { padding: var(--spacing-1); }
-.p-2 { padding: var(--spacing-2); }
-.p-3 { padding: var(--spacing-3); }
-.p-4 { padding: var(--spacing-4); }
 
 /* Flex utilities */
 .flex {
@@ -502,14 +379,6 @@ img {
     min-width: 44px;
     padding: 12px 16px;
   }
-  
-  .footer__list {
-    gap: 16px;
-  }
-  
-  .header__nav-item {
-    margin: 8px 0;
-  }
 }
 
 /* =====================================================
@@ -549,7 +418,7 @@ img {
 }
 
 /* =====================================================
-   LOADING ANIMATIONS
+   ANIMATIONS
 ===================================================== */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -564,28 +433,6 @@ img {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
   }
 }
 
@@ -661,11 +508,35 @@ img {
 }
 
 /* =====================================================
+   BROWSER-SPECIFIC FIXES - Edge & Chrome Harmony
+===================================================== */
+
+/* Fix for Edge - container width consistency */
+@supports (-ms-ime-align: auto) {
+  .container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  /* Ensure grids don't overflow */
+  .grid {
+    width: 100%;
+  }
+}
+
+/* Fix for Firefox */
+@-moz-document url-prefix() {
+  .btn {
+    padding: 0.7rem 2rem;
+  }
+}
+
+/* =====================================================
    RESPONSIVE BREAKPOINTS REFERENCE
-   Mobile: 0 - 639px (base 18px)
-   Small Tablet: 640px - 767px (base 18px)
-   Tablet: 768px - 1023px (base 17px)
-   Desktop: 1024px - 1279px (base 16px)
-   Large Desktop: 1280px - 1439px (base 16px)
-   XL Desktop: 1440px+ (base 16px)
+   Mobile: 0 - 639px
+   Small Tablet: 640px - 767px
+   Tablet: 768px - 1023px
+   Desktop: 1024px - 1279px
+   Large Desktop: 1280px - 1439px
+   XL Desktop: 1440px+
 ===================================================== */

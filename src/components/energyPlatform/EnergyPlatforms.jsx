@@ -63,10 +63,10 @@ const EnergyPlatforms = () => {
   return (
     <section
       ref={sectionRef}
-      className="energy-platforms"
+      className="energy-platforms container"
       aria-labelledby="platforms-heading"
     >
-      <div className="container">
+      <div>
         <SectionHeader
           badge="Sourcing Excellence"
           title="Energy Platforms We Source"

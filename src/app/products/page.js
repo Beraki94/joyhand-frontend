@@ -11,6 +11,9 @@ export const metadata = {
   keywords: "solar batteries, lithium battery, hybrid inverter, energy storage, LFP battery, solar inverter",
 };
 
+// Add this at the top of your product page - THAT'S IT!
+export const revalidate = 3600; // Revalidate every hour
+
 async function ProductsContent({ category }) {
   const filteredProducts = category && category !== "all"
     ? productData.filter(p => p.category === category)

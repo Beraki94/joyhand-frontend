@@ -7,6 +7,7 @@ import PageLoader from "@/components/pageLoader/PageLoader";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      
       <body>
         <PageLoader>
           <Header />
