@@ -8,18 +8,18 @@ export default function BlogPage() {
   return (
     <main className="blog-page">
       <PageHeader 
-        title="Industry Insights"
-        subtitle="Expert knowledge for energy professionals"
-        pageImage="/images/solarImg/panel.home.jpg" 
-      />
+          title="Sourcing & Industry News"
+          subtitle="Expert knowledge for energy professionals"
+          pageImage="/images/solarImg/panel.home.jpg" 
+        />
       
       <section className="blog-section">
         <div className="container">
           <SectionHeader 
-            badge="Knowledge Hub"
-            title="Solar & Energy Storage Insights"
-            subtitle="Technical guides, market trends, and best practices for solar professionals"
-          />
+          badge="Industry Insights"  // ← This is the first subheading
+          title="Solar & Energy Storage Insights"
+          subtitle="Technical guides, market trends, and best practices for solar professionals"
+/>
           
           <div className="blog-grid">
             {blogPosts.map((post) => (

@@ -12,10 +12,10 @@ import {
   Zap, 
   ShieldCheck, 
   Globe, 
-  Cpu,
   Factory,
   Handshake,
-  ClipboardCheck
+  ClipboardCheck,
+  MessageCircle
 } from "lucide-react";
 import "./contact.css";
 
@@ -50,8 +50,8 @@ export default function ContactPage() {
   return (
     <main className="contact-page">
       <PageHeader
-        title="Start Your Sourcing Partnership"
-        subtitle="Connect with our team to discuss your energy product requirements"
+        title="Let's Talk Sourcing"
+        subtitle="24-hour response. Global reach."
         pageImage="/images/pageHeadImg/pageheader3.jpg"
       />
 
@@ -61,9 +61,9 @@ export default function ContactPage() {
           
           <div className="contact-form-section__content">
             <SectionHeader
-              badge="Sourcing Support"
-              title="Ready to Source Through JoyHand?"
-              subtitle="Tell us about your project requirements. Our team will match you with vetted manufacturing partners and provide a custom OEM/ODM roadmap within 48 hours."
+              badge="Start Here"
+              title="Tell Us What You're Looking For"
+              subtitle="Share your requirements and we'll connect you with the right factory partners — usually within 24 hours."
             />
 
             {/* Feature Cards linked to the Form's purpose */}
@@ -72,7 +72,7 @@ export default function ContactPage() {
                 <div className="contact-feature-card__icon"><Factory size={22} /></div>
                 <div className="contact-feature-card__info">
                    <h5 className="contact-feature-card__label">Factory Matching</h5>
-                   <p className="contact-feature-card__subtext">We connect you with specialized manufacturers based on your product specifications.</p>
+                   <p className="contact-feature-card__subtext">We will find specialized manufacturers that fit your product specs.</p>
                 </div>
               </div>
 
@@ -80,7 +80,7 @@ export default function ContactPage() {
                 <div className="contact-feature-card__icon"><ClipboardCheck size={22} /></div>
                 <div className="contact-feature-card__info">
                    <h5 className="contact-feature-card__label">Quality Verification</h5>
-                   <p className="contact-feature-card__subtext">Every factory partner is audited. Every shipment is inspected before leaving.</p>
+                   <p className="contact-feature-card__subtext">Every factory is audited. Every shipment is inspected before leaving.</p>
                 </div>
               </div>
 
@@ -96,7 +96,7 @@ export default function ContactPage() {
                 <div className="contact-feature-card__icon"><Globe size={22} /></div>
                 <div className="contact-feature-card__info">
                    <h5 className="contact-feature-card__label">Compliance Guidance</h5>
-                   <p className="contact-feature-card__subtext">We verify ISO, CE, UL certifications directly with our factory partners.</p>
+                   <p className="contact-feature-card__subtext">We verify ISO, CE, UL certifications directly with factory partners.</p>
                 </div>
               </div>
             </div>
@@ -173,7 +173,7 @@ export default function ContactPage() {
             <h3 className="contact-map__title">Shenzhen Tech Park</h3>
             <p className="contact-map__text">
               Our sourcing operations center, connecting distributors with 
-              manufacturing partners across Asia.
+              manufacturing partners across Asia since 1998.
             </p>
           </div>
         </div>
@@ -204,7 +204,7 @@ export default function ContactPage() {
               <h4 className="contact-faq__question">Do you work with new distributors?</h4>
               <p className="contact-faq__answer">
                 Absolutely. We partner with distributors of all sizes, from emerging brands to established 
-                players. Our minimums are flexible based on factory partner capabilities.
+                players. Minimums vary by factory — we will find one that fits your needs.
               </p>
             </div>
             <div className="contact-faq__item">
@@ -212,6 +212,21 @@ export default function ContactPage() {
               <p className="contact-faq__answer">
                 Every factory in our network undergoes on-site audits. We verify certifications, 
                 production lines, and quality control processes before any partnership begins.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= ADDITIONAL CTA ================= */}
+      <section className="contact-bottom-cta">
+        <div className="container">
+          <div className="contact-bottom-cta__wrapper">
+            <div className="contact-bottom-cta__content">
+              <MessageCircle size={32} className="contact-bottom-cta__icon" />
+              <h3 className="contact-bottom-cta__title">Prefer to talk?</h3>
+              <p className="contact-bottom-cta__text">
+                Call us directly at <a href="tel:+8613060850617" className="contact-bottom-cta__phone">+86 130 6085 0617</a>
               </p>
             </div>
           </div>

@@ -15,8 +15,24 @@ const SimpleContactForm = ({ mode = "quote" }) => {
     message: ""
   });
 
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error | cooldown
   const [touched, setTouched] = useState({});
+  const [cooldownTimer, setCooldownTimer] = useState(0);
+
+  // Check for existing submissions from this email (local storage based)
+  const checkSubmissionCooldown = (email) => {
+    const lastSubmission = localStorage.getItem(`lastSubmission_${email}`);
+    if (lastSubmission) {
+      const timeSinceLast = Date.now() - parseInt(lastSubmission);
+      const cooldownMinutes = 5; // 5 minutes cooldown
+      if (timeSinceLast < cooldownMinutes * 60 * 1000) {
+        const remainingMinutes = Math.ceil((cooldownMinutes * 60 * 1000 - timeSinceLast) / 60000);
+        setCooldownTimer(remainingMinutes);
+        return true;
+      }
+    }
+    return false;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -67,17 +83,38 @@ const SimpleContactForm = ({ mode = "quote" }) => {
       return;
     }
 
+    // Check cooldown
+    if (checkSubmissionCooldown(formData.email)) {
+      setStatus("cooldown");
+      return;
+    }
+
     setStatus("loading");
 
     try {
-      // Replace with your actual Formspree endpoint
-      const response = await fetch("https://formspree.io/f/your-endpoint", {
+      // Prepare form data for Web3Forms
+      const web3FormData = new FormData();
+      web3FormData.append("access_key", "3301949a-20bb-40e5-a650-7845eb68a24f");
+      web3FormData.append("name", `${formData.firstName} ${formData.lastName}`);
+      web3FormData.append("email", formData.email);
+      web3FormData.append("message", formData.message);
+      web3FormData.append("company_name", formData.companyName || "Not provided");
+      web3FormData.append("order_volume", formData.orderVolume || "Not specified");
+      web3FormData.append("inquiry_type", isQuote ? "Quote Request" : "Contact Form");
+      
+      // Optional: Add honeypot for spam protection
+      web3FormData.append("botcheck", "");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, mode })
+        body: web3FormData
       });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (data.success) {
+        // Store submission timestamp for cooldown
+        localStorage.setItem(`lastSubmission_${formData.email}`, Date.now().toString());
         setStatus("success");
         // Reset form after success
         setFormData({
@@ -226,6 +263,13 @@ const SimpleContactForm = ({ mode = "quote" }) => {
         <div className="modal__status modal__status--error">
           <PiWarningCircleFill size={18} />
           <span>Please fix the errors above and try again.</span>
+        </div>
+      )}
+
+      {status === "cooldown" && (
+        <div className="modal__status modal__status--cooldown">
+          <PiWarningCircleFill size={18} />
+          <span>Please wait {cooldownTimer} minute{cooldownTimer !== 1 ? 's' : ''} before submitting again.</span>
         </div>
       )}
 

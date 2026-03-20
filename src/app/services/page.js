@@ -23,26 +23,26 @@ import "./services.css";
 export default function ServicesPage() {
   const services = [
     {
-      title: "OEM Energy Storage Sourcing",
-      desc: "Connect with specialized lithium battery factories for custom-engineered storage systems. We handle factory vetting, quality audits, and specification matching for solar, industrial backup, and grid applications.",
+      title: "OEM Energy Storage",
+      desc: "Connect with specialized lithium battery factories for custom-engineered storage systems. We handle factory vetting, quality audits, and specification matching.",
       icon: <PiBatteryCharging weight="duotone" />,
       tag: "Sourcing"
     },
     {
       title: "ODM Solar Solutions",
-      desc: "Ready-to-market solar inverters and storage systems from certified manufacturing partners. We bridge your requirements with factory capabilities for rapid deployment and private labeling.",
+      desc: "Ready-to-market solar inverters and storage systems from certified manufacturing partners. We bridge your requirements with factory capabilities.",
       icon: <PiLightbulb weight="duotone" />,
       tag: "Partnership"
     },
     {
-      title: "Electric Mobility Platforms",
-      desc: "Sourced battery platforms engineered for e-bikes, scooters, and mobility vehicles. Our factory partners deliver long cycle life cells with rigorous performance verification.",
+      title: "Electric Mobility",
+      desc: "Sourced battery platforms for e-bikes, scooters, and mobility vehicles. Our factory partners deliver long cycle life cells with rigorous verification.",
       icon: <PiTruck weight="duotone" />,
       tag: "Mobility"
     },
     {
-      title: "Global Supply Network",
-      desc: "International logistics and factory coordination enabling global brands to scale efficiently. We manage shipping, customs, and container consolidation from partner facilities to your destination.",
+      title: "Global Logistics",
+      desc: "International logistics and factory coordination. We manage shipping, customs, and container consolidation from partner facilities to your door.",
       icon: <PiGlobe weight="duotone" />,
       tag: "Logistics"
     }
@@ -51,7 +51,7 @@ export default function ServicesPage() {
   const qcProtocols = [
     {
       title: "Factory Audits",
-      desc: "Our engineers perform on-site verification before any partnership begins.",
+      desc: "On-site verification before any partnership begins.",
       icon: <PiClipboardText />
     },
     {
@@ -74,13 +74,13 @@ export default function ServicesPage() {
   const process = [
     {
       step: "01",
-      title: "Consultation & Requirements",
+      title: "Consultation",
       desc: "We discuss your specifications, volume needs, and target markets to identify ideal factory partners.",
       icon: <PiHandshake />
     },
     {
       step: "02",
-      title: "Factory Matching & Audit",
+      title: "Factory Matching",
       desc: "We match you with vetted manufacturers and perform initial quality audits.",
       icon: <PiClipboardText />
     },
@@ -113,8 +113,8 @@ export default function ServicesPage() {
   return (
     <main className="services-page">
       <PageHeader
-        title="Sourcing & Partnership Services"
-        subtitle="Connecting global distributors with vetted energy manufacturers"
+        title="What We Do Best"
+        subtitle="Factory sourcing. Quality control. Global logistics."
         pageImage="/images/solarImg/panel.home.jpg"
       />
 
@@ -125,22 +125,21 @@ export default function ServicesPage() {
             <div className="services-intro__header">
               <SectionHeader 
                 badge="Industrial Sourcing Partner" 
-                title="One-Stop Energy Sourcing From Partner Factories to Your Market" 
+                title="Your Bridge to Vetted Manufacturers" 
               />
             </div>
             <div className="services-intro__content">
               <p className="services-intro__desc">
-                JoyHand combines deep manufacturing expertise with rigorous quality control. 
-                Through our network of certified partner facilities, we deliver high-performance 
-                solar storage systems trusted by global distributors — without the risk of 
-                dealing with unknown suppliers.
+                Since 1998, we have built relationships with factories you can trust. 
+                Through our partner network, we deliver high-performance solutions 
+                trusted by global distributors — without the risk of unknown suppliers.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================= SERVICE CARDS (WITH TECH PATTERNS) ================= */}
+      {/* ================= SERVICE CARDS ================= */}
       <section className="services-grid">
         <div className="container">
           <div className="services-grid__wrapper">
@@ -159,7 +158,7 @@ export default function ServicesPage() {
                 </div>
 
                 <Link href="/contact" className="service-card__link">
-                  <span>Request Sourcing Info</span>
+                  <span>Request Info</span>
                   <PiArrowRight weight="bold" className="service-card__arrow" />
                 </Link>
               </div>
@@ -194,28 +193,28 @@ export default function ServicesPage() {
           <div className="why-distributors__box">
             <div className="why-distributors__header">
               <span className="badge">Trusted by Global Distributors</span>
-              <h2 className="why-distributors__title">Why Distributors Choose JoyHand</h2>
+              <h2 className="why-distributors__title">Why Partners Work With Us</h2>
             </div>
             <div className="why-distributors__grid">
               <div className="why-item">
                 <div className="why-item__number">01</div>
-                <h4 className="why-item__title">No Factory Risk</h4>
-                <p className="why-item__text">We&apos;ve already vetted, audited, and built relationships with manufacturing partners. You skip the trial and error.</p>
+                <h4 className="why-item__title">Zero Factory Risk</h4>
+                <p className="why-item__text">We have already vetted, audited, and built relationships with manufacturing partners. You skip the trial and error.</p>
               </div>
               <div className="why-item">
                 <div className="why-item__number">02</div>
                 <h4 className="why-item__title">Quality Guaranteed</h4>
-                <p className="why-item__text">Our engineers perform on-site inspections before any product leaves the facility. If it doesn&apos;t pass, it doesn&apos;t ship.</p>
+                <p className="why-item__text">On-site inspections before any product leaves. If it does not pass, it does not ship.</p>
               </div>
               <div className="why-item">
                 <div className="why-item__number">03</div>
-                <h4 className="why-item__title">Logistics Managed</h4>
-                <p className="why-item__text">From container consolidation to customs clearance — we handle the complexity so you receive product hassle-free.</p>
+                <h4 className="why-item__title">Logistics Handled</h4>
+                <p className="why-item__text">From container consolidation to customs clearance — we manage the complexity so you dont have to.</p>
               </div>
               <div className="why-item">
                 <div className="why-item__number">04</div>
-                <h4 className="why-item__title">Scalable Partnerships</h4>
-                <p className="why-item__text">Whether you need one container or hundreds, our factory network scales with your growth.</p>
+                <h4 className="why-item__title">Scale With Us</h4>
+                <p className="why-item__text">Whether you need one container or hundreds, our factory network grows with you.</p>
               </div>
             </div>
           </div>
@@ -295,7 +294,7 @@ export default function ServicesPage() {
           <div className="services-cta__banner">
             <div className="services-cta__content">
               <PiSealCheckFill className="services-cta__icon" />
-              <h2 className="services-cta__title">Start Sourcing With Confidence</h2>
+              <h2 className="services-cta__title">Ready to Source With Confidence?</h2>
               <p className="services-cta__subtitle">Partner with JoyHand for factory-direct quality without the factory risk.</p>
               <Link href="/contact" className="btn btn--secondary">
                 Contact Our Sourcing Team

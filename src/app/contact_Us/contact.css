@@ -28,7 +28,7 @@
 
 @media screen and (min-width: 992px) {
   .contact-form-section__grid {
-    grid-template-columns: 1fr 1fr; /* Equal columns on desktop */
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-8);
   }
 }
@@ -142,7 +142,6 @@
 
 /* =====================================================
    FORM TERMINAL - Mobile First
-   FIXED: Wider on desktop
 ===================================================== */
 .form-terminal {
   background: var(--secondary-color);
@@ -152,7 +151,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   width: 100%;
-  max-width: 100%; /* Full width on mobile */
+  max-width: 100%;
 }
 
 @media screen and (min-width: 768px) {
@@ -164,14 +163,14 @@
 
 @media screen and (min-width: 992px) {
   .form-terminal {
-    max-width: 100%; /* Take full column width */
-    min-width: 450px; /* Ensure minimum width on desktop */
+    max-width: 100%;
+    min-width: 450px;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .form-terminal {
-    min-width: 500px; /* Even wider on large screens */
+    min-width: 500px;
   }
 }
 
@@ -268,12 +267,10 @@
   }
 }
 
-/* Target the form inside to make it full width */
 .form-terminal__body form {
   width: 100%;
 }
 
-/* Style form inputs to be full width */
 .form-terminal__body input,
 .form-terminal__body select,
 .form-terminal__body textarea {
@@ -318,6 +315,28 @@
   .form-terminal__footnote svg {
     width: 12px;
     height: 12px;
+  }
+}
+
+/* =====================================================
+   COOLDOWN STATUS STYLES (ADDED)
+===================================================== */
+.modal__status--cooldown {
+  background: rgba(255, 127, 65, 0.1);
+  color: var(--primary-color);
+  border-left: 3px solid var(--primary-color);
+}
+
+/* Ensure the modal form inside terminal uses correct spacing */
+.form-terminal__body .modal__status {
+  margin: var(--spacing-3) 0;
+}
+
+/* Responsive adjustments for cooldown */
+@media screen and (max-width: 480px) {
+  .modal__status--cooldown {
+    font-size: 0.75rem;
+    padding: 10px 12px;
   }
 }
 
@@ -801,6 +820,108 @@
 }
 
 /* =====================================================
+   BOTTOM CTA SECTION
+===================================================== */
+.contact-bottom-cta {
+  padding: 0 0 var(--spacing-8) 0;
+  background-color: var(--neutral-white);
+}
+
+@media screen and (min-width: 768px) {
+  .contact-bottom-cta {
+    padding: 0 0 var(--spacing-10) 0;
+  }
+}
+
+.contact-bottom-cta__wrapper {
+  background: linear-gradient(135deg, var(--accent-color-light) 0%, white 100%);
+  border-radius: 32px;
+  padding: var(--spacing-6) var(--spacing-4);
+  border: 1px solid rgba(255, 127, 65, 0.1);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .contact-bottom-cta__wrapper {
+    padding: var(--spacing-8) var(--spacing-6);
+    border-radius: 40px;
+  }
+}
+
+.contact-bottom-cta__wrapper::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 127, 65, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.contact-bottom-cta__content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-bottom-cta__icon {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-3);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.contact-bottom-cta__title {
+  font-size: 1.75rem;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-2);
+  font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+  .contact-bottom-cta__title {
+    font-size: 2rem;
+  }
+}
+
+.contact-bottom-cta__text {
+  font-size: 1.1rem;
+  color: var(--neutral-medium);
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .contact-bottom-cta__text {
+    font-size: 1.2rem;
+  }
+}
+
+.contact-bottom-cta__phone {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.contact-bottom-cta__phone:hover {
+  border-bottom-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+/* =====================================================
    SMALL MOBILE (480px and below)
 ===================================================== */
 @media screen and (max-width: 480px) {
@@ -895,6 +1016,33 @@
   .contact-faq__answer {
     font-size: 0.75rem;
   }
+  
+  .contact-bottom-cta__wrapper {
+    padding: var(--spacing-4) var(--spacing-3);
+    border-radius: 24px;
+  }
+  
+  .contact-bottom-cta__title {
+    font-size: 1.4rem;
+  }
+  
+  .contact-bottom-cta__text {
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  
+  .contact-bottom-cta__phone {
+    margin-left: 0;
+  }
+  
+  /* Cooldown responsive adjustments */
+  .modal__status--cooldown {
+    font-size: 0.75rem;
+    padding: 10px 12px;
+  }
 }
 
 /* =====================================================
@@ -903,7 +1051,8 @@
 .contact-feature-card,
 .contact-card,
 .contact-faq__item,
-.form-terminal {
+.form-terminal,
+.contact-bottom-cta__icon {
   will-change: transform;
 }
 
@@ -913,7 +1062,8 @@
   .contact-faq__item,
   .form-terminal,
   .contact-card__ring,
-  .form-terminal__dot {
+  .form-terminal__dot,
+  .contact-bottom-cta__icon {
     animation: none !important;
     transition: none !important;
   }
@@ -922,5 +1072,9 @@
   .contact-card:hover,
   .contact-faq__item:hover {
     transform: none;
+  }
+  
+  .contact-bottom-cta__icon {
+    animation: none;
   }
 }

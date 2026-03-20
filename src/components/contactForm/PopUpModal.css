@@ -1,5 +1,5 @@
 /* ===================================================== 
-   MODAL COMPONENT (TECH REFINEMENT)
+   MODAL COMPONENT - Dual Mode (Mobile Vertical / Desktop Horizontal)
 ===================================================== */
 .modal-overlay {
   position: fixed;
@@ -19,6 +19,9 @@
   to { opacity: 1; }
 }
 
+/* ===================================================== 
+   MOBILE STYLES (Default - Vertical)
+===================================================== */
 .modal-container {
   background: var(--neutral-white);
   width: 100%;
@@ -29,11 +32,11 @@
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
   animation: modalSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid rgba(255, 127, 65, 0.2);
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
-/* ===================================================== 
-   NFC VISUAL HEADER
-===================================================== */
+/* NFC VISUAL HEADER */
 .modal__header {
   text-align: center;
   margin-bottom: var(--spacing-5);
@@ -91,11 +94,6 @@
   transition: all 0.3s ease;
 }
 
-.modal-container:hover .modal__icon-box {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 127, 65, 0.3);
-}
-
 .modal__title {
   color: var(--secondary-color);
   font-size: 1.5rem;
@@ -112,9 +110,7 @@
   line-height: 1.5;
 }
 
-/* ===================================================== 
-   CLOSE BUTTON
-===================================================== */
+/* CLOSE BUTTON */
 .modal__close {
   position: absolute;
   top: 20px;
@@ -138,9 +134,7 @@
   transform: rotate(90deg);
 }
 
-/* ===================================================== 
-   FORM STYLES
-===================================================== */
+/* FORM STYLES */
 .modal__form {
   display: flex;
   flex-direction: column;
@@ -153,7 +147,6 @@
   gap: var(--spacing-3);
 }
 
-/* Field wrapper for error positioning */
 .modal__field {
   position: relative;
   width: 100%;
@@ -183,17 +176,11 @@
   outline: none;
 }
 
-/* Error input state */
 .modal__input--error {
   border-color: var(--error-color) !important;
   background: rgba(230, 57, 70, 0.02) !important;
 }
 
-.modal__input--error:focus {
-  box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1) !important;
-}
-
-/* Select dropdown styling */
 .modal__select {
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23121b2d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
@@ -208,7 +195,6 @@
   min-height: 100px;
 }
 
-/* Error message styling */
 .modal__error {
   position: absolute;
   bottom: -18px;
@@ -224,7 +210,6 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Status messages */
 .modal__status {
   display: flex;
   align-items: center;
@@ -246,9 +231,6 @@
   color: var(--success-color);
 }
 
-/* ===================================================== 
-   SUBMIT BUTTON
-===================================================== */
 .modal__submit {
   margin-top: var(--spacing-2);
   padding: 16px;
@@ -278,7 +260,6 @@
   transform: translateX(5px);
 }
 
-/* Loading dots animation */
 .modal__loading-dots {
   display: inline-flex;
   gap: 2px;
@@ -303,7 +284,6 @@
   50% { opacity: 1; }
 }
 
-/* Footnote */
 .modal__footnote {
   display: flex;
   align-items: center;
@@ -353,8 +333,45 @@
 }
 
 /* ===================================================== 
-   ANIMATIONS
+   COOLDOWN STATE (Spam Protection)
 ===================================================== */
+.modal__cooldown-state {
+  text-align: center;
+  padding: var(--spacing-4) 0;
+  animation: successFadeIn 0.5s ease;
+}
+
+.modal__cooldown-icon {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-3);
+  filter: drop-shadow(0 4px 10px rgba(255, 127, 65, 0.3));
+}
+
+.modal__cooldown-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+  font-weight: 800;
+}
+
+.modal__cooldown-text {
+  color: var(--neutral-medium);
+  margin-bottom: var(--spacing-5);
+  line-height: 1.6;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal__cooldown-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  margin-top: var(--spacing-2);
+}
+
 @keyframes modalRingRotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -432,23 +449,133 @@
     padding: 14px;
   }
   
-  .modal__success-state h4 {
-    font-size: 1.25rem;
-  }
-  
-  .modal__success-state p {
-    font-size: 0.9rem;
-  }
-  
   .modal__error {
     font-size: 0.65rem;
     bottom: -16px;
+  }
+  
+  /* Cooldown state mobile */
+  .modal__cooldown-title {
+    font-size: 1.25rem;
+  }
+  
+  .modal__cooldown-text {
+    font-size: 0.9rem;
   }
 }
 
 @keyframes modalSheetUp {
   from { transform: translateY(100%); }
   to { transform: translateY(0); }
+}
+
+/* ===================================================== 
+   DESKTOP - HORIZONTAL LAYOUT (1024px+)
+   Form and header side by side
+===================================================== */
+@media screen and (min-width: 1024px) {
+  .modal-container {
+    max-width: 1000px;
+    padding: var(--spacing-6);
+    overflow-y: visible;
+  }
+  
+  /* Split into two columns */
+  .modal__content-wrapper {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--spacing-6);
+    align-items: start;
+  }
+  
+  /* Left Column - Header & NFC */
+  .modal__header {
+    text-align: left;
+    margin-bottom: 0;
+    padding-right: var(--spacing-4);
+    border-right: 1px solid rgba(18, 27, 45, 0.05);
+  }
+  
+  .modal__nfc-visual {
+    margin: 0 0 var(--spacing-4) 0;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .modal__icon-box {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .modal__icon-box svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .modal__title {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-2);
+  }
+  
+  .modal__subtitle {
+    max-width: 100%;
+    margin: 0 0 var(--spacing-4) 0;
+    font-size: 1rem;
+  }
+  
+  /* Right Column - Form */
+  .modal__form {
+    margin-top: 0;
+  }
+  
+  /* Hide mobile bottom sheet animation */
+  .modal-container {
+    animation: modalFadeIn 0.3s ease-out;
+  }
+  
+  /* Adjust close button position */
+  .modal__close {
+    top: 20px;
+    right: 20px;
+  }
+  
+  /* Make form fields slightly more compact */
+  .modal__input {
+    padding: 12px 16px;
+  }
+  
+  /* Success state centered in horizontal layout */
+  .modal__success-state {
+    grid-column: span 2;
+    padding: var(--spacing-6);
+  }
+  
+  /* Cooldown state centered in horizontal layout */
+  .modal__cooldown-state {
+    grid-column: span 2;
+    padding: var(--spacing-6);
+  }
+}
+
+/* ===================================================== 
+   LARGE DESKTOP (1440px+)
+===================================================== */
+@media screen and (min-width: 1440px) {
+  .modal-container {
+    max-width: 1100px;
+  }
+  
+  .modal__content-wrapper {
+    gap: var(--spacing-8);
+  }
+  
+  .modal__title {
+    font-size: 2rem;
+  }
+  
+  .modal__subtitle {
+    font-size: 1.1rem;
+  }
 }
 
 /* ===================================================== 
@@ -483,5 +610,19 @@
   .modal__footnote {
     font-size: 0.65rem;
     flex-wrap: wrap;
+  }
+  
+  /* Cooldown state small mobile */
+  .modal__cooldown-title {
+    font-size: 1.1rem;
+  }
+  
+  .modal__cooldown-text {
+    font-size: 0.85rem;
+  }
+  
+  .modal__cooldown-icon {
+    width: 48px;
+    height: 48px;
   }
 }

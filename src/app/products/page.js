@@ -21,13 +21,13 @@ async function ProductsContent({ category }) {
 
   return (
     <main className="products-page">
-      <PageHeader 
-        title={category && category !== "all" 
-          ? `${category.charAt(0).toUpperCase() + category.slice(1)} Solutions` 
-          : "Energy Solutions"}
-        subtitle="High-performance batteries and inverters sourced from vetted manufacturing partners"
-        pageImage="/images/pageHeadImg/pageheader2.jpg" 
-      />
+     <PageHeader 
+      title={category && category !== "all" 
+        ? `${category.charAt(0).toUpperCase() + category.slice(1)} Solutions` 
+        : "Solar & Energy Products"}
+      subtitle="LFP batteries, inverters, portable power, and EV infrastructure from vetted manufacturers"
+      pageImage="/images/pageHeadImg/pageheader2.jpg" 
+    />
 
       <section className="products-page__section">
         <div className="container">

@@ -22,6 +22,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: none;
   
   /* State Handling */
   opacity: 0;
@@ -44,6 +45,18 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
+/* Active/Pressed State */
+.scroll-btn:active {
+  transform: translateY(-2px);
+  transition: transform 0.1s ease;
+}
+
+/* Focus State for Accessibility */
+.scroll-btn:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
 /* Element: Icon */
 .scroll-btn__icon {
   transition: transform 0.2s ease;
@@ -60,5 +73,37 @@
     right: var(--spacing-2);
     width: 2.5rem;
     height: 2.5rem;
+  }
+  
+  .scroll-btn__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .scroll-btn {
+    bottom: var(--spacing-2);
+    right: var(--spacing-2);
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+  
+  .scroll-btn__icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-btn,
+  .scroll-btn__icon {
+    transition: none !important;
+  }
+  
+  .scroll-btn:hover {
+    transform: none;
   }
 }

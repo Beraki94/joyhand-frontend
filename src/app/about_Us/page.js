@@ -10,14 +10,12 @@ import {
   PiShieldCheck,
   PiHandshake,
   PiGlobe,
-  PiClockCounterClockwise,
   PiUsers,
   PiFactory,
   PiChartLineUp
 } from "react-icons/pi";
 
 import PageHeader from "@/components/pageHeader/PageHeader";
-import TrustSignals from "@/components/trustSignals/TrustSignals";
 import SectionHeader from "@/components/sectionHeader/SectionHeader";
 
 import "./about.css";
@@ -64,31 +62,31 @@ export default function AboutPage() {
 
   const timeline = [
     {
-      year: "2018",
+      year: "1998",
       title: "Founded",
       description: "Started with deep roots in EV manufacturing and battery technology.",
       icon: <PiFactory />
     },
     {
-      year: "2020",
+      year: "2003",
       title: "Evolved",
       description: "Expanded into full-service sourcing platform connecting distributors with vetted factories.",
       icon: <PiUsers />
     },
     {
-      year: "2022",
+      year: "2010",
       title: "Scaled",
       description: "Reached 5,000+ e-motorcycles supplied globally across 12 countries.",
       icon: <PiChartLineUp />
     },
     {
-      year: "2024",
+      year: "2018",
       title: "Expanded",
       description: "50+ active distributor partnerships and 15MW+ solar capacity delivered.",
       icon: <PiGlobe />
     },
     {
-      year: "2026",
+      year: "2025",
       title: "Today",
       description: "Trusted sourcing partner for global energy brands and distributors.",
       icon: <PiShieldCheck />
@@ -114,35 +112,33 @@ export default function AboutPage() {
     <main className="about-page">
 
       <PageHeader
-        title="About JoyHand"
+        title="Who We Are"
+        subtitle="Manufacturing roots. Sourcing expertise."
         pageImage="/images/pageHeadImg/pageheader1.jpg"
       />
 
       {/* ================= INTRO + MISSION ================= */}
-
       <section className="about-intro">
         <div className="container about-intro__container">
           <div className="about-intro__content">
             <SectionHeader 
               badge="OUR EVOLUTION"
-              title="From Manufacturing Roots to Global Sourcing Partner"
+              title="From Factory Floors to Global Markets"
             />
 
             <div className="about-intro__description">
               <p>
-                Founded in 2018, JoyHand began with deep roots in EV manufacturing. Today, we leverage 
-                that experience as a <strong>premier global sourcing and OEM partnership platform.</strong> 
-                We solve the two biggest hurdles for distributors:
+                Founded in 1998, JoyHand began on EV manufacturing lines. Today, we have transformed that hands-on experience into a 
+                <strong> premier global sourcing platform</strong> that tackles the two biggest challenges distributors face:
                 <strong> Quality Assurance</strong> and
-                <strong> Supply Chain Liquidity</strong> — without the risk of dealing with unknown suppliers.
+                <strong> Supply Chain Liquidity</strong>.
               </p>
 
-              {/* MISSION STATEMENT - NEW */}
               <div className="mission-statement">
                 <h4 className="mission-statement__title">Our Mission</h4>
                 <p className="mission-statement__text">
                   We believe distributors should focus on growing their markets, not worrying about factory reliability. 
-                  JoyHand exists to remove the risk, complexity, and uncertainty from international sourcing — so you can scale with confidence.
+                  JoyHand exists to remove the risk, complexity, and uncertainty from international sourcing.
                 </p>
               </div>
 
@@ -150,10 +146,9 @@ export default function AboutPage() {
                 <div className="highlight-tag">
                   <span className="highlight-tag__icon"><PiTruck /></span>
                   <div>
-                    <strong>Global Logistics Mastery</strong>
+                    <strong>Logistics Mastery</strong>
                     <p>
-                      We manage complex shipping and customs for effortless
-                      container-load delivery.
+                      We manage complex shipping and customs for container-load delivery.
                     </p>
                   </div>
                 </div>
@@ -161,10 +156,9 @@ export default function AboutPage() {
                 <div className="highlight-tag">
                   <span className="highlight-tag__icon"><PiShieldCheck /></span>
                   <div>
-                    <strong>Independent QC Protocols</strong>
+                    <strong>QC Protocols</strong>
                     <p>
-                      Our engineers perform on-site factory audits at partner facilities before any 
-                      product leaves for your destination.
+                      On-site factory audits before any product leaves for your destination.
                     </p>
                   </div>
                 </div>
@@ -195,13 +189,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= TIMELINE - NEW ================= */}
-
+      {/* ================= TIMELINE ================= */}
       <section className="timeline-section">
         <div className="container">
           <SectionHeader
             badge="Our Journey"
-            title="From 2018 to Today"
+            title="1998 — 2025"
             center
           />
 
@@ -221,13 +214,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= CORE VALUES - NEW ================= */}
-
+      {/* ================= CORE VALUES ================= */}
       <section className="values-section">
         <div className="container">
           <SectionHeader
             badge="How We Work"
-            title="The Principles That Guide Us"
+            title="Four Pillars. One Purpose."
             center
           />
 
@@ -243,13 +235,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= MARKETS WE SERVE (FORMERLY FOUR PILLARS) ================= */}
-
+      {/* ================= MARKETS WE SERVE ================= */}
       <section className="markets-section">
         <div className="container">
           <SectionHeader
             badge="Markets We Serve"
-            title="Sourcing Partnerships Across Energy Sectors"
+            title="Energy Sectors We Support"
             center
           />
 
@@ -266,9 +257,8 @@ export default function AboutPage() {
             <div className="market-text">
               <h3>Residential & Industrial Storage</h3>
               <p>
-                We connect distributors with specialized LFP battery factories serving homes, 
-                businesses, and grid projects. Our engineers verify cycle life claims and safety 
-                certifications before any shipment leaves the facility.
+                We connect distributors with LFP battery factories serving homes and grid projects. 
+                Our engineers verify cycle life claims before any shipment leaves.
               </p>
               <ul className="market-list">
                 <li><PiCheckCircleFill /> 6,000+ cycle LFP batteries</li>
@@ -295,8 +285,7 @@ export default function AboutPage() {
               <h3>Commercial EV Infrastructure</h3>
               <p>
                 Sourcing partners for developers and municipalities. We connect you with manufacturers 
-                producing weatherproof, smart-monitoring EV charging systems for commercial hubs, 
-                residential properties, and smart cities.
+                producing weatherproof EV charging systems.
               </p>
               <ul className="market-list">
                 <li><PiCheckCircleFill /> Universal connector compatibility</li>
@@ -323,8 +312,7 @@ export default function AboutPage() {
               <h3>Solar Integration Partnerships</h3>
               <p>
                 Bridging inverter manufacturers with energy installers worldwide. We source 
-                high-efficiency pure sine wave inverters with smart grid switching capabilities 
-                from Tier-1 component suppliers.
+                high-efficiency pure sine wave inverters from Tier-1 component suppliers.
               </p>
               <ul className="market-list">
                 <li><PiCheckCircleFill /> 98% peak efficiency</li>
@@ -348,11 +336,10 @@ export default function AboutPage() {
               <div className="market-badge">Portable</div>
             </div>
             <div className="market-text">
-              <h3>Emergency & Off-Grid Applications</h3>
+              <h3>Emergency & Off-Grid</h3>
               <p>
-                Helping brands customize rugged portable stations for disaster relief, outdoor recreation, 
-                and remote energy independence. We work with factories capable of fast-charge technology 
-                and OEM branding.
+                Custom rugged portable stations for disaster relief and remote energy independence. 
+                Fast-charge technology and OEM branding available.
               </p>
               <ul className="market-list">
                 <li><PiCheckCircleFill /> Fast-charge capable</li>
@@ -367,13 +354,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= TESTIMONIALS - NEW ================= */}
-
+      {/* ================= TESTIMONIALS ================= */}
       <section className="testimonials-section">
         <div className="container">
           <SectionHeader
             badge="Partner Stories"
-            title="What Distributors Say About Us"
+            title="Trusted by Distributors Worldwide"
             center
           />
 
@@ -402,12 +388,11 @@ export default function AboutPage() {
       </section>
 
       {/* ================= TEAM ================= */}
-
       <section className="team-section">
         <div className="container">
           <SectionHeader
             badge="Leadership"
-            title="The Supply Chain Experts"
+            title="The Team Behind Your Supply Chain"
             center
           />
 
@@ -437,23 +422,23 @@ export default function AboutPage() {
       </section>
 
       {/* ================= CTA ================= */}
-    <section className="cta-banner">
-      <div className="container"> {/* Container inside section */}
-        <div className="cta-banner__wrapper">
-          <div className="cta-banner__text">
-            <h4 className="cta-banner__title">
-              Expand Your Distribution Hub
-            </h4>
-            <p className="cta-banner__subtitle">
-              Partner with JoyHand for reliable sourcing and factory-direct quality control.
-            </p>
+      <section className="abtCta-banner">
+        <div className="container">
+          <div className="abtCta-banner__wrapper">
+            <div className="abtCta-banner__text">
+              <h4 className="abtCta-banner__title">
+                Ready to Scale?
+              </h4>
+              <p className="abtCta-banner__subtitle">
+                Partner with JoyHand for reliable sourcing and quality control.
+              </p>
+            </div>
+            <Link href="/contact" className="btn btn--secondary abtCta-banner__btn">
+              Apply for Partnership <PiArrowRight />
+            </Link>
           </div>
-          <Link href="/contact" className="btn btn--secondary cta-banner__btn">
-            Apply for Partnership <PiArrowRight />
-          </Link>
         </div>
-      </div>
-    </section>
+      </section>
     </main>
   );
 }
