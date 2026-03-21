@@ -25,7 +25,7 @@
    TOP BAR - Hidden on mobile, shown on desktop
 ===================================================== */
 .header__top {
-  display: none; /* Hidden on mobile */
+  display: none;
 }
 
 /* =====================================================
@@ -58,7 +58,7 @@
 }
 
 .header__logo-img {
-  width: 110px; /* Slightly smaller on mobile */
+  width: 110px;
   height: auto;
   display: block;
 }
@@ -85,7 +85,9 @@
   display: none;
 }
 
-/* Mobile Toggle Button */
+/* =====================================================
+   MOBILE TOGGLE BUTTON - LARGER TAP TARGET
+===================================================== */
 .header__mobile-toggle {
   display: flex;
   align-items: center;
@@ -94,57 +96,69 @@
   border: none;
   color: var(--secondary-color);
   cursor: pointer;
-  padding: var(--spacing-1);
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 12px;
   transition: var(--transition-fast);
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
 }
 
-.header__mobile-toggle:hover {
+@media screen and (max-width: 480px) {
+  .header__mobile-toggle {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.header__mobile-toggle:hover,
+.header__mobile-toggle:active {
   color: var(--primary-color);
-  background: rgba(255, 127, 65, 0.05);
+  background: rgba(255, 127, 65, 0.1);
 }
 
 .header__mobile-toggle svg {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
+}
+
+@media screen and (max-width: 480px) {
+  .header__mobile-toggle svg {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 /* =====================================================
-   MOBILE MENU - NO SCROLL, Everything visible
+   MOBILE MENU - IMPROVED DROPDOWN VISIBILITY
 ===================================================== */
 .header__mobile-menu {
   position: fixed;
   inset: 0;
   top: calc(var(--header-height) + 1px);
   width: 100%;
-  /* Use dvh (dynamic viewport height) to account for mobile browser address bars */
   height: calc(100dvh - var(--header-height) - 1px);
   background: var(--neutral-white);
   z-index: var(--z-modal);
-  padding: var(--spacing-3);
+  padding: var(--spacing-4) var(--spacing-3);
   transform: translateX(100%);
   transition: transform 0.3s ease;
   box-shadow: var(--shadow-lg);
   display: flex;
   flex-direction: column;
-  
-  /* CHANGE THESE TWO */
-  overflow-y: auto; 
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
-
 
 .header__mobile-menu--open {
   transform: translateX(0);
 }
 
-/* Mobile Navigation - Fixed height, no scroll */
+/* Mobile Navigation */
 .header__mobile-nav {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
+  gap: var(--spacing-1);
 }
 
 /* Remove all bullets */
@@ -154,7 +168,7 @@ ul, li {
   margin: 0;
 }
 
-/* Mobile Items - Ultra compact */
+/* Mobile Items - Larger tap targets */
 .header__mobile-item {
   border-bottom: 1px solid var(--neutral-light);
 }
@@ -163,55 +177,60 @@ ul, li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0; /* Fixed padding */
+  padding: 16px 0; /* Increased padding for better tap target */
   cursor: pointer;
+  min-height: 56px; /* Minimum tap target height */
 }
 
 .header__mobile-link {
-  font-size: 1rem;
+  font-size: 1.1rem; /* Slightly larger */
   font-weight: 700;
   color: var(--secondary-color);
   transition: var(--transition-fast);
   text-decoration: none;
+  padding: 4px 0;
 }
 
 .header__mobile-link:active {
   color: var(--primary-color);
 }
 
-/* Mobile Caret */
+/* Mobile Caret - Larger touch area */
 .header__mobile-caret {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--primary-color);
   transition: transform 0.3s ease;
+  padding: 8px;
+  margin: -8px; /* Offset padding for click area */
+  cursor: pointer;
 }
 
 .header__mobile-caret--open {
   transform: rotate(180deg);
 }
 
-/* Mobile Submenu - Compact */
+/* Mobile Submenu - Always visible when open */
 .header__mobile-sub {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding-left: 16px;
+  padding-left: 20px;
   transition: all 0.3s ease;
 }
 
 .header__mobile-sub--open {
-  max-height: 120px; /* Fixed height for submenu */
+  max-height: 300px; /* Increased for better visibility */
   opacity: 1;
-  padding-bottom: 8px;
+  padding-bottom: 12px;
 }
 
 .header__mobile-sub-link {
   color: var(--neutral-medium);
-  font-size: 0.9rem;
+  font-size: 1rem; /* Larger for better readability */
   font-weight: 500;
-  padding: 6px 0;
+  padding: 12px 0; /* Larger tap target */
   display: block;
   transition: var(--transition-fast);
   text-decoration: none;
@@ -219,17 +238,17 @@ ul, li {
 
 .header__mobile-sub-link:active {
   color: var(--primary-color);
-  transform: translateX(4px);
+  transform: translateX(8px);
 }
 
-/* Mobile Contact - Compact, moved up */
+/* Mobile Contact - Larger tap targets */
 .header__mobile-contact {
-  margin-top: auto; /* Push to bottom */
-  padding: 16px 0 12px 0;
+  margin-top: auto;
+  padding: 20px 0 16px 0;
   border-top: 1px solid var(--neutral-light);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .header__mobile-contact-item {
@@ -237,15 +256,17 @@ ul, li {
   align-items: center;
   gap: 12px;
   color: var(--neutral-medium);
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-decoration: none;
   transition: var(--transition-fast);
+  padding: 8px 0;
+  min-height: 48px;
 }
 
 .header__mobile-contact-item svg {
   color: var(--primary-color);
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   animation: headerPulse 2s ease-in-out infinite;
 }
 
@@ -258,22 +279,36 @@ ul, li {
   transform: translateX(4px);
 }
 
-/* Mobile CTA Button - Always visible, no scroll needed */
+/* Mobile CTA Button - Prominent and easy to tap */
 .header__mobile-cta {
   width: 100%;
-  margin-top: 8px;
+  margin-top: 16px;
+  margin-bottom: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px !important;
-  font-size: 0.95rem !important;
+  gap: 10px;
+  padding: 14px !important;
+  font-size: 1rem !important;
+  font-weight: 700;
   flex-shrink: 0;
+  border-radius: 50px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 52px;
+}
+
+.header__mobile-cta:active {
+  transform: scale(0.98);
+  background: var(--primary-color-dark);
 }
 
 .header__mobile-cta svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   transition: transform 0.2s ease;
 }
 
@@ -388,10 +423,10 @@ ul, li {
     position: absolute;
     top: calc(100% + var(--spacing-1));
     left: -16px;
-    min-width: 220px;
+    min-width: 240px;
     background-color: var(--neutral-white);
     box-shadow: var(--shadow-lg);
-    border-radius: 8px;
+    border-radius: 12px;
     border-top: 3px solid var(--primary-color);
     padding: 8px 0;
     opacity: 0;
@@ -409,7 +444,7 @@ ul, li {
   
   .header__dropdown-link {
     display: block;
-    padding: 10px 20px;
+    padding: 12px 20px;
     color: var(--secondary-color);
     font-size: 0.9rem;
     font-weight: 600;
@@ -420,7 +455,7 @@ ul, li {
   .header__dropdown-link:hover {
     background-color: var(--accent-color-light);
     color: var(--primary-color);
-    padding-left: 24px;
+    padding-left: 28px;
   }
   
   .header__cta-desktop {
@@ -444,54 +479,46 @@ ul, li {
 }
 
 /* =====================================================
-   SMALL MOBILE (480px and below) - Even more compact
+   SMALL MOBILE (480px and below)
 ===================================================== */
 @media screen and (max-width: 480px) {
   .header__logo-img {
     width: 95px;
   }
   
-  .header__mobile-toggle {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .header__mobile-toggle svg {
-    width: 22px;
-    height: 22px;
-  }
-  
   .header__mobile-menu {
-    padding: var(--spacing-2) var(--spacing-2) var(--spacing-4) var(--spacing-2);
+    padding: var(--spacing-3) var(--spacing-2) var(--spacing-5) var(--spacing-2);
   }
   
   .header__mobile-link-wrapper {
-    padding: 10px 0;
+    padding: 14px 0;
   }
   
   .header__mobile-link {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
   
   .header__mobile-sub-link {
-    font-size: 0.85rem;
-    padding: 5px 0;
+    font-size: 0.9rem;
+    padding: 10px 0;
   }
   
   .header__mobile-contact-item {
-    font-size: 0.8rem;
-    gap: 10px;
+    font-size: 0.9rem;
+    gap: 12px;
+    padding: 6px 0;
   }
   
   .header__mobile-contact-item svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
   }
   
   .header__mobile-cta {
-    padding: 10px !important;
-    font-size: 0.85rem !important;
-    margin-top: 6px;
+    padding: 12px !important;
+    font-size: 0.9rem !important;
+    margin-top: 12px;
+    min-height: 48px;
   }
 }
 
