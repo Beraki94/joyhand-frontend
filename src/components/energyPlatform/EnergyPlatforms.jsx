@@ -12,8 +12,8 @@ const FEATURED_CATEGORIES = [
     id: 1,
     title: "Storage Batteries",
     slug: "storage-batteries",
-    image: "/images/homeProImg/homepro4.jpg",
-    blurImage: "/images/homeProImg/homepro4.jpg",
+    image: "/homeImg/energyPlatformImage1.png",
+    blurImage: "/homeImg/energyPlatformImage1.png",
     desc: "LFP battery systems for residential & industrial",
     sourceNote: "Manufactured in‑house"
   },
@@ -21,8 +21,8 @@ const FEATURED_CATEGORIES = [
     id: 2,
     title: "Solar Inverters",
     slug: "solar-inverters",
-    image: "/images/homeProImg/homepro2.jpg",
-    blurImage: "/images/homeProImg/homepro2.jpg",
+    image: "/homeImg/energyPlatformImage2.png",
+    blurImage: "/homeImg/energyPlatformImage2.png",
     desc: "High-efficiency pure sine wave inverters",
     sourceNote: "Tier‑1 components"
   },
@@ -30,8 +30,8 @@ const FEATURED_CATEGORIES = [
     id: 3,
     title: "Portable Power Stations",
     slug: "portable-power-stations",
-    image: "/images/homeProImg/homepro3.jpg",
-    blurImage: "/images/homeProImg/homepro3.jpg",
+    image: "/homeImg/energyPlatformImage3.png",
+    blurImage: "/homeImg/energyPlatformImage3.png",
     desc: "Rugged units for emergency & off-grid",
     sourceNote: "OEM/ODM ready"
   },
@@ -39,8 +39,8 @@ const FEATURED_CATEGORIES = [
     id: 4,
     title: "Electric Mobility",
     slug: "electric-mobility",
-    image: "/images/homeProImg/homepro1.jpg",
-    blurImage: "/images/homeProImg/homepro1.jpg",
+    image: "/homeImg/energyPlatformImage4.png",
+    blurImage: "/homeImg/energyPlatformImage4.png",
     desc: "Electric motorcycles, scooters & e-bikes",
     sourceNote: "Sustainable urban mobility"
   },

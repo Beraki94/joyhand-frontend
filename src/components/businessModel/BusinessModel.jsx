@@ -23,7 +23,7 @@ const SERVICES = [
       "Flexible MOQs and scalable capacity"
     ],
     icon: <PiCube size={32} />,
-    image: "/images/factoryImg/factory1.jpg",
+    image: "/HomeImg/businessModelImage2.jpg",
     imageAlt: "OEM production line for solar inverters and battery packs"
   },
   {
@@ -41,7 +41,7 @@ const SERVICES = [
       "Exclusive tooling and IP protection"
     ],
     icon: <PiMicroscope size={32} />,
-    image: "/images/factoryImg/factory3.png",
+    image: "/HomeImg/businessModelImage3.png",
     imageAlt: "Engineering team developing custom battery solutions"
   },
   {
@@ -59,7 +59,7 @@ const SERVICES = [
       "Logistics support: bulk shipments or dropshipping"
     ],
     icon: <PiBuildings size={32} />,
-    image: "/images/factoryImg/factory2.jpg",
+    image: "/HomeImg/businessModelImage4.png",
     imageAlt: "Finished products ready for global shipment"
   }
 ];
@@ -132,13 +132,13 @@ export default function BusinessModel() {
           {/* Static Image Card */}
           <div className={`businessModel__image-card businessModel__image-card--static ${imagesLoaded.static ? 'businessModel__image-card--loaded' : ''}`}>
             <Image
-              src="/images/factoryImg/factory3.png"
+              src="/homeImg/businessModelImage1.png"
               alt="JoyHand manufacturing facility"
               fill
               className="businessModel__image"
               sizes="(max-width: 768px) 100vw, 50vw"
               quality={85}
-              loading="lazy"
+              priority
               onLoad={() => handleImageLoad('static')}
             />
             {/* Overlay for image – adds gradient for text readability */}

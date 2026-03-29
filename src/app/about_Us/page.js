@@ -30,13 +30,13 @@ export default function AboutPage() {
     {
       name: "Michael Zhang",
       title: "CEO & Founder",
-      image: "/images/abtImg/michael.jpg",
+      image: "/aboutImg/aboutProductimg1.png",
       bio: "Michael leads JoyHand's manufacturing strategy, driving vertical integration and sustainable scaling for global energy markets."
     },
     {
       name: "Sarah Chen",
       title: "Chief Technical Officer",
-      image: "/images/abtImg/sarah.jpg",
+      image: "/aboutImg/aboutProductimg2.png",
       bio: "Sarah oversees our 30+ in-house engineers, ensuring every product meets international safety certifications and performance benchmarks."
     }
   ];
@@ -69,28 +69,28 @@ export default function AboutPage() {
       title: "LFP Battery Manufacturing",
       desc: "We produce high-performance Lithium Iron Phosphate storage using Grade-A prismatic cells. Our batteries power residential, commercial, and industrial backup systems.",
       features: ["Grade-A Prismatic Cells", "6000+ Cycle Lifespan", "Automotive-Grade Assembly"],
-      img: "/images/solarImg/panel.home.jpg",
+      img: "/aboutImg/aboutProductimg1.png",
       tag: "Energy Storage"
     },
     {
       title: "Solar Inverter Production",
       desc: "Our pure sine wave inverters are built with Tier-1 components for superior grid-tie and off-grid reliability. 98% peak efficiency and smart grid switching.",
       features: ["98% Peak Efficiency", "Pure Sine Wave Tech", "Smart Grid Switching"],
-      img: "/images/solarImg/panel.home.jpg",
+      img: "/aboutImg/aboutProductimg2.png",
       tag: "Power Electronics"
     },
     {
       title: "Portable Power Stations",
       desc: "Production-ready portable energy solutions for global brands. Engineered with fast-charge technology and multi-region outlet configurations.",
       features: ["Fast-Charge Capability", "OEM/ODM Branding", "Multi-Output Design"],
-      img: "/images/solarImg/panel.home.jpg",
+      img: "/aboutImg/aboutProductimg3.png",
       tag: "Portable Energy"
     },
     {
       title: "E-Mobility Engineering",
       desc: "Specialized assembly of electric motorcycles and scooters. Reinforced chassis engineering and weatherproof motor controllers for commercial use.",
       features: ["Reinforced EV Frames", "IP65 Weatherproof Motors", "Custom Motor Controllers"],
-      img: "/images/solarImg/panel.home.jpg",
+      img: "/aboutImg/aboutProductimg4.png",
       tag: "Electric Mobility"
     }
   ];
