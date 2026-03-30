@@ -615,7 +615,7 @@
   }
 }
 
-.contact-card:hover,
+
 .contact-card:active .contact-card__icon {
   background: var(--primary-color);
   color: white;
