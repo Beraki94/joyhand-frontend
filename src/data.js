@@ -8,7 +8,7 @@ export const blogPosts = [
     title: "LFP Battery Manufacturing: How Grade-A Cells & Smart BMS Define Performance",
     slug: "lfp-battery-manufacturing-grade-a-cells-bms",
     excerpt: "Discover the engineering behind Lithium Iron Phosphate batteries – from prismatic cell selection to advanced BMS design – and how it ensures safety, cycle life, and reliability for OEM customers.",
-    image: "/images/solarImg/panel.home.jpg",
+    image: "/blogImg/blogImage1.png",
     readTime: "8 min read",
     content: [
       {
@@ -78,7 +78,7 @@ export const blogPosts = [
     title: "OEM vs. ODM: Choosing the Right Manufacturing Partner for Your Energy Brand",
     slug: "oem-vs-odm-manufacturing-partner",
     excerpt: "For distributors and brands looking to launch their own energy products, understanding the difference between OEM and ODM services is critical. This guide explains the two models and how to choose the best fit for your business.",
-    image: "/images/solarImg/panel.home.jpg",
+    image: "/blogImg/blogImage2.png",
     readTime: "7 min read",
     content: [
       {
@@ -138,7 +138,7 @@ export const blogPosts = [
     title: "Quality Control in Energy Storage: From Cell to Container",
     slug: "quality-control-energy-storage",
     excerpt: "A behind‑the‑scenes look at how rigorous quality assurance protocols ensure every battery, inverter, and e‑mobility component leaves the factory defect‑free and ready for global distribution.",
-    image: "/images/solarImg/panel.home.jpg",
+    image: "/blogImg/blogImage3.png",
     readTime: "9 min read",
     content: [
       {
@@ -248,7 +248,7 @@ export const blogPosts = [
     title: "The Future of E‑Mobility: Manufacturing Trends & Opportunities",
     slug: "future-e-mobility-manufacturing-trends",
     excerpt: "Electric motorcycles, scooters, and light EVs are reshaping urban transportation. This article explores the latest manufacturing trends, battery innovations, and opportunities for OEM partners.",
-    image: "/images/solarImg/panel.home.jpg",
+    image: "/blogImg/blogImage4.png",
     readTime: "8 min read",
     content: [
       {
@@ -308,7 +308,7 @@ export const blogPosts = [
     title: "Navigating Global Certifications for Lithium Batteries: CE, UL, UN38.3 & More",
     slug: "global-certifications-lithium-batteries",
     excerpt: "Exporting lithium batteries requires compliance with a complex set of regulations. This guide explains the key certifications and how JoyHand ensures every product meets international standards.",
-    image: "/images/solarImg/panel.home.jpg",
+    image: "/blogImg/blogImage5.png",
     readTime: "10 min read",
     content: [
       {
@@ -418,7 +418,7 @@ export const blogPosts = [
     title: "Optimizing Supply Chains with Direct Factory Partnerships",
     slug: "optimizing-supply-chains-factory-partnerships",
     excerpt: "In a volatile global market, working directly with a manufacturer offers stability, cost savings, and agility. Learn how vertical integration and factory‑direct relationships can transform your supply chain.",
-    image: "/images/solarImg/panel.home.jpg",
+    image: "/blogImg/blogImage6.jpg",
     readTime: "7 min read",
     content: [
       {
