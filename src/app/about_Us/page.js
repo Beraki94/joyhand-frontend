@@ -13,9 +13,7 @@ import {
   PiFactory,
   PiChartLineUp,
   PiQuotesFill,
-  PiBatteryHigh,
   PiLightning,
-  PiMotorcycle
 } from "react-icons/pi";
 
 import PageHeader from "@/components/pageHeader/PageHeader";
@@ -28,16 +26,16 @@ import SuperRing from "@/components/superRing/SuperRing";
 export default function AboutPage() {
   const team = [
     {
-      name: "Michael Zhang",
+      name: "Winper Du",
       title: "CEO & Founder",
-      image: "/aboutImg/aboutProductimg1.png",
-      bio: "Michael leads JoyHand's manufacturing strategy, driving vertical integration and sustainable scaling for global energy markets."
+      image: "/aboutImg/aboutteamimg1.png",
+      bio: "Winper leads JoyHand's manufacturing strategy, driving vertical integration and sustainable scaling for global energy markets."
     },
     {
-      name: "Sarah Chen",
-      title: "Chief Technical Officer",
-      image: "/aboutImg/aboutProductimg2.png",
-      bio: "Sarah oversees our 30+ in-house engineers, ensuring every product meets international safety certifications and performance benchmarks."
+      name: "Engineer Li",
+      title: "Chief Engineer Officer",
+      image: "/aboutImg/aboutteamimg2.png",
+      bio: "Li oversees our 30+ in-house engineers, ensuring every product meets international safety certifications and performance benchmarks."
     }
   ];
 
@@ -127,7 +125,7 @@ export default function AboutPage() {
       quote: "Working directly with JoyHand's engineering team allowed us to customize the BMS for our specific climate. Their manufacturing transparency is a massive competitive advantage.",
       author: "Ahmed Ibrahim",
       company: "GreenTech Distributors, Nigeria",
-      image: "/aboutImg/aboutTestimonial1g.jpg"
+      image: "/aboutImg/aboutTestimonial1.jpg"
     },
     {
       quote: "The build quality of their factory-direct LFP packs is significantly higher than the generic units we sourced before. Their QC protocols saved us from field failures.",
