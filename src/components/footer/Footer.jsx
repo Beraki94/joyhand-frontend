@@ -133,6 +133,7 @@ export default function Footer() {
           <div className="footer__legal-links">
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms of Service</Link>
+            <Link href="/cookie-policy">Cookie Policy</Link>
           </div>
           <p className="footer__copyright">© {year} JoyHand Energy. All Rights Reserved.</p>
           <p className="footer__credit">

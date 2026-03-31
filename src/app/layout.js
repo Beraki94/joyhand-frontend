@@ -3,6 +3,7 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import ScrollToTop from "@/components/scrollTotop/ScrollToTop";
 import PageLoader from "@/components/pageLoader/PageLoader";
+import CookieConsent from "@/components/CookieConsent/CookieConsent"; // Import the component
 
 // SEO Metadata - Currently set to private as requested
 export const metadata = {
@@ -16,7 +17,6 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    // "data-scroll-behavior" tells Next.js you are handling smooth scroll
     <html lang="en" data-scroll-behavior="smooth">
       <body suppressHydrationWarning={true}>
         <PageLoader>
@@ -25,6 +25,8 @@ export default function RootLayout({ children }) {
           <Footer />
           <ScrollToTop />
         </PageLoader>
+        {/* Cookie consent banner appears after everything, fixed at bottom */}
+        <CookieConsent />
       </body>
     </html>
   );

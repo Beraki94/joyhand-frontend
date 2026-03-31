@@ -68,8 +68,7 @@
   max-width: 100%;
   text-align: left;
   margin-bottom: var(--spacing-1);
-  text-align: justify;
-  text-justify: inter-word;
+
 }
 
 /* Social Icons - Smaller on mobile */
@@ -297,6 +296,11 @@
   .footer {
     padding-top: var(--spacing-5);
   }
+
+  .footer__description {
+  text-align: justify;
+  text-justify: inter-word;
+}
   
   .footer__container {
     gap: var(--spacing-5);

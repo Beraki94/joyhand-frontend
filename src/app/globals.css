@@ -456,8 +456,10 @@ img {
   }
 }
 
+
+
 /* =====================================================
-   NOT FOUND PAGE
+   NOT FOUND PAGE - Mobile First
 ===================================================== */
 .not-found {
   min-height: calc(100vh - var(--header-height));
@@ -472,6 +474,7 @@ img {
 .not-found__content {
   max-width: 500px;
   width: 100%;
+  margin: 0 auto;
 }
 
 .not-found__title {
@@ -491,22 +494,163 @@ img {
 .not-found__text {
   color: var(--neutral-medium);
   margin-bottom: var(--spacing-4);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
 }
 
 .not-found__btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--spacing-2) var(--spacing-5);
   background: var(--secondary-color);
   color: var(--neutral-white);
   border-radius: 50px;
   text-decoration: none;
   transition: var(--transition);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  min-width: 180px;
+  white-space: nowrap;
 }
 
 .not-found__btn:hover {
   background: var(--primary-color);
   transform: translateY(-2px);
 }
+
+/* =====================================================
+   SMALL MOBILE (480px and below)
+===================================================== */
+@media screen and (max-width: 480px) {
+  .not-found {
+    padding: var(--spacing-3);
+  }
+  
+  .not-found__subtitle {
+    font-size: var(--font-size-xl);
+  }
+  
+  .not-found__text {
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--spacing-3);
+  }
+  
+  .not-found__btn {
+    padding: var(--spacing-2) var(--spacing-4);
+    font-size: var(--font-size-xs);
+    min-width: 150px;
+    white-space: normal;
+    word-break: keep-all;
+  }
+}
+
+
+
+/* =====================================================
+   LEGAL PAGES (Privacy, Terms, Cookie)
+===================================================== */
+.legal-page {
+  background-color: var(--neutral-white);
+}
+
+.legal__container {
+  padding-top: var(--spacing-5);
+  padding-bottom: var(--spacing-8);
+}
+
+@media screen and (min-width: 768px) {
+  .legal__container {
+    padding-top: var(--spacing-6);
+    padding-bottom: var(--spacing-10);
+  }
+}
+
+.legal__content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.legal__section {
+  margin-bottom: var(--spacing-6);
+}
+
+.legal__section h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-3);
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+  .legal__section h2 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-4);
+  }
+}
+
+.legal__section p,
+.legal__section li {
+  color: var(--neutral-medium);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-2);
+}
+
+.legal__section ul {
+  margin: var(--spacing-2) 0 var(--spacing-3) var(--spacing-4);
+  list-style: disc;
+}
+
+.legal__section li {
+  margin-bottom: 0.25rem;
+}
+
+.legal__section a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  transition: var(--transition);
+}
+
+.legal__section a:hover {
+  color: var(--primary-color-dark);
+  text-decoration: none;
+}
+
+/* =====================================================
+   SMALL MOBILE (480px and below)
+===================================================== */
+@media screen and (max-width: 480px) {
+  .legal__section h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-2);
+  }
+  
+  .legal__section p,
+  .legal__section li {
+    font-size: 0.85rem;
+  }
+  
+  .legal__section ul {
+    margin-left: var(--spacing-3);
+  }
+}
+
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .not-found__btn {
+    transition: none;
+  }
+  .not-found__btn:hover {
+    transform: none;
+  }
+}
+
+
 
 /* =====================================================
    BROWSER-SPECIFIC FIXES - Edge & Chrome Harmony

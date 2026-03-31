@@ -1,0 +1,130 @@
+/* =====================================================
+   COOKIE CONSENT BANNER - JoyHand Branded
+===================================================== */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(18, 27, 45, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem;
+  z-index: 9999;
+  font-family: var(--font-family-base, system-ui, sans-serif);
+  border-top: 1px solid rgba(255, 127, 65, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.cookie-banner-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .cookie-banner-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    gap: 2rem;
+  }
+}
+
+.cookie-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .cookie-text {
+    font-size: 0.9rem;
+    flex: 1;
+  }
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.cookie-link {
+  color: var(--primary-color-light, #ffad85);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.cookie-link:hover {
+  color: white;
+  border-bottom-color: var(--primary-color, #ff7f41);
+}
+
+.cookie-button {
+  background: var(--primary-color, #ff7f41);
+  border: none;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(255, 127, 65, 0.3);
+}
+
+.cookie-button:hover {
+  background: var(--primary-color-dark, #cc6534);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 127, 65, 0.4);
+}
+
+/* =====================================================
+   SMALL MOBILE (≤480px)
+===================================================== */
+@media (max-width: 480px) {
+  .cookie-banner {
+    padding: 0.75rem;
+  }
+  .cookie-text {
+    font-size: 0.75rem;
+  }
+  .cookie-link,
+  .cookie-button {
+    font-size: 0.75rem;
+  }
+  .cookie-button {
+    padding: 0.4rem 1.2rem;
+  }
+}
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .cookie-banner {
+    animation: none;
+    transform: translateY(0);
+  }
+  .cookie-button:hover {
+    transform: none;
+  }
+}

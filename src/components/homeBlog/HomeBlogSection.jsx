@@ -32,7 +32,7 @@ const HomeBlogSection = () => {
   return (
     <section className="home-blog">
   
-        <SectionDecor type="secondary" count={8} />
+        <SectionDecor type="primary" count={6} />
       
       <div className="container">
         <SectionHeader
