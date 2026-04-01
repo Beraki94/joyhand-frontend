@@ -392,7 +392,7 @@
 }
 
 .office-card {
-  background: var(--neutral-white);
+  background: linear-gradient(145deg, #ffffff, #fff5ef);
   padding: var(--spacing-5);
   border-radius: 24px;
   text-align: center;
