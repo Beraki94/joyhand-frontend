@@ -12,14 +12,13 @@ import {
 } from "react-icons/pi";
 import { productData } from "@/data";
 import ProductGallery from "./ProductGallery";
+import ProductVideoModal from "./ProductModal";
 import "../Products.css";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const product = productData.find(p => p.slug === slug);
-  
   if (!product) return { title: "Product Not Found" };
-  
   return {
     title: `${product.name} ${product.model} | JoyHand Energy Solutions`,
     description: product.description,
@@ -27,35 +26,25 @@ export async function generateMetadata({ params }) {
   };
 }
 
-// Get category icon
+// Helper functions
 function getCategoryIcon(category) {
   switch(category) {
-    case "battery":
-      return <PiBatteryHigh size={16} />;
-    case "inverter":
-      return <PiLightning size={16} />;
-    case "electric-mobility":
-      return <PiMotorcycle size={16} />;
-    default:
-      return <PiFactory size={16} />;
+    case "battery": return <PiBatteryHigh size={16} />;
+    case "inverter": return <PiLightning size={16} />;
+    case "electric-mobility": return <PiMotorcycle size={16} />;
+    default: return <PiFactory size={16} />;
   }
 }
 
-// Get category display name
 function getCategoryDisplay(category) {
   switch(category) {
-    case "battery":
-      return "Battery Storage";
-    case "inverter":
-      return "Solar Inverter";
-    case "electric-mobility":
-      return "Electric Mobility";
-    default:
-      return "Energy Solution";
+    case "battery": return "Battery Storage";
+    case "inverter": return "Solar Inverter";
+    case "electric-mobility": return "Electric Mobility";
+    default: return "Energy Solution";
   }
 }
 
-// Get product type display
 function getTypeDisplay(type) {
   const types = {
     "wall-mounted": "Wall Mounted",
@@ -70,18 +59,13 @@ function getTypeDisplay(type) {
 }
 
 function ProductSpecs({ product }) {
-  // Safely get specifications
-  const specifications = product?.specifications;
-  const { category, type } = product;
-  
+  const { specifications, category, type } = product;
   if (!specifications) return null;
-  
-  // Helper function to format values that might be objects
+
   const formatValue = (value) => {
     if (!value) return null;
     if (typeof value === 'string') return value;
     if (typeof value === 'object') {
-      // If it's an object, format it nicely
       if (value['40HQ'] || value['20GP']) {
         return `40'HQ: ${value['40HQ']} | 20'GP: ${value['20GP']}`;
       }
@@ -89,10 +73,8 @@ function ProductSpecs({ product }) {
     }
     return String(value);
   };
-  
-  // Dynamic specs based on product category
+
   let specsToShow = [];
-  
   if (category === "battery") {
     specsToShow = [
       { label: "Model", value: product.model },
@@ -112,8 +94,7 @@ function ProductSpecs({ product }) {
       { label: "IP Rating", value: specifications.ipRating },
       { label: "Cooling", value: specifications.cooling },
     ];
-  } 
-  else if (category === "inverter") {
+  } else if (category === "inverter") {
     specsToShow = [
       { label: "Model", value: product.model },
       { label: "Type", value: getTypeDisplay(type) },
@@ -132,8 +113,7 @@ function ProductSpecs({ product }) {
       { label: "IP Rating", value: specifications.ipRating },
       { label: "Parallel Support", value: specifications.parallelSupport },
     ];
-  }
-  else if (category === "electric-mobility") {
+  } else if (category === "electric-mobility") {
     specsToShow = [
       { label: "Model", value: product.model },
       { label: "Type", value: getTypeDisplay(type) },
@@ -150,10 +130,8 @@ function ProductSpecs({ product }) {
       { label: "Container Loading", value: specifications.containerLoading },
     ];
   }
-  
-  // Filter out undefined/null values and format object values
+
   specsToShow = specsToShow.filter(spec => spec.value);
-  
   if (specsToShow.length === 0) return null;
 
   return (
@@ -170,9 +148,9 @@ function ProductSpecs({ product }) {
     </div>
   );
 }
+
 function ProductFeatures({ features }) {
   if (!features || features.length === 0) return null;
-  
   return (
     <div className="product-details__features">
       <h3 className="product-details__features-heading">Key Features</h3>
@@ -190,7 +168,6 @@ function ProductFeatures({ features }) {
 
 function ProductApplications({ applications }) {
   if (!applications || applications.length === 0) return null;
-  
   return (
     <div className="product-details__applications">
       <h3 className="product-details__applications-heading">Applications</h3>
@@ -208,7 +185,6 @@ function ProductApplications({ applications }) {
 
 function ProductCertifications({ certifications }) {
   if (!certifications || certifications.length === 0) return null;
-  
   return (
     <div className="product-details__certifications">
       <h3 className="product-details__certifications-heading">Certifications</h3>
@@ -223,7 +199,6 @@ function ProductCertifications({ certifications }) {
 
 function ProductWarranty({ warranty }) {
   if (!warranty) return null;
-  
   return (
     <div className="product-details__warranty">
       <h3 className="product-details__warranty-heading">Warranty</h3>
@@ -235,15 +210,14 @@ function ProductWarranty({ warranty }) {
 export default async function ProductDetailsPage({ params }) {
   const { slug } = await params;
   const product = productData.find(p => p.slug === slug);
-
-  if (!product) {
-    notFound();
-  }
+  if (!product) notFound();
 
   const images = product.gallery?.length ? product.gallery : [product.image];
   const categoryDisplay = getCategoryDisplay(product.category);
   const categoryIcon = getCategoryIcon(product.category);
   const typeDisplay = getTypeDisplay(product.type);
+  // Placeholder video ID – replace with actual YouTube ID per product or leave empty to hide
+  const videoId = "dQw4w9WgXcQ"; // example
 
   return (
     <main className="product-details">
@@ -256,6 +230,7 @@ export default async function ProductDetailsPage({ params }) {
           {/* Gallery Section */}
           <section className="product-details__gallery">
             <ProductGallery images={images} productName={product.name} />
+            {videoId && <ProductVideoModal videoId={videoId} />}
           </section>
 
           {/* Info Section */}
