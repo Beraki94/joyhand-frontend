@@ -20,6 +20,7 @@ import {
   CheckCircle
 } from "lucide-react";
 import "./contact.css";
+import SuperRing from "@/components/superRing/SuperRing";
 
 // Updated global offices – manufacturing facility highlighted
 const globalOffices = [
@@ -95,7 +96,9 @@ export default function ContactPage() {
 
       {/* ================= INQUIRY SECTION ================= */}
       <section className="contact-form-section">
+
         <SectionDecor type="accent" count={8} />
+
         <div className="container contact-form-section__grid">
           
           <div className="contact-form-section__content">
@@ -165,6 +168,39 @@ export default function ContactPage() {
 
       {/* ================= GLOBAL OFFICES SECTION ================= */}
       <section className="global-offices">
+
+          {/* Decorative rings */}
+            <SuperRing
+              type="primary"
+              size="1400px"
+              thickness="40px"
+              top="50%"
+              left="50%"
+              translateX="-50%"
+              translateY="-50%"
+              opacity={0.06}
+            />
+          <SuperRing
+            type="secondary"
+            size="900px"
+            thickness="40px"
+            top="15%"
+            left="70%"
+            translateX="-50%"
+            translateY="-50%"
+            opacity={0.05}
+              />
+          <SuperRing
+            type="accent"
+            size="900px"
+            thickness="40px"
+            top="85%"
+            left="30%"
+            translateX="-50%"
+            translateY="-50%"
+            opacity={0.05}
+          />
+          
         <div className="container">
           <SectionHeader 
             badge="Our Global Presence" 
@@ -189,6 +225,9 @@ export default function ContactPage() {
 
       {/* ================= CONTACT CARDS (NFC STYLE) ================= */}
       <section className="contact-info">
+
+        <SectionDecor type="primary" count={6} />
+
         <div className="container">
           <SectionHeader 
             badge="Get in Touch" 
@@ -273,6 +312,9 @@ export default function ContactPage() {
 
       {/* ================= FAQ SNIPPET ================= */}
       <section className="contact-faq">
+
+        <SectionDecor type="accent" count={8} />
+
         <div className="container">
           <div className="contact-faq__grid">
             <div className="contact-faq__item">
