@@ -12,7 +12,7 @@ import {
 } from "react-icons/pi";
 import { productData } from "@/data";
 import ProductGallery from "./ProductGallery";
-import ProductVideoModal from "./ProductModal";
+import ProductVideo from "./ProductVideo";
 import "../Products.css";
 
 export async function generateMetadata({ params }) {
@@ -216,8 +216,7 @@ export default async function ProductDetailsPage({ params }) {
   const categoryDisplay = getCategoryDisplay(product.category);
   const categoryIcon = getCategoryIcon(product.category);
   const typeDisplay = getTypeDisplay(product.type);
-  // Placeholder video ID – replace with actual YouTube ID per product or leave empty to hide
-  const videoId = "dQw4w9WgXcQ"; // example
+  const videoId = "dQw4w9WgXcQ"; // replace with actual per‑product video ID
 
   return (
     <main className="product-details">
@@ -230,7 +229,7 @@ export default async function ProductDetailsPage({ params }) {
           {/* Gallery Section */}
           <section className="product-details__gallery">
             <ProductGallery images={images} productName={product.name} />
-            {videoId && <ProductVideoModal videoId={videoId} />}
+            {videoId && <ProductVideo videoId={videoId} />}
           </section>
 
           {/* Info Section */}
