@@ -2,11 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { 
-  PiXLogo, 
-  PiFacebookLogo, 
-  PiLinkedinLogo, 
-  PiEnvelopeSimple, 
-  PiPhone, 
+  PiYoutubeLogo, 
+  PiTiktokLogo, 
+  PiInstagramLogo,
+  PiFacebookLogo,
+  PiPinterestLogo,
   PiGlobe,
   PiFactory,
   PiBuilding
@@ -74,10 +74,52 @@ export default function Footer() {
             for global distributors.
           </p>
           <div className="footer__social">
-            <a href="#" className="footer__social-link" aria-label="LinkedIn"><PiLinkedinLogo size={18} /></a>
-            <a href="#" className="footer__social-link" aria-label="X (Twitter)"><PiXLogo size={18} /></a>
-            <a href="#" className="footer__social-link" aria-label="Facebook"><PiFacebookLogo size={18} /></a>
-          </div>
+            <a 
+              href="https://www.youtube.com/@JoyHandSolar" 
+              className="footer__social-link" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="YouTube"
+            >
+              <PiYoutubeLogo size={18} />
+            </a>
+            <a 
+              href="https://www.tiktok.com/@joyhandsolar" 
+              className="footer__social-link" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="TikTok"
+            >
+              <PiTiktokLogo size={18} />
+            </a>
+            <a 
+              href="https://www.facebook.com/JoyHandEnergy" 
+              className="footer__social-link" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Facebook"
+            >
+              <PiFacebookLogo size={18} />
+            </a>
+            <a 
+              href="https://www.instagram.com/joyhandenergy/" 
+              className="footer__social-link" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Instagram"
+            >
+              <PiInstagramLogo size={18} />
+            </a>
+            <a 
+              href="https://www.pinterest.com/joyhandenergy/" 
+              className="footer__social-link" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Pinterest"
+            >
+              <PiPinterestLogo size={18} />
+            </a>
+        </div>
         </div>
 
         {/* SOLUTIONS COLUMN */}
