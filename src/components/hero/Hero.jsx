@@ -50,7 +50,7 @@ export default function Hero() {
             </h1>
 
             <p className="hero__desc">
-              <strong>Direct factory supply</strong> of premium 
+              <strong>Direct factory supply</strong> of custom 
               <strong> lithium‑ion batteries</strong>,
               <strong> solar inverters</strong>, and
               <strong> electric motorcycles</strong> with full OEM/ODM 
