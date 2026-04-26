@@ -30,22 +30,37 @@ const ProductCard = ({ product }) => {
   const previewSpecs = [];
   if (specifications) {
     // For batteries
-    if (specifications.power) previewSpecs.push({ label: "Power", value: specifications.power });
-    else if (specifications.energy) previewSpecs.push({ label: "Capacity", value: specifications.energy });
-    else if (specifications.capacity) previewSpecs.push({ label: "Capacity", value: specifications.capacity });
-
+    if (category === "battery") {
+      if (specifications.power) previewSpecs.push({ label: "Power", value: specifications.power });
+      else if (specifications.energy) previewSpecs.push({ label: "Capacity", value: specifications.energy });
+      else if (specifications.capacity) previewSpecs.push({ label: "Capacity", value: specifications.capacity });
+      if (specifications.nominalVoltage && previewSpecs.length < 2) {
+        previewSpecs.push({ label: "Voltage", value: specifications.nominalVoltage });
+      } else if (specifications.dcInput && previewSpecs.length < 2) {
+        previewSpecs.push({ label: "Input", value: specifications.dcInput });
+      }
+    }
+    // For inverters
+    else if (category === "inverter") {
+      if (specifications.power) previewSpecs.push({ label: "Power", value: specifications.power });
+      else if (specifications.energy) previewSpecs.push({ label: "Capacity", value: specifications.energy });
+      else if (specifications.capacity) previewSpecs.push({ label: "Capacity", value: specifications.capacity });
+      if (specifications.nominalVoltage && previewSpecs.length < 2) {
+        previewSpecs.push({ label: "Voltage", value: specifications.nominalVoltage });
+      } else if (specifications.dcInput && previewSpecs.length < 2) {
+        previewSpecs.push({ label: "Input", value: specifications.dcInput });
+      }
+    }
     // For electric mobility
-    if (category === "electric-mobility") {
+    else if (category === "electric-mobility") {
+      if (specifications.power) previewSpecs.push({ label: "Power", value: specifications.power });
+      else if (specifications.energy) previewSpecs.push({ label: "Capacity", value: specifications.energy });
+      else if (specifications.capacity) previewSpecs.push({ label: "Capacity", value: specifications.capacity });
       if (specifications.maxSpeed || specifications.topSpeed) {
         previewSpecs.push({ label: "Top Speed", value: specifications.maxSpeed || specifications.topSpeed });
       } else if (specifications.motor && previewSpecs.length < 2) {
         previewSpecs.push({ label: "Motor", value: specifications.motor });
       }
-    } 
-    // For inverters and batteries
-    else if (category === "battery" || category === "inverter") {
-      if (specifications.nominalVoltage) previewSpecs.push({ label: "Voltage", value: specifications.nominalVoltage });
-      else if (specifications.dcInput) previewSpecs.push({ label: "Input", value: specifications.dcInput });
     }
     // For portable power stations
     else if (category === "portable-power") {
@@ -56,15 +71,22 @@ const ProductCard = ({ product }) => {
     }
     // For power banks
     else if (category === "power-bank") {
-      if (specifications.capacity) previewSpecs.push({ label: "Capacity", value: specifications.capacity });
-      else if (specifications.batteryCapacity) previewSpecs.push({ label: "Capacity", value: specifications.batteryCapacity });
-      // Output power (e.g., USB-C PD wattage)
-      if (specifications.usbCOutput) {
+      // Add capacity only once
+      let capacityValue = specifications.capacity || specifications.batteryCapacity;
+      if (capacityValue) {
+        previewSpecs.push({ label: "Capacity", value: capacityValue });
+      }
+      // Try to get output wattage
+      let outputValue = null;
+      if (specifications.totalOutput) {
+        outputValue = specifications.totalOutput;
+      } else if (specifications.usbCOutput) {
         const wattMatch = specifications.usbCOutput.match(/(\d+\.?\d*)W/);
-        if (wattMatch) previewSpecs.push({ label: "Output", value: `${wattMatch[1]}W` });
-        else if (previewSpecs.length < 2) previewSpecs.push({ label: "Output", value: specifications.usbCOutput });
-      } else if (specifications.totalOutput) {
-        previewSpecs.push({ label: "Output", value: specifications.totalOutput });
+        if (wattMatch) outputValue = `${wattMatch[1]}W`;
+        else outputValue = specifications.usbCOutput;
+      }
+      if (outputValue && previewSpecs.length < 2) {
+        previewSpecs.push({ label: "Output", value: outputValue });
       }
     }
   }

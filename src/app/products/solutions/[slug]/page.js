@@ -39,7 +39,7 @@ const solutionConfig = {
   "power-banks": {
     title: "Power Banks",
     filterCategory: "power-bank",
-    image: "/homeImg/energyPlatformImage-pb.jpg",
+    image: "/homeImg/energyPlatformImage05.jpg",
     description: "Compact, high‑capacity portable chargers for phones, tablets, and laptops.",
     keywords: "power bank, portable charger, magnetic power bank, wireless power bank, fast charging, USB-C PD"
   }
