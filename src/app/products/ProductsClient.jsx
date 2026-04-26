@@ -12,6 +12,7 @@ const solutionLinks = [
   { slug: "solar-inverters", name: "Solar Inverters" },
   { slug: "portable-power-stations", name: "Portable Power" },
   { slug: "electric-mobility", name: "Electric Mobility" },
+  { slug: "power-banks", name: "Power Banks" },      // ← add this line
 ];
 
 const PRODUCTS_PER_PAGE = 12;

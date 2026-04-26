@@ -24,7 +24,8 @@ const links = [
       { name: "Storage Batteries", href: "/products/solutions/storage-batteries" },
       { name: "Solar Inverters", href: "/products/solutions/solar-inverters" },
       { name: "Portable Power Stations", href: "/products/solutions/portable-power-stations" },
-      { name: "Electric Mobility", href: "/products/solutions/electric-mobility" }
+      { name: "Electric Mobility", href: "/products/solutions/electric-mobility" },
+      { name: "Power Banks", href: "/products/solutions/power-banks" }  // ← newly added
     ]
   },
   { name: "Manufacturing", href: "/services" },

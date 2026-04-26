@@ -2161,8 +2161,1291 @@ export const productData = [
     warranty: "2 years",
     inStock: true,
     youtubeVideoId: null
-  }
+  },
 
+    // ===== POWER BANKS =====
+  {
+    id: "pb-001",
+    slug: "power-bank-w130-5000mah-wireless",
+    name: "W130 Magnetic Wireless Power Bank",
+    model: "W130",
+    category: "power-bank",
+    type: "wireless",
+    description: "Ultra‑slim 5000mAh magnetic power bank with 15W wireless charging and USB‑C PD 20W. Fits easily under your phone.",
+    specifications: {
+      capacity: "5000mAh",
+      cellType: "955465 Li‑ion",
+      dimensions: "97 × 64 × 15 mm",
+      material: "ABS+PC",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~130g"
+    },
+    features: [
+      "15W fast wireless charging (MagSafe compatible)",
+      "5000mAh capacity – one full phone charge",
+      "USB‑C PD 20W for wired fast charging",
+      "Ultra‑compact and lightweight",
+      "LED battery indicator"
+    ],
+    applications: [
+      "Daily iPhone charging",
+      "Travel and business trips",
+      "Emergency top‑up for phones and earbuds"
+    ],
+    image: "/productImg/p-bank/powerbank01.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank01.jpg",
+
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-002",
+    slug: "power-bank-w131-10000mah-wireless",
+    name: "W131 10000mAh Magnetic Wireless Power Bank",
+    model: "W131",
+    category: "power-bank",
+    type: "wireless",
+    description: "High‑capacity 10000mAh magnetic power bank with 15W wireless charging and dual outputs. Ideal for extended travel.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "126280 Li‑ion",
+      dimensions: "107 × 70 × 20 mm",
+      material: "ABS+PC",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      usbAOutput: "5V/3A, 9V/2A, 12V/1.5A (QC 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~230g"
+    },
+    features: [
+      "15W fast wireless charging",
+      "10000mAh – 2‑3 full phone charges",
+      "Dual output (USB‑C + USB‑A)",
+      "USB‑C PD 20W input/output",
+      "Compact for its capacity"
+    ],
+    applications: [
+      "Multi‑day travel and camping",
+      "Whole family device charging",
+      "Remote work"
+    ],
+    image: "/productImg/p-bank/powerbank02.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank02a.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-003",
+    slug: "power-bank-g151-5000-slim",
+    name: "G151 5000mAh Slim Power Bank",
+    model: "G151-5000",
+    category: "power-bank",
+    type: "compact",
+    description: "Ultra‑thin 5000mAh power bank with 15W wireless charging and USB‑C PD. Only 10mm thick.",
+    specifications: {
+      capacity: "5000mAh",
+      cellType: "706074 Li‑ion",
+      dimensions: "110 × 70 × 10 mm",
+      material: "ABS+PC",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      usbAOutput: "5V/3A, 9V/2A, 12V/1.5A (QC 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~155g"
+    },
+    features: [
+      "10mm ultra‑slim design",
+      "15W wireless charging",
+      "USB‑C PD fast charge in/out",
+      "USB‑A QC3.0 for legacy devices",
+      "LED battery indicator"
+    ],
+    applications: [
+      "Everyday carry",
+      "Phone and earbuds charging",
+      "Business meetings"
+    ],
+    image: "/productImg/p-bank/powerbank03.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank03.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-004",
+    slug: "power-bank-g151-5000-built-in-cables",
+    name: "G151 5000mAh Power Bank with Built‑in Cables",
+    model: "G151-5000 (带两线)",
+    category: "power-bank",
+    type: "built-in-cables",
+    description: "5000mAh power bank with integrated USB‑C and Lightning cables, plus 15W wireless charging. No extra cables needed.",
+    specifications: {
+      capacity: "5000mAh",
+      cellType: "706074 Li‑ion",
+      dimensions: "110 × 70 × 10 mm",
+      material: "ABS+PC",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      builtInCables: "USB‑C (5V/3A, 9V/2A), Lightning (5V/2.4A)",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      usbAOutput: "5V/3A, 9V/2A, 12V/1.5A (QC 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~170g"
+    },
+    features: [
+      "Built‑in USB‑C and Lightning cables",
+      "15W wireless charging",
+      "Ultra‑slim 10mm design",
+      "USB‑C PD 20W fast charging",
+      "Convenient for mixed devices"
+    ],
+    applications: [
+      "Travelers who want minimal packing",
+      "Gift for iPhone + Android households",
+      "Emergency backup without cables"
+    ],
+    image: "/productImg/p-bank/powerbank04.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank04a.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-005",
+    slug: "power-bank-w151-10000-slim",
+    name: "W151 10000mAh Slim Power Bank",
+    model: "W151-10000",
+    category: "power-bank",
+    type: "high-capacity",
+    description: "10000mAh slim power bank with 15W wireless charging and dual USB outputs. Compact enough for daily carry.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "146074 Li‑ion",
+      dimensions: "110 × 70 × 20 mm",
+      material: "ABS+PC",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      usbAOutput: "5V/3A, 9V/2A, 12V/1.5A (QC 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~220g"
+    },
+    features: [
+      "10000mAh – 2‑3 full charges",
+      "15W wireless charging",
+      "USB‑C PD fast charge",
+      "USB‑A QC3.0",
+      "Slim profile for its capacity"
+    ],
+    applications: [
+      "Extended weekend trips",
+      "Remote work",
+      "Charging tablets and phones"
+    ],
+    image: "/productImg/p-bank/powerbank05.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank05.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-006",
+    slug: "power-bank-w151-10000-built-in-cables",
+    name: "W151 10000mAh Power Bank with Built‑in Cables",
+    model: "W151-10000 (带两线)",
+    category: "power-bank",
+    type: "built-in-cables",
+    description: "10000mAh power bank with integrated USB‑C and Lightning cables, 15W wireless charging, and fast PD charging. The ultimate travel companion.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "146074 Li‑ion",
+      dimensions: "110 × 70 × 20 mm",
+      material: "ABS+PC",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      builtInCables: "USB‑C (5V/3A, 9V/2A), Lightning (5V/2.4A)",
+      usbAOutput: "5V/3A, 9V/2A, 12V/1.5A (QC 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~240g"
+    },
+    features: [
+      "Built‑in USB‑C and Lightning cables",
+      "15W wireless charging",
+      "10000mAh high capacity",
+      "USB‑C PD 20W",
+      "Ideal for international travel"
+    ],
+    applications: [
+      "Long flights and road trips",
+      "Business travel with multiple devices",
+      "Family outings"
+    ],
+    image: "/productImg/p-bank/powerbank06.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank06.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-007",
+    slug: "power-bank-w152-5000-slim",
+    name: "W152 5000mAh Slim Power Bank",
+    model: "W152-5000",
+    category: "power-bank",
+    type: "compact",
+    description: "Ultra‑thin 5000mAh power bank with 15W wireless charging. Only 10mm thick, perfect for daily carry.",
+    specifications: {
+      capacity: "5000mAh",
+      cellType: "626080 Li‑ion",
+      dimensions: "110 × 70 × 10 mm",
+      material: "ABS+PC",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      usbAOutput: "5V/3A, 9V/2A, 12V/1.5A (QC 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~155g"
+    },
+    features: [
+      "10mm ultra‑slim profile",
+      "15W wireless charging",
+      "USB‑C PD fast charging",
+      "USB‑A QC3.0",
+      "LED battery indicator"
+    ],
+    applications: [
+      "Everyday pocket carry",
+      "Office desk backup",
+      "Short trips"
+    ],
+    image: "/productImg/p-bank/powerbank07.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank07.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-008",
+    slug: "power-bank-w152-5000-built-in-cables",
+    name: "W152 5000mAh Power Bank with Built‑in Cables",
+    model: "W152-5000 (带两线)",
+    category: "power-bank",
+    type: "built-in-cables",
+    description: "5000mAh ultra‑slim power bank with built‑in USB‑C and Lightning cables and 15W wireless charging.",
+    specifications: {
+      capacity: "5000mAh",
+      cellType: "626080 Li‑ion",
+      dimensions: "110 × 70 × 10 mm",
+      material: "ABS+PC",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      builtInCables: "USB‑C (5V/3A, 9V/2A), Lightning (5V/2.4A)",
+      usbAOutput: "5V/3A, 9V/2A, 12V/1.5A (QC 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~170g"
+    },
+    features: [
+      "Built‑in USB‑C and Lightning cables",
+      "15W wireless charging",
+      "Only 10mm thick",
+      "USB‑C PD fast charging",
+      "Perfect for minimalist travel"
+    ],
+    applications: [
+      "Travel and day trips",
+      "Mixed device households",
+      "Emergency backup"
+    ],
+    image: "/productImg/p-bank/powerbank08.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank08.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-009",
+    slug: "power-bank-w152-10000-slim",
+    name: "W152 10000mAh Slim Power Bank",
+    model: "W152-10000",
+    category: "power-bank",
+    type: "high-capacity",
+    description: "10000mAh slim power bank with 15W wireless charging and dual outputs. 18mm thick, ideal for extended use.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "126280 Li‑ion",
+      dimensions: "110 × 70 × 18 mm",
+      material: "ABS+PC",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      usbAOutput: "5V/3A, 9V/2A, 12V/1.5A (QC 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~220g"
+    },
+    features: [
+      "10000mAh capacity",
+      "15W wireless charging",
+      "USB‑C PD fast charge",
+      "USB‑A QC3.0",
+      "Slim for its capacity"
+    ],
+    applications: [
+      "Weekend travel",
+      "Remote work",
+      "Tablet and phone charging"
+    ],
+    image: "/productImg/p-bank/powerbank09.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank09.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-010",
+    slug: "power-bank-w152-10000-built-in-cables",
+    name: "W152 10000mAh Power Bank with Built‑in Cables",
+    model: "W152-10000 (带两线)",
+    category: "power-bank",
+    type: "built-in-cables",
+    description: "10000mAh power bank with built‑in USB‑C and Lightning cables, 15W wireless charging, and fast PD.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "126280 Li‑ion",
+      dimensions: "110 × 70 × 18 mm",
+      material: "ABS+PC",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      builtInCables: "USB‑C (5V/3A, 9V/2A), Lightning (5V/2.4A)",
+      usbAOutput: "5V/3A, 9V/2A, 12V/1.5A (QC 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~240g"
+    },
+    features: [
+      "Built‑in USB‑C and Lightning cables",
+      "15W wireless charging",
+      "10000mAh high capacity",
+      "USB‑C PD fast charging",
+      "Complete all‑in‑one solution"
+    ],
+    applications: [
+      "Long travel",
+      "Business trips with multiple devices",
+      "Gift for Apple & Android users"
+    ],
+    image: "/productImg/p-bank/powerbank010.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank010.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-011",
+    slug: "power-bank-a148b-5000-aluminum",
+    name: "A148B 5000mAh Aluminum Power Bank",
+    model: "A148B-5000",
+    category: "power-bank",
+    type: "compact",
+    description: "Premium aluminium power bank with 5000mAh capacity, 15W wireless charging, and USB‑C PD. Ultra‑thin 7.3mm.",
+    specifications: {
+      capacity: "5000mAh",
+      cellType: "546280 Li‑ion",
+      dimensions: "103 × 69 × 7.3 mm",
+      material: "Aluminium + glass fibre or glass",
+      colors: "Silver, grey, orange",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~110g"
+    },
+    features: [
+      "Premium aluminium casing",
+      "Ultra‑thin 7.3mm design",
+      "15W wireless charging",
+      "USB‑C PD fast charging",
+      "Multiple colour options"
+    ],
+    applications: [
+      "Luxury everyday carry",
+      "Gift for professionals",
+      "Minimalist charging"
+    ],
+    image: "/productImg/p-bank/powerbank011.jpg",
+    gallery: [
+
+      "/productImg/p-bank/powerbank011.jpg",
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-012",
+    slug: "power-bank-a158a-5000-aluminum",
+    name: "A158A 5000mAh Ultra‑Thin Aluminum Power Bank",
+    model: "A158A-5000",
+    category: "power-bank",
+    type: "compact",
+    description: "Extremely thin (6.35mm) aluminium power bank with 5000mAh, 15W wireless charging, and USB‑C PD.",
+    specifications: {
+      capacity: "5000mAh",
+      cellType: "466578 Li‑ion",
+      dimensions: "102 × 70.5 × 6.35 mm",
+      material: "Aluminium + glass fibre or glass",
+      colors: "Silver, grey, orange",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~95g"
+    },
+    features: [
+      "World‑class thinness: 6.35mm",
+      "Premium aluminium finish",
+      "15W wireless charging",
+      "USB‑C PD fast charging",
+      "Fits in any pocket"
+    ],
+    applications: [
+      "Ultra‑portable charging",
+      "Wallet and pocket carry",
+      "Emergency backup"
+    ],
+    image: "/productImg/p-bank/powerbank012.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank012.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-013",
+    slug: "power-bank-a114b-5000-digital-display",
+    name: "A114B 5000mAh Power Bank with Digital Display",
+    model: "A114B-5000",
+    category: "power-bank",
+    type: "compact",
+    description: "Aluminium power bank with digital percentage display, 5000mAh, 15W wireless charging, and USB‑C PD.",
+    specifications: {
+      capacity: "5000mAh",
+      cellType: "546280 Li‑ion",
+      dimensions: "103 × 69 × 8.9 mm",
+      material: "Aluminium + glass fibre or glass",
+      colors: "Silver, grey, orange, black",
+      indicator: "Digital numeric display",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~130g"
+    },
+    features: [
+      "Digital percentage display",
+      "Premium aluminium design",
+      "15W wireless charging",
+      "USB‑C PD fast charging",
+      "Four colour options"
+    ],
+    applications: [
+      "Gift for tech enthusiasts",
+      "Everyday reliable charging",
+      "Precise battery management"
+    ],
+    image: "/productImg/p-bank/powerbank013.jpg",
+    gallery: [
+
+      "/productImg/p-bank/powerbank013.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-014",
+    slug: "power-bank-a116b-10000-dual-cell",
+    name: "A116B 10000mAh Dual‑Cell Power Bank",
+    model: "A116B-10000",
+    category: "power-bank",
+    type: "high-capacity",
+    description: "10000mAh aluminium power bank with dual cells, 15W wireless charging, and USB‑C PD. Slim enough for a jacket pocket.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "546280 ×2 Li‑ion",
+      dimensions: "103 × 67 × 14.2 mm",
+      material: "Aluminium + glass fibre or glass",
+      colors: "Silver, grey, orange",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~210g"
+    },
+    features: [
+      "10000mAh in slim aluminium body",
+      "15W wireless charging",
+      "USB‑C PD fast charging",
+      "Dual cell design for reliability",
+      "LED battery indicator"
+    ],
+    applications: [
+      "Extended travel",
+      "Charging tablets and phones",
+      "Outdoor activities"
+    ],
+    image: "/productImg/p-bank/powerbank014.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank014.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-015",
+    slug: "power-bank-a154-5000-digital",
+    name: "A154 5000mAh Power Bank with Digital Display",
+    model: "A154-5000",
+    category: "power-bank",
+    type: "compact",
+    description: "5000mAh power bank with digital display, 15W wireless charging, and advanced USB‑C PD (10V2.25A).",
+    specifications: {
+      capacity: "5000mAh",
+      cellType: "466578 Li‑ion",
+      dimensions: "102 × 70.5 × 6.7 mm",
+      material: "Aluminium + ABS+PC",
+      colors: "Silver, grey, orange, blue",
+      indicator: "Digital numeric display",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/2.8A, 9V/2A (PD ~20W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 10V/2.25A, 12V/1.67A (22.5W)",
+      weight: "~115g"
+    },
+    features: [
+      "Digital percentage display",
+      "15W wireless charging",
+      "22.5W USB‑C fast charging",
+      "Ultra‑slim 6.7mm",
+      "Multiple colour options"
+    ],
+    applications: [
+      "Daily carry with exact battery readout",
+      "Gift for style‑conscious users",
+      "Quick top‑ups"
+    ],
+    image: "/productImg/p-bank/powerbank015.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank015.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-016",
+    slug: "power-bank-a155-10000-dual-cell-digital",
+    name: "A155 10000mAh Dual‑Cell Digital Power Bank",
+    model: "A155-10000",
+    category: "power-bank",
+    type: "high-capacity",
+    description: "10000mAh power bank with digital display, 15W wireless charging, and 22.5W USB‑C PD. Aluminium casing.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "466578 ×2 Li‑ion",
+      dimensions: "102 × 70.5 × 11.5 mm",
+      material: "Aluminium + glass fibre or glass",
+      colors: "Silver, grey, orange, blue",
+      indicator: "Digital numeric display",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/2.8A, 9V/2A (PD ~20W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 10V/2.25A, 12V/1.67A (22.5W)",
+      weight: "~200g"
+    },
+    features: [
+      "Digital percentage display",
+      "10000mAh in slim 11.5mm body",
+      "15W wireless charging",
+      "22.5W USB‑C fast charging",
+      "Premium aluminium finish"
+    ],
+    applications: [
+      "High‑capacity daily driver",
+      "Travel and remote work",
+      "Charging tablets and laptops"
+    ],
+    image: "/productImg/p-bank/powerbank016.jpg",
+    gallery: [
+
+      "/productImg/p-bank/powerbank016.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-017",
+    slug: "power-bank-a156-5000-led",
+    name: "A156 5000mAh LED Power Bank",
+    model: "A156-5000",
+    category: "power-bank",
+    type: "compact",
+    description: "5000mAh aluminium power bank with LED indicator, 15W wireless charging, and USB‑C PD.",
+    specifications: {
+      capacity: "5000mAh",
+      cellType: "546280/656280 Li‑ion",
+      dimensions: "103 × 69 × 8.9 mm",
+      material: "Aluminium + glass fibre or glass",
+      colors: "Silver, grey, orange, black",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~130g"
+    },
+    features: [
+      "Premium aluminium body",
+      "LED battery indicator",
+      "15W wireless charging",
+      "USB‑C PD fast charging",
+      "Multiple colour options"
+    ],
+    applications: [
+      "Simple and reliable everyday carry",
+      "Office and home backup",
+      "Gift for minimalists"
+    ],
+    image: "/productImg/p-bank/powerbank017.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank017.jpg"
+
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-018",
+    slug: "power-bank-a157-10000-dual-cell-led",
+    name: "A157 10000mAh Dual‑Cell LED Power Bank",
+    model: "A157-10000",
+    category: "power-bank",
+    type: "high-capacity",
+    description: "10000mAh aluminium power bank with LED indicator, 15W wireless charging, and USB‑C PD.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "546280×2 or 1066280×2 Li‑ion",
+      dimensions: "103 × 67 × 14.2 mm",
+      material: "Aluminium + glass fibre or glass",
+      colors: "Silver, grey, orange, black",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~210g"
+    },
+    features: [
+      "10000mAh in durable aluminium",
+      "LED battery indicator",
+      "15W wireless charging",
+      "USB‑C PD fast charging",
+      "Slim profile"
+    ],
+    applications: [
+      "Extended travel",
+      "Power for phones and tablets",
+      "Outdoor activities"
+    ],
+    image: "/productImg/p-bank/powerbank018.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank018.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-019",
+    slug: "power-bank-a158b-5000-led",
+    name: "A158B 5000mAh LED Power Bank",
+    model: "A158B-5000",
+    category: "power-bank",
+    type: "compact",
+    description: "5000mAh aluminium power bank with LED indicator, ultra‑thin 10.7mm, 15W wireless charging, and USB‑C PD.",
+    specifications: {
+      capacity: "5000mAh",
+      cellType: "466578 Li‑ion",
+      dimensions: "102 × 70.5 × 10.7 mm",
+      material: "Aluminium + glass fibre or glass",
+      colors: "Silver, grey, orange",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~110g"
+    },
+    features: [
+      "Ultra‑thin 10.7mm with aluminium",
+      "LED battery indicator",
+      "15W wireless charging",
+      "USB‑C PD fast charging",
+      "Premium finish"
+    ],
+    applications: [
+      "Slim everyday carry",
+      "Pocket‑friendly backup",
+      "Office and travel"
+    ],
+    image: "/productImg/p-bank/powerbank019.jpg",
+    gallery: [
+
+      "/productImg/p-bank/powerbank019.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-020",
+    slug: "power-bank-a103-10000-digital",
+    name: "A103 10000mAh Digital Power Bank",
+    model: "A103-1000",
+    category: "power-bank",
+    type: "high-capacity",
+    description: "10000mAh power bank with digital display, 15W wireless charging, and USB‑C PD. Aluminium body with painted finish.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "546280/1356280/126280 Li‑ion",
+      dimensions: "103 × 67 × 15.8 mm",
+      material: "Aluminium + paint",
+      colors: "Black, gold, grey",
+      indicator: "Digital numeric display",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~200g"
+    },
+    features: [
+      "Digital percentage display",
+      "10000mAh capacity",
+      "15W wireless charging",
+      "USB‑C PD fast charging",
+      "Stylish painted aluminium"
+    ],
+    applications: [
+      "Everyday power for busy professionals",
+      "Travel and remote work",
+      "Charging phones + tablets"
+    ],
+    image: "/productImg/p-bank/powerbank020.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank020a.jpg",
+      "/productImg/p-bank/powerbank020.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-021",
+    slug: "power-bank-tk23-with-stand-cables",
+    name: "TK23 Power Bank with Foldable Stand & Cables",
+    model: "TK23",
+    category: "power-bank",
+    type: "built-in-cables",
+    description: "10000mAh power bank with integrated USB‑C/Lightning cables, foldable zinc alloy stand, and 3‑in‑1 wireless charging.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "146074 Li‑ion",
+      dimensions: "108 × 68 × 20.7 mm",
+      material: "ABS+PC + zinc alloy stand + built‑in cables",
+      colors: "Black, white",
+      indicator: "Digital numeric display",
+      wirelessOutput: "2.5W/5W/7.5W/10W/15W (3‑in‑1)",
+      builtInCables: "USB‑C (5V/3A, 9V/2A, 12V/1.5A), Lightning (5V/2A)",
+      usbCOutput: "5V/3A, 9V/2A, 12V/1.5A",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 10V/2.25A, 12V/1.67A (22.5W)",
+      weight: "~300g"
+    },
+    features: [
+      "Built‑in USB‑C and Lightning cables",
+      "Foldable zinc alloy phone stand",
+      "3‑in‑1 wireless charging (phone, watch, earbuds)",
+      "Digital battery display",
+      "22.5W USB‑C fast charging"
+    ],
+    applications: [
+      "Desk and travel companion",
+      "Charge multiple devices simultaneously",
+      "Watch + phone + earbuds all at once"
+    ],
+    image: "/productImg/p-bank/powerbank021.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank021.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-022",
+    slug: "power-bank-tk15-aluminum-wireless",
+    name: "TK15 Aluminum Wireless Power Bank",
+    model: "TK15",
+    category: "power-bank",
+    type: "wireless",
+    description: "10000mAh aluminium power bank with 15W wireless charging and USB‑C PD. Ultra‑thin 9mm design.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "706074 Li‑ion",
+      dimensions: "102 × 63 × 9 mm",
+      material: "Aluminium + paint",
+      colors: "Silver, blue, grey",
+      indicator: "LED lights",
+      wirelessOutput: "5W/7.5W/10W/15W",
+      usbCOutput: "5V/3A, 9V/2A, 12V/1.5A",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~200g"
+    },
+    features: [
+      "Ultra‑slim 9mm aluminium body",
+      "15W wireless charging",
+      "USB‑C PD fast charging",
+      "LED battery indicator",
+      "Multiple colour options"
+    ],
+    applications: [
+      "Professional everyday carry",
+      "Quick wireless top‑ups",
+      "Minimalist travel"
+    ],
+    image: "/productImg/p-bank/powerbank022.jpg",
+    gallery: [
+
+      "/productImg/p-bank/powerbank022.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-023",
+    slug: "power-bank-t18-digital-wireless-stand",
+    name: "T18 Digital Wireless Power Bank with Stand",
+    model: "T18-数显",
+    category: "power-bank",
+    type: "built-in-cables",
+    description: "10000mAh power bank with digital display, integrated USB‑C/Lightning cables, foldable stand, and 3‑in‑1 wireless charging.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "146074 Li‑ion",
+      dimensions: "108 × 64.7 × 21 mm",
+      material: "ABS+PC + zinc alloy stand + built‑in cables",
+      colors: "Black, white",
+      indicator: "Digital numeric display",
+      wirelessOutput: "2.5W/5W/7.5W/10W/15W (3‑in‑1)",
+      builtInCables: "USB‑C (5V/3A, 9V/2A, 12V/1.5A), Lightning (5V/2.4A)",
+      usbCOutput: "5V/3A, 9V/2A, 12V/1.5A",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 10V/2.25A, 12V/1.67A (22.5W)",
+      weight: "~300g"
+    },
+    features: [
+      "Digital percentage display",
+      "Built‑in USB‑C and Lightning cables",
+      "Foldable stand for hands‑free viewing",
+      "3‑in‑1 wireless charging",
+      "22.5W USB‑C fast charging"
+    ],
+    applications: [
+      "Work desk, travel, hotels",
+      "Charge phone, watch, earbuds at once",
+      "Watch videos while charging"
+    ],
+    image: "/productImg/p-bank/powerbank023.jpg",
+    gallery: [
+
+      "/productImg/p-bank/powerbank023.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-024",
+    slug: "power-bank-t18-led-3c",
+    name: "T18 LED 3C Power Bank with Cables",
+    model: "T18-灯显（3C）",
+    category: "power-bank",
+    type: "built-in-cables",
+    description: "10000mAh power bank with LED indicator, built‑in USB‑C/Lightning cables, foldable stand, and 3‑in‑1 wireless charging.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "706074 Li‑ion",
+      dimensions: "102 × 63 × 9 mm",
+      material: "ABS+PC + zinc alloy stand + built‑in cables",
+      colors: "Black, white",
+      indicator: "LED lights",
+      wirelessOutput: "2.5W/5W/7.5W/10W/15W (3‑in‑1)",
+      builtInCables: "USB‑C (5V/3A, 9V/2A, 12V/1.5A), Lightning (5V/2.4A)",
+      usbCOutput: "5V/3A, 9V/2A, 12V/1.5A",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 10V/2.25A, 12V/1.67A (22.5W)",
+      weight: "~280g"
+    },
+    features: [
+      "Built‑in USB‑C and Lightning cables",
+      "Foldable stand",
+      "3‑in‑1 wireless charging",
+      "LED battery indicator",
+      "22.5W USB‑C fast charging"
+    ],
+    applications: [
+      "Travel and home desk",
+      "Convenient all‑in‑one solution",
+      "Charge multiple devices without extra cables"
+    ],
+    image: "/productImg/p-bank/powerbank024.jpg",
+    gallery: [
+
+      "/productImg/p-bank/powerbank024.jpg"
+
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-025",
+    slug: "power-bank-t16-led-3c",
+    name: "T16 LED 3C Power Bank with Cables",
+    model: "T16-灯显（3C）",
+    category: "power-bank",
+    type: "built-in-cables",
+    description: "10000mAh power bank with LED indicator, built‑in USB‑C/Lightning cables, and 15W wireless charging. USB‑A output also available.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "146074 Li‑ion",
+      dimensions: "110 × 70 × 23 mm",
+      material: "ABS+PC + zinc alloy stand + built‑in cables",
+      colors: "Black, white",
+      indicator: "LED lights",
+      wirelessOutput: "5W/7.5W/10W/15W",
+      builtInCables: "USB‑C (5V/3A, 9V/2.22A, 10V/2.25A, 12V/1.67A)",
+      usbAOutput: "5V/3A, 5V/4.5A, 9V/2A, 12V/1.5A (QC 22.5W)",
+      usbCOutput: "5V/3A, 9V/2A, 12V/1.5A",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 10V/2.25A, 12V/1.67A (22.5W)",
+      weight: "~290g"
+    },
+    features: [
+      "Built‑in USB‑C cable (input/output)",
+      "15W wireless charging",
+      "USB‑A QC3.0 fast charging",
+      "LED battery indicator",
+      "Foldable stand (integrated)"
+    ],
+    applications: [
+      "Versatile home and travel charger",
+      "Fast charging for multiple devices",
+      "No need to carry extra cables"
+    ],
+    image: "/productImg/p-bank/powerbank025.jpg",
+    gallery: [
+
+      "/productImg/p-bank/powerbank025.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-026",
+    slug: "power-bank-t6-led",
+    name: "T6 LED Power Bank",
+    model: "T6-灯显",
+    category: "power-bank",
+    type: "compact",
+    description: "10000mAh power bank with LED indicator, 15W wireless charging, and USB‑A + USB‑C outputs. Compact design.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "126280/1376074 Li‑ion",
+      dimensions: "110 × 70 × 23 mm",
+      material: "ABS+PC + foldable leather stand",
+      colors: "Black, white",
+      indicator: "LED lights",
+      wirelessOutput: "5W/7.5W/10W/15W",
+      usbCOutput: "5V/3A, 9V/2A, 12V/1.5A",
+      usbAOutput: "5V/3A, 5V/4.5A, 9V/2A, 12V/1.5A (QC 22.5W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 10V/2.25A, 12V/1.67A (22.5W)",
+      weight: "~280g"
+    },
+    features: [
+      "Foldable leather strap/stand",
+      "15W wireless charging",
+      "USB‑C PD and USB‑A QC3.0",
+      "10000mAh capacity",
+      "LED indicator"
+    ],
+    applications: [
+      "Everyday versatility",
+      "Desk charging with stand",
+      "Travel and camping"
+    ],
+    image: "/productImg/p-bank/powerbank026.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank026.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-027",
+    slug: "power-bank-sdr031-10000-led",
+    name: "SDR031 10000mAh LED Power Bank",
+    model: "SDR031",
+    category: "power-bank",
+    type: "high-capacity",
+    description: "10000mAh power bank with LED indicator, 15W wireless charging, and USB‑A + USB‑C outputs. Slim 23mm design.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "146074 Li‑ion",
+      dimensions: "110 × 70 × 23 mm",
+      material: "ABS+PC",
+      colors: "Black, white, blue",
+      indicator: "LED lights",
+      wirelessOutput: "5W/7.5W/10W/15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      usbAOutput: "5V/3A, 9V/2A, 10V/2.25A, 12V/1.5A (QC 22.5W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~270g"
+    },
+    features: [
+      "15W wireless charging",
+      "USB‑C PD 18W",
+      "USB‑A QC 22.5W",
+      "Multiple colour options",
+      "LED battery indicator"
+    ],
+    applications: [
+      "Everyday reliable power",
+      "Weekend trips",
+      "Office and home"
+    ],
+    image: "/productImg/p-bank/powerbank027.jpg",
+    gallery: [
+
+      "/productImg/p-bank/powerbank027.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-028",
+    slug: "power-bank-sdr032-10000-dual-cell",
+    name: "SDR032 10000mAh Dual‑Cell Power Bank",
+    model: "SDR032",
+    category: "power-bank",
+    type: "high-capacity",
+    description: "10000mAh dual‑cell power bank with LED indicator, 15W wireless charging, and fast USB‑A/USB‑C outputs.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "126280/1376074 Li‑ion",
+      dimensions: "110 × 70 × 23 mm",
+      material: "ABS+PC",
+      colors: "Black, white, blue",
+      indicator: "LED lights",
+      wirelessOutput: "5W/7.5W/10W/15W",
+      usbCOutput: "5V/3A, 9V/2A (PD 18W)",
+      usbAOutput: "5V/3A, 9V/2A, 10V/2.25A, 12V/1.5A (QC 22.5W)",
+      input: "USB‑C: 5V/3A, 9V/2.22A, 12V/1.67A (20W)",
+      weight: "~270g"
+    },
+    features: [
+      "10000mAh dual cells",
+      "15W wireless charging",
+      "USB‑C PD 18W",
+      "USB‑A QC 22.5W",
+      "LED indicator"
+    ],
+    applications: [
+      "Power for longer trips",
+      "Charging phones + tablets",
+      "Home backup"
+    ],
+    image: "/productImg/p-bank/powerbank028.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank028.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-029",
+    slug: "power-bank-hw032-pink-magnetic",
+    name: "HW032 Magnetic Power Bank",
+    model: "HW032",
+    category: "power-bank",
+    type: "wireless",
+    description: "10000mAh magnetic power bank in pastel colours, with 15W wireless charging and USB‑C PD. Compact and stylish.",
+    specifications: {
+      capacity: "10000mAh",
+      cellType: "146074 Li‑ion",
+      dimensions: "102 × 66 × 19 mm",
+      material: "ABS+PC",
+      colors: "White, pink, purple",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      usbCOutput: "5V/3A, 9V/2.2A, 12V/1.65A, 10V/2.25A (PD 22.5W)",
+      input: "USB‑C: 5V/3A, 9V/2A, 12V/1.5A (18W)",
+      weight: "~240g"
+    },
+    features: [
+      "Magnetic attachment for iPhone",
+      "15W wireless charging",
+      "22.5W USB‑C PD",
+      "Stylish pastel colours",
+      "Compact 19mm thickness"
+    ],
+    applications: [
+      "Fashion‑conscious users",
+      "Gift for iPhone users",
+      "Everyday magnetic charging"
+    ],
+    image: "/productImg/p-bank/powerbank029.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank029.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  {
+    id: "pb-030",
+    slug: "power-bank-hw031-20000mah",
+    name: "HW031 20000mAh High‑Capacity Power Bank",
+    model: "HW031",
+    category: "power-bank",
+    type: "high-capacity",
+    description: "Ultra‑high capacity 20000mAh power bank with built‑in cables, 15W wireless charging, and dual outputs.",
+    specifications: {
+      capacity: "20000mAh",
+      cellType: "1376074 ×2 Li‑ion",
+      dimensions: "109 × 69 × 35 mm",
+      material: "ABS+PC",
+      colors: "Black, white, blue, pink",
+      indicator: "LED lights",
+      wirelessOutput: "15W",
+      builtInCables: "USB‑C (5V/3A, 9V/2.2A, 12V/1.65A), Lightning (5V/2.4A)",
+      usbAOutput: "5V/3A, 9V/2A, 12V/1.5A, 10V/2.25A (QC 22.5W)",
+      usbInputOutput: "USB‑C: 5V/3A, 9V/2A, 12V/1.5A, 10V/2.25A (22.5W)",
+      weight: "~450g"
+    },
+    features: [
+      "Massive 20000mAh capacity",
+      "Built‑in USB‑C and Lightning cables",
+      "15W wireless charging",
+      "USB‑A QC 22.5W output",
+      "4 colour options"
+    ],
+    applications: [
+      "Multi‑day travel and camping",
+      "Power for laptops, tablets, phones",
+      "Family and group outings"
+    ],
+    image: "/productImg/p-bank/powerbank030.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank030.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  }
 
 ];
 
@@ -2207,6 +3490,11 @@ export const getElectricMotorcycles = () => {
 
 export const getElectricScooters = () => {
   return productData.filter((product) => product.category === "electric-mobility" && product.type === "scooter");
+};
+
+// New helper for power banks
+export const getPowerBankProducts = () => {
+  return productData.filter((product) => product.category === "power-bank");
 };
 
 export const getFeaturedProducts = () => {

@@ -130,6 +130,7 @@ export default function Footer() {
             <li><Link href="/products/solutions/solar-inverters" className="footer__link">Solar Inverters</Link></li>
             <li><Link href="/products/solutions/portable-power-stations" className="footer__link">Portable Power Stations</Link></li>
             <li><Link href="/products/solutions/electric-mobility" className="footer__link">Electric Mobility</Link></li>
+            <li><Link href="/products/solutions/power-banks" className="footer__link">Power Banks</Link></li>  {/* ← added */}
           </ul>
         </div>
 

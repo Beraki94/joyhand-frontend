@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   productImageContainer: {
     width: "30%",
     marginRight: 16,
-    height: 120, // Fixed height for consistent image sizing
+    height: 120,
   },
   productImage: {
     width: "100%",
@@ -155,6 +155,10 @@ const categoryMeta = {
     name: "Portable Power Stations",
     desc: "Portable power stations with LiFePO4 batteries, pure sine wave output, and built-in MPPT controllers. Ideal for camping, home backup, and off-grid use.",
   },
+  "power-bank": {
+    name: "Power Banks",
+    desc: "Compact, high‑capacity portable chargers for phones, tablets, and laptops. Magnetic, wireless, and built‑in cable options. Fast charging and premium designs.",
+  },
 };
 
 function getKeySpecs(product) {
@@ -183,6 +187,13 @@ function getKeySpecs(product) {
     if (s.batteryCapacity) specs.push({ label: "Capacity", value: s.batteryCapacity });
     if (s.outputWaveform) specs.push({ label: "Waveform", value: s.outputWaveform });
     if (s.cycleLife) specs.push({ label: "Cycle Life", value: s.cycleLife });
+  } else if (cat === "power-bank") {
+    if (s.capacity) specs.push({ label: "Capacity", value: s.capacity });
+    if (s.totalOutput) specs.push({ label: "Total Output", value: s.totalOutput });
+    else if (s.usbCOutput) specs.push({ label: "Output", value: s.usbCOutput });
+    if (s.wirelessOutput) specs.push({ label: "Wireless", value: s.wirelessOutput });
+    if (s.weight) specs.push({ label: "Weight", value: s.weight });
+    if (s.cellType) specs.push({ label: "Cell", value: s.cellType });
   }
   return specs.slice(0, 5);
 }
@@ -202,7 +213,6 @@ export async function GET(request) {
     }
 
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    // Update this path to your actual logo (ensure the file exists)
     const logoUrl = `${baseUrl}/images/logos/joyhandLogo.png`;
 
     const PdfDocument = () => (
@@ -210,7 +220,7 @@ export async function GET(request) {
         <Page size="A4" style={styles.page}>
           <View style={styles.header}>
             <View style={styles.logoContainer}>
-              <Image src={logoUrl} style={styles.logo} />
+              <Image src={logoUrl} style={styles.logo} alt="JoyHand Energy Logo" />
             </View>
             <View style={styles.headerText}>
               <Text style={styles.headerTitle}>Product Catalog</Text>
@@ -229,7 +239,7 @@ export async function GET(request) {
             return (
               <View key={idx} style={styles.productCard} wrap={false}>
                 <View style={styles.productImageContainer}>
-                  <Image src={imageUrl} style={styles.productImage} />
+                  <Image src={imageUrl} style={styles.productImage} alt={product.name} />
                 </View>
                 <View style={styles.productDetails}>
                   <Text style={styles.productName}>{product.name} {product.model}</Text>
@@ -256,7 +266,7 @@ export async function GET(request) {
 
           <View style={styles.footer}>
             <Text style={styles.footerText}>© JoyHand Energy – Professional Energy Solutions</Text>
-            <Text style={styles.footerText}>sales@j-yhand.com | +86 130 6085 0617</Text>
+            <Text style={styles.footerText}>sales@joyhand.com | +86 130 6085 0617</Text>
             <Text style={styles.footerText}>Catalog generated on {new Date().toLocaleDateString()} from live product data</Text>
           </View>
         </Page>

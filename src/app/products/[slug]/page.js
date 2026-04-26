@@ -9,6 +9,7 @@ import {
   PiMotorcycle, 
   PiFactory,
   PiPlug,
+  PiBatteryCharging,
 } from "react-icons/pi";
 import { productData } from "@/data";
 import ProductGallery from "./ProductGallery";
@@ -24,6 +25,7 @@ function getCategoryIcon(category) {
     case "inverter": return <PiLightning size={16} />;
     case "electric-mobility": return <PiMotorcycle size={16} />;
     case "portable-power": return <PiPlug size={16} />;
+    case "power-bank": return <PiBatteryCharging size={16} />;
     default: return <PiFactory size={16} />;
   }
 }
@@ -34,6 +36,7 @@ function getCategoryDisplay(category) {
     case "inverter": return "Solar Inverter";
     case "electric-mobility": return "Electric Mobility";
     case "portable-power": return "Portable Power";
+    case "power-bank": return "Power Bank";
     default: return "Energy Solution";
   }
 }
@@ -49,7 +52,11 @@ function getTypeDisplay(type) {
     "scooter": "Electric Scooter",
     "portable-station": "Portable Station",
     "home-storage": "Home Storage",
-    "all-in-one": "All-in-One"
+    "all-in-one": "All-in-One",
+    "compact": "Compact",
+    "high-capacity": "High Capacity",
+    "wireless": "Wireless",
+    "built-in-cables": "Built‑in Cables"
   };
   return types[type] || type;
 }
@@ -88,6 +95,13 @@ function ProductKeySpecs({ product }) {
       { label: "Cycle Life", value: specifications.cycleLife },
       { label: "UPS Support", value: specifications.upsFunction === "Supported" ? "Yes" : specifications.upsFunction || "Yes" },
     ];
+  } else if (category === "power-bank") {
+    keySpecs = [
+      { label: "Capacity", value: specifications.capacity || specifications.batteryCapacity },
+      { label: "Output", value: specifications.totalOutput || specifications.usbCOutput },
+      { label: "Wireless", value: specifications.wirelessOutput ? `${specifications.wirelessOutput} MagSafe` : "No" },
+      { label: "Weight", value: specifications.weight },
+    ].filter(spec => spec.value && spec.value !== "No");
   }
 
   if (keySpecs.length === 0) return null;
@@ -214,6 +228,24 @@ function ProductSpecs({ product }) {
       { label: "Dimensions", value: specifications.productDimensions },
       { label: "Weight", value: specifications.productWeight },
     ];
+  } else if (category === "power-bank") {
+    specsToShow = [
+      { label: "Model", value: product.model },
+      { label: "Type", value: getTypeDisplay(type) },
+      { label: "Capacity", value: specifications.capacity || specifications.batteryCapacity },
+      { label: "Cell Type", value: specifications.cellType },
+      { label: "Dimensions", value: specifications.dimensions },
+      { label: "Material", value: specifications.material },
+      { label: "Weight", value: specifications.weight },
+      { label: "Indicator", value: specifications.indicator },
+      { label: "Wireless Output", value: specifications.wirelessOutput },
+      { label: "USB-C Output", value: specifications.usbCOutput },
+      { label: "USB-A Output", value: specifications.usbAOutput },
+      { label: "Built‑in Cables", value: specifications.builtInCables },
+      { label: "Input (USB-C)", value: specifications.input },
+      { label: "Total Output", value: specifications.totalOutput },
+      { label: "Cycle Life", value: specifications.cycleLife },
+    ];
   }
 
   specsToShow = specsToShow.filter(spec => spec.value);
@@ -283,6 +315,7 @@ function Breadcrumbs({ product, categoryDisplay }) {
   else if (product.category === "inverter") solutionSlug = "solar-inverters";
   else if (product.category === "electric-mobility") solutionSlug = "electric-mobility";
   else if (product.category === "portable-power") solutionSlug = "portable-power-stations";
+  else if (product.category === "power-bank") solutionSlug = "power-banks";
   
   return (
     <nav className="product-details__breadcrumbs" aria-label="Breadcrumb">

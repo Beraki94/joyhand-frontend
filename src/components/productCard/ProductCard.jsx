@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { PiBatteryHigh, PiLightning, PiMotorcycle, PiPlug } from "react-icons/pi";
+import { PiBatteryHigh, PiLightning, PiMotorcycle, PiPlug, PiBatteryCharging } from "react-icons/pi";
 
 const ProductCard = ({ product }) => {
   const { name, slug, description, image, category, specifications } = product;
@@ -13,6 +13,7 @@ const ProductCard = ({ product }) => {
     if (category === "inverter") return <PiLightning className="product-card__category-icon" />;
     if (category === "electric-mobility") return <PiMotorcycle className="product-card__category-icon" />;
     if (category === "portable-power") return <PiPlug className="product-card__category-icon" />;
+    if (category === "power-bank") return <PiBatteryCharging className="product-card__category-icon" />;
     return <PiLightning className="product-card__category-icon" />;
   };
 
@@ -21,6 +22,7 @@ const ProductCard = ({ product }) => {
     if (category === "inverter") return "Inverter";
     if (category === "electric-mobility") return "Electric Mobility";
     if (category === "portable-power") return "Portable Power";
+    if (category === "power-bank") return "Power Bank";
     return category;
   };
 
@@ -51,6 +53,19 @@ const ProductCard = ({ product }) => {
       else if (specifications.power) previewSpecs.push({ label: "Power", value: specifications.power });
       if (specifications.batteryCapacity) previewSpecs.push({ label: "Capacity", value: specifications.batteryCapacity });
       else if (specifications.capacity) previewSpecs.push({ label: "Capacity", value: specifications.capacity });
+    }
+    // For power banks
+    else if (category === "power-bank") {
+      if (specifications.capacity) previewSpecs.push({ label: "Capacity", value: specifications.capacity });
+      else if (specifications.batteryCapacity) previewSpecs.push({ label: "Capacity", value: specifications.batteryCapacity });
+      // Output power (e.g., USB-C PD wattage)
+      if (specifications.usbCOutput) {
+        const wattMatch = specifications.usbCOutput.match(/(\d+\.?\d*)W/);
+        if (wattMatch) previewSpecs.push({ label: "Output", value: `${wattMatch[1]}W` });
+        else if (previewSpecs.length < 2) previewSpecs.push({ label: "Output", value: specifications.usbCOutput });
+      } else if (specifications.totalOutput) {
+        previewSpecs.push({ label: "Output", value: specifications.totalOutput });
+      }
     }
   }
   const displayedSpecs = previewSpecs.slice(0, 2);
