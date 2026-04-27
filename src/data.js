@@ -3445,7 +3445,919 @@ export const productData = [
     warranty: "18 months",
     inStock: true,
     youtubeVideoId: null
-  }
+  },
+
+  // ===== POWER BANKS – GROUPED (20+ families) =====
+// Group 1: P012 / P014 / P017 – 4-cable solar series, 20000mAh, PD20W
+{
+  id: "pb-201",
+  slug: "solar-power-bank-4-cables-20000mah",
+  name: "4‑Cable Solar Power Bank 20000mAh",
+  model: "Solar 4‑Cable",
+  modelNumbers: ["P012", "P014", "P017", "PO14", "PO17", "Solar Series 1.65W", "Solar Series 1.6W"],
+  category: "power-bank",
+  type: "solar",
+  description: "20000mAh solar power bank with 4 built‑in cables (USB‑C, Micro, Lightning, USB‑A), PD20W fast charging, and 360‑480LM flashlight.",
+  specifications: {
+    capacity: "20000mAh / 74Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "1.6‑1.65W (5.5V/290‑300mA)",
+    icType: "IP5356",
+    output: {
+      typeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
+      usbA1: "5V/4.5A, 5V/3A, 9V/2A, 12V/1.5A (SCP22.5W)",
+      usbA2: "5V/2.1A",
+      builtInMicro: "5V/2.1A",
+      builtInTypeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
+      builtInLightning: "5V/2.4A"
+    },
+    input: {
+      typeC: "5V/3A, 9V/2.2A, 12V/1.5A (PD18W)",
+      builtInUSBA: "5V/3A, 9V/2A, 12V/1.5A (QC18W)"
+    },
+    ledLight: "360‑480LM",
+    dimensions: "173‑183 × 84‑96 × 25‑39 mm",
+    material: "ABS+PC (V0), silicone, TPU",
+    weight: "500‑560g"
+  },
+  features: [
+    "4 built‑in cables – no extra cables needed",
+    "PD20W and SCP22.5W fast charging",
+    "1.6‑1.65W solar panel",
+    "High‑brightness 360‑480LM flashlight",
+    "V0 flame‑retardant casing"
+  ],
+  applications: ["Camping, hiking", "Emergency backup", "Off‑grid work"],
+  image: "/productImg/p-bank/powerbank031.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank031a.jpg",
+    "/productImg/p-bank/powerbank031b.jpg",
+    "/productImg/p-bank/powerbank031.jpg"
+
+  ],
+  datasheet: "",
+  certifications: ["CE", "FCC", "RoHS", "UL2056"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 2: HS-43 – Hand crank solar power bank
+{
+  id: "pb-202",
+  slug: "hand-crank-solar-power-bank",
+  name: "Hand Crank Solar Power Bank",
+  model: "Hand Crank Series",
+  modelNumbers: ["HS-43"],
+  category: "power-bank",
+  type: "solar",
+  description: "20000mAh solar power bank with hand crank generator, 4 built‑in cables, PD20W fast charging, and 480LM flashlight.",
+  specifications: {
+    capacity: "20000mAh / 74Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "1.65W (5.5V/300mA)",
+    handCrank: "5V/400mA",
+    icType: "IP5356",
+    output: {
+      typeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
+      usbA1: "5V/4.5A, 5V/3A, 9V/2A, 12V/1.5A (SCP22.5W)",
+      usbA2: "5V/2.1A",
+      builtInMicro: "5V/2.1A",
+      builtInTypeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
+      builtInLightning: "5V/2.4A"
+    },
+    input: {
+      typeC: "5V/3A, 9V/2.2A, 12V/1.5A (PD18W)",
+      builtInUSBA: "5V/3A, 9V/2A, 12V/1.5A (QC18W)",
+      handCrank: "5V/400mA"
+    },
+    ledLight: "480LM",
+    dimensions: "173.2×84×42.2mm",
+    material: "ABS+PC (V0), silicone, TPU",
+    weight: "580g"
+  },
+  features: [
+    "Hand crank generator for emergency power",
+    "20000mAh high capacity",
+    "4 built‑in cables",
+    "PD20W fast charging",
+    "480LM LED flashlight"
+  ],
+  applications: ["Emergency preparedness", "Survival kits", "Off‑grid"],
+  image: "/productImg/p-bank/powerbank034.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank034.jpg",
+  ],
+  datasheet: "",
+  certifications: ["UL2056", "CE", "UKCA", "RoHS", "FCC", "UN38.3", "MSDS"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 3: R-N31 – Emergency solar radio with hand crank
+{
+  id: "pb-203",
+  slug: "emergency-solar-radio-crank",
+  name: "Emergency Solar Radio with Hand Crank",
+  model: "Emergency Radio",
+  modelNumbers: ["R-N31"],
+  category: "power-bank",
+  type: "solar",
+  description: "Multi‑function emergency radio with solar panel, hand crank, 5000mAh battery, AM/FM radio, SOS alarm, compass, and LED lights.",
+  specifications: {
+    capacity: "5000mAh / 18.5Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarCharging: "5.5V/40mA",
+    handCrank: "5V/400mA",
+    input: { typeC: "5V/2A" },
+    output: { usbA: "5V/2.1A" },
+    radio: { fm: "76‑108 MHz", am: "52‑170 KHz" },
+    ledLight: { near: "1W / 120LM", far: "6W / 500LM" },
+    speakerPower: "4Ω/3W",
+    dimensions: "134×94×46mm",
+    material: "ABS+PC (V0)",
+    weight: "300g"
+  },
+  features: [
+    "AM/FM radio with hand crank power",
+    "5000mAh backup battery",
+    "Solar panel for emergency charging",
+    "Two LED lights (120LM near, 500LM far)",
+    "SOS alarm and compass included"
+  ],
+  applications: ["Emergency kits", "Survival preparedness", "Disaster response"],
+  image: "/productImg/p-bank/powerbank035.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank035a.jpg",
+    "/productImg/p-bank/powerbank035.jpg"
+
+  ],
+  datasheet: "",
+  certifications: [],
+  warranty: "12 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 4: LS22 / LS42 / LS43 – Metal body solar power banks
+{
+  id: "pb-204",
+  slug: "metal-solar-power-bank",
+  name: "Metal Solar Power Bank",
+  model: "Metal Series",
+  modelNumbers: ["LS22", "LS42", "LS43"],
+  category: "power-bank",
+  type: "solar",
+  description: "Metal‑cased solar power bank with 16000‑20000mAh, built‑in cables, and LED torch.",
+  specifications: {
+    capacity: "16000‑20000mAh / 59‑74Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "1.2W (5.5V/220mA)",
+    icType: "MP5216",
+    input: { micro: "5V/2A", typeC: "5V/2A", builtInUSBA: "5V/2A" },
+    output: { usbA: "5V/2.1A", builtInMicro: "5V/2.1A", builtInTypeC: "5V/2.1A" },
+    ledLight: "0.2W / 20LM",
+    dimensions: "152×78×28mm",
+    material: "Metal + ABS+PC (V0)",
+    weight: "350g"
+  },
+  features: [
+    "Metal casing for durability",
+    "16000‑20000mAh capacity",
+    "Built‑in Micro and USB‑A input cable",
+    "20LM LED torch",
+    "Simple and rugged"
+  ],
+  applications: ["Outdoor activities", "Emergency", "Travel"],
+  image: "/productImg/p-bank/powerbank049.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank049a.jpg",
+    "/productImg/p-bank/powerbank049b.jpg",
+    "/productImg/p-bank/powerbank049.jpg"
+  ],
+  datasheet: "",
+  certifications: ["CE", "CMC", "LVO", "UKCA", "ROHS", "UL2056"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 5: YD-887S – Rugged 3‑USB, 100LM torch
+{
+  id: "pb-205",
+  slug: "rugged-solar-power-bank-3usb",
+  name: "Rugged 3‑USB Solar Power Bank",
+  model: "Rugged 3‑USB",
+  modelNumbers: ["YD-887S"],
+  category: "power-bank",
+  type: "rugged",
+  description: "Rugged 20000mAh solar power bank with 3 USB outputs, 1.54W solar panel, and 100LM LED torch.",
+  specifications: {
+    capacity: "20000mAh / 74Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "1.54W (5.5V/280mA), 156.5×71×1.6mm",
+    icType: "MP5216",
+    input: { typeC: "5V/2A", micro: "5V/2A" },
+    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A", usbA3: "5V/2.1A" },
+    ledLight: "0.8W / 100LM",
+    dimensions: "172.8×87.2×25.7mm",
+    material: "ABS+PC (V0)",
+    weight: "480g",
+    colors: "Black-red, all black, black-blue, black-orange"
+  },
+  features: [
+    "20000mAh high capacity",
+    "Three USB‑A ports",
+    "1.54W solar panel",
+    "100LM LED torch",
+    "Rugged construction"
+  ],
+  applications: ["Group camping", "Work sites", "Emergency shelters"],
+  image: "/productImg/p-bank/powerbank054.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank054.jpg"
+
+  ],
+  datasheet: "",
+  certifications: ["UL2056", "CE", "ROHS"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 6: YL-887S – Rugged with detachable cables, 360LM torch
+{
+  id: "pb-206",
+  slug: "rugged-solar-power-bank-detachable-cables",
+  name: "Rugged Solar Power Bank with Detachable Cables",
+  model: "Rugged Detachable",
+  modelNumbers: ["YL-887S"],
+  category: "power-bank",
+  type: "rugged",
+  description: "20000mAh rugged solar power bank with detachable USB‑C, Micro, Lightning cables and 360LM torch.",
+  specifications: {
+    capacity: "20000mAh / 74Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "1.54W (5.5V/280mA), 156.5×71×1.6mm",
+    icType: "MP5216",
+    input: { typeC: "5V/2A", micro: "5V/2A" },
+    output: {
+      usbA1: "5V/2.1A",
+      usbA2: "5V/2.1A",
+      detachableMicro: "5V/2.1A",
+      detachableLightning: "5V/2.1A",
+      detachableTypeC: "5V/2.1A"
+    },
+    ledLight: "3W / 360LM",
+    dimensions: "172×87×29mm",
+    weight: "520g"
+  },
+  features: [
+    "20000mAh capacity",
+    "Three detachable cables",
+    "1.54W solar panel",
+    "360LM high‑brightness torch"
+  ],
+  applications: ["Camping with versatile cables", "Emergency backpack"],
+  image: "/productImg/p-bank/powerbank055.jpg",
+  gallery: [
+
+    "/productImg/p-bank/powerbank055.jpg"
+    
+  ],
+  datasheet: "",
+  certifications: ["UL2056", "CE", "ROHS"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 7: P96S – MagSafe wireless solar 10000mAh
+{
+  id: "pb-207",
+  slug: "magsafe-solar-power-bank-10000mah",
+  name: "MagSafe Wireless Solar Power Bank",
+  model: "MagSafe Solar",
+  modelNumbers: ["P96S"],
+  category: "power-bank",
+  type: "wireless",
+  description: "10000mAh MagSafe compatible solar power bank with 15W wireless charging, 20W PD, and 0.55W solar panel.",
+  specifications: {
+    capacity: "10000mAh / 37Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "0.55W (5.5V/100mA)",
+    icType: "Injoinic 5568",
+    input: { typeC: "5V/2A, 9V/2A" },
+    output: {
+      typeC: "5V/3A, 9V/2.22A, 12V/1.67A (PD20W)",
+      usbA: "5V/3A, 9V/2A, 12V/1.5A, 5V/4.5A (SCP22.5W)",
+      wireless: "15W"
+    },
+    dimensions: "108×69×22mm",
+    weight: "208g",
+    material: "ABS+PC (V0)"
+  },
+  features: [
+    "10000mAh capacity",
+    "15W MagSafe wireless charging",
+    "20W PD and 22.5W SCP fast charging",
+    "0.55W solar trickle panel",
+    "Ultra‑compact 22mm thick"
+  ],
+  applications: ["Daily iPhone wireless charging", "Solar‑assisted travel"],
+  image: "/productImg/p-bank/powerbank057.jpg",
+  gallery: [
+
+    "/productImg/p-bank/powerbank057.jpg"
+  ],
+  datasheet: "",
+  certifications: ["UN38.3", "MSDS", "UL2056"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 8: T113S – Mini MagSafe solar 5000mAh
+{
+  id: "pb-208",
+  slug: "mini-magsafe-solar-power-bank",
+  name: "Mini MagSafe Solar Power Bank",
+  model: "Mini MagSafe",
+  modelNumbers: ["T113S"],
+  category: "power-bank",
+  type: "wireless",
+  description: "Ultra‑compact 5000mAh MagSafe solar power bank with 15W wireless charging, 20W PD, and 0.55W solar panel.",
+  specifications: {
+    capacity: "5000mAh / 18.5Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "0.55W (5.5V/100mA)",
+    icType: "Injoinic 5568",
+    input: { typeC: "5V/2A, 9V/2A" },
+    output: {
+      typeC: "5V/3A, 9V/2.22A, 12V/1.67A (PD20W)",
+      usbA: "5V/3A, 9V/2A, 12V/1.5A, 5V/4.5A (SCP22.5W)",
+      wireless: "15W"
+    },
+    dimensions: "108×69×22mm",
+    weight: "130g"
+  },
+  features: [
+    "5000mAh ultra‑compact",
+    "15W MagSafe wireless",
+    "20W PD and 22.5W SCP",
+    "0.55W solar trickle",
+    "Pocketable"
+  ],
+  applications: ["Everyday carry", "MagSafe iPhone", "Light travel"],
+  image: "/productImg/p-bank/powerbank056.jpg",
+  gallery: [
+
+    "/productImg/p-bank/powerbank056a.jpg",
+    "/productImg/p-bank/powerbank056.jpg"
+
+  ],
+  datasheet: "",
+  certifications: ["UN38.3", "MSDS", "UL2056"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 9: M01 – Ultra‑slim 10000mAh with built‑in cables
+{
+  id: "pb-209",
+  slug: "ultra-slim-solar-power-bank-10000mah",
+  name: "Ultra‑Slim Solar Power Bank",
+  model: "Ultra‑Slim",
+  modelNumbers: ["M01"],
+  category: "power-bank",
+  type: "compact",
+  description: "Ultra‑slim 10000mAh solar power bank with built‑in USB‑C, Micro, Lightning cables and digital display.",
+  specifications: {
+    capacity: "10000mAh / 37Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "0.55W (5.5V/100mA)",
+    icType: "Injoinic 5306",
+    input: { micro: "5V/2A", typeC: "5V/2A", builtInUSBA: "5V/2A" },
+    output: {
+      usbA1: "5V/2.1A",
+      usbA2: "5V/2.1A",
+      builtInTypeC: "5V/2.1A",
+      builtInMicro: "5V/2.1A",
+      builtInLightning: "5V/2.1A"
+    },
+    dimensions: "88×78×26mm",
+    weight: "277g",
+    material: "ABS"
+  },
+  features: [
+    "10000mAh in ultra‑slim 26mm design",
+    "Built‑in USB‑C, Micro, Lightning cables",
+    "LED digital display",
+    "Simple and affordable"
+  ],
+  applications: ["Everyday carry", "Cable‑free travel", "Solar backup"],
+  image: "/productImg/p-bank/powerbank058.jpg",
+  gallery: [
+
+    "/productImg/p-bank/powerbank058a.jpg"
+  ],
+  datasheet: "",
+  certifications: ["UL2056", "CE", "RoHS"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 10: XS-610 – Budget 18000mAh solar
+{
+  id: "pb-210",
+  slug: "budget-solar-power-bank-18000mah",
+  name: "Budget Solar Power Bank",
+  model: "Budget Solar",
+  modelNumbers: ["XS-610"],
+  category: "power-bank",
+  type: "solar",
+  description: "Cost‑effective 18000mAh solar power bank with 1.4W solar panel and dual USB outputs.",
+  specifications: {
+    capacity: "18000mAh / 66.6Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "1.4W (5.5V/250mA), 122.6×52.6×1.6mm",
+    icType: "MP5016",
+    input: { micro: "5V/2A", typeC: "5V/2A" },
+    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A" },
+    dimensions: "142×72×27mm",
+    weight: "430g"
+  },
+  features: [
+    "18000mAh high capacity",
+    "1.4W solar panel",
+    "Two 2.1A USB ports",
+    "Affordable"
+  ],
+  applications: ["Budget outdoor power", "Emergency backup", "Long trips"],
+  image: "/productImg/p-bank/powerbank059.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank059.jpg"
+  ],
+  datasheet: "",
+  certifications: ["CE", "ROHS", "UL2056"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 11: QC86S – Solar with 15000mAh and 50LM torch
+{
+  id: "pb-211",
+  slug: "solar-power-bank-with-torch-15000mah",
+  name: "Solar Power Bank with LED Torch",
+  model: "Solar Torch",
+  modelNumbers: ["QC86S"],
+  category: "power-bank",
+  type: "solar",
+  description: "15000mAh solar power bank with 0.8W solar panel, 50LM LED torch, and dual USB outputs.",
+  specifications: {
+    capacity: "15000mAh / 55.5Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "0.8W (5V/160mA), 129.3×55.2×1.6mm",
+    icType: "MP5016",
+    input: { micro: "5V/2A", typeC: "5V/2A" },
+    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A" },
+    ledLight: "0.4W / 50LM",
+    dimensions: "154×73×21mm",
+    weight: "360g",
+    color: "Black"
+  },
+  features: [
+    "15000mAh capacity",
+    "0.8W solar panel",
+    "50LM LED torch",
+    "Two USB outputs"
+  ],
+  applications: ["Camping", "Power outage", "Hiking"],
+  image: "/productImg/p-bank/powerbank060.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank060.jpg"
+  ],
+  datasheet: "",
+  certifications: ["CE", "ROHS", "UL2056"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 12: YD-818P family – Basic 20000mAh solar
+{
+  id: "pb-212",
+  slug: "basic-solar-power-bank-20000mah",
+  name: "Basic Solar Power Bank 20000mAh",
+  model: "Basic Solar",
+  modelNumbers: ["YD-818P", "YD-818P (Thin)", "YD-828P", "YD-818PL"],
+  category: "power-bank",
+  type: "solar",
+  description: "Simple 20000mAh solar power bank with 0.88W solar panel and dual USB outputs. Some models include a stronger LED torch.",
+  specifications: {
+    capacity: "20000mAh / 74Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "0.88W (5.5V/160mA), 127.6×54.1×1.6mm",
+    icType: "MP5216",
+    input: { micro: "5V/2.1A", typeC: "5V/2.1A" },
+    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A" },
+    ledLight: "20‑360LM (depends on variant)",
+    dimensions: "142×69×17‑29mm",
+    weight: "234‑455g"
+  },
+  features: [
+    "20000mAh capacity",
+    "0.88W solar panel",
+    "Two USB outputs",
+    "V0 flame‑retardant casing",
+    "Optional strong LED torch"
+  ],
+  applications: ["Long trips", "Emergency power", "Budget solar"],
+  image: "/productImg/p-bank/powerbank063.jpg",
+  gallery: [
+    
+    "/productImg/p-bank/powerbank061.jpg",
+    "/productImg/p-bank/powerbank061a.jpg",
+    "/productImg/p-bank/powerbank062.jpg",
+    "/productImg/p-bank/powerbank064.jpg",
+
+  ],
+  datasheet: "",
+  certifications: ["PSE", "CE", "ROHS", "UL2056", "UKCA", "FCC"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 13: F33W – IP6 waterproof solar with wireless and 360LM torch
+{
+  id: "pb-213",
+  slug: "ip6-waterproof-solar-power-bank",
+  name: "IP6 Waterproof Solar Power Bank",
+  model: "IP6 Waterproof",
+  modelNumbers: ["F33W"],
+  category: "power-bank",
+  type: "rugged",
+  description: "IP6 waterproof 20000mAh solar power bank with 1.6W solar panel, 15W wireless charging, PD20W, and 360LM torch.",
+  specifications: {
+    capacity: "20000mAh / 74Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "1.6W (5.5V/290mA), 150.8×71.3×1.6mm",
+    icType: "IP5356",
+    waterproof: "IP6",
+    input: {
+      typeC: "5V/3A, 9V/2A, 12V/1.5A (PD18W)",
+      micro: "5V/2A, 9V/2A, 12V/1.5A (QC18W)"
+    },
+    output: {
+      usbA1: "5V/3A, 9V/2A, 10V/2.25A, 12V/1.5A (SCP22.5W)",
+      usbA2: "5V/3A",
+      usbA3: "5V/3A",
+      typeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
+      wireless: "15W"
+    },
+    ledLight: "3W / 360LM",
+    dimensions: "178×93×30mm",
+    weight: "530g",
+    colors: "Black-red, all black, black-blue, black-orange, black-green"
+  },
+  features: [
+    "IP6 waterproof rating",
+    "15W wireless and 20W PD fast charging",
+    "1.6W solar panel",
+    "360LM high‑power torch",
+    "Three USB outputs"
+  ],
+  applications: ["Heavy outdoor use in rain", "Marine", "Emergency"],
+  image: "/productImg/p-bank/powerbank065.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank065.jpg"
+  ],
+  datasheet: "",
+  certifications: ["CE", "ROHS", "FCC", "UL2056", "PSE"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 14: YD-819W / YD-819S – IP55, wireless (or not), dual torch
+{
+  id: "pb-214",
+  slug: "ip55-waterproof-solar-power-bank",
+  name: "IP55 Waterproof Solar Power Bank",
+  model: "IP55 Series",
+  modelNumbers: ["YD-819W", "YD-819S"],
+  category: "power-bank",
+  type: "rugged",
+  description: "IP55 water‑resistant 15000‑16000mAh solar power bank with 1.65W solar panel, dual 360LM torches, and optional 5W wireless charging.",
+  specifications: {
+    capacity: "15000‑16000mAh / 55‑59Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "1.65W (5.5V/300mA), 159.2×74.4×1.6mm",
+    icType: "IP5306",
+    waterproof: "IP55",
+    input: { typeC: "5V/2A", micro: "5V/2A" },
+    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A", wireless: "5W (YD-819W only)" },
+    ledLight: "3W / 360LM (dual torches)",
+    dimensions: "177×88×25.6mm",
+    weight: "450g"
+  },
+  features: [
+    "IP55 water‑resistant",
+    "Dual 360LM LED torches",
+    "1.65W solar panel",
+    "5W wireless charging (YD-819W)",
+    "15000‑16000mAh capacity"
+  ],
+  applications: ["Camping in light rain", "Backyard", "Wireless charging convenience"],
+  image: "/productImg/p-bank/powerbank066.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank067.jpg",
+    "/productImg/p-bank/powerbank066.jpg"
+  ],
+  datasheet: "",
+  certifications: ["FCC", "UL2056", "PSE"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 15: i26wLQ / i26wL – IP66, 20000mAh, 430LM lantern, wireless
+{
+  id: "pb-215",
+  slug: "ip66-solar-power-bank-lantern",
+  name: "IP66 Waterproof Solar Power Bank with Lantern",
+  model: "IP66 Lantern",
+  modelNumbers: ["i26wLQ", "i26wL"],
+  category: "power-bank",
+  type: "rugged",
+  description: "IP66 waterproof 20000mAh solar power bank with 430LM camping lantern, wireless charging, and 20W PD on fast version.",
+  specifications: {
+    capacity: "20000mAh / 74Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "1.6W (5.5V/290mA), 150.8×71.3×1.6mm",
+    icType: "IP5328 (PD20W on i26wLQ)",
+    waterproof: "IP66",
+    input: { micro: "5V/3A, 9V/2A", typeC: "5V/3A, 9V/2A" },
+    output: {
+      usbA1: "5V/3A, 9V/2A, 12V/1.5A (QC18W)",
+      usbA2: "5V/3A, 9V/2A, 12V/1.5A (QC18W)",
+      typeC: "5V/3A, 9V/2.22A, 12V/1.67A (PD20W on i26wLQ)",
+      wireless: "5‑10W"
+    },
+    ledLight: "3.6W / 430LM",
+    dimensions: "200×130×32mm",
+    weight: "565g",
+    material: "ABS+PC (V0), TPU, silicone, aluminium alloy"
+  },
+  features: [
+    "IP66 dust‑tight and water jets resistant",
+    "20000mAh with 20W PD and 10W wireless (fast model)",
+    "430LM camping lantern",
+    "1.6W high‑efficiency solar panel",
+    "Rugged aluminium alloy accents"
+  ],
+  applications: ["Extreme outdoor use", "Professional expeditions", "Marine"],
+  image: "/productImg/p-bank/powerbank075.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank076.jpg",
+    "/productImg/p-bank/powerbank075.jpg"
+  ],
+  datasheet: "",
+  certifications: ["UL2056", "PSE", "CE", "ROHS"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 16: Folding solar series (7W/6W, 15000‑20000mAh, with/without wireless)
+{
+  id: "pb-216",
+  slug: "folding-solar-power-bank",
+  name: "Folding Solar Power Bank",
+  model: "Folding Solar",
+  modelNumbers: ["YD-820S", "YD-820SQ", "L24S", "L24SW", "L24S4W", "L3S4W", "L3SW", "L3S4Q", "L3SQ", "XN-830S"],
+  category: "power-bank",
+  type: "solar",
+  description: "Foldable 3‑4 panel solar power bank with 15000‑20000mAh, LED torch, and fast charging (PD20W on select models).",
+  specifications: {
+    capacity: "15000‑20000mAh / 55‑74Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "5.5‑7W (5.5V/1.0‑1.3A), 3‑4 panels",
+    icType: "IP5306, IP5328, SW6206 or IP5356",
+    output: {
+      usbA: "5V/2.1A or 5V/3A, 9V/2A (fast)",
+      typeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W on fast models)",
+      wireless: "5‑10W on some models"
+    },
+    input: "Type‑C: 5V/2A to 20W PD",
+    ledLight: "150‑680LM (1‑3 LEDs)",
+    dimensions: "Folded: 162‑180 × 86‑105 × 27‑45 mm",
+    material: "ABS+PC (V0) + TPU + silicone",
+    weight: "580‑630g"
+  },
+  features: [
+    "Foldable multi‑panel solar array (5.5‑7W)",
+    "15000‑20000mAh capacity",
+    "LED torch (150‑680LM)",
+    "PD20W fast charging on select models",
+    "Wireless charging on some models"
+  ],
+  applications: ["Hiking, trekking", "Remote work", "Survival kits"],
+  image: "/productImg/p-bank/powerbank082.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank042.jpg",
+    "/productImg/p-bank/powerbank042a.jpg",
+    "/productImg/p-bank/powerbank044.jpg",
+
+  ],
+  datasheet: "",
+  certifications: ["CE", "RoHS", "PSE", "UL2056"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 17: YD-820W / YD-810W – Wireless solar banks
+{
+  id: "pb-217",
+  slug: "wireless-solar-power-bank",
+  name: "Wireless Solar Power Bank",
+  model: "Wireless Solar",
+  modelNumbers: ["YD-820W", "YD-810W"],
+  category: "power-bank",
+  type: "wireless",
+  description: "Solar power bank with 5W wireless charging, 0.88W solar panel, and dual USB outputs. Available in 8000‑15000mAh.",
+  specifications: {
+    capacity: "8000‑15000mAh / 29‑55Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "0.88W (5.5V/160mA), 153.8×79.4mm",
+    icType: "IP5306",
+    input: "Type‑C: 5V/2A or Micro: 5V/2A",
+    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A", wireless: "5W" },
+    dimensions: "170×111×40‑48mm",
+    weight: "470‑580g"
+  },
+  features: [
+    "5W wireless charging",
+    "0.88W solar panel",
+    "Dual USB‑A outputs",
+    "Compact design"
+  ],
+  applications: ["Desk charging", "Travel with wireless devices", "Everyday use"],
+  image: "/productImg/p-bank/powerbank085.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank083.jpg",
+    "/productImg/p-bank/powerbank083a.jpg",
+  ],
+  datasheet: "",
+  certifications: ["CE", "ROHS", "PSE"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 18: F16W / F16WQ – Camping lantern solar bank with wireless
+{
+  id: "pb-218",
+  slug: "camping-lantern-solar-power-bank",
+  name: "Camping Lantern Solar Power Bank",
+  model: "Lantern Solar",
+  modelNumbers: ["F16W", "F16WQ"],
+  category: "power-bank",
+  type: "solar",
+  description: "20000mAh solar power bank with 430LM camping lantern, wireless charging (5‑10W), and IP55 water resistance.",
+  specifications: {
+    capacity: "20000mAh / 74Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "1.6W (5.5V/290mA), 150.8×71.3×1.6mm",
+    icType: "IP5328 (PD20W on F16WQ)",
+    waterproof: "IP55",
+    input: { micro: "5V/2‑3A", typeC: "5V/3A" },
+    output: {
+      usbA1: "5V/2.1‑3A",
+      usbA2: "5V/2.1‑3A",
+      typeC: "5V/3.1A to PD20W",
+      wireless: "5‑10W"
+    },
+    ledLight: "430LM",
+    dimensions: "191×117×25mm",
+    weight: "405g"
+  },
+  features: [
+    "20000mAh with 430LM lantern",
+    "IP55 water resistant",
+    "5‑10W wireless charging",
+    "20W PD fast charging (F16WQ)",
+    "1.6W solar panel"
+  ],
+  applications: ["Camping lantern", "Home emergency", "Outdoor parties"],
+  image: "/productImg/p-bank/powerbank071.jpg",
+  gallery: [
+    "/productImg/p-bank/powerbank073.jpg",
+    "/productImg/p-bank/powerbank071.jpg"
+
+  ],
+  datasheet: "",
+  certifications: ["PSE", "UL2056"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 19: YD-819E – 3‑mode solar lantern with wireless
+{
+  id: "pb-219",
+  slug: "3-mode-solar-lantern-power-bank",
+  name: "3‑Mode Solar Lantern Power Bank",
+  model: "3‑Mode Lantern",
+  modelNumbers: ["YD-819E"],
+  category: "power-bank",
+  type: "solar",
+  description: "20000mAh solar power bank with 3‑mode 430LM lantern, 5W wireless charging, and 1.6W solar panel.",
+  specifications: {
+    capacity: "20000mAh / 74Wh",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "1.6W (5.5V/290mA), 150.8×71.3×1.6mm",
+    icType: "IP5328",
+    input: { typeC: "5V/3A, 9V/2A", micro: "5V/2A" },
+    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A", wireless: "5W" },
+    ledLight: "430LM (3 modes)",
+    dimensions: "175×93×24.5mm",
+    weight: "430g"
+  },
+  features: [
+    "20000mAh capacity",
+    "3‑mode lantern (high/low/off)",
+    "5W wireless charging",
+    "1.6W solar panel"
+  ],
+  applications: ["Camping", "Workshop", "Emergency"],
+  image: "/productImg/p-bank/powerbank091.jpg",
+  gallery: [
+
+    "/productImg/p-bank/powerbank091a.jpg",
+    "/productImg/p-bank/powerbank091.jpg"
+
+  ],
+  datasheet: "",
+  certifications: ["UL2056"],
+  warranty: "18 months",
+  inStock: true,
+  youtubeVideoId: null
+},
+
+// Group 20: S‑BOX – Solar Bluetooth speaker
+{
+  id: "pb-220",
+  slug: "solar-bluetooth-speaker-power-bank",
+  name: "Solar Bluetooth Speaker",
+  model: "Solar Speaker",
+  modelNumbers: ["S-BOX"],
+  category: "power-bank",
+  type: "solar",
+  description: "Solar Bluetooth speaker with 5000mAh battery, 6W×2 speakers, TF card slot, and USB‑A output for phone charging.",
+  specifications: {
+    capacity: "5000mAh (max)",
+    batteryType: "A‑grade polymer Li‑ion",
+    solarPanel: "1.5W (164×49mm), monocrystalline",
+    speakerPower: "6W×2 + bass radiator",
+    bluetoothVersion: "V4.2, range 10‑15m",
+    audioFormats: "APE/MP3/WMA/WAV/FLAC",
+    tfCardSupport: "Up to 128GB",
+    input: { typeC: "5V/2A" },
+    output: { usbA: "5V/2.1A" },
+    dimensions: "200×85×82mm",
+    material: "ABS + TPU",
+    weight: "480g",
+    color: "Black"
+  },
+  features: [
+    "Solar powered rechargeable speaker",
+    "Bluetooth V4.2 with 10‑15m range",
+    "6W×2 sound with bass radiator",
+    "5000mAh battery – also charges phones",
+    "TF card slot for offline music"
+  ],
+  applications: ["Outdoor parties", "Picnics and camping", "Beach"],
+  image: "/productImg/p-bank/powerbank036.jpg",
+  gallery: [
+
+    "/productImg/p-bank/powerbank036a.jpg",
+    "/productImg/p-bank/powerbank036.jpg"
+
+  ],
+  datasheet: "",
+  certifications: [],
+  warranty: "12 months",
+  inStock: true,
+  youtubeVideoId: null
+}
+
 
 ];
 
