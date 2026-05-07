@@ -1,44 +1,68 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { PiCookieBold, PiXBold } from "react-icons/pi";
 import "./CookieConsent.css";
 
 export default function CookieConsent() {
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     try {
-      const consent = localStorage.getItem("cookieConsent");
-      if (!consent) setShow(true);
-    } catch {
+      const consent = localStorage.getItem("joyhand_cookie_consent");
+      if (!consent) {
+        const timer = setTimeout(() => setShow(true), 2000); // Delay for better UX
+        return () => clearTimeout(timer);
+      }
+    } catch (e) {
       setShow(true);
     }
   }, []);
 
-  const accept = () => {
+  const handleAccept = () => {
     try {
-      localStorage.setItem("cookieConsent", "accepted");
-    } catch {}
-    setShow(false);
+      localStorage.setItem("joyhand_cookie_consent", "accepted");
+    } catch (e) {}
+    closeBanner();
+  };
+
+  const closeBanner = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setShow(false);
+      setIsClosing(false);
+    }, 400); // Match CSS transition
   };
 
   if (!show) return null;
 
   return (
-    <div className="cookie-banner">
-      <div className="cookie-banner__inner">
-        <p className="cookie-banner__text">
-          We use cookies to improve your experience.{'By clicking "Accept", you consent to our use of cookies.'}
-        </p>
-        <div className="cookie-banner__actions">
-          <Link href="/cookie-policy" className="cookie-banner__link">
-            Learn More
-          </Link>
-          <button onClick={accept} className="cookie-banner__button">
-            Accept
-          </button>
+    <div className={`cookie-card ${isClosing ? 'cookie-card--closing' : ''}`}>
+      <div className="cookie-card__header">
+        <div className="cookie-card__icon-box">
+          <PiCookieBold size={24} />
         </div>
+        <button className="cookie-card__close" onClick={closeBanner} aria-label="Close">
+          <PiXBold />
+        </button>
+      </div>
+
+      <div className="cookie-card__body">
+        <h4 className="cookie-card__title">Privacy Settings</h4>
+        <p className="cookie-card__text">
+          We use essential and analytics cookies to optimize your manufacturing sourcing experience. By continuing, you agree to our specialized data protocols.
+        </p>
+      </div>
+
+      <div className="cookie-card__footer">
+        <Link href="/cookie-policy" className="cookie-card__link">
+          Review Policy
+        </Link>
+        <button onClick={handleAccept} className="btn btn--primary btn--sm cookie-card__btn">
+          Accept & Continue
+        </button>
       </div>
     </div>
   );

@@ -53,6 +53,7 @@
 }
 
 @media (max-width: 480px) {
+
   .pagination__item,
   .pagination__arrow {
     min-width: 36px;

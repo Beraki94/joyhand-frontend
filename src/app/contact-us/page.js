@@ -5,13 +5,13 @@ import PageHeader from "@/components/pageHeader/PageHeader";
 import SectionHeader from "@/components/sectionHeader/SectionHeader";
 import SimpleContactForm from "@/components/contactForm/SimpleContactForm";
 import SectionDecor from "@/components/sectionDecor/SectionDecor";
-import { 
-  Phone, 
-  Mail, 
-  Clock, 
-  Zap, 
-  ShieldCheck, 
-  Globe, 
+import {
+  Phone,
+  Mail,
+  Clock,
+  Zap,
+  ShieldCheck,
+  Globe,
   Factory,
   Handshake,
   MessageCircle,
@@ -44,13 +44,13 @@ const globalOffices = [
     featured: true
   },
   {
-  icon: <Globe size={22} />,
-  title: "Australia - Pacific Office",
-  content: "Melbourne, VIC, Australia",
-  address: "157 A'Beckett Street, Melbourne VIC 3000, Australia",
-  link: "https://maps.google.com",
-  isOffice: true,
-  region: "Oceania"
+    icon: <Globe size={22} />,
+    title: "Australia - Pacific Office",
+    content: "Melbourne, VIC, Australia",
+    address: "157 A'Beckett Street, Melbourne VIC 3000, Australia",
+    link: "https://maps.google.com",
+    isOffice: true,
+    region: "Oceania"
   },
   {
     icon: <Award size={22} />,
@@ -100,7 +100,7 @@ export default function ContactPage() {
         <SectionDecor type="accent" count={8} />
 
         <div className="container contact-form-section__grid">
-          
+
           <div className="contact-form-section__content">
             <SectionHeader
               badge="Start Here"
@@ -113,32 +113,32 @@ export default function ContactPage() {
               <div className="contact-feature-card">
                 <div className="contact-feature-card__icon"><Factory size={22} /></div>
                 <div className="contact-feature-card__info">
-                   <h5 className="contact-feature-card__label">Custom Manufacturing</h5>
-                   <p className="contact-feature-card__subtext">We produce to your specifications – from battery packs to complete systems.</p>
+                  <h5 className="contact-feature-card__label">Custom Manufacturing</h5>
+                  <p className="contact-feature-card__subtext">We produce to your specifications – from battery packs to complete systems.</p>
                 </div>
               </div>
 
               <div className="contact-feature-card">
                 <div className="contact-feature-card__icon"><ShieldCheck size={22} /></div>
                 <div className="contact-feature-card__info">
-                   <h5 className="contact-feature-card__label">In‑House Quality Control</h5>
-                   <p className="contact-feature-card__subtext">100% inspection at our facility. Every product is tested before shipment.</p>
+                  <h5 className="contact-feature-card__label">In‑House Quality Control</h5>
+                  <p className="contact-feature-card__subtext">100% inspection at our facility. Every product is tested before shipment.</p>
                 </div>
               </div>
 
               <div className="contact-feature-card">
                 <div className="contact-feature-card__icon"><Handshake size={22} /></div>
                 <div className="contact-feature-card__info">
-                   <h5 className="contact-feature-card__label">Engineering Support</h5>
-                   <p className="contact-feature-card__subtext">Work directly with our R&D team to customize designs and firmware.</p>
+                  <h5 className="contact-feature-card__label">Engineering Support</h5>
+                  <p className="contact-feature-card__subtext">Work directly with our R&D team to customize designs and firmware.</p>
                 </div>
               </div>
 
               <div className="contact-feature-card">
                 <div className="contact-feature-card__icon"><CheckCircle size={22} /></div>
                 <div className="contact-feature-card__info">
-                   <h5 className="contact-feature-card__label">Certification Assistance</h5>
-                   <p className="contact-feature-card__subtext">We help you navigate CE, UL, UN38.3, and other market requirements.</p>
+                  <h5 className="contact-feature-card__label">Certification Assistance</h5>
+                  <p className="contact-feature-card__subtext">We help you navigate CE, UL, UN38.3, and other market requirements.</p>
                 </div>
               </div>
             </div>
@@ -154,7 +154,7 @@ export default function ContactPage() {
               <Zap size={16} className="form-terminal__bolt" />
             </div>
             <div className="form-terminal__body">
-               <SimpleContactForm mode="contact" />
+              <SimpleContactForm mode="contact" />
             </div>
             <div className="form-terminal__footer">
               <p className="form-terminal__footnote">
@@ -169,46 +169,15 @@ export default function ContactPage() {
       {/* ================= GLOBAL OFFICES SECTION ================= */}
       <section className="global-offices">
 
-          {/* Decorative rings */}
-            <SuperRing
-              type="primary"
-              size="1400px"
-              thickness="40px"
-              top="50%"
-              left="50%"
-              translateX="-50%"
-              translateY="-50%"
-              opacity={0.06}
-            />
-          <SuperRing
-            type="secondary"
-            size="900px"
-            thickness="40px"
-            top="15%"
-            left="70%"
-            translateX="-50%"
-            translateY="-50%"
-            opacity={0.05}
-              />
-          <SuperRing
-            type="accent"
-            size="900px"
-            thickness="40px"
-            top="85%"
-            left="30%"
-            translateX="-50%"
-            translateY="-50%"
-            opacity={0.05}
-          />
-          
         <div className="container">
-          <SectionHeader 
-            badge="Our Global Presence" 
-            title="Offices Around the World" 
+          <SectionHeader
+            badge="Our Global Presence"
+            title="Offices Around the World"
             subtitle="Serving distributors across four continents with local expertise and global reach"
-            center 
+            align="center"
+            theme="light"
           />
-          
+
           <div className="global-offices__grid">
             {globalOffices.map((office, index) => (
               <div key={index} className={`office-card ${office.featured ? "office-card--featured" : ""}`}>
@@ -226,17 +195,49 @@ export default function ContactPage() {
       {/* ================= CONTACT CARDS (NFC STYLE) ================= */}
       <section className="contact-info">
 
-        <SectionDecor type="primary" count={6} />
+        <SectionDecor type="primary" count={4} />
+
+        {/* Decorative rings */}
+        <SuperRing
+          type="primary"
+          size="1400px"
+          thickness="40px"
+          top="50%"
+          left="50%"
+          translateX="-50%"
+          translateY="-50%"
+          opacity={0.06}
+        />
+        <SuperRing
+          type="secondary"
+          size="900px"
+          thickness="40px"
+          top="15%"
+          left="70%"
+          translateX="-50%"
+          translateY="-50%"
+          opacity={0.05}
+        />
+        <SuperRing
+          type="accent"
+          size="900px"
+          thickness="40px"
+          top="85%"
+          left="30%"
+          translateX="-50%"
+          translateY="-50%"
+          opacity={0.05}
+        />
 
         <div className="container">
-          <SectionHeader 
-            badge="Get in Touch" 
-            title="Global Support & Inquiries" 
-            center 
+          <SectionHeader
+            badge="Get in Touch"
+            title="Global Support & Inquiries"
+            center
           />
           <div className="contact-info__grid">
             {/* Global Support Card */}
-            <div className="contact-card">
+            <div className="contact-card contact-card--navy">
               <div className="contact-card__nfc-wrapper">
                 <div className="contact-card__ring"></div>
                 <div className="contact-card__icon">
@@ -250,7 +251,7 @@ export default function ContactPage() {
             </div>
 
             {/* Manufacturing Inquiries Card */}
-            <div className="contact-card">
+            <div className="contact-card contact-card--navy">
               <div className="contact-card__nfc-wrapper">
                 <div className="contact-card__ring"></div>
                 <div className="contact-card__icon">
@@ -264,7 +265,7 @@ export default function ContactPage() {
             </div>
 
             {/* Response Hours Card */}
-            <div className="contact-card">
+            <div className="contact-card contact-card--navy">
               <div className="contact-card__nfc-wrapper">
                 <div className="contact-card__ring"></div>
                 <div className="contact-card__icon">
@@ -279,7 +280,7 @@ export default function ContactPage() {
           {/* ADDITIONAL TRUST SIGNAL */}
           <div className="contact-note">
             <p className="contact-note__text">
-              <ShieldCheck size={16} /> All inquiries receive a response within 24 hours. 
+              <ShieldCheck size={16} /> All inquiries receive a response within 24 hours.
               We respect your confidentiality and project timelines.
             </p>
           </div>
@@ -293,7 +294,7 @@ export default function ContactPage() {
             <span className="contact-map__badge">Global Manufacturing Network</span>
             <h3 className="contact-map__title">Four Continents. One Factory Partner.</h3>
             <p className="contact-map__text">
-              Our headquarters in the USA, manufacturing facility in Guangzhou, and regional offices in Australia and Nigeria 
+              Our headquarters in the USA, manufacturing facility in Guangzhou, and regional offices in Australia and Nigeria
               give you direct access to JoyHand production line and engineering support worldwide.
             </p>
           </div>
@@ -320,21 +321,21 @@ export default function ContactPage() {
             <div className="contact-faq__item">
               <h4 className="contact-faq__question">What happens after I submit this form?</h4>
               <p className="contact-faq__answer">
-                Our manufacturing team reviews your requirements within 24 hours. We will contact you from your nearest regional office 
+                Our manufacturing team reviews your requirements within 24 hours. We will contact you from your nearest regional office
                 to discuss specifications, volume, and provide a detailed manufacturing proposal.
               </p>
             </div>
             <div className="contact-faq__item">
               <h4 className="contact-faq__question">Do you work with new distributors?</h4>
               <p className="contact-faq__answer">
-                Absolutely. We partner with distributors of all sizes, from emerging brands to established players. Minimum order quantities vary 
+                Absolutely. We partner with distributors of all sizes, from emerging brands to established players. Minimum order quantities vary
                 by product – we will help you find a configuration that fits your needs.
               </p>
             </div>
             <div className="contact-faq__item">
               <h4 className="contact-faq__question">How do you ensure quality?</h4>
               <p className="contact-faq__answer">
-                We control production entirely in our ISO 9001:2025 certified facility. Every product undergoes in‑process inspections, final 
+                We control production entirely in our ISO 9001:2025 certified facility. Every product undergoes in‑process inspections, final
                 testing, and full documentation before shipping. Certifications (CE, UL, UN38.3) are validated on‑site.
               </p>
             </div>
@@ -344,11 +345,12 @@ export default function ContactPage() {
 
       {/* ================= ADDITIONAL CTA ================= */}
       <section className="contact-bottom-cta">
+        <SectionDecor type="primary" count={5} />
         <div className="container">
           <div className="contact-bottom-cta__wrapper">
             <div className="contact-bottom-cta__content">
               <MessageCircle size={32} className="contact-bottom-cta__icon" />
-              <h3 className="contact-bottom-cta__title">Prefer to talk?</h3>
+              <h3 className="contact-bottom-cta__title">Prefer to <span className="title--highlight">talk?</span></h3>
               <p className="contact-bottom-cta__text">
                 Call our global support line at <a href="tel:+8613060850617" className="contact-bottom-cta__phone">+86 130 6085 0617</a>
               </p>

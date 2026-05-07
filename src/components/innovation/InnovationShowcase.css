@@ -85,55 +85,6 @@
   transform: translateY(0);
 }
 
-.innovation-section__badge {
-  display: inline-block;
-  background: rgba(255, 127, 65, 0.15);
-  color: var(--primary-color);
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 100px;
-  margin-bottom: 0.75rem;
-  border: 1px solid rgba(255, 127, 65, 0.3);
-  backdrop-filter: blur(5px);
-}
-
-@media screen and (min-width: 768px) {
-  .innovation-section__badge {
-    font-size: 0.75rem;
-    padding: 6px 16px;
-    margin-bottom: 1rem;
-  }
-}
-
-.innovation-section__title {
-  color: white;
-  font-size: clamp(1.5rem, 5vw, 1.8rem);
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
-}
-
-@media screen and (min-width: 768px) {
-  .innovation-section__title {
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    margin-bottom: 1rem;
-  }
-}
-
-.innovation-section__subtitle {
-  color: rgba(255,255,255,0.9);
-  font-size: 0.9rem;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.5;
-}
-
-@media screen and (min-width: 768px) {
-  .innovation-section__subtitle {
-    font-size: 1.1rem;
-  }
-}
-
 /* =====================================================
    GRID - Cards stay within container
 ===================================================== */

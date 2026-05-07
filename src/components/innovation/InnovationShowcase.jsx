@@ -10,6 +10,8 @@ import {
   PiArrowRight,
 } from "react-icons/pi";
 import "./InnovationShowcase.css";
+import SectionHeader from "../sectionHeader/SectionHeader";
+import SuperRing from "../superRing/SuperRing";
 
 const InnovationShowcase = () => {
   const sectionRef = useRef(null);
@@ -91,16 +93,28 @@ const InnovationShowcase = () => {
             type="video/mp4"
           />
         </video>
+        
         <div className="innovation-section__overlay">
+          {/* Aesthetic Background Ring */}
+          <SuperRing
+            type="primary"
+            size="800px"
+            thickness="2px"
+            top="50%"
+            left="50%"
+            translateX="-50%"
+            translateY="-50%"
+            opacity={0.15}
+          />
+
           <div className="container innovation-section__hero-content">
-            <span className="innovation-section__badge">Certified Quality</span>
-            <h2 className="innovation-section__title">
-              Trust Built on Verified Standards
-            </h2>
-            <p className="innovation-section__subtitle">
-              Every product leaves our factory with full certification and rigorous testing.
-              From battery cells to complete systems, we document quality at every stage.
-            </p>
+            <SectionHeader 
+              badge="Certified Quality"
+              title="Trust Built on Verified Standards"
+              subtitle="Every product leaves our factory with full certification and rigorous testing. From battery cells to complete systems, we document quality at every stage."
+              align="center"
+              light
+            />
           </div>
         </div>
       </div>
@@ -113,9 +127,6 @@ const InnovationShowcase = () => {
               className="innovation-card"
               style={{ '--delay': `${index * 0.1}s` }}
             >
-              {/* Side ring div */}
-              <div className="innovation-card__ring"></div>
-
               <div className="innovation-card__main">
                 <div className="innovation-card__icon">{item.icon}</div>
                 <h3 className="innovation-card__title">{item.title}</h3>

@@ -1,30 +1,48 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import { PiSealCheckFill, PiArrowRight } from "react-icons/pi";
+import { PiArrowRight } from "react-icons/pi";
 import { partners } from "../../data";
+import SectionHeader from "../sectionHeader/SectionHeader";
 import "./TrustSignals.css";
 
 const TrustSignals = () => {
   const scrollingPartners = [...partners, ...partners];
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Only animate once
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="trust">
+    <section ref={sectionRef} className={`trust ${isVisible ? 'is-visible' : ''}`}>
       <div className="trust__energy-glow"></div>
       <div className="trust__energy-waves"></div>
 
       <div className="container trust__container">
-        {/* Header */}
-        <div className="trust__header">
-          <span className="trust__badge">
-            <PiSealCheckFill /> Global Trust
-          </span>
-          <h2 className="trust__title">Partner with a Manufacturer You Can Rely On</h2>
-          <p className="trust__subtitle">
-            ISO 9001:2025 certified facility. Every order backed by our engineering team and on‑site quality control.
-          </p>
-        </div>
+        {/* Replaced manual header with Reusable SectionHeader */}
+        <SectionHeader 
+          badge="Global Trust"
+          title="Partner with a Manufacturer You Can Rely On"
+          subtitle="ISO 9001:2025 certified facility. Every order backed by our engineering team and on‑site quality control."
+          align="center"
+          className="trust__section-header"
+        />
 
         {/* Partner logos – continuous marquee */}
         <div className="trust__marquee">
@@ -49,7 +67,12 @@ const TrustSignals = () => {
 
         {/* CTA */}
         <div className="trust__footer">
-          <a href="/about-us" className="trust__link">
+          {/* Desktop Button */}
+          <a href="/about-us" className="btn btn--outline trust__btn-desktop">
+            Discover our manufacturing process <PiArrowRight />
+          </a>
+          {/* Mobile Inline Link */}
+          <a href="/about-us" className="trust__link-mobile">
             Discover our manufacturing process <PiArrowRight />
           </a>
         </div>

@@ -101,7 +101,7 @@ const SimpleContactForm = ({ mode = "quote" }) => {
       web3FormData.append("company_name", formData.companyName || "Not provided");
       web3FormData.append("order_volume", formData.orderVolume || "Not specified");
       web3FormData.append("inquiry_type", isQuote ? "Quote Request" : "Contact Form");
-      
+
       // Optional: Add honeypot for spam protection
       web3FormData.append("botcheck", "");
 

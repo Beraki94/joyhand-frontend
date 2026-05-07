@@ -15,15 +15,22 @@
   
   transition: opacity 0.3s ease;
 
-  width: clamp(120px, 20vw, 400px);
+  width: clamp(200px, 40vw, 800px);
   aspect-ratio: 1 / 1;
-  border-width: clamp(1px, 0.4vw, 4px);
+  border-width: clamp(2px, 0.6vw, 6px);
+  opacity: 0.15 !important; /* Force higher visibility */
+  filter: drop-shadow(0 0 10px rgba(255, 127, 65, 0.2));
   flex-shrink: 0;
 
-  /* Optional Enhancement: Soft fade-out at edges 
-     This prevents a "hard line" if the ring is clipped by a section */
-  mask-image: radial-gradient(circle, black 70%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%);
+  /* Optional Enhancement: Soft fade-out at edges */
+  mask-image: radial-gradient(circle, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle, black 30%, transparent 100%);
+  animation: ringFloat 20s infinite ease-in-out;
+}
+
+@keyframes ringFloat {
+  0%, 100% { transform: translate(-50%, 0) rotate(0deg); }
+  50% { transform: translate(-51%, -1%) rotate(2deg); }
 }
 
 /* COLORS */

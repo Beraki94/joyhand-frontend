@@ -79,62 +79,76 @@ export default function AboutPage() {
       title: "LFP Battery Manufacturing",
       desc: "We produce high-performance Lithium Iron Phosphate storage using Grade-A prismatic cells. Our batteries power residential, commercial, and industrial backup systems.",
       features: ["Grade-A Prismatic Cells", "6000+ Cycle Lifespan", "Automotive-Grade Assembly"],
-      img: "/aboutImg/aboutProductimg1.jpg",
+      img: "/homeImg/energyPlatformImage01.jpg",
       tag: "Energy Storage"
     },
     {
       title: "Solar Inverter Production",
       desc: "Our pure sine wave inverters are built with Tier-1 components for superior grid-tie and off-grid reliability. 98% peak efficiency and smart grid switching.",
       features: ["98% Peak Efficiency", "Pure Sine Wave Tech", "Smart Grid Switching"],
-      img: "/aboutImg/aboutProductimg02.jpg",
+      img: "/homeImg/energyPlatformImage002.jpg",
       tag: "Power Electronics"
     },
     {
       title: "Portable Power Stations",
-      desc: "Production-ready portable energy solutions for global brands. Engineered with fast-charge technology and multi-region outlet configurations.",
+      desc: "Production-ready portable energy solutions for global brands. Engineered with fast-charge technology and multi-region outlet configurations for reliable off-grid power.",
       features: ["Fast-Charge Capability", "OEM/ODM Branding", "Multi-Output Design"],
-      img: "/aboutImg/aboutProductimg3.jpg",
+      img: "/homeImg/energyPlatformImage003.jpg",
       tag: "Portable Energy"
     },
     {
+      title: "High-Capacity Power Banks",
+      desc: "Ultra-fast charging mobile power solutions featuring advanced lithium-polymer cells. Designed for durability and universal compatibility with modern devices.",
+      features: ["PD Fast Charging", "High Energy Density", "Smart Protection IC"],
+      img: "/homeImg/businessModelImage2.jpg",
+      tag: "Consumer Tech"
+    },
+    {
       title: "E-Mobility Engineering",
-      desc: "Specialized assembly of electric motorcycles and scooters. Reinforced chassis engineering and weatherproof motor controllers for commercial use.",
+      desc: "Specialized assembly of electric motorcycles and scooters. Reinforced chassis engineering and weatherproof motor controllers designed for intense commercial and urban logistics.",
       features: ["Reinforced EV Frames", "IP65 Weatherproof Motors", "Custom Motor Controllers"],
-      img: "/aboutImg/aboutProductimg4.jpg",
+      img: "/homeImg/energyPlatformImage04.jpg",
       tag: "Electric Mobility"
+    },
+    {
+      title: "EV Charging Infrastructure",
+      desc: "Smart AC and DC fast chargers engineered for rapid deployment. Featuring universal compatibility, weather resistance, and intelligent load balancing for smart grids.",
+      features: ["AC & DC Fast Charging", "Intelligent Load Balancing", "OCPP Compliant"],
+      img: "/homeImg/businessModelImage001.jpg",
+      tag: "Smart Grids"
     }
   ];
 
   const timeline = [
-    { 
-      year: "1998", 
-      title: "The Production Roots", 
-      description: "Founded as a specialized facility for electric vehicle components and chassis engineering.", 
-      icon: <PiFactory /> 
+    {
+      year: "1998",
+      title: "The Production Roots",
+      description: "Founded as a specialized facility for electric vehicle components and chassis engineering.",
+      icon: <PiFactory />
     },
-    { 
-      year: "2010", 
-      title: "E-Mobility Leadership", 
-      description: "Reached 5,000+ electric motorcycles produced annually for international export.", 
-      icon: <PiChartLineUp /> 
+    {
+      year: "2010",
+      title: "E-Mobility Leadership",
+      description: "Reached 5,000+ electric motorcycles produced annually for international export.",
+      icon: <PiChartLineUp />
     },
-    { 
-      year: "2018", 
-      title: "Energy Storage Pivot", 
-      description: "Integrated our battery expertise into residential LFP storage and high-efficiency inverter lines.", 
-      icon: <PiLightning /> 
+    {
+      year: "2018",
+      title: "Energy Storage Pivot",
+      description: "Integrated our battery expertise into residential LFP storage and high-efficiency inverter lines.",
+      icon: <PiLightning />
     },
-    { 
-      year: "2026", 
-      title: "JoyHand Global", 
-      description: "Operating a fully integrated manufacturing hub for next-generation renewable energy infrastructure.", 
-      icon: <PiShieldCheck /> 
+    {
+      year: "2026",
+      title: "JoyHand Global",
+      description: "Operating a fully integrated manufacturing hub for next-generation renewable energy infrastructure.",
+      icon: <PiShieldCheck />
     }
   ];
 
   const testimonials = [
     {
-      quote: "Working directly with JoyHand's engineering team allowed us to customize the BMS for our specific climate. Their manufacturing transparency is a massive competitive advantage.",
+      quote: "Joyhand helped us customize the BMS for our specific climate. Their manufacturing transparency is a massive competitive advantage.",
       author: "Ahmed Ibrahim",
       company: "GreenTech Distributors, Nigeria",
       image: "/aboutImg/aboutTestimonial1.jpg"
@@ -143,6 +157,18 @@ export default function AboutPage() {
       quote: "The build quality of their factory-direct LFP packs is significantly higher than the generic units we sourced before. Their QC protocols saved us from field failures.",
       author: "Carlos Mendez",
       company: "SolEnergy Latin America",
+      image: "/aboutImg/aboutTestimonial2.jpg"
+    },
+    {
+      quote: "JoyHand delivered our 500kW commercial storage project three weeks ahead of schedule. The seamless integration of their inverters and batteries halved our installation time.",
+      author: "Sarah Lin",
+      company: "Apex Renewable Systems, Australia",
+      image: "/aboutImg/aboutTestimonial1.jpg"
+    },
+    {
+      quote: "We've been importing their electric mobility solutions for 4 years. The IP65 weatherproof motors handle our monsoon seasons flawlessly, completely reducing our warranty claims.",
+      author: "Raj Patel",
+      company: "EcoTransit Solutions, India",
       image: "/aboutImg/aboutTestimonial2.jpg"
     }
   ];
@@ -156,17 +182,17 @@ export default function AboutPage() {
       />
 
       {/* ================= INTRO ================= */}
-      <section className="about-intro">
+      <section className="about-intro animate-slide-up">
         <SectionDecor type="accent" count={8} />
         <div className="container about-intro__container">
           <div className="about-intro__content">
-            <SectionHeader 
+            <SectionHeader
               badge="OWNING THE FLOOR"
               title="A Factory-First Approach to Renewable Energy"
             />
             <div className="about-intro__description">
               <p>
-                JoyHand was born on the factory floor. We are engineers and builders first. 
+                JoyHand was born on the factory floor. We are engineers and builders first.
                 By maintaining <strong>direct control over our assembly lines</strong>, we ensure that every cell and circuit board meets the rigorous demands of professional distributors worldwide.
               </p>
               <div className="mission-statement">
@@ -177,10 +203,8 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-          <div className="about-intro__visual">
-            <div className="nfc-scanner">
-              <div className="nfc-scanner__ring"></div>
-              <div className="nfc-scanner__ring nfc-scanner__ring--delayed"></div>
+          <div className="about-intro__visual stagger-2">
+            <div className="about-intro__nfc-wrapper nfc-pulse">
               <div className="about-intro__image-wrapper">
                 <Image
                   src="/aboutImg/joyhandBuilding.jpg"
@@ -200,12 +224,12 @@ export default function AboutPage() {
       </section>
 
       {/* ================= TIMELINE ================= */}
-      <section className="timeline-section">
+      <section className="timeline-section animate-slide-up">
         <div className="container">
           <SectionHeader
             badge="OUR HERITAGE"
             title="Over 26 Years of Engineering"
-            center
+            align="center"
           />
           <div className="timeline">
             {timeline.map((item, index) => (
@@ -224,16 +248,17 @@ export default function AboutPage() {
       </section>
 
       {/* ================= PILLARS ================= */}
-      <section className="values-section">
+      <section className="values-section animate-slide-up">
         <div className="container">
           <SectionHeader
             badge="THE JOYHAND STANDARD"
             title="The 4 Pillars of Production"
-            center
+            align="center"
+            light
           />
-          <div className="values-grid">
+          <div className="grid grid--4 values-grid">
             {values.map((value, index) => (
-              <div key={index} className="value-card">
+              <div key={index} className={`card value-card stagger-${index % 6 + 1}`}>
                 <div className="value-card__icon">{value.icon}</div>
                 <h4 className="value-card__title">{value.title}</h4>
                 <p className="value-card__description">{value.description}</p>
@@ -243,8 +268,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= ENERGY SOLUTIONS (4 CARDS) ================= */}
-      <section className="markets-section">
+      {/* ================= ENERGY SOLUTIONS ================= */}
+      <section className="markets-section animate-slide-up">
         <SectionDecor type="accent" count={8} />
         <SuperRing
           type="primary"
@@ -284,7 +309,7 @@ export default function AboutPage() {
           />
           <div className="markets-grid">
             {energySectors.map((sector, index) => (
-              <div key={index} className={`market-row ${index % 2 !== 0 ? 'market-row--reverse' : ''}`}>
+              <div key={index} className={`market-row ${index % 2 !== 0 ? 'market-row--reverse' : ''} stagger-${index % 6 + 1}`}>
                 <div className="market-image">
                   <Image src={sector.img} alt={sector.title} fill />
                   <div className="market-badge">{sector.tag}</div>
@@ -297,11 +322,9 @@ export default function AboutPage() {
                       <li key={i}><PiCheckCircleFill /> {feature}</li>
                     ))}
                   </ul>
-                  {/* Inquire for Wholesale link now opens modal */}
-                  <button 
-                    className="btn-link" 
+                  <button
+                    className="btn btn--primary"
                     onClick={() => openModal("quote")}
-                    style={{ background: "none", border: "none", cursor: "pointer", padding: 0 }}
                   >
                     Inquire for Wholesale <PiArrowRight />
                   </button>
@@ -313,54 +336,64 @@ export default function AboutPage() {
       </section>
 
       {/* ================= TESTIMONIALS ================= */}
-      <section className="testimonials-section">
+      <section className="testimonials-section animate-slide-up">
         <div className="container">
           <SectionHeader
             badge="PARTNER SUCCESS"
             title="Trusted by Professional Importers"
-            center
+            theme="light"
           />
-          <div className="testimonials-grid">
-            {testimonials.map((t, index) => (
-              <div key={index} className="testimonial-card">
-                <PiQuotesFill className="testimonial-card__quote-icon" size={40} />
-                <p className="testimonial-card__text">{t.quote}</p>
-                <div className="testimonial-card__author">
-                  <div className="testimonial-card__author-image">
-                    <Image src={t.image} alt={t.author} fill />
-                  </div>
-                  <div>
-                    <h5>{t.author}</h5>
-                    <span>{t.company}</span>
+          <div className="testimonials-marquee">
+            <div className="testimonials-track">
+              {[...testimonials, ...testimonials].map((t, index) => (
+                <div key={index} className={`card testimonial-card`}>
+                  <PiQuotesFill className="testimonial-card__quote-icon" size={40} />
+                  <p className="testimonial-card__text">{t.quote}</p>
+                  <div className="testimonial-card__author">
+                    <div className="testimonial-card__author-image">
+                      <Image src={t.image} alt={t.author} fill />
+                    </div>
+                    <div>
+                      <h5>{t.author}</h5>
+                      <span>{t.company}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ================= LEADERSHIP ================= */}
-      <section className="team-section">
+      {/******** LEADERSHIP *******/}
+      <section className="team-section animate-slide-up">
         <SectionDecor type="primary" count={5} />
         <div className="container">
           <SectionHeader
-            badge="TECHNICAL LEADERSHIP"
+            badge="EXECUTIVE LEADERSHIP"
             title="The Minds Behind Your Supply Chain"
             center
           />
-          <div className="team-section__grid">
+          <div className="team-section__wrapper">
             {team.map((member, index) => (
-              <div key={index} className="team-card">
-                <div className="team-card__visual-container">
-                  <div className="team-card__visual">
-                    <Image src={member.image} alt={member.name} fill className="team-card__img" />
-                  </div>
-                  <a href="#" className="team-card__linkedin"><PiLinkedinLogo size={24} /></a>
+              <div key={index} className={`executive-card stagger-${index % 6 + 1}`}>
+                <div className="executive-card__image-box">
+                  <Image src={member.image} alt={member.name} fill className="executive-card__img" />
+                  <div className="executive-card__experience-badge">15+ Yrs Exp</div>
                 </div>
-                <h4 className="team-card__name">{member.name}</h4>
-                <span className="team-card__role">{member.title}</span>
-                <p className="team-card__bio">{member.bio}</p>
+                <div className="executive-card__content">
+                  <div className="executive-card__header">
+                    <span className="executive-card__role">{member.title}</span>
+                    <h4 className="executive-card__name">{member.name}</h4>
+                  </div>
+                  <p className="executive-card__bio">{member.bio}</p>
+                  <div className="executive-card__footer">
+                    <a href="#" className="executive-card__linkedin">
+                      <PiLinkedinLogo size={20} />
+                      <span>Professional Profile</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -368,30 +401,30 @@ export default function AboutPage() {
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="abtCta-banner">
+      <div className="abtCta-banner">
         <div className="container">
           <div className="abtCta-banner__wrapper">
             <div className="abtCta-banner__text">
-              <h4 className="abtCta-banner__title">Scale Your Distribution With a Real Manufacturer</h4>
+              <h4 className="abtCta-banner__title">Scale Your Distribution With a <span className="title--highlight">Real Manufacturer</span></h4>
               <p className="abtCta-banner__subtitle">
                 Access direct factory pricing, technical support, and OEM/ODM engineering services.
               </p>
             </div>
-            <button 
-              className="btn btn--secondary abtCta-banner__btn" 
+            <button
+              className="btn abtCta-banner__btn"
               onClick={() => openModal("quote")}
             >
               Apply for Partnership <PiArrowRight />
             </button>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Modal Component */}
-      <PopUpModal 
-        isOpen={isModalOpen} 
-        onClose={closeModal} 
-        mode={modalMode} 
+      <PopUpModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        mode={modalMode}
       />
     </main>
   );

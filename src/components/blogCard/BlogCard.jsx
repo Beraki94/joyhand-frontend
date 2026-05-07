@@ -20,18 +20,15 @@ const BlogCard = ({ post }) => {
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="blog-card__image"
           />
+          <span className="blog-card__read-time">
+            <PiClock className="blog-card__clock-icon" />
+            {readTime}
+          </span>
         </div>
 
         <div className="blog-card__content">
-          <div className="blog-card__meta">
-            <span className="blog-card__read-time">
-              <PiClock className="blog-card__clock-icon" />
-              {readTime}
-            </span>
-          </div>
-
+          <div className="blog-card__category">{post.category || "Energy Technology"}</div>
           <h3 className="blog-card__title">{title}</h3>
-          
           <p className="blog-card__excerpt">{excerpt}</p>
 
           <div className="blog-card__footer">

@@ -1,4 +1,25 @@
 // ==============================
+// NAVIGATION LINKS
+// ==============================
+export const links = [
+  { name: "About Us", href: "/about-us" },
+  {
+    name: "Products",
+    href: "/products",
+    subLinks: [
+      { name: "Storage Batteries", href: "/products/solutions/storage-batteries" },
+      { name: "Solar Inverters", href: "/products/solutions/solar-inverters" },
+      { name: "Portable Power Stations", href: "/products/solutions/portable-power-stations" },
+      { name: "Electric Mobility", href: "/products/solutions/electric-mobility" },
+      { name: "Power Banks", href: "/products/solutions/power-banks" }
+    ]
+  },
+  { name: "Manufacturing", href: "/services" },
+  { name: "Contact Us", href: "/contact-us" },
+  { name: "Blog", href: "/blog" }
+];
+
+// ==============================
 // BLOG POSTS DATA (Portable Text)
 // ==============================
 
@@ -10,6 +31,7 @@ export const blogPosts = [
     excerpt: "Discover the engineering behind Lithium Iron Phosphate batteries – from prismatic cell selection to advanced BMS design – and how it ensures safety, cycle life, and reliability for OEM customers.",
     image: "/blogImg/blogImage1.png",
     readTime: "8 min read",
+    category: "Manufacturing",
     content: [
       {
         _type: "block",
@@ -80,6 +102,7 @@ export const blogPosts = [
     excerpt: "For distributors and brands looking to launch their own energy products, understanding the difference between OEM and ODM services is critical. This guide explains the two models and how to choose the best fit for your business.",
     image: "/blogImg/blogImage2.png",
     readTime: "7 min read",
+    category: "Business",
     content: [
       {
         _type: "block",
@@ -140,6 +163,7 @@ export const blogPosts = [
     excerpt: "A behind‑the‑scenes look at how rigorous quality assurance protocols ensure every battery, inverter, and e‑mobility component leaves the factory defect‑free and ready for global distribution.",
     image: "/blogImg/blogImage3.png",
     readTime: "9 min read",
+    category: "Quality Control",
     content: [
       {
         _type: "block",
@@ -250,6 +274,7 @@ export const blogPosts = [
     excerpt: "Electric motorcycles, scooters, and light EVs are reshaping urban transportation. This article explores the latest manufacturing trends, battery innovations, and opportunities for OEM partners.",
     image: "/blogImg/blogImage4.png",
     readTime: "8 min read",
+    category: "E-Mobility",
     content: [
       {
         _type: "block",
@@ -310,6 +335,7 @@ export const blogPosts = [
     excerpt: "Exporting lithium batteries requires compliance with a complex set of regulations. This guide explains the key certifications and how JoyHand ensures every product meets international standards.",
     image: "/blogImg/blogImage5.png",
     readTime: "10 min read",
+    category: "Compliance",
     content: [
       {
         _type: "block",
@@ -420,6 +446,7 @@ export const blogPosts = [
     excerpt: "In a volatile global market, working directly with a manufacturer offers stability, cost savings, and agility. Learn how vertical integration and factory‑direct relationships can transform your supply chain.",
     image: "/blogImg/blogImage6.jpg",
     readTime: "7 min read",
+    category: "Industry",
     content: [
       {
         _type: "block",
@@ -4418,4 +4445,69 @@ export const getFeaturedProducts = () => {
       .slice(0, 3);
   });
   return featured;
+};
+
+// =====================================================
+// FOOTER DATA
+// =====================================================
+export const footerData = {
+  brandDescription: "ISO 9001:2025 certified manufacturer of premium energy storage systems, solar inverters, and electric mobility solutions. Direct OEM/ODM supply for global distributors.",
+  socialLinks: [
+    { name: "YouTube", url: "https://www.youtube.com/@JoyHandSolar", icon: "youtube" },
+    { name: "TikTok", url: "https://www.tiktok.com/@joyhandsolar", icon: "tiktok" },
+    { name: "Facebook", url: "https://www.facebook.com/JoyHandEnergy", icon: "facebook" },
+    { name: "Instagram", url: "https://www.instagram.com/joyhandenergy/", icon: "instagram" },
+    { name: "Pinterest", url: "https://www.pinterest.com/joyhandenergy/", icon: "pinterest" }
+  ],
+  solutions: [
+    { name: "Storage Batteries", path: "/products/solutions/storage-batteries" },
+    { name: "Solar Inverters", path: "/products/solutions/solar-inverters" },
+    { name: "Portable Power Stations", path: "/products/solutions/portable-power-stations" },
+    { name: "Electric Mobility", path: "/products/solutions/electric-mobility" },
+    { name: "Power Banks", path: "/products/solutions/power-banks" }
+  ],
+  company: [
+    { name: "About Us", path: "/about-us" },
+    { name: "Manufacturing Capabilities", path: "/services" },
+    { name: "Industry Insights", path: "/blog" },
+    { name: "Contact Us", path: "/contact-us" }
+  ],
+  globalOffices: [
+    {
+      name: "USA - Headquarters",
+      location: "Montgomery, AL",
+      address: "445 Dexter Avenue, Suite 4050, Montgomery, AL 36104",
+      icon: "building",
+      link: "https://maps.google.com/?q=445+Dexter+Avenue+Suite+4050+Montgomery+AL+36104"
+    },
+    {
+      name: "China - Manufacturing Facility",
+      location: "Guangzhou, Guangdong",
+      address: "No. 7, Nansha District, Guangzhou 511400, Guangdong, China",
+      icon: "factory",
+      link: "https://maps.google.com/?q=No.+7,+Nansha+District,+Guangzhou+511400,+Guangdong,+China",
+      featured: true
+    },
+    {
+      name: "Australia - Pacific Office",
+      location: "Melbourne, VIC",
+      address: "157 A'Beckett Street, Melbourne VIC 3000, Australia",
+      icon: "globe",
+      link: "https://maps.google.com/?q=157+A%27Beckett+Street+Melbourne+VIC+3000"
+    },
+    {
+      name: "Nigeria - Africa Office",
+      location: "Lagos, Nigeria",
+      address: "New Mandilas International Market, Trade Fair, Ojo, Lagos, Nigeria",
+      icon: "globe",
+      link: "https://maps.google.com/?q=Trade+Fair+Ojo+Lagos+Nigeria"
+    }
+  ],
+  legal: [
+    { name: "Privacy Policy", path: "/privacy" },
+    { name: "Terms of Service", path: "/terms" },
+    { name: "Cookie Policy", path: "/cookie-policy" }
+  ],
+  copyrightYear: new Date().getFullYear(),
+  credits: "ISO 9001:2025 Certified Manufacturer | USA | China | Australia | Nigeria"
 };

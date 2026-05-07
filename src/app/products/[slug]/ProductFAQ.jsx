@@ -41,10 +41,12 @@ export default function ProductFAQ({ product }) {
               aria-expanded={openIndex === idx}
             >
               <div className="product-details__faq-question-content">
-                <PiQuestion size={24} className="product-details__faq-icon" />  {/* ← increased from 18 to 24 */}
+                <div className="product-details__faq-icon-wrapper">
+                  <PiQuestion size={22} className="product-details__faq-icon" />
+                </div>
                 <span>{faq.question}</span>
               </div>
-              {openIndex === idx ? <PiCaretUp size={20} /> : <PiCaretDown size={20} />}
+              {openIndex === idx ? <PiCaretUp size={20} className="product-details__faq-caret" /> : <PiCaretDown size={20} className="product-details__faq-caret" />}
             </button>
             {openIndex === idx && (
               <div className="product-details__faq-answer">

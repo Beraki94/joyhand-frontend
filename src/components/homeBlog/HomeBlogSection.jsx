@@ -155,7 +155,7 @@ const HomeBlogSection = () => {
         </div>
 
         <div className="home-blog__footer">
-          <Link href="/blog" className="home-blog__link">
+          <Link href="/blog" className="btn btn--primary">
             Read More Insights <PiArrowRight />
           </Link>
         </div>

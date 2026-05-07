@@ -3,125 +3,102 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { PiBatteryHigh, PiLightning, PiMotorcycle, PiPlug, PiBatteryCharging } from "react-icons/pi";
+import {
+  PiBatteryHigh,
+  PiLightning,
+  PiMotorcycle,
+  PiPlug,
+  PiBatteryCharging,
+  PiArrowRight,
+  PiShieldCheck,
+} from "react-icons/pi";
 
 const ProductCard = ({ product }) => {
   const { name, slug, description, image, category, specifications } = product;
 
-  const getCategoryIcon = () => {
-    if (category === "battery") return <PiBatteryHigh className="product-card__category-icon" />;
-    if (category === "inverter") return <PiLightning className="product-card__category-icon" />;
-    if (category === "electric-mobility") return <PiMotorcycle className="product-card__category-icon" />;
-    if (category === "portable-power") return <PiPlug className="product-card__category-icon" />;
-    if (category === "power-bank") return <PiBatteryCharging className="product-card__category-icon" />;
-    return <PiLightning className="product-card__category-icon" />;
+  const categoryMap = {
+    battery:            { label: "Storage Battery",       icon: <PiBatteryHigh /> },
+    inverter:           { label: "Solar Inverter",        icon: <PiLightning /> },
+    "electric-mobility":{ label: "Electric Mobility",    icon: <PiMotorcycle /> },
+    "portable-power":   { label: "Portable Power",       icon: <PiPlug /> },
+    "power-bank":       { label: "Power Bank",           icon: <PiBatteryCharging /> },
   };
 
-  const getCategoryName = () => {
-    if (category === "battery") return "Battery";
-    if (category === "inverter") return "Inverter";
-    if (category === "electric-mobility") return "Electric Mobility";
-    if (category === "portable-power") return "Portable Power";
-    if (category === "power-bank") return "Power Bank";
-    return category;
-  };
+  const catInfo = categoryMap[category] || { label: category, icon: <PiLightning /> };
 
-  // Preview specs – max 2 items
+  // Build up to 2 preview specs (max 2 for layout consistency)
   const previewSpecs = [];
   if (specifications) {
-    // For batteries
+    const push = (label, value) => {
+      if (value && previewSpecs.length < 2) previewSpecs.push({ label, value });
+    };
+
     if (category === "battery") {
-      if (specifications.power) previewSpecs.push({ label: "Power", value: specifications.power });
-      else if (specifications.energy) previewSpecs.push({ label: "Capacity", value: specifications.energy });
-      else if (specifications.capacity) previewSpecs.push({ label: "Capacity", value: specifications.capacity });
-      if (specifications.nominalVoltage && previewSpecs.length < 2) {
-        previewSpecs.push({ label: "Voltage", value: specifications.nominalVoltage });
-      } else if (specifications.dcInput && previewSpecs.length < 2) {
-        previewSpecs.push({ label: "Input", value: specifications.dcInput });
-      }
-    }
-    // For inverters
-    else if (category === "inverter") {
-      if (specifications.power) previewSpecs.push({ label: "Power", value: specifications.power });
-      else if (specifications.energy) previewSpecs.push({ label: "Capacity", value: specifications.energy });
-      else if (specifications.capacity) previewSpecs.push({ label: "Capacity", value: specifications.capacity });
-      if (specifications.nominalVoltage && previewSpecs.length < 2) {
-        previewSpecs.push({ label: "Voltage", value: specifications.nominalVoltage });
-      } else if (specifications.dcInput && previewSpecs.length < 2) {
-        previewSpecs.push({ label: "Input", value: specifications.dcInput });
-      }
-    }
-    // For electric mobility
-    else if (category === "electric-mobility") {
-      if (specifications.power) previewSpecs.push({ label: "Power", value: specifications.power });
-      else if (specifications.energy) previewSpecs.push({ label: "Capacity", value: specifications.energy });
-      else if (specifications.capacity) previewSpecs.push({ label: "Capacity", value: specifications.capacity });
-      if (specifications.maxSpeed || specifications.topSpeed) {
-        previewSpecs.push({ label: "Top Speed", value: specifications.maxSpeed || specifications.topSpeed });
-      } else if (specifications.motor && previewSpecs.length < 2) {
-        previewSpecs.push({ label: "Motor", value: specifications.motor });
-      }
-    }
-    // For portable power stations
-    else if (category === "portable-power") {
-      if (specifications.ratedPower) previewSpecs.push({ label: "Power", value: specifications.ratedPower });
-      else if (specifications.power) previewSpecs.push({ label: "Power", value: specifications.power });
-      if (specifications.batteryCapacity) previewSpecs.push({ label: "Capacity", value: specifications.batteryCapacity });
-      else if (specifications.capacity) previewSpecs.push({ label: "Capacity", value: specifications.capacity });
-    }
-    // For power banks
-    else if (category === "power-bank") {
-      // Add capacity only once
-      let capacityValue = specifications.capacity || specifications.batteryCapacity;
-      if (capacityValue) {
-        previewSpecs.push({ label: "Capacity", value: capacityValue });
-      }
-      // Try to get output wattage
-      let outputValue = null;
-      if (specifications.totalOutput) {
-        outputValue = specifications.totalOutput;
-      } else if (specifications.usbCOutput) {
-        const wattMatch = specifications.usbCOutput.match(/(\d+\.?\d*)W/);
-        if (wattMatch) outputValue = `${wattMatch[1]}W`;
-        else outputValue = specifications.usbCOutput;
-      }
-      if (outputValue && previewSpecs.length < 2) {
-        previewSpecs.push({ label: "Output", value: outputValue });
-      }
+      push("Capacity", specifications.power || specifications.energy || specifications.capacity);
+      push("Voltage", specifications.nominalVoltage);
+    } else if (category === "inverter") {
+      push("Power", specifications.power || specifications.capacity);
+      push("Efficiency", specifications.efficiency);
+    } else if (category === "electric-mobility") {
+      push("Motor", specifications.motor || specifications.power);
+      push("Top Speed", specifications.maxSpeed || specifications.topSpeed);
+    } else if (category === "portable-power") {
+      push("Power", specifications.ratedPower || specifications.power);
+      push("Capacity", specifications.batteryCapacity || specifications.capacity);
+    } else if (category === "power-bank") {
+      push("Capacity", specifications.capacity || specifications.batteryCapacity);
+      push("Output", specifications.totalOutput || specifications.usbCOutput);
     }
   }
-  const displayedSpecs = previewSpecs.slice(0, 2);
 
   return (
     <article className="product-card" itemScope itemType="https://schema.org/Product">
-      <Link href={`/products/${slug}`} className="product-card__link" aria-label={`View ${name} details`}>
-        <div className="product-card__image-wrapper">
+      <Link
+        href={`/products/${slug}`}
+        className="product-card__inner"
+        aria-label={`View ${name} details`}
+      >
+        {/* ── Image Zone ── */}
+        <div className="product-card__visual">
           <Image
             src={image || "/images/placeholder.jpg"}
             alt={name}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
-            className="product-card__image"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="product-card__img"
             loading="lazy"
           />
           <meta itemProp="image" content={image} />
-        </div>
 
-        <div className="product-card__content">
-          <div className="product-card__category">
-            {getCategoryIcon()}
-            <span className="product-card__category-text">{getCategoryName()}</span>
+          {/* Hover overlay */}
+          <div className="product-card__overlay">
+            <span className="product-card__overlay-cta">
+              View Details <PiArrowRight />
+            </span>
           </div>
 
+          {/* Category badge */}
+          <div className="product-card__cat-badge">
+            <span className="product-card__cat-icon">{catInfo.icon}</span>
+            <span>{catInfo.label}</span>
+          </div>
+        </div>
+
+        {/* ── Content Zone ── */}
+        <div className="product-card__content">
+          {/* Title */}
           <h3 className="product-card__title" itemProp="name">{name}</h3>
 
-          <p className="product-card__description" itemProp="description">{description}</p>
+          {/* Description */}
+          <p className="product-card__desc" itemProp="description">{description}</p>
 
-          {displayedSpecs.length > 0 && (
+          {/* Spec Tags */}
+          {previewSpecs.length > 0 && (
             <ul className="product-card__specs">
-              {displayedSpecs.map((spec, idx) => (
-                <li key={idx} className="product-card__spec">
-                  <span className="product-card__spec-label">{spec.label}:</span>
+              {previewSpecs.map((spec, i) => (
+                <li key={i} className="product-card__spec">
+                  <span className="product-card__spec-label">{spec.label}</span>
+                  <span className="product-card__spec-divider">·</span>
                   <span className="product-card__spec-value">{spec.value}</span>
                 </li>
               ))}
@@ -130,10 +107,20 @@ const ProductCard = ({ product }) => {
         </div>
       </Link>
 
+      {/* ── Footer CTA ── */}
       <div className="product-card__footer">
-        <Link href={`/products/${slug}`} className="btn btn--secondary product-card__button">
-          View Product
+        <Link
+          href={`/products/${slug}`}
+          className="product-card__btn"
+          aria-label={`View details for ${name}`}
+        >
+          <span>View Product</span>
+          <PiArrowRight className="product-card__btn-arrow" />
         </Link>
+        <div className="product-card__trust">
+          <PiShieldCheck />
+          <span>OEM Ready</span>
+        </div>
       </div>
     </article>
   );

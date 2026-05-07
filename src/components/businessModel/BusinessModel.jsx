@@ -3,9 +3,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { PiCube, PiMicroscope, PiBuildings } from "react-icons/pi";
+import { PiCube, PiMicroscope, PiBuildings, PiArrowRight } from "react-icons/pi";
 import "./BusinessModel.css";
 import SuperRing from "../superRing/SuperRing";
+import SectionHeader from "../sectionHeader/SectionHeader";
 
 const SERVICES = [
   {
@@ -23,7 +24,7 @@ const SERVICES = [
       "Flexible MOQs and scalable capacity"
     ],
     icon: <PiCube size={32} />,
-    image: "/homeImg/businessModelImage2.jpg",  // Fixed path (lowercase)
+    image: "/homeImg/businessModelImage2.jpg",
     imageAlt: "OEM production line for solar inverters and battery packs"
   },
   {
@@ -58,7 +59,7 @@ const SERVICES = [
       "Logistics support: bulk shipments or dropshipping"
     ],
     icon: <PiBuildings size={32} />,
-    image: "/homeImg/businessModelImage4.jpg",  // Fixed path
+    image: "/homeImg/businessModelImage4.jpg",
     imageAlt: "Finished products ready for global shipment"
   }
 ];
@@ -76,7 +77,7 @@ export default function BusinessModel() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Stop observing once visible
+          observer.disconnect();
         }
       },
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
@@ -85,7 +86,6 @@ export default function BusinessModel() {
     return () => observer.disconnect();
   }, []);
 
-  // Preload next image when tab changes (optional performance)
   const handleTabChange = (service) => {
     setActiveService(service);
   };
@@ -96,43 +96,43 @@ export default function BusinessModel() {
       className={`businessModel ${isVisible ? 'is-visible' : ''}`} 
       aria-labelledby="business-model-heading"
     >
-      {/* Decorative rings */}
-      <SuperRing
-        type="primary"
-        size="1400px"
-        thickness="40px"
-        top="50%"
-        left="50%"
-        translateX="-50%"
-        translateY="-50%"
-        opacity={0.06}
-      />
-      <SuperRing
-        type="secondary"
-        size="900px"
-        thickness="40px"
-        top="15%"
-        left="70%"
-        translateX="-50%"
-        translateY="-50%"
-        opacity={0.05}
-      />
-      <SuperRing
-        type="accent"
-        size="900px"
-        thickness="40px"
-        top="85%"
-        left="30%"
-        translateX="-50%"
-        translateY="-50%"
-        opacity={0.05}
-      />
+      {/* Decorative rings (Prominent tech aesthetic) */}
+     {/* Decorative rings */}
+            <SuperRing
+              type="primary"
+              size="1400px"
+              thickness="40px"
+              top="50%"
+              left="50%"
+              translateX="-50%"
+              translateY="-50%"
+              opacity={0.06}
+            />
+          <SuperRing
+            type="secondary"
+            size="900px"
+            thickness="40px"
+            top="15%"
+            left="70%"
+            translateX="-50%"
+            translateY="-50%"
+            opacity={0.05}
+              />
+          <SuperRing
+            type="accent"
+            size="900px"
+            thickness="40px"
+            top="85%"
+            left="30%"
+            translateX="-50%"
+            translateY="-50%"
+            opacity={0.05}
+          />
 
       <div className="container businessModel__container">
         
         {/* LEFT SIDE – images */}
         <div className="businessModel__images">
-          {/* Static Image Card */}
           <div className="businessModel__image-card businessModel__image-card--static">
             <Image
               src="/homeImg/businessModelImage001.jpg"
@@ -146,11 +146,10 @@ export default function BusinessModel() {
             <div className="businessModel__image-overlay"></div>
           </div>
           
-          {/* Dynamic Image Card */}
           <div className="businessModel__image-card businessModel__image-card--dynamic" key={activeService.id}>
             <Image
               src={activeService.image}
-              alt={activeService.imageAlt}
+              alt={activeService.imageAlt || "Manufacturing service"}
               fill
               className="businessModel__image"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -177,29 +176,28 @@ export default function BusinessModel() {
             ))}
           </div>
 
-          <div className="businessModel__tag">
-            <span className="businessModel__tag-square"></span>
-            {activeService.tag}
+          {/* Utilizing the SectionHeader pattern */}
+          <SectionHeader 
+            badge={activeService.tag}
+            title={activeService.title}
+            subtitle={activeService.description}
+            align="left"
+            className="businessModel__section-header"
+          />
+
+          <div className="businessModel__text-content" key={activeService.id + "-text"}>
+            <p className="businessModel__extra">{activeService.extra}</p>
+
+            <ul className="businessModel__list">
+              {activeService.features.map((feature, idx) => (
+                <li key={idx}>{feature}</li>
+              ))}
+            </ul>
           </div>
 
-          <h2 className="businessModel__heading">
-            {activeService.title}
-            <span className="businessModel__heading-underline"></span>
-          </h2>
-
-          <p className="businessModel__description">{activeService.description}</p>
-
-          <p className="businessModel__extra">{activeService.extra}</p>
-
-          <ul className="businessModel__list">
-            {activeService.features.map((feature, idx) => (
-              <li key={idx}>{feature}</li>
-            ))}
-          </ul>
-
           <div className="businessModel__actions">
-            <Link href="/services" className="btn btn--secondary businessModel__btn">
-              EXPLORE CAPABILITY
+            <Link href="/services" className="btn btn--primary">
+              EXPLORE CAPABILITY <PiArrowRight />
             </Link>
           </div>
         </div>

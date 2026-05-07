@@ -407,6 +407,11 @@
 
   .modal__grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-2);
+  }
+  
+  .modal__form {
+    gap: var(--spacing-2);
   }
   
   .modal__title { 

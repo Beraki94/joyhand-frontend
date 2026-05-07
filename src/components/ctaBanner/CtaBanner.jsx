@@ -1,48 +1,78 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { PiArrowRight } from "react-icons/pi";
 import PopUpModal from "@/components/contactForm/PopUpModal";
+import SuperRing from "../superRing/SuperRing";
 import "./CtaBanner.css";
 
 const CtaBanner = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
-      <section className="cta-section">
-        <div className="container">
-          <div className="cta-banner">
-            {/* Central glow circle */}
-            <div className="cta-banner__circle-glow"></div>
-            
-            <div className="cta-banner__grid-overlay"></div>
-            
-            <div className="cta-banner__content">
-              <span className="cta-banner__badge">OEM / ODM Manufacturing Partner</span>
-              <h2 className="cta-banner__title">Launch Your Energy Products with Direct Factory Supply</h2>
-              <p className="cta-banner__description">
-                From initial design to final delivery, JoyHand streamlines your product journey. 
-                We combine decades of manufacturing experience with agile production lines to bring 
-                your energy storage, solar inverter, or e‑mobility concepts to market faster. 
-                Full certification support and global logistics – all under one roof.
+      <section ref={sectionRef} className={`cta-section ${isVisible ? 'is-visible' : ''}`}>
+        {/* Subtle dynamic background elements */}
+        <div className="cta-section__bg-glow cta-section__bg-glow--primary"></div>
+        <div className="cta-section__bg-glow cta-section__bg-glow--accent"></div>
+
+        <SuperRing
+          type="primary"
+          size="1200px"
+          thickness="1px"
+          top="50%"
+          left="50%"
+          translateX="-50%"
+          translateY="-50%"
+          opacity={0.05}
+        />
+
+        <div className="container cta-section__container">
+          <div className="cta-content">
+            <div className="cta-text">
+              <h2 className="cta-title">
+                Ready to Scale Your <br />
+                <span className="cta-title--highlight">Energy Production?</span>
+              </h2>
+
+              <p className="cta-description">
+                Partner directly with a global leader in OEM & ODM manufacturing to bring your lithium-ion, solar, and e-mobility concepts to market with unprecedented speed and precision.
               </p>
-              
-              <div className="cta-banner__actions">
-                <button 
-                  onClick={() => setIsModalOpen(true)}
-                  className="cta-banner__button btn"
-                >
-                  Start Your OEM Project <PiArrowRight />
-                </button>
-                <Link 
-                  href="/products" 
-                  className="cta-banner__button--outline btn"
-                >
-                  View Product Deck <PiArrowRight />
-                </Link>
-              </div>
+            </div>
+
+            <div className="cta-actions">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="btn btn--primary"
+              >
+                Start Your Project <PiArrowRight weight="bold" />
+              </button>
+              <Link
+                href="/contact-us"
+                className="btn btn--outline-light"
+              >
+                Talk to an Engineer
+              </Link>
             </div>
           </div>
         </div>

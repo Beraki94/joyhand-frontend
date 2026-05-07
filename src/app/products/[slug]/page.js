@@ -10,6 +10,8 @@ import {
   PiFactory,
   PiPlug,
   PiBatteryCharging,
+  PiHouse,
+  PiCaretRight
 } from "react-icons/pi";
 import { productData } from "@/data";
 import ProductGallery from "./ProductGallery";
@@ -320,10 +322,27 @@ function Breadcrumbs({ product, categoryDisplay }) {
   return (
     <nav className="product-details__breadcrumbs" aria-label="Breadcrumb">
       <ol className="product-details__breadcrumbs-list">
-        <li className="product-details__breadcrumbs-item"><Link href="/">Home</Link></li>
-        <li className="product-details__breadcrumbs-item"><Link href="/products">Products</Link></li>
-        <li className="product-details__breadcrumbs-item"><Link href={`/products/solutions/${solutionSlug}`}>{categoryDisplay}</Link></li>
-        <li className="product-details__breadcrumbs-item" aria-current="page">{product.name}</li>
+        <li className="product-details__breadcrumbs-item">
+          <Link href="/" className="product-details__breadcrumbs-link">
+            <PiHouse className="product-details__breadcrumbs-home-icon" />
+            <span>Home</span>
+          </Link>
+        </li>
+        <li className="product-details__breadcrumbs-sep"><PiCaretRight /></li>
+        
+        <li className="product-details__breadcrumbs-item">
+          <Link href="/products" className="product-details__breadcrumbs-link">Products</Link>
+        </li>
+        <li className="product-details__breadcrumbs-sep"><PiCaretRight /></li>
+        
+        <li className="product-details__breadcrumbs-item">
+          <Link href={`/products/solutions/${solutionSlug}`} className="product-details__breadcrumbs-link">{categoryDisplay}</Link>
+        </li>
+        <li className="product-details__breadcrumbs-sep"><PiCaretRight /></li>
+        
+        <li className="product-details__breadcrumbs-item" aria-current="page">
+          <span className="product-details__breadcrumbs-current">{product.name}</span>
+        </li>
       </ol>
     </nav>
   );

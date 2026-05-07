@@ -2,50 +2,68 @@ import { NextResponse } from "next/server";
 import { productData } from "@/data";
 import { Document, Page, Text, View, Image, StyleSheet, renderToBuffer } from "@react-pdf/renderer";
 
-// No external fonts – use built‑in Helvetica
+// Premium B2B Styles
 const styles = StyleSheet.create({
   page: {
-    padding: 30,
+    padding: 40,
     backgroundColor: "#ffffff",
     fontFamily: "Helvetica",
     fontSize: 10,
+    color: "#121b2d",
+  },
+  // Decorative Accent
+  accentBar: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: 4,
+    backgroundColor: "#ff7f41",
   },
   header: {
-    marginBottom: 24,
-    borderBottom: "1px solid #ff7f41",
-    paddingBottom: 16,
+    marginTop: 10,
+    marginBottom: 25,
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "flex-end",
+    borderBottom: "1px solid #ff7f41",
+    paddingBottom: 15,
   },
   logoContainer: {
-    width: 120,
+    width: 130,
   },
   logo: {
     width: "100%",
     height: "auto",
   },
-  headerText: {
+  headerInfo: {
     textAlign: "right",
   },
   headerTitle: {
     fontFamily: "Helvetica-Bold",
     fontSize: 18,
     color: "#121b2d",
-    marginBottom: 4,
+    marginBottom: 2,
   },
-  headerSubtitle: {
-    fontSize: 10,
-    color: "#6c727f",
+  headerBadge: {
+    fontSize: 8,
+    color: "#ff7f41",
+    fontFamily: "Helvetica-Bold",
+    textTransform: "uppercase",
+    letterSpacing: 1,
   },
-  categoryHeader: {
-    marginBottom: 20,
+  categoryHero: {
+    backgroundColor: "#f8f9fa",
+    padding: 20,
+    borderRadius: 8,
+    marginBottom: 25,
+    borderLeft: "4px solid #ff7f41",
   },
   categoryTitle: {
     fontFamily: "Helvetica-Bold",
-    fontSize: 22,
-    color: "#ff7f41",
-    marginBottom: 8,
+    fontSize: 20,
+    color: "#121b2d",
+    marginBottom: 6,
   },
   categoryDesc: {
     fontSize: 10,
@@ -54,110 +72,122 @@ const styles = StyleSheet.create({
   },
   productCard: {
     marginBottom: 20,
-    padding: 12,
-    border: "1px solid #e0e0e0",
-    borderRadius: 8,
+    padding: 15,
+    border: "1px solid #f0f0f0",
+    borderRadius: 10,
     flexDirection: "row",
-    flexWrap: "wrap",
-    breakInside: "avoid",
     backgroundColor: "#ffffff",
   },
-  productImageContainer: {
-    width: "30%",
-    marginRight: 16,
-    height: 120,
+  imageSection: {
+    width: "32%",
+    marginRight: 15,
+    justifyContent: "center",
+    alignItems: "center",
   },
   productImage: {
     width: "100%",
-    height: "100%",
+    height: 120,
     objectFit: "contain",
   },
-  productDetails: {
+  detailsSection: {
     width: "65%",
+  },
+  productHeader: {
+    marginBottom: 10,
   },
   productName: {
     fontFamily: "Helvetica-Bold",
     fontSize: 14,
     color: "#121b2d",
-    marginBottom: 4,
+    marginBottom: 2,
   },
   productModel: {
     fontSize: 9,
-    color: "#6c727f",
-    marginBottom: 8,
+    color: "#ff7f41",
+    fontFamily: "Helvetica-Bold",
   },
-  productDescription: {
+  productDesc: {
     fontSize: 9,
     color: "#6c727f",
-    marginBottom: 10,
-    lineHeight: 1.4,
+    marginBottom: 12,
+    lineHeight: 1.5,
   },
-  specsContainer: {
-    marginTop: 4,
-  },
-  specRow: {
+  specsGrid: {
     flexDirection: "row",
-    marginBottom: 4,
+    flexWrap: "wrap",
+    marginTop: 5,
+    borderTop: "1px solid #f4f6f9",
+    paddingTop: 8,
+  },
+  specItem: {
+    width: "50%",
+    marginBottom: 6,
+    paddingRight: 10,
   },
   specLabel: {
-    width: 100,
     fontFamily: "Helvetica-Bold",
     fontSize: 8,
     color: "#121b2d",
+    marginBottom: 1,
   },
   specValue: {
-    width: "auto",
     fontSize: 8,
-    color: "#6c727f",
+    color: "#4a5568",
   },
-  certContainer: {
+  certRow: {
     flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: 6,
+    marginTop: 10,
   },
-  certBadge: {
+  certTag: {
     backgroundColor: "#fff6f2",
-    padding: "2px 6px",
-    borderRadius: 12,
-    marginRight: 6,
-    marginBottom: 4,
-    fontSize: 7,
     color: "#ff7f41",
-    fontWeight: "bold",
+    fontSize: 7,
+    fontFamily: "Helvetica-Bold",
+    padding: "2px 8px",
+    borderRadius: 4,
+    marginRight: 6,
   },
   footer: {
-    marginTop: 32,
-    paddingTop: 16,
+    position: "absolute",
+    bottom: 30,
+    left: 40,
+    right: 40,
+    paddingTop: 15,
     borderTop: "1px solid #f4f6f9",
-    textAlign: "center",
-    fontSize: 8,
-    color: "#6c727f",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   footerText: {
-    marginBottom: 4,
+    fontSize: 8,
+    color: "#94a3b8",
+  },
+  footerBold: {
+    fontFamily: "Helvetica-Bold",
+    color: "#64748b",
   },
 });
 
 const categoryMeta = {
   battery: {
-    name: "Battery Storage Systems",
-    desc: "High-performance LiFePO4 battery packs for residential, commercial, and industrial energy storage. Grade-A cells, smart BMS, and 6000+ cycle life.",
+    name: "Energy Storage Systems",
+    desc: "Industrial-grade LiFePO4 battery solutions. Engineered for reliability, vertical integration, and long cycle life in residential and commercial environments.",
   },
   inverter: {
-    name: "Solar Inverters",
-    desc: "Efficient hybrid inverters with MPPT technology, parallel capability, and IP54 options. Perfect for off‑grid, on‑grid, and backup systems.",
+    name: "Solar Power Conversion",
+    desc: "Advanced MPPT hybrid and off-grid inverters. Built with Tier-1 power electronics for high-efficiency energy management and smart grid integration.",
   },
   "electric-mobility": {
-    name: "Electric Mobility",
-    desc: "Electric motorcycles and scooters engineered for urban commuting and last‑mile delivery. Reliable motors, long‑range batteries, and rugged frames.",
+    name: "E-Mobility Solutions",
+    desc: "Sustainable urban transportation. High-torque electric motors and long-range battery packs designed for commercial logistics and personal mobility.",
   },
   "portable-power": {
-    name: "Portable Power Stations",
-    desc: "Portable power stations with LiFePO4 batteries, pure sine wave output, and built-in MPPT controllers. Ideal for camping, home backup, and off-grid use.",
+    name: "Portable Energy Hubs",
+    desc: "Production-ready portable power solutions. High-capacity LFP cells and pure sine wave technology for reliable off-grid energy anywhere.",
   },
   "power-bank": {
-    name: "Power Banks",
-    desc: "Compact, high‑capacity portable chargers for phones, tablets, and laptops. Magnetic, wireless, and built‑in cable options. Fast charging and premium designs.",
+    name: "Mobile Energy Solutions",
+    desc: "Premium consumer tech chargers. Ultra-fast PD charging, wireless integration, and ruggedized designs for global distribution.",
   },
 };
 
@@ -169,31 +199,27 @@ function getKeySpecs(product) {
   if (cat === "battery") {
     if (s.nominalVoltage) specs.push({ label: "Voltage", value: s.nominalVoltage });
     if (s.capacity) specs.push({ label: "Capacity", value: s.capacity });
-    if (s.energy) specs.push({ label: "Energy", value: s.energy });
-    if (s.cellType) specs.push({ label: "Cell", value: s.cellType });
-    if (s.cycleLife) specs.push({ label: "Cycle Life", value: s.cycleLife });
+    if (s.energy) specs.push({ label: "Nominal Energy", value: s.energy });
+    if (s.cycleLife) specs.push({ label: "Service Life", value: s.cycleLife });
+    if (s.dimensions) specs.push({ label: "Dimensions", value: s.dimensions });
   } else if (cat === "inverter") {
-    if (s.power) specs.push({ label: "Power", value: s.power });
-    if (s.dcInput) specs.push({ label: "DC Input", value: s.dcInput });
+    if (s.power) specs.push({ label: "Rated Power", value: s.power });
     if (s.acOutput) specs.push({ label: "AC Output", value: s.acOutput });
-    if (s.efficiency) specs.push({ label: "Efficiency", value: s.efficiency });
+    if (s.efficiency) specs.push({ label: "Peak Efficiency", value: s.efficiency });
+    if (s.protectionClass) specs.push({ label: "IP Rating", value: s.protectionClass });
   } else if (cat === "electric-mobility") {
-    if (s.maxSpeed || s.topSpeed) specs.push({ label: "Top Speed", value: s.maxSpeed || s.topSpeed });
-    if (s.maxRange || s.mileage) specs.push({ label: "Range", value: s.maxRange || s.mileage });
-    if (s.motor) specs.push({ label: "Motor", value: s.motor });
-    if (s.battery) specs.push({ label: "Battery", value: s.battery });
-  } else if (cat === "portable-power") {
-    if (s.ratedPower) specs.push({ label: "Rated Power", value: s.ratedPower });
-    if (s.batteryCapacity) specs.push({ label: "Capacity", value: s.batteryCapacity });
-    if (s.outputWaveform) specs.push({ label: "Waveform", value: s.outputWaveform });
-    if (s.cycleLife) specs.push({ label: "Cycle Life", value: s.cycleLife });
-  } else if (cat === "power-bank") {
-    if (s.capacity) specs.push({ label: "Capacity", value: s.capacity });
-    if (s.totalOutput) specs.push({ label: "Total Output", value: s.totalOutput });
-    else if (s.usbCOutput) specs.push({ label: "Output", value: s.usbCOutput });
-    if (s.wirelessOutput) specs.push({ label: "Wireless", value: s.wirelessOutput });
-    if (s.weight) specs.push({ label: "Weight", value: s.weight });
-    if (s.cellType) specs.push({ label: "Cell", value: s.cellType });
+    if (s.motor) specs.push({ label: "Motor Power", value: s.motor });
+    if (s.battery) specs.push({ label: "Battery Spec", value: s.battery });
+    if (s.maxSpeed || s.topSpeed) specs.push({ label: "Max Speed", value: s.maxSpeed || s.topSpeed });
+    if (s.maxRange || s.mileage) specs.push({ label: "Rated Range", value: s.maxRange || s.mileage });
+  } else {
+    // Default specs for other categories
+    Object.entries(s).slice(0, 5).forEach(([key, val]) => {
+      if (typeof val === 'string') {
+        const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+        specs.push({ label, value: val });
+      }
+    });
   }
   return specs.slice(0, 5);
 }
@@ -216,20 +242,22 @@ export async function GET(request) {
     const logoUrl = `${baseUrl}/images/logos/joyhandLogo.png`;
 
     const PdfDocument = () => (
-      <Document>
+      <Document title={`JoyHand Energy - ${categoryMeta[category].name} Catalog`}>
         <Page size="A4" style={styles.page}>
-          <View style={styles.header}>
+          <View style={styles.accentBar} />
+          
+          <View style={styles.header} fixed>
             <View style={styles.logoContainer}>
-              <Image src={logoUrl} style={styles.logo} alt="JoyHand Energy Logo" />
+              <Image src={logoUrl} style={styles.logo} />
             </View>
-            <View style={styles.headerText}>
-              <Text style={styles.headerTitle}>Product Catalog</Text>
-              <Text style={styles.headerSubtitle}>Factory Direct • ISO 9001:2025</Text>
+            <View style={styles.headerInfo}>
+              <Text style={styles.headerTitle}>PRODUCT CATALOG</Text>
+              <Text style={styles.headerBadge}>DIRECT MANUFACTURING • ISO 9001:2025</Text>
             </View>
           </View>
 
-          <View style={styles.categoryHeader}>
-            <Text style={styles.categoryTitle}>{categoryMeta[category].name}</Text>
+          <View style={styles.categoryHero}>
+            <Text style={styles.categoryTitle}>{categoryMeta[category].name.toUpperCase()}</Text>
             <Text style={styles.categoryDesc}>{categoryMeta[category].desc}</Text>
           </View>
 
@@ -238,24 +266,30 @@ export async function GET(request) {
             const imageUrl = `${baseUrl}${product.image}`;
             return (
               <View key={idx} style={styles.productCard} wrap={false}>
-                <View style={styles.productImageContainer}>
-                  <Image src={imageUrl} style={styles.productImage} alt={product.name} />
+                <View style={styles.imageSection}>
+                  <Image src={imageUrl} style={styles.productImage} />
                 </View>
-                <View style={styles.productDetails}>
-                  <Text style={styles.productName}>{product.name} {product.model}</Text>
-                  <Text style={styles.productDescription}>{product.description}</Text>
-                  <View style={styles.specsContainer}>
+                <View style={styles.detailsSection}>
+                  <View style={styles.productHeader}>
+                    <Text style={styles.productName}>{product.name}</Text>
+                    <Text style={styles.productModel}>MODEL: {product.model || product.id}</Text>
+                  </View>
+                  
+                  <Text style={styles.productDesc}>{product.description}</Text>
+                  
+                  <View style={styles.specsGrid}>
                     {keySpecs.map((spec, i) => (
-                      <View key={i} style={styles.specRow}>
-                        <Text style={styles.specLabel}>{spec.label}:</Text>
+                      <View key={i} style={styles.specItem}>
+                        <Text style={styles.specLabel}>{spec.label}</Text>
                         <Text style={styles.specValue}>{spec.value}</Text>
                       </View>
                     ))}
                   </View>
+
                   {product.certifications && product.certifications.length > 0 && (
-                    <View style={styles.certContainer}>
-                      {product.certifications.map((cert, i) => (
-                        <Text key={i} style={styles.certBadge}>{cert}</Text>
+                    <View style={styles.certRow}>
+                      {product.certifications.slice(0, 4).map((cert, i) => (
+                        <Text key={i} style={styles.certTag}>{cert}</Text>
                       ))}
                     </View>
                   )}
@@ -264,10 +298,13 @@ export async function GET(request) {
             );
           })}
 
-          <View style={styles.footer}>
-            <Text style={styles.footerText}>© JoyHand Energy – Professional Energy Solutions</Text>
-            <Text style={styles.footerText}>sales@joyhand.com | +86 130 6085 0617</Text>
-            <Text style={styles.footerText}>Catalog generated on {new Date().toLocaleDateString()} from live product data</Text>
+          <View style={styles.footer} fixed>
+            <Text style={styles.footerText}>
+              <Text style={styles.footerBold}>JoyHand Energy</Text> | Professional Manufacturing Excellence
+            </Text>
+            <Text style={styles.footerText}>
+              Export Dept: sales@joyhand.com | joyhand.com
+            </Text>
           </View>
         </Page>
       </Document>
@@ -277,11 +314,11 @@ export async function GET(request) {
     return new NextResponse(pdfBuffer, {
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": `attachment; filename="joyhand-${category}-catalog.pdf"`,
+        "Content-Disposition": `inline; filename="joyhand-${category}-catalog.pdf"`,
       },
     });
   } catch (error) {
     console.error("PDF generation error:", error);
-    return new NextResponse("Failed to generate PDF. Please check server logs.", { status: 500 });
+    return new NextResponse("Failed to generate PDF catalog.", { status: 500 });
   }
 }

@@ -1,4 +1,5 @@
 import PageHeader from "@/components/pageHeader/PageHeader";
+import "../legal.css";
 
 export const metadata = {
   title: "Terms of Service | JoyHand Energy",
@@ -10,78 +11,75 @@ export default function TermsPage() {
     <main className="legal-page">
       <PageHeader
         title="Terms of Service"
-        subtitle="Last updated: March 2025"
-        pageImage="/images/pageHeadImg/legal.jpg"
+        subtitle="Effective Date: March 2025"
+        pageImage="/pageHeadImg/pageheader-legal.jpg"
       />
       <div className="container legal__container">
         <div className="legal__content">
           <section className="legal__section">
             <h2>1. Acceptance of Terms</h2>
             <p>
-              By accessing or using the JoyHand website (joyhand.com), you agree to be bound by these Terms of Service. If you do not agree, please do not use our site.
+              By accessing or using the JoyHand Energy website (joyhand.com), you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please discontinue use of our site immediately.
             </p>
           </section>
 
           <section className="legal__section">
-            <h2>2. Services Provided</h2>
+            <h2>2. Manufacturing & OEM/ODM Services</h2>
             <p>
-              JoyHand offers information about our manufacturing capabilities, OEM/ODM services, product specifications, and contact forms. Any quote or proposal provided through our site is an invitation to offer; no binding contract is formed until a separate written agreement is signed.
+              JoyHand provides detailed information regarding our industrial manufacturing capabilities and professional OEM/ODM services. Any quotation, technical proposal, or engineering advice provided through this website is an invitation to treat and does not constitute a binding contract until a formal written agreement is executed by authorized representatives of both parties.
             </p>
           </section>
 
           <section className="legal__section">
-            <h2>3. Intellectual Property</h2>
+            <h2>3. Intellectual Property Rights</h2>
             <p>
-              All content on this site – including text, graphics, logos, images, and software – is the property of JoyHand or its licensors and is protected by copyright and trademark laws. You may not reproduce, distribute, or create derivative works without our prior written consent.
+              All materials on this website—including technical drawings, product descriptions, proprietary software architectures, logos, and industrial designs—are the exclusive property of JoyHand Energy or its licensors. Unauthorized reproduction, distribution, or commercial exploitation of this content is strictly prohibited.
             </p>
           </section>
 
           <section className="legal__section">
-            <h2>4. User Conduct</h2>
+            <h2>4. Professional Conduct</h2>
             <p>
-              You agree not to:
+              When interacting with our platform, you agree to:
             </p>
             <ul>
-              <li>Use the site for any unlawful purpose</li>
-              <li>Interfere with the site’s operation or security</li>
-              <li>Submit false or misleading information</li>
-              <li>Upload malicious code or attempt to gain unauthorized access</li>
+              <li>Provide accurate and verifiable professional information in all quote requests.</li>
+              <li>Refrain from any activity that disrupts the site's operational integrity.</li>
+              <li>Respect all export control regulations and international trade laws relevant to energy infrastructure.</li>
             </ul>
           </section>
 
           <section className="legal__section">
-            <h2>5. Limitation of Liability</h2>
+            <h2>5. Disclaimer & Limitation of Liability</h2>
             <p>
-              To the maximum extent permitted by law, JoyHand shall not be liable for any indirect, incidental, or consequential damages arising from your use of the site or our services. Our total liability shall not exceed the amount you paid to us, if any.
+              The information on this site is provided for general guidance only. While we strive for technical accuracy, JoyHand Energy makes no warranties regarding the completeness or real-time precision of site data. JoyHand shall not be held liable for any indirect or consequential damages resulting from the use of our digital platform.
             </p>
           </section>
 
           <section className="legal__section">
-            <h2>6. Disclaimer of Warranties</h2>
+            <h2>6. Governing Jurisdiction</h2>
             <p>
-              The site and all information are provided “as is” without warranties of any kind. We do not warrant that the site will be uninterrupted, error‑free, or free of viruses.
+              These Terms and any dispute arising from the use of this website shall be governed by and construed in accordance with the laws of the State of Alabama, USA, without regard to its conflict of law provisions.
             </p>
           </section>
 
           <section className="legal__section">
-            <h2>7. Governing Law</h2>
+            <h2>7. Amendments</h2>
             <p>
-              These Terms shall be governed by and construed in accordance with the laws of the State of Alabama, USA, without regard to its conflict of law principles.
+              JoyHand reserves the right to modify these Terms of Service at any time to reflect technical updates or regulatory changes. Your continued use of the platform following such modifications signifies your acceptance of the updated terms.
             </p>
           </section>
 
           <section className="legal__section">
-            <h2>8. Changes to Terms</h2>
+            <h2>8. Legal Inquiries</h2>
             <p>
-              We may modify these Terms at any time. Continued use of the site after changes constitutes acceptance of the new Terms.
+              If you have any questions concerning our Terms of Service or require formal legal documentation, please contact our legal department:
             </p>
-          </section>
-
-          <section className="legal__section">
-            <h2>9. Contact Information</h2>
-            <p>
-              For questions about these Terms, please contact us at <a href="mailto:legal@joyhand.com">legal@joyhand.com</a>.
-            </p>
+            <div className="legal__contact-box">
+              <p><strong>JoyHand Energy Legal Department</strong></p>
+              <p>Email: <a href="mailto:legal@joyhand.com">legal@joyhand.com</a></p>
+              <p>Subject: Terms of Service Inquiry</p>
+            </div>
           </section>
         </div>
       </div>

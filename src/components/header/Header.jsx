@@ -13,25 +13,8 @@ import {
   PiArrowRight
 } from "react-icons/pi";
 import PopUpModal from "../contactForm/PopUpModal";
+import { links } from "../../data";
 import "./Header.css";
-
-const links = [
-  { name: "About Us", href: "/about-us" },
-  {
-    name: "Products",
-    href: "/products",
-    subLinks: [
-      { name: "Storage Batteries", href: "/products/solutions/storage-batteries" },
-      { name: "Solar Inverters", href: "/products/solutions/solar-inverters" },
-      { name: "Portable Power Stations", href: "/products/solutions/portable-power-stations" },
-      { name: "Electric Mobility", href: "/products/solutions/electric-mobility" },
-      { name: "Power Banks", href: "/products/solutions/power-banks" }  // ← newly added
-    ]
-  },
-  { name: "Manufacturing", href: "/services" },
-  { name: "Contact Us", href: "/contact-us" },
-  { name: "Blog", href: "/blog" }
-];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,7 +24,7 @@ export default function Header() {
   
   const pathName = usePathname();
 
-  // Scroll effect with passive event listener
+  // Scroll effect with passive event listener for sleek transition
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -66,7 +49,7 @@ export default function Header() {
     setIsModalOpen(true);
   }, [closeMenu]);
 
-  // Close on escape key
+  // Accessibility: Close on escape key
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === "Escape" && isMenuOpen) {
@@ -93,19 +76,21 @@ export default function Header() {
     <>
       <header className={`header ${scrolled ? "header--scrolled" : ""}`}>
         
-        {/* TOP BAR - Desktop only */}
+        {/* TOP BAR - Desktop only - Dark Navy Background */}
         <div className="header__top">
           <div className="container header__top-container">
-            <div className="header__trust-badge">
-              <span className="header__trust-badge-text">ISO 9001:2025 Certified</span>
+            <div className="header__trust-group">
+              <div className="header__trust-badge animate-fade-in">
+                <span className="header__trust-badge-text">ISO 9001:2025 Certified Manufacturer</span>
+              </div>
             </div>
             <div className="header__contact">
               <a href="tel:+8613060850617" className="header__contact-item">
-                <PiPhone size={14} />
+                <PiPhone size={20} />
                 <span>+86 130 6085 0617</span>
               </a>
-              <a href="mailto:info@joyhand.com" className="header__contact-item">
-                <PiEnvelopeSimple size={14} />
+              <a href="mailto:sales@joyhand.com" className="header__contact-item">
+                <PiEnvelopeSimple size={20} />
                 <span>sales@joyhand.com</span>
               </a>
             </div>
@@ -124,21 +109,21 @@ export default function Header() {
             >
               <Image
                 src="/images/logos/joyhandLogo.png"
-                alt="JoyHand Energy – Premium Energy & E‑Mobility Manufacturer"
-                width={150}
-                height={50}
+                alt="JoyHand Energy"
+                width={180}
+                height={60}
                 className="header__logo-img"
                 priority
               />
             </Link>
 
             <nav className="header__nav" aria-label="Desktop navigation">
-              {links.map((link) => (
-                <div key={link.name} className="header__nav-item">
+              {links.map((link, index) => (
+                <div key={link.name} className={`header__nav-item stagger-${index + 1} animate-fade-in`}>
                   <Link
                     href={link.href}
                     className={`header__nav-link ${
-                      pathName === link.href ? "header__nav-link--active" : ""
+                      pathName === link.href || (link.subLinks && pathName.startsWith(link.href)) ? "header__nav-link--active" : ""
                     }`}
                     prefetch={true}
                   >
@@ -155,7 +140,8 @@ export default function Header() {
                             className="header__dropdown-link"
                             prefetch={true}
                           >
-                            {sub.name}
+                            <span className="header__dropdown-text">{sub.name}</span>
+                            <PiArrowRight className="header__dropdown-arrow" />
                           </Link>
                         </li>
                       ))}
@@ -167,7 +153,7 @@ export default function Header() {
 
             <div className="header__actions">
               <button
-                className="btn btn--outline header__cta-desktop"
+                className="btn btn--primary header__cta-desktop animate-scale-in"
                 onClick={() => setIsModalOpen(true)}
                 aria-label="Get a quote"
               >
@@ -180,7 +166,7 @@ export default function Header() {
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMenuOpen}
               >
-                {isMenuOpen ? <PiX size={32} /> : <PiList size={32} />}
+                {isMenuOpen ? <PiX size={36} /> : <PiList size={36} />}
               </button>
             </div>
           </div>
@@ -191,80 +177,106 @@ export default function Header() {
           className={`header__mobile-menu ${isMenuOpen ? "header__mobile-menu--open" : ""}`}
           aria-hidden={!isMenuOpen}
         >
-          <nav className="header__mobile-nav" aria-label="Mobile navigation">
-            {links.map((link) => (
-              <div key={link.name} className="header__mobile-item">
-                <div
-                  className="header__mobile-link-wrapper"
-                  onClick={(e) => link.subLinks && handleMobileDropdown(link.name, e)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if ((e.key === "Enter" || e.key === " ") && link.subLinks) {
-                      handleMobileDropdown(link.name, e);
-                    }
-                  }}
-                  aria-expanded={activeDropdown === link.name}
-                >
-                  <Link
-                    href={link.href}
-                    className="header__mobile-link"
-                    onClick={() => !link.subLinks && closeMenu()}
-                    prefetch={true}
+          <div className="header__mobile-scroll-area">
+            <nav className="header__mobile-nav" aria-label="Mobile navigation">
+              {links.map((link) => (
+                <div key={link.name} className="header__mobile-item">
+                  <div
+                    className="header__mobile-link-wrapper"
+                    onClick={(e) => link.subLinks ? handleMobileDropdown(link.name, e) : null}
+                    role={link.subLinks ? "button" : "none"}
+                    tabIndex={link.subLinks ? 0 : -1}
+                    onKeyDown={(e) => {
+                      if ((e.key === "Enter" || e.key === " ") && link.subLinks) {
+                        handleMobileDropdown(link.name, e);
+                      }
+                    }}
+                    aria-expanded={activeDropdown === link.name}
                   >
-                    {link.name}
-                  </Link>
-                  {link.subLinks && (
-                    <PiCaretDownBold
-                      className={`header__mobile-caret ${
-                        activeDropdown === link.name ? "header__mobile-caret--open" : ""
+                    <Link
+                      href={link.href}
+                      className={`header__mobile-link ${
+                        pathName === link.href || (link.subLinks && pathName.startsWith(link.href)) ? "header__mobile-link--active" : ""
                       }`}
-                      aria-hidden="true"
-                    />
+                      onClick={() => closeMenu()}
+                      prefetch={true}
+                    >
+                      {link.name}
+                    </Link>
+                    {link.subLinks && (
+                      <div 
+                        className="header__mobile-caret-zone"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleMobileDropdown(link.name, e);
+                        }}
+                      >
+                        <PiCaretDownBold
+                          className={`header__mobile-caret ${
+                            activeDropdown === link.name ? "header__mobile-caret--open" : ""
+                          }`}
+                          aria-hidden="true"
+                        />
+                      </div>
+                    )}
+                  </div>
+                  {link.subLinks && (
+                    <ul 
+                      className={`header__mobile-sub ${
+                        activeDropdown === link.name ? "header__mobile-sub--open" : ""
+                      }`}
+                      aria-label={`${link.name} submenu`}
+                    >
+                      {link.subLinks.map((sub) => (
+                        <li key={sub.href}>
+                          <Link
+                            href={sub.href}
+                            className="header__mobile-sub-link"
+                            onClick={closeMenu}
+                            prefetch={true}
+                          >
+                            <span className="header__mobile-sub-indicator"></span>
+                            {sub.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   )}
                 </div>
-                {link.subLinks && (
-                  <ul 
-                    className={`header__mobile-sub ${
-                      activeDropdown === link.name ? "header__mobile-sub--open" : ""
-                    }`}
-                    aria-label={`${link.name} submenu`}
-                  >
-                    {link.subLinks.map((sub) => (
-                      <li key={sub.href}>
-                        <Link
-                          href={sub.href}
-                          className="header__mobile-sub-link"
-                          onClick={closeMenu}
-                          prefetch={true}
-                        >
-                          {sub.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+              ))}
+            </nav>
+            
+            <div className="header__mobile-bottom">
+              <div className="header__mobile-contact">
+                <a href="tel:+8613060850617" className="header__mobile-contact-item">
+                  <div className="header__mobile-contact-icon">
+                    <PiPhone size={24} />
+                  </div>
+                  <div className="header__mobile-contact-text">
+                    <span className="header__mobile-contact-label">Call Us</span>
+                    <span className="header__mobile-contact-value">+86 130 6085 0617</span>
+                  </div>
+                </a>
+                <a href="mailto:sales@joyhand.com" className="header__mobile-contact-item">
+                  <div className="header__mobile-contact-icon">
+                    <PiEnvelopeSimple size={24} />
+                  </div>
+                  <div className="header__mobile-contact-text">
+                    <span className="header__mobile-contact-label">Email Us</span>
+                    <span className="header__mobile-contact-value">sales@joyhand.com</span>
+                  </div>
+                </a>
               </div>
-            ))}
 
-            <div className="header__mobile-contact">
-              <a href="tel:+8613060850617" className="header__mobile-contact-item">
-                <PiPhone size={18} />
-                <span>+86 130 6085 0617</span>
-              </a>
-              <a href="mailto:info@joyhand.com" className="header__mobile-contact-item">
-                <PiEnvelopeSimple size={18} />
-                <span>info@joyhand.com</span>
-              </a>
+              <button
+                className="btn btn--primary btn--full"
+                onClick={openModal}
+              >
+                Request a Quote <PiArrowRight />
+              </button>
             </div>
-
-            <button
-              className="btn btn--primary header__mobile-cta"
-              onClick={openModal}
-            >
-              Get a Quote <PiArrowRight />
-            </button>
-          </nav>
+          </div>
         </div>
       </header>
 

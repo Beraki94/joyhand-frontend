@@ -5,8 +5,17 @@ import Link from "next/link";
 import ProductCard from "@/components/productCard/ProductCard";
 import PageHeader from "@/components/pageHeader/PageHeader";
 import Pagination from "@/components/pagination/Pagination";
+import { PiPackage, PiArrowRight, PiFilePdf } from "react-icons/pi";
 
 const PRODUCTS_PER_PAGE = 12;
+
+const solutionLinks = [
+  { slug: "storage-batteries",        name: "Storage Batteries" },
+  { slug: "solar-inverters",          name: "Solar Inverters" },
+  { slug: "portable-power-stations",  name: "Portable Power" },
+  { slug: "electric-mobility",        name: "Electric Mobility" },
+  { slug: "power-banks",              name: "Power Banks" },
+];
 
 export default function SolutionClient({ slug, config, allProducts }) {
   const searchParams = useSearchParams();
@@ -15,20 +24,16 @@ export default function SolutionClient({ slug, config, allProducts }) {
   const end = start + PRODUCTS_PER_PAGE;
   const paginatedProducts = allProducts.slice(start, end);
   const totalPages = Math.ceil(allProducts.length / PRODUCTS_PER_PAGE);
-
-  const solutionLinks = [
-    { slug: "storage-batteries", name: "Storage Batteries" },
-    { slug: "solar-inverters", name: "Solar Inverters" },
-    { slug: "portable-power-stations", name: "Portable Power" },
-    { slug: "electric-mobility", name: "Electric Mobility" },
-    { slug: "power-banks", name: "Power Banks" }
-  ];
-
   const isComingSoon = config.comingSoon === true;
+
+  const downloadCatalog = () => {
+    const url = `/api/catalog?category=${config.filterCategory}`;
+    window.open(url, '_blank');
+  };
 
   return (
     <main className="products-page">
-      <PageHeader 
+      <PageHeader
         title={`${config.title} Solutions`}
         subtitle={config.description}
         pageImage={config.image}
@@ -36,7 +41,9 @@ export default function SolutionClient({ slug, config, allProducts }) {
 
       <section className="products-page__section">
         <div className="container">
-          <div className="products-page__category-nav">
+
+          {/* ── Category Filter Bar ── */}
+          <nav className="products-page__category-nav" aria-label="Product categories">
             <Link href="/products" className="products-page__category-link">
               All Products
             </Link>
@@ -51,28 +58,46 @@ export default function SolutionClient({ slug, config, allProducts }) {
                 {cat.name}
               </Link>
             ))}
-          </div>
-          
+          </nav>
+
+          {/* ── Grid / Coming Soon ── */}
           {isComingSoon ? (
             <div className="products-page__coming-soon">
               <div className="products-page__coming-soon-content">
+                <PiPackage size={56} style={{ color: "var(--primary-color)", opacity: 0.4 }} />
                 <h3 className="products-page__coming-soon-title">Coming Soon</h3>
                 <p className="products-page__coming-soon-text">
-                  We are currently building our {config.title.toLowerCase()} solutions catalog. 
+                  We are currently building our {config.title.toLowerCase()} solutions catalog.
                   Check back soon or contact our sourcing team for early access.
                 </p>
-                <Link href="/contact" className="btn btn--primary">
-                  Contact Sourcing Team
+                <Link href="/contact-us" className="btn btn--primary">
+                  Contact Sourcing Team <PiArrowRight />
                 </Link>
               </div>
             </div>
           ) : paginatedProducts.length > 0 ? (
             <>
+              <div className="products-page__results-header">
+                <p className="products-page__results-count">
+                  Showing <strong>{paginatedProducts.length}</strong> of{" "}
+                  <strong>{allProducts.length}</strong> {config.title.toLowerCase()} products
+                </p>
+                <button 
+                  onClick={downloadCatalog}
+                  className="btn btn--outline-primary products-page__catalog-btn"
+                  title={`Download PDF Catalog for ${config.title}`}
+                >
+                  <PiFilePdf size={20} />
+                  <span>Download Full Catalog</span>
+                </button>
+              </div>
+
               <div className="products-page__grid">
                 {paginatedProducts.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}
               </div>
+
               {totalPages > 1 && (
                 <Pagination
                   currentPage={page}
@@ -84,16 +109,18 @@ export default function SolutionClient({ slug, config, allProducts }) {
           ) : (
             <div className="products-page__coming-soon">
               <div className="products-page__coming-soon-content">
-                <h3 className="products-page__coming-soon-title">No Products Found</h3>
+                <PiPackage size={56} style={{ color: "var(--primary-color)", opacity: 0.4 }} />
+                <h3 className="products-page__coming-soon-title">No Products Yet</h3>
                 <p className="products-page__coming-soon-text">
-                  No products available in this category yet. Please check back soon.
+                  No products are available in this category yet. Please check back soon.
                 </p>
-                <Link href="/contact" className="btn btn--primary">
-                  Contact Sourcing Team
+                <Link href="/products" className="btn btn--primary">
+                  View All Products <PiArrowRight />
                 </Link>
               </div>
             </div>
           )}
+
         </div>
       </section>
     </main>
