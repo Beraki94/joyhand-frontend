@@ -24,7 +24,7 @@ export default function CookieConsent() {
   const handleAccept = () => {
     try {
       localStorage.setItem("joyhand_cookie_consent", "accepted");
-    } catch (e) {}
+    } catch (e) { }
     closeBanner();
   };
 
