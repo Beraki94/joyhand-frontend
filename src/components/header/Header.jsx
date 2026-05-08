@@ -21,15 +21,26 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   
   const pathName = usePathname();
 
   // Scroll effect with passive event listener for sleek transition
   useEffect(() => {
     const handleScroll = () => {
+      // Handle header background state
       setScrolled(window.scrollY > 50);
+
+      // Handle scroll progress
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollHeight > 0) {
+        setScrollProgress((window.scrollY / scrollHeight) * 100);
+      } else {
+        setScrollProgress(0);
+      }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -278,6 +289,13 @@ export default function Header() {
             </div>
           </div>
         </div>
+        
+        {/* Scroll Progress Bar */}
+        <div 
+          className="header__progress-bar" 
+          style={{ width: `${scrollProgress}%` }}
+          aria-hidden="true"
+        />
       </header>
 
       <PopUpModal

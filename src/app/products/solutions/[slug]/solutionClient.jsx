@@ -43,22 +43,32 @@ export default function SolutionClient({ slug, config, allProducts }) {
         <div className="container">
 
           {/* ── Category Filter Bar ── */}
-          <nav className="products-page__category-nav" aria-label="Product categories">
-            <Link href="/products" className="products-page__category-link">
-              All Products
-            </Link>
-            {solutionLinks.map((cat) => (
-              <Link
-                key={cat.slug}
-                href={`/products/solutions/${cat.slug}`}
-                className={`products-page__category-link ${
-                  slug === cat.slug ? "products-page__category-link--active" : ""
-                }`}
-              >
-                {cat.name}
+          <div className="products-page__nav-container">
+            <div className="products-page__scroll-hint" aria-hidden="true">
+              <span>Swipe categories</span>
+              <div className="products-page__scroll-dots">
+                <span className="dot"></span>
+                <span className="dot"></span>
+                <span className="dot"></span>
+              </div>
+            </div>
+            <nav className="products-page__category-nav" aria-label="Product categories">
+              <Link href="/products" className="products-page__category-link">
+                All Products
               </Link>
-            ))}
-          </nav>
+              {solutionLinks.map((cat) => (
+                <Link
+                  key={cat.slug}
+                  href={`/products/solutions/${cat.slug}`}
+                  className={`products-page__category-link ${
+                    slug === cat.slug ? "products-page__category-link--active" : ""
+                  }`}
+                >
+                  {cat.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
           {/* ── Grid / Coming Soon ── */}
           {isComingSoon ? (

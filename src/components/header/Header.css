@@ -10,14 +10,12 @@
   z-index: var(--z-sticky);
   transition: var(--transition);
   border-bottom: 1px solid var(--neutral-light);
-  will-change: background-color, backdrop-filter, border-color;
+  will-change: background-color, border-color;
 }
 
 .header--scrolled {
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-color: transparent;
+  background-color: var(--neutral-white);
+  border-bottom: 1px solid var(--neutral-light);
   box-shadow: var(--shadow-sm);
 }
 
@@ -487,6 +485,19 @@
   }
 }
 
+/* Global Scroll Progress Bar */
+.header__progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-color-light));
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(255, 127, 65, 0.4);
+  transition: width 0.2s ease-out;
+}
+
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
 
@@ -495,7 +506,8 @@
   .header__mobile-menu,
   .header__nav-link::after,
   .header__mobile-caret,
-  .header__mobile-sub {
+  .header__mobile-sub,
+  .header__progress-bar {
     transition: none !important;
   }
 }

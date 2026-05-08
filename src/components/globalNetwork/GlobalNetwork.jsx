@@ -43,17 +43,6 @@ const GlobalNetwork = () => {
 
   return (
     <section ref={sectionRef} className={`global-network ${isVisible ? "is-visible" : ""}`}>
-      {/* Background Map Image Layer */}
-      <div className="global-network__bg-map">
-        {/* Animated Ping Locations with Primary, Secondary, and Green colors */}
-        <div className="ping ping--na ping--secondary"></div>
-        <div className="ping ping--sa ping--success"></div>
-        <div className="ping ping--europe ping--primary"></div>
-        <div className="ping ping--africa ping--primary"></div>
-        <div className="ping ping--asia ping--success"></div>
-        <div className="ping ping--oceania ping--secondary"></div>
-      </div>
-
       {/* Decorative Blueprint Rings */}
       <SuperRing
         type="primary"
@@ -76,17 +65,32 @@ const GlobalNetwork = () => {
         opacity={0.08}
       />
 
-      <div className="container global-network__container">
+      <div className="global-network__header-container container">
+        <div className="global-network__header">
+          <SectionHeader
+            badge="Global Logistics"
+            title="Delivering Superiority Worldwide"
+            align="left"
+          />
+        </div>
+      </div>
+
+      {/* Background Map Image Layer - Absolute on desktop, relative for edge-to-edge mobile */}
+      <div className="global-network__map-wrapper">
+        <div className="global-network__bg-map">
+          {/* Animated Ping Locations with Primary, Secondary, and Green colors */}
+          <div className="ping ping--na ping--secondary"></div>
+          <div className="ping ping--sa ping--success"></div>
+          <div className="ping ping--europe ping--primary"></div>
+          <div className="ping ping--africa ping--primary"></div>
+          <div className="ping ping--asia ping--success"></div>
+          <div className="ping ping--oceania ping--secondary"></div>
+        </div>
+      </div>
+
+      <div className="global-network__content-container container">
         <div className="global-network__content">
           <div className="global-network__text-column">
-            <div className="global-network__header">
-              <SectionHeader
-                badge="Global Logistics"
-                title="Delivering Superiority Worldwide"
-                align="left"
-              />
-            </div>
-
             <div className="global-network__features">
               {logisticsFeatures.map((feature, idx) => (
                 <div

@@ -3,29 +3,47 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { PiPlayCircle, PiYoutubeLogo, PiArrowRight } from "react-icons/pi";
+import { 
+  PiPlayCircle, 
+  PiYoutubeLogo, 
+  PiArrowRight, 
+  PiShieldCheck, 
+  PiSealCheck, 
+  PiGear, 
+  PiGauge 
+} from "react-icons/pi";
 
 export default function ProductVideo({ videoId, productName = "this product" }) {
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // If no video ID provided, show a fallback CTA
+  // If no video ID provided, show Technical Excellence block
   if (!videoId) {
     return (
-      <div className="product-details__video-fallback">
-        <div className="product-details__video-fallback-content">
-          <PiYoutubeLogo size={48} className="product-details__video-fallback-icon" />
-          <h4 className="product-details__video-fallback-title">Video Coming Soon</h4>
-          <p className="product-details__video-fallback-text">
-            We are preparing a detailed walkthrough for {productName}.
-          </p>
-          <Link
-            href="https://www.youtube.com/@JoyHandEnergy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="product-details__video-fallback-link"
-          >
-            Watch other product videos <PiArrowRight />
-          </Link>
+      <div className="product-details__tech-fallback">
+        <div className="product-details__tech-fallback-bg">
+          <div className="product-details__tech-fallback-content">
+            <div className="product-details__tech-badge">
+              <PiShieldCheck size={24} />
+              <span>Technical Excellence</span>
+            </div>
+            
+            <h4 className="product-details__tech-title">Engineering Perfection</h4>
+
+            <Link
+              href="https://www.youtube.com/@JoyHandEnergy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="product-details__tech-link"
+            >
+              <PiYoutubeLogo size={20} />
+              <span>View YouTube Channel</span>
+            </Link>
+            
+            <p className="product-details__tech-text">
+              This {productName} model is engineered with industrial-grade precision and undergoes 
+              rigorous multi-stage quality control.
+            </p>
+          </div>
         </div>
       </div>
     );

@@ -31,23 +31,33 @@ export default function ProductsClient() {
       <div className="container">
 
         {/* ── Category Filter Bar ── */}
-        <nav className="products-page__category-nav" aria-label="Product categories">
-          <Link
-            href="/products"
-            className="products-page__category-link products-page__category-link--active"
-          >
-            All Products
-          </Link>
-          {solutionLinks.map((cat) => (
+        <div className="products-page__nav-container">
+          <div className="products-page__scroll-hint" aria-hidden="true">
+            <span>Swipe categories</span>
+            <div className="products-page__scroll-dots">
+              <span className="dot"></span>
+              <span className="dot"></span>
+              <span className="dot"></span>
+            </div>
+          </div>
+          <nav className="products-page__category-nav" aria-label="Product categories">
             <Link
-              key={cat.slug}
-              href={`/products/solutions/${cat.slug}`}
-              className="products-page__category-link"
+              href="/products"
+              className="products-page__category-link products-page__category-link--active"
             >
-              {cat.name}
+              All Products
             </Link>
-          ))}
-        </nav>
+            {solutionLinks.map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/products/solutions/${cat.slug}`}
+                className="products-page__category-link"
+              >
+                {cat.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
         {/* ── Results Header ── */}
         <div className="products-page__results-header">

@@ -1,8 +1,9 @@
 import { blogPosts } from "@/data";
 import { notFound } from "next/navigation";
-import PageHeader from "@/components/pageHeader/PageHeader";
+import Image from "next/image";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import { PortableText } from "@portabletext/react";
+import RichTextRenderer from "@/components/richText/RichTextRenderer";
+import "@/components/richText/RichText.css";
 import Link from "next/link";
 import {
   PiCalendarBlank,
@@ -17,22 +18,9 @@ import {
   PiShieldCheck,
   PiEnvelopeSimple
 } from "react-icons/pi";
-import ReadingProgress from "@/components/blog/ReadingProgress";
 import "../blog.css";
 
-const components = {
-  block: {
-    h2: ({ children }) => <h2 className="blog-details__heading h2">{children}</h2>,
-    h3: ({ children }) => <h3 className="blog-details__heading h3">{children}</h3>,
-    normal: ({ children }) => <p className="blog-details__paragraph">{children}</p>,
-  },
-  list: {
-    bullet: ({ children }) => <ul className="blog-details__list">{children}</ul>,
-  },
-  listItem: {
-    bullet: ({ children }) => <li className="blog-details__list-item">{children}</li>,
-  },
-};
+
 
 export default async function BlogDetailsPage({ params }) {
   const { slug } = await params;
@@ -57,23 +45,19 @@ export default async function BlogDetailsPage({ params }) {
 
   return (
     <article className="blog-details">
-      <ReadingProgress />
-
-      <PageHeader
-        title={blogPost.title}
-        pageImage={blogPost.image || "/images/pageHeadImg/factory-blog.jpg"}
-        hideBreadcrumb={true}
-      />
-
       <div className="container blog-details__container">
         <Breadcrumbs
-          items={[{ label: "Blog", link: "/blog" }]}
+          items={[
+            { label: "Insights", link: "/blog" },
+            { label: blogPost.category || "Technology", link: "/blog" }
+          ]}
           currentTitle={blogPost.title}
         />
 
         <div className="blog-details__layout">
           {/* Column 1: Main Content Card */}
           <div className="blog-details__main">
+            <h1 className="blog-details__title">{blogPost.title}</h1>
             <div className="blog-details__meta-bar">
               <div className="blog-details__category-tag">{blogPost.category || "Energy Technology"}</div>
               <div className="blog-details__meta-items">
@@ -89,8 +73,21 @@ export default async function BlogDetailsPage({ params }) {
               </div>
             </div>
 
+            {blogPost.image && (
+              <div className="blog-details__featured-image-wrapper">
+                <Image
+                  src={blogPost.image}
+                  alt={blogPost.title}
+                  width={1200}
+                  height={630}
+                  priority
+                  className="blog-details__featured-image"
+                />
+              </div>
+            )}
+
             <div className="blog-details__content">
-              <PortableText value={blogPost.content} components={components} />
+              <RichTextRenderer value={blogPost.content} />
             </div>
 
             <section className="blog-details__author-card">

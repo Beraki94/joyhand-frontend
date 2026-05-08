@@ -15,13 +15,14 @@
   }
 }
 
-.global-network__container {
+.global-network__header-container,
+.global-network__content-container {
   position: relative;
-  z-index: 2;
+  z-index: 5; /* Ensure text is always above the map */
 }
 
 .global-network__header {
-  margin-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-4);
   opacity: 0;
   transform: translateY(30px);
 }
@@ -49,43 +50,68 @@
 /* ========================================
    BACKGROUND MAP
 ======================================== */
-.global-network__bg-map {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  background-image: url('/images/dotted-world-map.png');
-  background-size: cover;
-  background-position: right center;
-  background-repeat: no-repeat;
-  z-index: 1;
+.global-network__map-wrapper {
+  margin-bottom: var(--spacing-6);
   opacity: 0;
-  transform: translateX(40px);
+  transform: translateY(30px);
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
-.global-network.is-visible .global-network__bg-map {
+.global-network.is-visible .global-network__map-wrapper {
   opacity: 1;
-  transform: translateX(0);
-  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
 }
 
-/* Gradient overlay to fade left side into white background */
+.global-network__bg-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Taller for mobile "big" look */
+  background-image: url('/images/dotted-world-map.png');
+  background-size: cover; /* Edge-to-edge fill */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Gradient overlay - Shown on desktop to prevent text interference */
 .global-network__bg-map::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, var(--neutral-white) 10%, rgba(255, 255, 255, 0.9) 40%, transparent 80%);
+  background: linear-gradient(to right, var(--neutral-white) 0%, rgba(255, 255, 255, 0.95) 20%, transparent 60%);
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 @media screen and (min-width: 1024px) {
+  .global-network__map-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 65%; /* Reduced width to clear text */
+    margin-bottom: 0;
+    transform: translateX(40px);
+    pointer-events: none; /* Never interfere with clicks */
+  }
+
+  .global-network.is-visible .global-network__map-wrapper {
+    transform: translateX(0);
+  }
+
   .global-network__bg-map {
-    width: 75%;
+    position: absolute;
+    inset: 0;
+    aspect-ratio: auto;
+    background-size: cover;
+    background-position: right center;
   }
 
   .global-network__bg-map::after {
-    background: linear-gradient(to right, var(--neutral-white) 0%, rgba(255, 255, 255, 0.9) 20%, transparent 60%);
+    opacity: 1;
   }
 }
 

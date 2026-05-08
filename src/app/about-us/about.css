@@ -745,7 +745,7 @@
 ===================================================== */
 .markets-section {
   position: relative;
-  padding: var(--spacing-10) 0;
+  padding: var(--spacing-8) 0;
   overflow: hidden;
   background-color: var(--neutral-light);
   background-image:
@@ -772,33 +772,57 @@
 }
 
 .markets-grid {
-  margin-top: var(--spacing-6);
+  margin-top: 0;
   display: flex;
   flex-direction: column;
 }
 
-.market-row+.market-row {
-  padding-top: var(--spacing-10);
-  border-top: 1px solid rgba(18, 27, 45, 0.07);
+.market-row + .market-row {
+  /* Removed padding-top as we are switching to margin-top on all rows */
+}
+
+@media screen and (max-width: 768px) {
+  .market-row + .market-row {
+    /* Resetting previous padding-top */
+    padding-top: 0;
+  }
 }
 
 .market-row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-6);
+  gap: var(--spacing-4);
   align-items: center;
-  margin-top: var(--spacing-5);
-  margin-bottom: var(--spacing-5);
+  margin-top: var(--spacing-6);
+  margin-bottom: 0;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .market-row {
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-2); /* Reduced for the first section on mobile */
+  }
+
+  .market-row + .market-row {
+    margin-top: var(--spacing-6); /* Maintained standard gap for subsequent sections */
+  }
 }
 
 @media screen and (min-width: 992px) {
   .market-row {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-8);
-    margin-top: var(--spacing-8);
-    margin-bottom: var(--spacing-8);
+    margin-top: var(--spacing-5); /* A "little top" for the first section */
     text-align: left;
+  }
+
+  .market-row + .market-row {
+    margin-top: 8.5rem; /* Large gaps maintained between rows */
+  }
+
+  .market-row:last-child {
+    margin-bottom: var(--spacing-5); /* A "little bottom" for the last section */
   }
 
   .market-row--reverse .market-image {
@@ -900,8 +924,6 @@
   margin-bottom: var(--spacing-3);
   font-size: 0.95rem;
   line-height: 1.6;
-  text-align: justify;
-  text-justify: inter-word;
 }
 
 @media screen and (min-width: 768px) {
@@ -1254,7 +1276,7 @@
    LEADERSHIP - Executive Card Design
 ==================================================== */
 .team-section {
-  padding: var(--spacing-10) 0;
+  padding: var(--spacing-8) 0;
   background-color: var(--neutral-white);
   position: relative;
   overflow: hidden;
@@ -1428,8 +1450,8 @@
 
 @media screen and (min-width: 1024px) {
   .abtCta-banner {
-    padding-bottom: 100px;
-    /* Even more space on desktop */
+    padding-bottom: 80px;
+    /* Matched to top padding for symmetry */
   }
 }
 

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { PiQuestion, PiCaretDown, PiCaretUp } from "react-icons/pi";
+import RichTextRenderer from "@/components/richText/RichTextRenderer";
+import "@/components/richText/RichText.css";
 
 export default function ProductFAQ({ product }) {
   const [openIndex, setOpenIndex] = useState(null);
@@ -50,7 +52,7 @@ export default function ProductFAQ({ product }) {
             </button>
             {openIndex === idx && (
               <div className="product-details__faq-answer">
-                {faq.answer}
+                <RichTextRenderer value={faq.answer} />
               </div>
             )}
           </div>

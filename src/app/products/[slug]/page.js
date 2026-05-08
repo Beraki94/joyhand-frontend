@@ -2,11 +2,11 @@ export const runtime = 'edge';
 
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { 
-  PiArrowLeft, 
-  PiBatteryHigh, 
+import {
+  PiArrowLeft,
+  PiBatteryHigh,
   PiLightning,
-  PiMotorcycle, 
+  PiMotorcycle,
   PiFactory,
   PiPlug,
   PiBatteryCharging,
@@ -19,10 +19,13 @@ import ProductVideo from "./ProductVideo";
 import ProductActions from "./ProductActions";
 import ProductFAQ from "./ProductFAQ";
 import ProductRelated from "./ProductRelated";
+import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
+import RichTextRenderer from "@/components/richText/RichTextRenderer";
+import "@/components/richText/RichText.css";
 import "../Products.css";
 
 function getCategoryIcon(category) {
-  switch(category) {
+  switch (category) {
     case "battery": return <PiBatteryHigh size={16} />;
     case "inverter": return <PiLightning size={16} />;
     case "electric-mobility": return <PiMotorcycle size={16} />;
@@ -33,7 +36,7 @@ function getCategoryIcon(category) {
 }
 
 function getCategoryDisplay(category) {
-  switch(category) {
+  switch (category) {
     case "battery": return "Battery Storage";
     case "inverter": return "Solar Inverter";
     case "electric-mobility": return "Electric Mobility";
@@ -311,42 +314,7 @@ function ProductWarranty({ warranty }) {
   );
 }
 
-function Breadcrumbs({ product, categoryDisplay }) {
-  let solutionSlug = "";
-  if (product.category === "battery") solutionSlug = "storage-batteries";
-  else if (product.category === "inverter") solutionSlug = "solar-inverters";
-  else if (product.category === "electric-mobility") solutionSlug = "electric-mobility";
-  else if (product.category === "portable-power") solutionSlug = "portable-power-stations";
-  else if (product.category === "power-bank") solutionSlug = "power-banks";
-  
-  return (
-    <nav className="product-details__breadcrumbs" aria-label="Breadcrumb">
-      <ol className="product-details__breadcrumbs-list">
-        <li className="product-details__breadcrumbs-item">
-          <Link href="/" className="product-details__breadcrumbs-link">
-            <PiHouse className="product-details__breadcrumbs-home-icon" />
-            <span>Home</span>
-          </Link>
-        </li>
-        <li className="product-details__breadcrumbs-sep"><PiCaretRight /></li>
-        
-        <li className="product-details__breadcrumbs-item">
-          <Link href="/products" className="product-details__breadcrumbs-link">Products</Link>
-        </li>
-        <li className="product-details__breadcrumbs-sep"><PiCaretRight /></li>
-        
-        <li className="product-details__breadcrumbs-item">
-          <Link href={`/products/solutions/${solutionSlug}`} className="product-details__breadcrumbs-link">{categoryDisplay}</Link>
-        </li>
-        <li className="product-details__breadcrumbs-sep"><PiCaretRight /></li>
-        
-        <li className="product-details__breadcrumbs-item" aria-current="page">
-          <span className="product-details__breadcrumbs-current">{product.name}</span>
-        </li>
-      </ol>
-    </nav>
-  );
-}
+
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -369,10 +337,23 @@ export default async function ProductDetailsPage({ params }) {
   const typeDisplay = getTypeDisplay(product.type);
   const videoId = product.youtubeVideoId || null;
 
+  let solutionSlug = "";
+  if (product.category === "battery") solutionSlug = "storage-batteries";
+  else if (product.category === "inverter") solutionSlug = "solar-inverters";
+  else if (product.category === "electric-mobility") solutionSlug = "electric-mobility";
+  else if (product.category === "portable-power") solutionSlug = "portable-power-stations";
+  else if (product.category === "power-bank") solutionSlug = "power-banks";
+
   return (
     <main className="product-details">
       <div className="container">
-        <Breadcrumbs product={product} categoryDisplay={categoryDisplay} />
+        <Breadcrumbs 
+          items={[
+            { label: "Products", link: "/products" },
+            { label: categoryDisplay, link: `/products/solutions/${solutionSlug}` }
+          ]} 
+          currentTitle={product.name} 
+        />
         <div className="product-details__grid">
           <section className="product-details__gallery">
             <ProductGallery images={images} productName={product.name} />
@@ -385,7 +366,14 @@ export default async function ProductDetailsPage({ params }) {
               {product.model && <span className="product-details__model">Model: {product.model}</span>}
             </div>
             <h1 className="product-details__title">{product.name}</h1>
-            <p className="product-details__description">{product.description}</p>
+            <RichTextRenderer 
+              value={product.description} 
+              components={{
+                block: {
+                  normal: ({ children }) => <p className="product-details__description">{children}</p>
+                }
+              }}
+            />
             <ProductKeySpecs product={product} />
             <ProductFeaturesCompact features={product.features} />
             <ProductActions category={product.category} />

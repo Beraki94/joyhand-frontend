@@ -176,7 +176,9 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  flex-wrap: wrap; /* Allows wrap if title is extremely long */
+  flex-wrap: nowrap; /* Forces same line no matter what */
+  white-space: nowrap;
+  max-width: 90vw;
   box-shadow: 0 4px 15px rgba(255, 127, 65, 0.05); /* Soft orange glow */
 }
 
@@ -203,6 +205,16 @@
   color: var(--neutral-white);
   font-weight: 700;
   cursor: default;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 150px; /* Limit on mobile to keep everything on one line */
+}
+
+@media screen and (min-width: 768px) {
+  .page-header__breadcrumb-current {
+    max-width: 400px;
+  }
 }
 
 @media screen and (min-width: 768px) {
