@@ -6,11 +6,9 @@
   display: flex;
   flex-direction: column;
   background: var(--neutral-white);
-  border-radius: 24px;
+  border-radius: 32px;
   overflow: hidden;
-  /* Permanent 3px Tech-Green accent left border — editorial bookmark */
   border: 1px solid rgba(18, 27, 45, 0.06);
-  border-left: 3px solid var(--accent-color);
   box-shadow: 0 10px 30px rgba(18, 27, 45, 0.04);
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   height: 100%;
@@ -19,12 +17,9 @@
 }
 
 .blog-card:hover {
-  transform: translateY(-8px);
-  box-shadow:
-    0 20px 40px rgba(18, 27, 45, 0.08),
-    0 0 0 1px rgba(255, 127, 65, 0.1);
-  border-color: rgba(18, 27, 45, 0.06);
-  border-left-color: var(--accent-color);
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(18, 27, 45, 0.1);
+  border-color: rgba(255, 127, 65, 0.2);
 }
 
 .blog-card__link {
@@ -45,7 +40,7 @@
   aspect-ratio: 3 / 2;
   /* Pro-Photography Aspect Ratio */
   overflow: hidden;
-  background: var(--neutral-light);
+  background: var(--neutral-white);
 }
 
 /* Cinematic Overlay */
@@ -105,22 +100,22 @@
 .blog-card__category {
   display: inline-flex;
   align-items: center;
-  padding: 4px 10px;
-  background: rgba(46, 196, 182, 0.1);
-  /* Accent Green Tint */
-  color: var(--accent-color);
-  border-radius: 6px;
-  font-size: 0.7rem;
-  font-weight: 700;
+  padding: 2px 12px;
+  background: rgba(46, 196, 182, 0.08); /* Innovation Green tint */
+  color: var(--accent-color-dark);
+  border-radius: 100px; /* Pill shape */
+  font-size: 0.6rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  border: 1px solid rgba(46, 196, 182, 0.25);
   width: fit-content;
   transition: all 0.3s ease;
 }
 
 .blog-card:hover .blog-card__category {
-  background: rgba(46, 196, 182, 0.18);
-  color: var(--accent-color);
+  background: rgba(46, 196, 182, 0.12);
+  border-color: rgba(46, 196, 182, 0.4);
 }
 
 .blog-card__read-time {
@@ -130,37 +125,37 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(18, 27, 45, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 3px 10px;
   border-radius: 100px;
-  color: var(--neutral-white);
-  font-size: 0.7rem;
-  font-weight: 700;
+  color: var(--accent-color-dark);
+  font-size: 0.58rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(46, 196, 182, 0.3);
   z-index: 2;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), 0 0 10px rgba(46, 196, 182, 0.1);
 }
 
 .blog-card__clock-icon {
-  font-size: 0.9rem;
-  color: var(--primary-color);
+  font-size: 0.8rem;
+  color: var(--accent-color);
 }
 
 @media screen and (min-width: 768px) {
   .blog-card__read-time {
-    font-size: 0.75rem;
-    padding: 4px 12px;
+    font-size: 0.62rem;
+    padding: 3px 10px;
   }
 }
 
 .blog-card__clock-icon {
-  width: 12px;
-  height: 12px;
-  color: var(--primary-color);
+  width: 11px;
+  height: 11px;
+  color: var(--accent-color);
 }
 
 /* =====================================================
@@ -177,13 +172,11 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  min-height: 2.5em;
+  min-height: 2.7em;
   transition: color 0.3s ease;
 }
 
-.blog-card:hover .blog-card__title {
-  color: var(--primary-color);
-}
+/* Title stays consistent on hover, matching ProductCard */
 
 /* =====================================================
    EXCERPT - Matching product card description
@@ -197,7 +190,7 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  min-height: 2.9em;
+  min-height: 2.4em;
 }
 
 /* =====================================================
@@ -209,7 +202,9 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-2);
-  border-top: none;
+  border-top: 1px solid rgba(18, 27, 45, 0.05);
+  padding-top: var(--spacing-3);
+  margin-top: auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -229,7 +224,28 @@
   color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: gap 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.blog-card:hover .blog-card__cta {
+  color: var(--primary-color-dark);
+  gap: 12px;
+}
+
+.blog-card__cta::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.blog-card:hover .blog-card__cta::after {
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
@@ -249,6 +265,8 @@
 .blog-card:active .blog-card__cta-icon {
   transform: translateX(4px);
 }
+
+/* Removed redundant trust badge styles */
 
 /* =====================================================
    MOBILE-SPECIFIC EXTRA RESET - ensures no gap on small screens
@@ -638,10 +656,13 @@
 .blog-details__paragraph {
   font-size: 1.1rem;
   line-height: 1.9;
-  margin-bottom: var(--spacing-4);
+  margin-bottom: var(--spacing-3);
   color: var(--neutral-dark);
-  max-width: 1000px;
+  max-width: 850px; /* Optimal line length for professional readability */
   opacity: 0.95;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -653,8 +674,8 @@
 
 .blog-details__heading {
   color: var(--secondary-color);
-  margin-top: var(--spacing-12);
-  margin-bottom: var(--spacing-6);
+  margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-3);
   font-weight: 800;
   letter-spacing: -0.03em;
   max-width: 1000px;
@@ -681,7 +702,7 @@
 }
 
 .blog-details__list {
-  margin: var(--spacing-8) 0;
+  margin: var(--spacing-4) 0;
   padding-left: var(--spacing-2);
   list-style: none;
 }
@@ -694,6 +715,9 @@
   color: var(--neutral-dark);
   padding-left: 32px;
   max-width: 920px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .blog-details__list-item::before {
@@ -765,6 +789,9 @@
   /* Smaller bio */
   line-height: 1.4;
   color: var(--neutral-medium);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 /* Post Navigation - Modernized Premium Cards */
@@ -1041,6 +1068,9 @@
   line-height: 1.6;
   opacity: 0.8;
   margin-bottom: var(--spacing-4);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .sidebar-card__link-btn {

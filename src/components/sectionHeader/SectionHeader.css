@@ -107,6 +107,12 @@
   margin-bottom: 0;
 }
 
+.section-header--align-left .section-header__subtitle {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
 .section-header--theme-light .section-header__subtitle {
   color: rgba(255, 255, 255, 0.85);
 }

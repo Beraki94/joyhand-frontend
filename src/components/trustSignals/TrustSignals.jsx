@@ -5,6 +5,7 @@ import Image from "next/image";
 import { PiArrowRight } from "react-icons/pi";
 import { partners } from "../../data";
 import SectionHeader from "../sectionHeader/SectionHeader";
+import SectionDecor from "../sectionDecor/SectionDecor";
 import "./TrustSignals.css";
 
 const TrustSignals = () => {
@@ -35,6 +36,7 @@ const TrustSignals = () => {
       <div className="trust__energy-waves"></div>
 
       <div className="container trust__container">
+        <SectionDecor type="accent" count={4} />
         {/* Replaced manual header with Reusable SectionHeader */}
         <SectionHeader 
           badge="Global Trust"

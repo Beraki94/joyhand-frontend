@@ -121,6 +121,14 @@
   font-weight: 400;
 }
 
+@media screen and (min-width: 992px) {
+  .cta-description {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+}
+
 /* ========================================
    BUTTONS
 ======================================== */

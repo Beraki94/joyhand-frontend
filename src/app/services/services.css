@@ -40,6 +40,8 @@
   padding-left: var(--spacing-3);
   margin-top: 0;
   text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -226,6 +228,9 @@
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
   margin-bottom: var(--spacing-6);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 /* Action Link - Transformed to Pill Button */
@@ -391,6 +396,9 @@
   font-size: 0.8rem;
   line-height: 1.5;
   margin-bottom: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -404,7 +412,6 @@
    CREDENTIALS TICKER - Infinite Scroll Strip
 ===================================================== */
 .cred-ticker {
-  background: var(--secondary-color);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   padding: 18px 0;
@@ -564,6 +571,9 @@
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 
@@ -631,7 +641,7 @@
 .process-card {
   position: relative;
   border-radius: 20px;
-  background-color: var(--accent-color-light);
+   background: linear-gradient(145deg, #ffffff, #fff5ef);
   /* Smaller on mobile */
   padding: var(--spacing-4);
   /* Smaller on mobile */
@@ -719,6 +729,9 @@
   /* Smaller on mobile */
   line-height: 1.5;
   margin-bottom: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -781,12 +794,16 @@
   font-size: 1rem;
   /* Smaller on mobile */
   margin-bottom: var(--spacing-3);
+  text-align: left;
 }
 
 @media screen and (min-width: 768px) {
   .partner-facilities__text {
     font-size: 1.1rem;
     margin-bottom: var(--spacing-4);
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
   }
 }
 
@@ -1261,6 +1278,15 @@
   font-size: clamp(1rem, 2vw, 1.15rem);
   margin-bottom: 0;
   line-height: 1.6;
+  text-align: center;
+}
+
+@media screen and (min-width: 992px) {
+  .services-cta__subtitle {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
 }
 
 .services-cta__actions {

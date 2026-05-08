@@ -97,7 +97,7 @@ export default function ContactPage() {
       {/* ================= INQUIRY SECTION ================= */}
       <section className="contact-form-section">
 
-        <SectionDecor type="accent" count={8} />
+        <SectionDecor type="accent" count={4} />
 
         <div className="container contact-form-section__grid">
 
@@ -195,7 +195,7 @@ export default function ContactPage() {
       {/* ================= CONTACT CARDS (NFC STYLE) ================= */}
       <section className="contact-info">
 
-        <SectionDecor type="primary" count={4} />
+        <SectionDecor type="primary" count={1} />
 
         {/* Decorative rings */}
         <SuperRing
@@ -314,7 +314,7 @@ export default function ContactPage() {
       {/* ================= FAQ SNIPPET ================= */}
       <section className="contact-faq">
 
-        <SectionDecor type="accent" count={8} />
+        <SectionDecor type="accent" count={4} />
 
         <div className="container">
           <div className="contact-faq__grid">
@@ -345,7 +345,7 @@ export default function ContactPage() {
 
       {/* ================= ADDITIONAL CTA ================= */}
       <section className="contact-bottom-cta">
-        <SectionDecor type="primary" count={5} />
+        <SectionDecor type="primary" count={1} />
         <div className="container">
           <div className="contact-bottom-cta__wrapper">
             <div className="contact-bottom-cta__content">

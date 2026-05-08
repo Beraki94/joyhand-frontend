@@ -117,7 +117,7 @@ const HomeBlogSection = () => {
 
   return (
     <section className="home-blog">
-      <SectionDecor type="primary" count={6} />
+      <SectionDecor type="primary" count={1} />
       <div className="container">
         <SectionHeader
           badge="Industry Insights"

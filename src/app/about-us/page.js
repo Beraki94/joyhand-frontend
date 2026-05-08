@@ -183,7 +183,7 @@ export default function AboutPage() {
 
       {/* ================= INTRO ================= */}
       <section className="about-intro animate-slide-up">
-        <SectionDecor type="accent" count={8} />
+        <SectionDecor type="accent" count={4} />
         <div className="container about-intro__container">
           <div className="about-intro__content">
             <SectionHeader
@@ -270,7 +270,7 @@ export default function AboutPage() {
 
       {/* ================= ENERGY SOLUTIONS ================= */}
       <section className="markets-section animate-slide-up">
-        <SectionDecor type="accent" count={8} />
+        <SectionDecor type="accent" count={4} />
         <SuperRing
           type="primary"
           size="1400px"
@@ -367,7 +367,7 @@ export default function AboutPage() {
 
       {/******** LEADERSHIP *******/}
       <section className="team-section animate-slide-up">
-        <SectionDecor type="primary" count={5} />
+        <SectionDecor type="primary" count={1} />
         <div className="container">
           <SectionHeader
             badge="EXECUTIVE LEADERSHIP"

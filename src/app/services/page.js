@@ -129,7 +129,7 @@ export default function ServicesPage() {
 
       {/* INTRO */}
       <section className="services-intro animate-slide-up">
-        <SectionDecor type="accent" count={8} />
+        <SectionDecor type="accent" count={4} />
         <div className="container">
           <div className="services-intro__grid">
             <div className="services-intro__header">
@@ -180,7 +180,7 @@ export default function ServicesPage() {
 
       {/* QUALITY PROTOCOLS */}
       <section className="qc-protocols animate-slide-up">
-        <SectionDecor type="primary" count={3} />
+        <SectionDecor type="primary" count={1} />
         <div className="container">
           <SectionHeader badge="Our Quality Standards" title="Every Product. Every Batch. Verified." align="center" theme="light" />
           <div className="grid grid--4 qc-protocols__grid">
@@ -197,7 +197,7 @@ export default function ServicesPage() {
 
       {/* WHY DISTRIBUTORS */}
       <section className="why-distributors animate-slide-up">
-        <SectionDecor type="primary" count={5} />
+        <SectionDecor type="secondary" count={4} />
         <div className="container">
           <SectionHeader
             badge="Growth Partnership"
@@ -262,7 +262,7 @@ export default function ServicesPage() {
 
       {/* PROCESS */}
       <section className="sourcing-process animate-slide-up">
-        <SectionDecor type="accent" count={8} />
+        <SectionDecor type="accent" count={4} />
 
         <SuperRing type="primary" size="1400px" thickness="40px" top="50%" left="50%" translateX="-50%" translateY="-50%" opacity={0.06} />
         <SuperRing type="secondary" size="900px" thickness="40px" top="15%" left="70%" translateX="-50%" translateY="-50%" opacity={0.05} />

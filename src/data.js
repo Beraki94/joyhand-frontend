@@ -521,33 +521,44 @@ export const blogPosts = [
 export const partners = [
   {
     id: 1,
-    name: "PayPal",
-    logo: "/images/trusteeImg/alltruck=logo.png",
+    name: "ifwo",
+    logo: "/homeImg/partner01.jpg",
   },
   {
     id: 2,
-    name: "Post Office",
-    logo: "/images/trusteeImg/gapasa-logo.png",
+    name: "xionel",
+    logo: "/homeImg/partner02.jpeg",
   },
   {
     id: 3,
-    name: "Monevo",
-    logo: "/images/trusteeImg/mangtech-logo.png",
+    name: "kemans",
+    logo: "/homeImg/partner03.jpg",
   },
   {
     id: 4,
-    name: "PayPal",
-    logo: "/images/trusteeImg/alltruck=logo.png",
+    name: "mangotech",
+    logo: "/homeImg/partner04.jpg",
   },
+  
   {
     id: 5,
-    name: "Post Office",
-    logo: "/images/trusteeImg/gapasa-logo.png",
+    name: "ifwo",
+    logo: "/homeImg/partner01.jpg",
   },
   {
     id: 6,
-    name: "Monevo",
-    logo: "/images/trusteeImg/mangtech-logo.png",
+    name: "xionel",
+    logo: "/homeImg/partner02.jpeg",
+  },
+  {
+    id: 7,
+    name: "kemans",
+    logo: "/homeImg/partner03.jpg",
+  },
+  {
+    id: 8,
+    name: "mangotech",
+    logo: "/homeImg/partner04.jpg",
   },
   
 ];

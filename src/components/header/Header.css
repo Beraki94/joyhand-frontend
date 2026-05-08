@@ -3,6 +3,7 @@
 ===================================================== */
 .header {
   width: 100%;
+  height: var(--header-height); /* Explicit height to match mobile menu 'top' */
   background-color: var(--neutral-white);
   position: fixed;
   top: 0;
@@ -11,6 +12,9 @@
   transition: var(--transition);
   border-bottom: 1px solid var(--neutral-light);
   will-change: background-color, border-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .header--scrolled {
@@ -446,6 +450,10 @@
    RESPONSIVE DESKTOP OVERRIDES
 ===================================================== */
 @media screen and (min-width: 1024px) {
+  .header {
+    height: auto;
+  }
+
   .header__top {
     display: block;
     background-color: var(--secondary-color);
@@ -491,10 +499,10 @@
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 4px;
+  height: 2px;
   background: linear-gradient(to right, var(--primary-color), var(--primary-color-light));
   z-index: 10;
-  box-shadow: 0 2px 10px rgba(255, 127, 65, 0.4);
+  box-shadow: 0 1px 6px rgba(255, 127, 65, 0.3);
   transition: width 0.2s ease-out;
 }
 
