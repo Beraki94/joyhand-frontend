@@ -13,6 +13,15 @@ import "./InnovationShowcase.css";
 import SectionHeader from "../sectionHeader/SectionHeader";
 import SuperRing from "../superRing/SuperRing";
 
+import { innovationPillars } from "@/data";
+
+const PILLAR_ICONS = {
+  iso: <PiCertificate />,
+  "ce-ul": <PiShieldCheck />,
+  un383: <PiTestTube />,
+  docs: <PiGlobe />,
+};
+
 const InnovationShowcase = () => {
   const sectionRef = useRef(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -34,37 +43,6 @@ const InnovationShowcase = () => {
     observer.observe(section);
     return () => observer.unobserve(section);
   }, []);
-
-  const pillars = [
-    {
-      title: "ISO 9001:2025",
-      icon: <PiCertificate />,
-      preview: "Quality management system",
-      description:
-        "ISO 9001:2025 certified. Documented, audited processes ensure consistent, reliable products."
-    },
-    {
-      title: "CE & UL Certified",
-      icon: <PiShieldCheck />,
-      preview: "Global compliance",
-      description:
-        "CE & UL certified. Rigorous testing for electrical safety and market compliance."
-    },
-    {
-      title: "UN38.3 Testing",
-      icon: <PiTestTube />,
-      preview: "Lithium battery safety",
-      description:
-        "UN38.3 tested for safe transport. Vibration, thermal shock, and short circuit tests passed."
-    },
-    {
-      title: "Global Certifications",
-      icon: <PiGlobe />,
-      preview: "Market‑ready compliance",
-      description:
-        "CE (Europe), UL (North America), UN38.3 (transport), IEC 62109 (inverters). Full documentation."
-    }
-  ];
 
   return (
     <section ref={sectionRef} className="innovation-section">
@@ -95,7 +73,6 @@ const InnovationShowcase = () => {
         </video>
         
         <div className="innovation-section__overlay">
-          {/* Aesthetic Background Ring */}
           <SuperRing
             type="primary"
             size="800px"
@@ -110,8 +87,8 @@ const InnovationShowcase = () => {
           <div className="container innovation-section__hero-content">
             <SectionHeader 
               badge="Certified Quality"
-              title="Trust Built on Verified Standards"
-              subtitle="Every product leaves our factory with full certification and rigorous testing. From battery cells to complete systems, we document quality at every stage."
+              title="Standards That Open Borders"
+              subtitle="Every product is tested and certified to ISO, CE, UL, and UN38.3. Full documentation included with every shipment."
               align="center"
               light
             />
@@ -121,14 +98,14 @@ const InnovationShowcase = () => {
 
       <div className="innovation-section__container container">
         <div className="innovation-grid">
-          {pillars.map((item, index) => (
+          {innovationPillars.map((item, index) => (
             <div
               key={index}
               className="innovation-card"
               style={{ '--delay': `${index * 0.1}s` }}
             >
               <div className="innovation-card__main">
-                <div className="innovation-card__icon">{item.icon}</div>
+                <div className="innovation-card__icon">{PILLAR_ICONS[item.id]}</div>
                 <h3 className="innovation-card__title">{item.title}</h3>
               </div>
 
@@ -150,7 +127,7 @@ const InnovationShowcase = () => {
           <p className="innovation-section__footer-text">
             Need certified products for your market?
             <Link href="/contact-us" className="innovation-section__footer-link">
-              Request certification package <PiArrowRight />
+              Request test reports <PiArrowRight />
             </Link>
           </p>
         </div>

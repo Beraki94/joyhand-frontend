@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { PiCookieBold, PiXBold } from "react-icons/pi";
+import { cookieData } from "@/data";
 import "./CookieConsent.css";
 
 export default function CookieConsent() {
@@ -50,18 +51,18 @@ export default function CookieConsent() {
       </div>
 
       <div className="cookie-card__body">
-        <h4 className="cookie-card__title">Privacy Settings</h4>
+        <h4 className="cookie-card__title">{cookieData.title}</h4>
         <p className="cookie-card__text">
-          We use essential and analytics cookies to optimize your manufacturing sourcing experience. By continuing, you agree to our specialized data protocols.
+          {cookieData.description}
         </p>
       </div>
 
       <div className="cookie-card__footer">
         <Link href="/cookie-policy" className="cookie-card__link">
-          Review Policy
+          {cookieData.policyText}
         </Link>
         <button onClick={handleAccept} className="btn btn--primary btn--sm cookie-card__btn">
-          Accept & Continue
+          {cookieData.acceptText}
         </button>
       </div>
     </div>

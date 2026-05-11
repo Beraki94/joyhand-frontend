@@ -13,7 +13,7 @@ import {
   PiArrowRight
 } from "react-icons/pi";
 import PopUpModal from "../contactForm/PopUpModal";
-import { links } from "../../data";
+import { links, headerData } from "@/data";
 import "./Header.css";
 
 export default function Header() {
@@ -92,17 +92,17 @@ export default function Header() {
           <div className="container header__top-container">
             <div className="header__trust-group">
               <div className="header__trust-badge animate-fade-in">
-                <span className="header__trust-badge-text">ISO 9001:2025 Certified Manufacturer</span>
+                <span className="header__trust-badge-text">{headerData.trustBadge}</span>
               </div>
             </div>
             <div className="header__contact">
-              <a href="tel:+8613060850617" className="header__contact-item">
+              <a href={`tel:${headerData.phoneRaw}`} className="header__contact-item">
                 <PiPhone size={20} />
-                <span>+86 130 6085 0617</span>
+                <span>{headerData.phone}</span>
               </a>
-              <a href="mailto:sales@joyhand.com" className="header__contact-item">
+              <a href={`mailto:${headerData.email}`} className="header__contact-item">
                 <PiEnvelopeSimple size={20} />
-                <span>sales@joyhand.com</span>
+                <span>{headerData.email}</span>
               </a>
             </div>
           </div>
@@ -168,7 +168,7 @@ export default function Header() {
                 onClick={() => setIsModalOpen(true)}
                 aria-label="Get a quote"
               >
-                Get a Quote
+                {headerData.ctaText}
               </button>
 
               <button 
@@ -260,22 +260,22 @@ export default function Header() {
             
             <div className="header__mobile-bottom">
               <div className="header__mobile-contact">
-                <a href="tel:+8613060850617" className="header__mobile-contact-item">
+                <a href={`tel:${headerData.phoneRaw}`} className="header__mobile-contact-item">
                   <div className="header__mobile-contact-icon">
                     <PiPhone size={24} />
                   </div>
                   <div className="header__mobile-contact-text">
                     <span className="header__mobile-contact-label">Call Us</span>
-                    <span className="header__mobile-contact-value">+86 130 6085 0617</span>
+                    <span className="header__mobile-contact-value">{headerData.phone}</span>
                   </div>
                 </a>
-                <a href="mailto:sales@joyhand.com" className="header__mobile-contact-item">
+                <a href={`mailto:${headerData.email}`} className="header__mobile-contact-item">
                   <div className="header__mobile-contact-icon">
                     <PiEnvelopeSimple size={24} />
                   </div>
                   <div className="header__mobile-contact-text">
                     <span className="header__mobile-contact-label">Email Us</span>
-                    <span className="header__mobile-contact-value">sales@joyhand.com</span>
+                    <span className="header__mobile-contact-value">{headerData.email}</span>
                   </div>
                 </a>
               </div>
@@ -284,7 +284,7 @@ export default function Header() {
                 className="btn btn--primary btn--full"
                 onClick={openModal}
               >
-                Request a Quote <PiArrowRight />
+                {headerData.mobileCtaText} <PiArrowRight />
               </button>
             </div>
           </div>

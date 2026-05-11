@@ -4,11 +4,20 @@ import Header from "@/components/header/Header";
 import ScrollToTop from "@/components/scrollTotop/ScrollToTop";
 import PageLoader from "@/components/pageLoader/PageLoader";
 import CookieConsent from "@/components/cookieConsent/CookieConsent";
+import Script from "next/script";
 
-// SEO Metadata - Professional B2B optimized
+// ⚠️ Replace "G-XXXXXXXXXX" with your real GA4 Measurement ID from Google Analytics
+const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+
+// SEO Metadata - Direct Factory & B2B Wholesale Optimized
 export const metadata = {
-  title: "Joyhand Energy | Premium B2B Energy Storage Solutions",
-  description: "Global leader in direct manufacturing of LFP batteries, residential ESS, and industrial solar solutions. Engineering excellence for a sustainable future.",
+  metadataBase: new URL("https://www.joyhand.com"),
+  title: {
+    default: "JoyHand Energy | ISO Certified OEM Solar & Battery Manufacturer",
+    template: "%s | JoyHand Manufacturing",
+  },
+  description: "Direct factory wholesale supply of Grade-A LFP batteries, hybrid inverters, and e-mobility solutions. Engineering excellence for off-grid and unstable grid markets in Africa and South Asia.",
+  keywords: ["OEM solar manufacturer", "wholesale LFP batteries", "solar factory China", "energy storage distributor supply", "B2B energy supplier"],
   viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   themeColor: "#121b2d",
   robots: {
@@ -16,11 +25,19 @@ export const metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Joyhand Energy | Engineering the Future of Storage",
-    description: "Premium LFP battery manufacturing and energy storage solutions.",
+    title: "JoyHand Energy | Direct Factory Partnership",
+    description: "Bypass middlemen. Scale your energy brand with our ISO 9001:2025 certified production lines in Guangzhou.",
     type: "website",
-    siteName: "Joyhand Energy",
+    siteName: "JoyHand Energy",
     locale: "en_US",
+    images: [
+      {
+        url: "/homeImg/businessModelImage001.jpg", 
+        width: 1200,
+        height: 630,
+        alt: "JoyHand ISO 9001:2025 Certified Export Facility",
+      },
+    ],
   },
 };
 
@@ -28,6 +45,21 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body suppressHydrationWarning={true} className="antialiased">
+        {/* Google Analytics 4 - loads after page is interactive */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
         <PageLoader>
           <Header />
           <main>{children}</main>

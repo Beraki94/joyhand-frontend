@@ -4,6 +4,10 @@ import "../legal.css";
 export const metadata = {
   title: "Terms of Service | JoyHand Energy",
   description: "Read the terms and conditions governing the use of JoyHand’s website and manufacturing services.",
+  robots: {
+    index: false,
+    follow: false,
+  }
 };
 
 export default function TermsPage() {

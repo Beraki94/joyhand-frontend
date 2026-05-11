@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import PageHeader from "@/components/pageHeader/PageHeader";
 import SectionHeader from "@/components/sectionHeader/SectionHeader";
 import SimpleContactForm from "@/components/contactForm/SimpleContactForm";
@@ -22,48 +23,13 @@ import {
 import "./contact.css";
 import SuperRing from "@/components/superRing/SuperRing";
 
-// Updated global offices – manufacturing facility highlighted
-const globalOffices = [
-  {
-    icon: <Building2 size={22} />,
-    title: "USA - Headquarters",
-    content: "Montgomery, AL, USA",
-    address: "445 Dexter Avenue, Suite 4050, Montgomery, AL 36104", // ✅ Updated address
-    link: "https://maps.google.com",
-    isOffice: true,
-    region: "Americas"
-  },
-  {
-    icon: <Factory size={22} />,
-    title: "China - Manufacturing Facility",
-    content: "Guangzhou, Guangdong, China",
-    address: "No. 7 Nansha District, Guangzhou 511400, Guangdong, China",
-    link: "https://maps.google.com",
-    isOffice: true,
-    region: "Asia Pacific",
-    featured: true
-  },
-  {
-    icon: <Globe size={22} />,
-    title: "Australia - Pacific Office",
-    content: "Melbourne, VIC, Australia",
-    address: "157 A'Beckett Street, Melbourne VIC 3000, Australia",
-    link: "https://maps.google.com",
-    isOffice: true,
-    region: "Oceania"
-  },
-  {
-    icon: <Award size={22} />,
-    title: "Nigeria - Africa Office",
-    content: "Lagos, Nigeria",
-    address: "New Mandilas International Market, Trade Fair, Ojo, Lagos",
-    link: "https://maps.google.com",
-    isOffice: true,
-    region: "Africa"
-  }
-];
+import { 
+  contactOffices, 
+  contactFeatures, 
+  contactFaqs 
+} from "@/data";
+import Script from "next/script";
 
-// Global support contact (unified)
 const globalSupport = {
   icon: <Phone size={22} />,
   title: "Global Support",
@@ -85,90 +51,136 @@ const responseHours = {
   isText: true
 };
 
+const ICON_MAP = {
+  building: <Building2 size={22} />,
+  factory: <Factory size={22} />,
+  globe: <Globe size={22} />,
+  award: <Award size={22} />,
+  shield: <ShieldCheck size={22} />,
+  handshake: <Handshake size={22} />,
+  check: <CheckCircle size={22} />,
+};
+
+
+
 export default function ContactPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "JoyHand Energy Global Sales",
+    "description": "Direct factory contact for B2B wholesale inquiries regarding LFP batteries, solar inverters, and e-mobility manufacturing.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "JoyHand Energy",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+86-130-6085-0617",
+          "contactType": "sales",
+          "email": "sales@joyhand.com",
+          "areaServed": ["Global", "NG", "PK", "BD", "KE"],
+          "availableLanguage": "en"
+        }
+      ]
+    }
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": contactFaqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <main className="contact-page">
+      <Script
+        id="contact-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <PageHeader
-        title="Let's Talk Manufacturing"
-        subtitle="24-hour response. Global reach."
+        title="Direct Factory Sales & Support"
+        subtitle="Request a wholesale quote or custom manufacturing proposal. 24-hour response for B2B importers globally."
         pageImage="/pageHeadImg/pageheader-contact01.jpg"
       />
 
       {/* ================= INQUIRY SECTION ================= */}
       <section className="contact-form-section">
-
         <SectionDecor type="accent" count={4} />
-
         <div className="container contact-form-section__grid">
-
           <div className="contact-form-section__content">
             <SectionHeader
               badge="Start Here"
-              title="Tell Us About Your Project"
-              subtitle="Share your requirements and we'll prepare a manufacturing proposal — usually within 24 hours."
+              title="Start Your Wholesale Inquiry"
+              subtitle="Share your import volume and technical requirements. Our sales engineers will prepare a direct factory quote within 24 hours."
             />
 
-            {/* Feature Cards reflecting direct manufacturing capabilities */}
             <div className="contact-features">
-              <div className="contact-feature-card">
-                <div className="contact-feature-card__icon"><Factory size={22} /></div>
-                <div className="contact-feature-card__info">
-                  <h5 className="contact-feature-card__label">Custom Manufacturing</h5>
-                  <p className="contact-feature-card__subtext">We produce to your specifications – from battery packs to complete systems.</p>
+              {contactFeatures.map((feature, idx) => (
+                <div key={idx} className="contact-feature-card">
+                  <div className="contact-feature-card__icon">{ICON_MAP[feature.iconType]}</div>
+                  <div className="contact-feature-card__info">
+                    <h5 className="contact-feature-card__label">{feature.label}</h5>
+                    <p className="contact-feature-card__subtext">{feature.subtext}</p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="contact-feature-card">
-                <div className="contact-feature-card__icon"><ShieldCheck size={22} /></div>
-                <div className="contact-feature-card__info">
-                  <h5 className="contact-feature-card__label">In‑House Quality Control</h5>
-                  <p className="contact-feature-card__subtext">100% inspection at our facility. Every product is tested before shipment.</p>
-                </div>
-              </div>
-
-              <div className="contact-feature-card">
-                <div className="contact-feature-card__icon"><Handshake size={22} /></div>
-                <div className="contact-feature-card__info">
-                  <h5 className="contact-feature-card__label">Engineering Support</h5>
-                  <p className="contact-feature-card__subtext">Work directly with our R&D team to customize designs and firmware.</p>
-                </div>
-              </div>
-
-              <div className="contact-feature-card">
-                <div className="contact-feature-card__icon"><CheckCircle size={22} /></div>
-                <div className="contact-feature-card__info">
-                  <h5 className="contact-feature-card__label">Certification Assistance</h5>
-                  <p className="contact-feature-card__subtext">We help you navigate CE, UL, UN38.3, and other market requirements.</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* THE FORM TERMINAL */}
-          <div className="form-terminal">
-            <div className="form-terminal__header">
-              <div className="form-terminal__status">
-                <span className="form-terminal__dot"></span>
-                MANUFACTURING INTAKE
+          {/* RIGHT COLUMN */}
+          <div className="contact-form-section__right">
+            <div className="form-terminal">
+              <div className="form-terminal__header">
+                <div className="form-terminal__status">
+                  <span className="form-terminal__dot"></span>
+                  MANUFACTURING INTAKE
+                </div>
+                <Zap size={16} className="form-terminal__bolt" />
               </div>
-              <Zap size={16} className="form-terminal__bolt" />
+              <div className="form-terminal__body">
+                <SimpleContactForm mode="contact" />
+              </div>
+              <div className="form-terminal__footer">
+                <p className="form-terminal__footnote">
+                  <Zap size={12} /> Priority response for volume inquiries
+                </p>
+              </div>
             </div>
-            <div className="form-terminal__body">
-              <SimpleContactForm mode="contact" />
-            </div>
-            <div className="form-terminal__footer">
-              <p className="form-terminal__footnote">
-                <Zap size={12} /> Priority response for volume inquiries
-              </p>
+
+            {/* DESKTOP ONLY TRUST IMAGE */}
+            <div className="contact-trust-image">
+              <Image
+                src="/contactImg/sales01.jpg"
+                alt="JoyHand Global Export Facility"
+                width={600}
+                height={400}
+                style={{ width: "100%", height: "auto", objectFit: "cover" }}
+                priority={false}
+              />
+              <div className="contact-trust-badge">
+                <Handshake size={20} />
+                <span>Factory Direct Sales team.</span>
+              </div>
             </div>
           </div>
-
         </div>
       </section>
 
       {/* ================= GLOBAL OFFICES SECTION ================= */}
       <section className="global-offices">
-
         <div className="container">
           <SectionHeader
             badge="Our Global Presence"
@@ -177,11 +189,10 @@ export default function ContactPage() {
             align="center"
             theme="light"
           />
-
           <div className="global-offices__grid">
-            {globalOffices.map((office, index) => (
+            {contactOffices.map((office, index) => (
               <div key={index} className={`office-card ${office.featured ? "office-card--featured" : ""}`}>
-                <div className="office-card__icon">{office.icon}</div>
+                <div className="office-card__icon">{ICON_MAP[office.iconType]}</div>
                 <h3 className="office-card__title">{office.title}</h3>
                 <p className="office-card__location">{office.content}</p>
                 <p className="office-card__address">{office.address}</p>
@@ -194,41 +205,10 @@ export default function ContactPage() {
 
       {/* ================= CONTACT CARDS (NFC STYLE) ================= */}
       <section className="contact-info">
-
         <SectionDecor type="primary" count={1} />
-
-        {/* Decorative rings */}
-        <SuperRing
-          type="primary"
-          size="1400px"
-          thickness="40px"
-          top="50%"
-          left="50%"
-          translateX="-50%"
-          translateY="-50%"
-          opacity={0.06}
-        />
-        <SuperRing
-          type="secondary"
-          size="900px"
-          thickness="40px"
-          top="15%"
-          left="70%"
-          translateX="-50%"
-          translateY="-50%"
-          opacity={0.05}
-        />
-        <SuperRing
-          type="accent"
-          size="900px"
-          thickness="40px"
-          top="85%"
-          left="30%"
-          translateX="-50%"
-          translateY="-50%"
-          opacity={0.05}
-        />
-
+        <SuperRing type="primary" size="1400px" thickness="40px" top="50%" left="50%" translateX="-50%" translateY="-50%" opacity={0.06} />
+        <SuperRing type="secondary" size="900px" thickness="40px" top="15%" left="70%" translateX="-50%" translateY="-50%" opacity={0.05} />
+        <SuperRing type="accent" size="900px" thickness="40px" top="85%" left="30%" translateX="-50%" translateY="-50%" opacity={0.05} />
         <div className="container">
           <SectionHeader
             badge="Get in Touch"
@@ -236,52 +216,37 @@ export default function ContactPage() {
             center
           />
           <div className="contact-info__grid">
-            {/* Global Support Card */}
             <div className="contact-card contact-card--navy">
               <div className="contact-card__nfc-wrapper">
                 <div className="contact-card__ring"></div>
-                <div className="contact-card__icon">
-                  {globalSupport.icon}
-                </div>
+                <div className="contact-card__icon">{globalSupport.icon}</div>
               </div>
               <h4 className="contact-card__title">{globalSupport.title}</h4>
-              <a href={globalSupport.link} className="contact-card__link">
-                {globalSupport.content}
-              </a>
+              <a href={globalSupport.link} className="contact-card__link">{globalSupport.content}</a>
             </div>
 
-            {/* Manufacturing Inquiries Card */}
             <div className="contact-card contact-card--navy">
               <div className="contact-card__nfc-wrapper">
                 <div className="contact-card__ring"></div>
-                <div className="contact-card__icon">
-                  {manufacturingInquiries.icon}
-                </div>
+                <div className="contact-card__icon">{manufacturingInquiries.icon}</div>
               </div>
               <h4 className="contact-card__title">{manufacturingInquiries.title}</h4>
-              <a href={manufacturingInquiries.link} className="contact-card__link">
-                {manufacturingInquiries.content}
-              </a>
+              <a href={manufacturingInquiries.link} className="contact-card__link">{manufacturingInquiries.content}</a>
             </div>
 
-            {/* Response Hours Card */}
             <div className="contact-card contact-card--navy">
               <div className="contact-card__nfc-wrapper">
                 <div className="contact-card__ring"></div>
-                <div className="contact-card__icon">
-                  {responseHours.icon}
-                </div>
+                <div className="contact-card__icon">{responseHours.icon}</div>
               </div>
               <h4 className="contact-card__title">{responseHours.title}</h4>
               <p className="contact-card__content">{responseHours.content}</p>
             </div>
           </div>
 
-          {/* ADDITIONAL TRUST SIGNAL */}
           <div className="contact-note">
             <p className="contact-note__text">
-              <ShieldCheck size={16} /> All inquiries receive a response within 24 hours.
-              We respect your confidentiality and project timelines.
+              <ShieldCheck size={16} /> All inquiries receive a response within 24 hours. We respect your confidentiality and project timelines.
             </p>
           </div>
         </div>
@@ -295,7 +260,7 @@ export default function ContactPage() {
             <h3 className="contact-map__title">Four Continents. One Factory Partner.</h3>
             <p className="contact-map__text">
               Our headquarters in the USA, manufacturing facility in Guangzhou, and regional offices in Australia and Nigeria
-              give you direct access to JoyHand production line and engineering support worldwide.
+              give you direct access to JoyHand production line and engineering support worldwide – from Lagos to Dhaka.
             </p>
           </div>
         </div>
@@ -313,32 +278,15 @@ export default function ContactPage() {
 
       {/* ================= FAQ SNIPPET ================= */}
       <section className="contact-faq">
-
         <SectionDecor type="accent" count={4} />
-
         <div className="container">
           <div className="contact-faq__grid">
-            <div className="contact-faq__item">
-              <h4 className="contact-faq__question">What happens after I submit this form?</h4>
-              <p className="contact-faq__answer">
-                Our manufacturing team reviews your requirements within 24 hours. We will contact you from your nearest regional office
-                to discuss specifications, volume, and provide a detailed manufacturing proposal.
-              </p>
-            </div>
-            <div className="contact-faq__item">
-              <h4 className="contact-faq__question">Do you work with new distributors?</h4>
-              <p className="contact-faq__answer">
-                Absolutely. We partner with distributors of all sizes, from emerging brands to established players. Minimum order quantities vary
-                by product – we will help you find a configuration that fits your needs.
-              </p>
-            </div>
-            <div className="contact-faq__item">
-              <h4 className="contact-faq__question">How do you ensure quality?</h4>
-              <p className="contact-faq__answer">
-                We control production entirely in our ISO 9001:2025 certified facility. Every product undergoes in‑process inspections, final
-                testing, and full documentation before shipping. Certifications (CE, UL, UN38.3) are validated on‑site.
-              </p>
-            </div>
+            {contactFaqs.map((faq, idx) => (
+              <div key={idx} className="contact-faq__item">
+                <h4 className="contact-faq__question">{faq.question}</h4>
+                <p className="contact-faq__answer">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

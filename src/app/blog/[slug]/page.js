@@ -5,6 +5,7 @@ import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 import RichTextRenderer from "@/components/richText/RichTextRenderer";
 import "@/components/richText/RichText.css";
 import Link from "next/link";
+import Script from "next/script";
 import {
   PiCalendarBlank,
   PiUser,
@@ -20,7 +21,46 @@ import {
 } from "react-icons/pi";
 import "../blog.css";
 
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const blogPost = blogPosts.find(
+    (post) => post.slug.toLowerCase().trim() === slug.toLowerCase().trim()
+  );
 
+  if (!blogPost) {
+    return {
+      title: "Article Not Found | JoyHand Energy",
+    };
+  }
+
+  return {
+    title: blogPost.title,
+    description: blogPost.excerpt,
+    keywords: [blogPost.category, "energy manufacturing insight", "OEM strategy", "B2B energy intelligence", "JoyHand technical report"],
+    openGraph: {
+      title: blogPost.title,
+      description: blogPost.excerpt,
+      type: "article",
+      images: [
+        {
+          url: blogPost.image || "/homeImg/businessModelImage001.jpg",
+          width: 1200,
+          height: 630,
+          alt: blogPost.title,
+        },
+      ],
+    },
+    alternates: {
+      canonical: `/blog/${blogPost.slug}`,
+    }
+  };
+}
+
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 export default async function BlogDetailsPage({ params }) {
   const { slug } = await params;
@@ -43,12 +83,39 @@ export default async function BlogDetailsPage({ params }) {
     day: 'numeric'
   });
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": blogPost.title,
+    "image": [
+      `https://www.joyhand.com${blogPost.image || "/homeImg/businessModelImage001.jpg"}`
+    ],
+    "author": {
+      "@type": "Organization",
+      "name": "JoyHand Editorial Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "JoyHand Energy",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.joyhand.com/homeImg/businessModelImage001.jpg"
+      }
+    },
+    "description": blogPost.excerpt
+  };
+
   return (
     <article className="blog-details">
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="container blog-details__container">
         <Breadcrumbs
           items={[
-            { label: "Insights", link: "/blog" },
+            { label: "Manufacturing Intel", link: "/blog" },
             { label: blogPost.category || "Technology", link: "/blog" }
           ]}
           currentTitle={blogPost.title}
@@ -150,7 +217,7 @@ export default async function BlogDetailsPage({ params }) {
                 </div>
                 <h4 className="sidebar-card__title">Direct Factory Partnership</h4>
                 <p className="sidebar-card__text">
-                  Skip the middleman and scale your brand with our certified manufacturing lines.
+                  Bypass intermediaries and scale your energy brand with our direct, certified production lines.
                 </p>
                 <Link href="/contact" className="sidebar-card__link-btn">
                   Scale Your OEM Brand

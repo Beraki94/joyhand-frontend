@@ -11,7 +11,7 @@ import {
   PiFactory,
   PiBuilding
 } from "react-icons/pi";
-import { footerData } from "../../data";
+import { footerData } from "@/data";
 import "./Footer.css";
 
 // Helper to render the correct social icon based on string identifier

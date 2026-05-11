@@ -119,10 +119,10 @@ const HomeBlogSection = () => {
     <section className="home-blog">
       <SectionDecor type="primary" count={1} />
       <div className="container">
-        <SectionHeader
-          badge="Industry Insights"
-          title="Expert Knowledge for Energy Professionals"
-          subtitle="Manufacturing best practices, market trends, and technical guides to help you succeed in the energy transition."
+       <SectionHeader
+          badge="Manufacturing Intelligence"
+          title="Insights for Energy Distributors"
+          subtitle="Factory best practices, market trends, and technical guides – tailored for importers in emerging energy markets."
           center
         />
 
@@ -156,7 +156,7 @@ const HomeBlogSection = () => {
 
         <div className="home-blog__footer">
           <Link href="/blog" className="btn btn--primary">
-            Read More Insights <PiArrowRight />
+            Browse All Articles <PiArrowRight />
           </Link>
         </div>
       </div>

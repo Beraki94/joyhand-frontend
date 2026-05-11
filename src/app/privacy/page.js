@@ -4,6 +4,10 @@ import "../legal.css";
 export const metadata = {
   title: "Privacy Policy | JoyHand Energy",
   description: "Learn how JoyHand collects, uses, and protects your personal information when you use our website and manufacturing services.",
+  robots: {
+    index: false,
+    follow: false,
+  }
 };
 
 export default function PrivacyPage() {

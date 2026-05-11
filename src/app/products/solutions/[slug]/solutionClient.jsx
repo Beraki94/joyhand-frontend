@@ -10,11 +10,12 @@ import { PiPackage, PiArrowRight, PiFilePdf } from "react-icons/pi";
 const PRODUCTS_PER_PAGE = 12;
 
 const solutionLinks = [
-  { slug: "storage-batteries",        name: "Storage Batteries" },
-  { slug: "solar-inverters",          name: "Solar Inverters" },
-  { slug: "portable-power-stations",  name: "Portable Power" },
-  { slug: "electric-mobility",        name: "Electric Mobility" },
+  { slug: "storage-batteries",        name: "Battery Storage" },
+  { slug: "solar-inverters",          name: "Hybrid Inverters" },
+  { slug: "portable-power-stations",  name: "Portable Power Stations" },
+  { slug: "electric-mobility",        name: "E‑Mobility" },
   { slug: "power-banks",              name: "Power Banks" },
+  { slug: "phone-screen-protectors",  name: "Phone Screen Protectors" },
 ];
 
 export default function SolutionClient({ slug, config, allProducts }) {
@@ -34,7 +35,7 @@ export default function SolutionClient({ slug, config, allProducts }) {
   return (
     <main className="products-page">
       <PageHeader
-        title={`${config.title} Solutions`}
+        title={config.title}
         subtitle={config.description}
         pageImage={config.image}
       />
@@ -54,7 +55,7 @@ export default function SolutionClient({ slug, config, allProducts }) {
             </div>
             <nav className="products-page__category-nav" aria-label="Product categories">
               <Link href="/products" className="products-page__category-link">
-                All Products
+                All
               </Link>
               {solutionLinks.map((cat) => (
                 <Link

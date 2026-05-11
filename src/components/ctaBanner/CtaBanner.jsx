@@ -7,6 +7,8 @@ import PopUpModal from "@/components/contactForm/PopUpModal";
 import SuperRing from "../superRing/SuperRing";
 import "./CtaBanner.css";
 
+import { ctaData } from "@/data";
+
 const CtaBanner = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const sectionRef = useRef(null);
@@ -51,14 +53,14 @@ const CtaBanner = () => {
           <div className="cta-content">
             <div className="cta-text">
               <h2 className="cta-title">
-                Ready to Scale Your <br />
-                <span className="cta-title--highlight">Energy Production?</span>
+                Ready to Supply Your <br />
+                <span className="cta-title--highlight">Market with Reliable Energy?</span>
               </h2>
 
-              <p className="cta-description">
-                Partner directly with a global leader in OEM & ODM manufacturing to bring your lithium-ion, solar, and e-mobility concepts to market with unprecedented speed and precision.
-              </p>
-            </div>
+             <p className="cta-description">
+              {ctaData.description}
+            </p>
+           </div>
 
             <div className="cta-actions">
               <button

@@ -1,578 +1,3 @@
-// ==============================
-// NAVIGATION LINKS
-// ==============================
-export const links = [
-  { name: "About Us", href: "/about-us" },
-  {
-    name: "Products",
-    href: "/products",
-    subLinks: [
-      { name: "Storage Batteries", href: "/products/solutions/storage-batteries" },
-      { name: "Solar Inverters", href: "/products/solutions/solar-inverters" },
-      { name: "Portable Power Stations", href: "/products/solutions/portable-power-stations" },
-      { name: "Electric Mobility", href: "/products/solutions/electric-mobility" },
-      { name: "Power Banks", href: "/products/solutions/power-banks" }
-    ]
-  },
-  { name: "Manufacturing", href: "/services" },
-  { name: "Contact Us", href: "/contact-us" },
-  { name: "Blog", href: "/blog" }
-];
-
-// ==============================
-// BLOG POSTS DATA (Portable Text)
-// ==============================
-
-export const blogPosts = [
-  {
-    id: "1",
-    title: "LFP Battery Manufacturing: How Grade-A Cells & Smart BMS Define Performance",
-    slug: "lfp-battery-manufacturing-grade-a-cells-bms",
-    excerpt: "Discover the engineering behind Lithium Iron Phosphate batteries – from prismatic cell selection to advanced BMS design – and how it ensures safety, cycle life, and reliability for OEM customers.",
-    image: "/blogImg/blogImage1.png",
-    readTime: "8 min read",
-    category: "Manufacturing",
-    content: [
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Lithium Iron Phosphate (LFP) has become the chemistry of choice for energy storage systems due to its superior thermal stability, long cycle life, and environmental safety. But not all LFP cells are created equal. Grade‑A prismatic cells, manufactured with consistent quality, are essential for achieving the rated capacity and longevity."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "At JoyHand, we source only Grade‑A cells from top‑tier suppliers and perform incoming inspection on every batch. Our automated assembly lines then laser‑weld busbars, integrate BMS boards, and test each module under rigorous conditions."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [
-          {
-            _type: "span",
-            text: "The Role of BMS in Battery Safety"
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "The Battery Management System (BMS) is the intelligence behind every pack. Our in‑house developed BMS firmware monitors cell voltage, temperature, and current in real‑time, enabling active balancing, over‑charge/discharge protection, and communication with inverters or monitoring platforms. This level of control ensures that JoyHand batteries consistently deliver 6000+ cycles at full depth of discharge."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "For OEM partners, the ability to customize BMS parameters – such as charge/discharge limits, communication protocols (CAN, RS485, Bluetooth), and pre‑set operating modes – provides a distinct market advantage. We work with clients to tailor the BMS to their specific applications, whether for residential storage, commercial peak shaving, or off‑grid telecom."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Understanding these manufacturing details helps distributors select a reliable supplier and communicate the true value of the products they sell. In an industry where safety and longevity are paramount, the combination of Grade‑A cells and a purpose‑built BMS is what separates premium manufacturers from the rest."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: "2",
-    title: "OEM vs. ODM: Choosing the Right Manufacturing Partner for Your Energy Brand",
-    slug: "oem-vs-odm-manufacturing-partner",
-    excerpt: "For distributors and brands looking to launch their own energy products, understanding the difference between OEM and ODM services is critical. This guide explains the two models and how to choose the best fit for your business.",
-    image: "/blogImg/blogImage2.png",
-    readTime: "7 min read",
-    category: "Business",
-    content: [
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "When entering the energy storage or e‑mobility market, you have two main manufacturing pathways: Original Equipment Manufacturing (OEM) and Original Design Manufacturing (ODM). Each offers distinct advantages depending on your product strategy."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "OEM manufacturing is ideal when you have a proven product design and simply need a factory to produce it under your brand. JoyHand’s OEM service takes your bill of materials, schematics, and specifications and handles sourcing, assembly, testing, and certification. You retain full control over the product while leveraging our production capacity and quality systems."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "ODM manufacturing, on the other hand, is for brands that want a custom product but lack in‑house engineering resources. Our engineering team works with you from concept to production: we develop the electrical architecture, mechanical design, BMS firmware, and thermal management. The result is an exclusive product tailored to your market requirements, protected by your IP."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Which model is right for you? If you already have a proven design and want to scale quickly, OEM is the fastest route. If you need differentiation and are willing to invest in development, ODM offers long‑term competitive advantage. Many of our partners start with OEM to test the market, then transition to ODM as they grow."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "No matter which path you choose, working with an ISO 9001:2025 certified manufacturer like JoyHand ensures consistent quality, documented processes, and full certification support – giving you the confidence to bring reliable products to market."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: "3",
-    title: "Quality Control in Energy Storage: From Cell to Container",
-    slug: "quality-control-energy-storage",
-    excerpt: "A behind‑the‑scenes look at how rigorous quality assurance protocols ensure every battery, inverter, and e‑mobility component leaves the factory defect‑free and ready for global distribution.",
-    image: "/blogImg/blogImage3.png",
-    readTime: "9 min read",
-    category: "Quality Control",
-    content: [
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Quality control in energy storage is not a single step – it’s a system that spans the entire production cycle. At JoyHand, we implement a multi‑stage QC process that begins with incoming materials and ends with final pre‑shipment verification."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [
-          {
-            _type: "span",
-            text: "Incoming Inspection"
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Every batch of battery cells, PCBs, and components is tested against manufacturer specifications. For cells, we measure internal resistance, capacity, and voltage to ensure they fall within strict tolerance bands. Any cells outside these limits are rejected before they ever reach the assembly line."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [
-          {
-            _type: "span",
-            text: "In‑Process Inspection"
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "During assembly, automated systems monitor weld quality, screw torque, and insulation resistance. Operators perform visual checks and functional tests at critical points. Data from each station is logged, enabling full traceability."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [
-          {
-            _type: "span",
-            text: "Final Testing"
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Completed products undergo a series of rigorous tests: charge/discharge cycles, thermal stress, vibration, and electrical safety checks. Our QC lab is equipped with thermal chambers, battery cyclers, and insulation testers to simulate real‑world conditions. Every unit is tested; we do not use statistical sampling."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [
-          {
-            _type: "span",
-            text: "Pre‑Shipment Audit"
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Before container loading, a final inspection confirms that packaging, labeling, and documentation meet customer requirements. We also conduct random functional tests to ensure no performance degradation occurred during final assembly."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "This comprehensive approach, backed by ISO 9001:2025 certification, gives our distributor partners the confidence to sell products that consistently meet or exceed market expectations."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: "4",
-    title: "The Future of E‑Mobility: Manufacturing Trends & Opportunities",
-    slug: "future-e-mobility-manufacturing-trends",
-    excerpt: "Electric motorcycles, scooters, and light EVs are reshaping urban transportation. This article explores the latest manufacturing trends, battery innovations, and opportunities for OEM partners.",
-    image: "/blogImg/blogImage4.png",
-    readTime: "8 min read",
-    category: "E-Mobility",
-    content: [
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "The e‑mobility market is experiencing explosive growth, driven by urbanization, sustainability goals, and advancements in battery technology. For manufacturers and distributors, understanding the key trends is essential to capture this opportunity."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "One major trend is the shift toward high‑voltage platforms (72V and above) that enable faster charging and better performance. JoyHand’s e‑mobility battery packs are designed to handle these higher voltages while maintaining safety through proprietary BMS and reinforced cell connections."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Another trend is the integration of smart connectivity. Modern e‑mobility vehicles increasingly feature IoT capabilities – GPS tracking, remote diagnostics, and over‑the‑air updates. Our BMS platforms can be configured to interface with such systems, providing valuable data to fleet operators."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "From a manufacturing perspective, modular designs are gaining popularity. Modular battery packs allow for easier serviceability and capacity upgrades, reducing total cost of ownership for end users. Our engineering team specializes in creating modular systems that can be adapted to different vehicle platforms."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "For OEM partners, the opportunity lies in customizing powertrains and battery packs for specific markets – be it last‑mile delivery, recreational vehicles, or urban commuting. By collaborating with a manufacturer that understands both production scalability and engineering flexibility, brands can quickly bring differentiated products to market."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: "5",
-    title: "Navigating Global Certifications for Lithium Batteries: CE, UL, UN38.3 & More",
-    slug: "global-certifications-lithium-batteries",
-    excerpt: "Exporting lithium batteries requires compliance with a complex set of regulations. This guide explains the key certifications and how JoyHand ensures every product meets international standards.",
-    image: "/blogImg/blogImage5.png",
-    readTime: "10 min read",
-    category: "Compliance",
-    content: [
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "For any manufacturer or distributor of lithium batteries, navigating the web of global certifications is a critical part of market entry. Certifications are not just bureaucratic hurdles – they ensure safety, reliability, and legal compliance."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [
-          {
-            _type: "span",
-            text: "CE Marking"
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Required for products sold in the European Economic Area. It indicates compliance with EU safety, health, and environmental protection standards. For battery systems, this includes electromagnetic compatibility (EMC) and low voltage directives. JoyHand maintains CE certification for all standard products and can assist with documentation for custom projects."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [
-          {
-            _type: "span",
-            text: "UL Certification"
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "In North America, UL 1973 and UL 9540 are the gold standards for stationary storage and battery systems. Our manufacturing processes and design are UL‑compliant, and we work with accredited labs to test new designs before mass production."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [
-          {
-            _type: "span",
-            text: "UN38.3"
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "This is the United Nations standard for transport of lithium batteries. It involves a series of tests – altitude simulation, thermal cycling, vibration, shock, external short circuit, and impact/overcharge. Every shipment from JoyHand is UN38.3 certified, ensuring safe transport by air or sea."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [
-          {
-            _type: "span",
-            text: "IEC 62109"
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "For solar inverters and power electronics, this standard covers safety requirements. Our inverter production line is fully compliant, and we can provide certification documentation for each product."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Having a manufacturing partner that already holds these certifications significantly reduces time‑to‑market for distributors. We can also help clients navigate country‑specific requirements, such as PSE in Japan or KC in Korea, ensuring that your products reach global customers without delays."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: "6",
-    title: "Optimizing Supply Chains with Direct Factory Partnerships",
-    slug: "optimizing-supply-chains-factory-partnerships",
-    excerpt: "In a volatile global market, working directly with a manufacturer offers stability, cost savings, and agility. Learn how vertical integration and factory‑direct relationships can transform your supply chain.",
-    image: "/blogImg/blogImage6.jpg",
-    readTime: "7 min read",
-    category: "Industry",
-    content: [
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Global supply chains have faced unprecedented disruptions in recent years – from raw material shortages to shipping delays. For energy distributors, relying on intermediaries often compounds these risks. A direct factory partnership can be the solution."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "When you work directly with a manufacturer like JoyHand, you eliminate the layers of middlemen that add cost and complexity. This direct relationship means you have full visibility into production schedules, raw material sourcing, and quality assurance."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Vertical integration is a key advantage. By controlling cell sourcing, BMS design, assembly, and testing in‑house, we can respond quickly to changes in demand or material availability. This agility is critical in a fast‑moving market."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Cost savings are another benefit. Factory‑direct pricing eliminates distributor markups and reduces logistics costs through consolidated container shipments. We also offer flexible payment terms and volume‑based discounts to support your growth."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Finally, direct partnerships enable better collaboration. Our engineering team can work alongside your product managers to optimize designs for manufacturability, reducing time‑to‑market and ensuring seamless integration with your existing product lines."
-          }
-        ]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        children: [
-          {
-            _type: "span",
-            text: "Whether you are a growing distributor or an established brand, moving to a factory‑direct model provides the resilience and competitive edge needed to thrive in the energy transition."
-          }
-        ]
-      }
-    ]
-  }
-];
-
-
-
-// ==============================
-// TRUSTED PARTNERS DATA
-// ==============================
-
-export const partners = [
-  {
-    id: 1,
-    name: "ifwo",
-    logo: "/homeImg/partner01.jpg",
-  },
-  {
-    id: 2,
-    name: "xionel",
-    logo: "/homeImg/partner02.jpeg",
-  },
-  {
-    id: 3,
-    name: "kemans",
-    logo: "/homeImg/partner03.jpg",
-  },
-  {
-    id: 4,
-    name: "mangotech",
-    logo: "/homeImg/partner04.jpg",
-  },
-  
-  {
-    id: 5,
-    name: "ifwo",
-    logo: "/homeImg/partner01.jpg",
-  },
-  {
-    id: 6,
-    name: "xionel",
-    logo: "/homeImg/partner02.jpeg",
-  },
-  {
-    id: 7,
-    name: "kemans",
-    logo: "/homeImg/partner03.jpg",
-  },
-  {
-    id: 8,
-    name: "mangotech",
-    logo: "/homeImg/partner04.jpg",
-  },
-  
-];
-
-// =====================================================
-// PRODUCT DATA - JoyHand Energy
-// Battery Storage Systems & Inverters
-// =====================================================
-
-// =====================================================
-// PRODUCT DATA - JoyHand Energy
-// Battery Storage Systems & Inverters
-// =====================================================
-
 export const productData = [
   // ===== BATTERIES =====
   {
@@ -623,7 +48,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: "HHInOw0G3_I"
   },
-
   {
     id: "bat-002",
     slug: "wall-mount-battery-51-2v-300ah",
@@ -672,7 +96,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "bat-003",
     slug: "mobile-battery-pack-51-2v-400ah-ls",
@@ -718,7 +141,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "bat-004",
     slug: "mobile-battery-pack-51-2v-314ah",
@@ -763,7 +185,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "bat-005",
     slug: "s-series-battery-gw-51-2-100-b",
@@ -811,7 +232,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "bat-006",
     slug: "s-series-battery-gw-51-2-300-b",
@@ -851,7 +271,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "bat-007",
     slug: "lithium-battery-51-2v-100ah",
@@ -859,8 +278,7 @@ export const productData = [
     model: "51.2V100AH",
     category: "battery",
     type: "solar-storage",
-    description:
-      "Compact 5.12kWh LiFePO4 battery designed for residential and small solar energy storage applications.",
+    description: "Compact 5.12kWh LiFePO4 battery designed for residential and small solar energy storage applications.",
     specifications: {
       nominalVoltage: "51.2V",
       capacity: "100Ah",
@@ -891,7 +309,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "bat-008",
     slug: "lithium-battery-51-2v-200ah",
@@ -899,8 +316,7 @@ export const productData = [
     model: "51.2V200AH",
     category: "battery",
     type: "solar-storage",
-    description:
-      "Mid-capacity 10.24kWh LiFePO4 battery suitable for residential and commercial solar storage systems.",
+    description: "Mid-capacity 10.24kWh LiFePO4 battery suitable for residential and commercial solar storage systems.",
     specifications: {
       nominalVoltage: "51.2V",
       capacity: "200Ah",
@@ -931,7 +347,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "bat-009",
     slug: "lithium-battery-51-2v-314ah",
@@ -939,8 +354,7 @@ export const productData = [
     model: "51.2V314AH",
     category: "battery",
     type: "solar-storage",
-    description:
-      "High-capacity 16.08kWh LiFePO4 battery built for demanding solar storage and industrial energy applications.",
+    description: "High-capacity 16.08kWh LiFePO4 battery built for demanding solar storage and industrial energy applications.",
     specifications: {
       nominalVoltage: "51.2V",
       capacity: "314Ah",
@@ -973,7 +387,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   // ===== HYBRID INVERTERS =====
   {
     id: "inv-001",
@@ -1019,7 +432,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "inv-002",
     slug: "hybrid-inverter-hf-12kw-48v",
@@ -1064,7 +476,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "inv-003",
     slug: "hybrid-inverter-hf-12kw-48v-ip54",
@@ -1104,7 +515,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   // ===== WALL MOUNTED INVERTERS =====
   {
     id: "inv-004",
@@ -1145,7 +555,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "inv-005",
     slug: "wall-mounted-inverter-m6200-48pl",
@@ -1185,7 +594,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "inv-006",
     slug: "wall-mounted-inverter-em11000-48l",
@@ -1225,7 +633,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "inv-007",
     slug: "wall-mounted-inverter-em11000-48l-p",
@@ -1262,7 +669,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   // ===== ELECTRIC MOBILITY =====
   {
     id: "em-004",
@@ -1314,7 +720,6 @@ export const productData = [
     },
     youtubeVideoId: null
   },
-
   {
     id: "em-005",
     slug: "youqo-14-inch-scooter-650w",
@@ -1368,7 +773,6 @@ export const productData = [
     },
     youtubeVideoId: null
   },
-
   {
     id: "em-006",
     slug: "small-folding-ebike-350w",
@@ -1420,7 +824,6 @@ export const productData = [
     },
     youtubeVideoId: null
   },
-
   {
     id: "em-007",
     slug: "war-horse-electric-motorcycle-800w",
@@ -1472,7 +875,6 @@ export const productData = [
     },
     youtubeVideoId: null
   },
-
   {
     id: "em-008",
     slug: "big-tank-electric-motorcycle-800w",
@@ -1518,12 +920,8 @@ export const productData = [
     certifications: ["CE"],
     warranty: "2 years",
     inStock: true,
-    containerCapacity: {
-      "40HQ": "136 pcs"
-    },
     youtubeVideoId: null
   },
-
   {
     id: "em-009",
     slug: "large-folding-ebike-350w",
@@ -1575,7 +973,6 @@ export const productData = [
     },
     youtubeVideoId: null
   },
-
   {
     id: "em-010",
     slug: "hongtu-electric-motorcycle-800w",
@@ -1627,7 +1024,6 @@ export const productData = [
     },
     youtubeVideoId: null
   },
-
   {
     id: "em-011",
     slug: "kugou-electric-scooter-72v-20ah",
@@ -1679,7 +1075,6 @@ export const productData = [
     },
     youtubeVideoId: null
   },
-
   {
     id: "em-012",
     slug: "v6-pedal-electric-scooter-800w",
@@ -1729,7 +1124,6 @@ export const productData = [
     },
     youtubeVideoId: null
   },
-
   {
     id: "em-013",
     slug: "v6-pedal-60v-30ah-version",
@@ -1778,7 +1172,6 @@ export const productData = [
     },
     youtubeVideoId: null
   },
-
   // ===== PORTABLE POWER STATIONS =====
   {
     id: "pp-001",
@@ -1834,7 +1227,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "pp-002",
     slug: "solar-generator-300w-500w-1000wh",
@@ -1886,7 +1278,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "pp-003",
     slug: "all-in-one-solar-storage-3000w-9570wh",
@@ -1936,7 +1327,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "bat-010",
     slug: "he01-residential-all-in-one-5-5kw-11-16kwh",
@@ -1994,8 +1384,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
-  // ===== ADDITIONAL BATTERY =====
   {
     id: "bat-011",
     slug: "w51100-lifepo4-battery-5-12kwh",
@@ -2039,13 +1427,10 @@ export const productData = [
     ],
     image: "/productImg/s-battery/solarbattery05.jpg",
     gallery: [
-
       "/productImg/s-battery/solarbattery05a.jpg",
       "/productImg/s-battery/solarbattery05b.jpg",
       "/productImg/s-battery/solarbattery05c.jpg",
-      "/productImg/s-battery/solarbattery05.jpg",
-
-
+      "/productImg/s-battery/solarbattery05.jpg"
     ],
     datasheet: "",
     certifications: ["CE", "UN38.3"],
@@ -2053,8 +1438,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
-  // ===== PORTABLE POWER STATIONS =====
   {
     id: "pp-004",
     slug: "portable-power-station-200-1000w",
@@ -2092,10 +1475,8 @@ export const productData = [
     ],
     image: "/productImg/p-station/powerstation04.jpg",
     gallery: [
-
       "/productImg/p-station/powerstation04a.jpg",
-      "/productImg/p-station/powerstation04.jpg",
-
+      "/productImg/p-station/powerstation04.jpg"
     ],
     datasheet: "",
     certifications: ["CE", "UN38.3"],
@@ -2103,7 +1484,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "pp-005",
     slug: "mav-out-1100-power-station-1000wh",
@@ -2141,10 +1521,8 @@ export const productData = [
     ],
     image: "/productImg/p-station/powerstation05.jpg",
     gallery: [
-
       "/productImg/p-station/powerstation05a.jpg",
-      "/productImg/p-station/powerstation05.jpg",
-
+      "/productImg/p-station/powerstation05.jpg"
     ],
     datasheet: "",
     certifications: ["CE", "UN38.3"],
@@ -2152,7 +1530,6 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
   {
     id: "pp-006",
     slug: "compact-power-station-300-600w",
@@ -2189,10 +1566,8 @@ export const productData = [
     ],
     image: "/productImg/p-station/powerstation06.jpg",
     gallery: [
-
       "/productImg/p-station/powerstation06a.jpg",
-      "/productImg/p-station/powerstation06.jpg",
-
+      "/productImg/p-station/powerstation06.jpg"
     ],
     datasheet: "",
     certifications: ["CE", "UN38.3"],
@@ -2200,8 +1575,7 @@ export const productData = [
     inStock: true,
     youtubeVideoId: null
   },
-
-    // ===== POWER BANKS =====
+  // ===== POWER BANKS =====
   {
     id: "pb-001",
     slug: "power-bank-w130-5000mah-wireless",
@@ -2234,10 +1608,7 @@ export const productData = [
       "Emergency top‑up for phones and earbuds"
     ],
     image: "/productImg/p-bank/powerbank01.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank01.jpg",
-
-    ],
+    gallery: ["/productImg/p-bank/powerbank01.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2277,9 +1648,7 @@ export const productData = [
       "Remote work"
     ],
     image: "/productImg/p-bank/powerbank02.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank02a.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank02a.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2319,9 +1688,7 @@ export const productData = [
       "Business meetings"
     ],
     image: "/productImg/p-bank/powerbank03.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank03.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank03.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2362,9 +1729,7 @@ export const productData = [
       "Emergency backup without cables"
     ],
     image: "/productImg/p-bank/powerbank04.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank04a.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank04a.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2404,9 +1769,7 @@ export const productData = [
       "Charging tablets and phones"
     ],
     image: "/productImg/p-bank/powerbank05.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank05.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank05.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2446,9 +1809,7 @@ export const productData = [
       "Family outings"
     ],
     image: "/productImg/p-bank/powerbank06.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank06.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank06.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2488,9 +1849,7 @@ export const productData = [
       "Short trips"
     ],
     image: "/productImg/p-bank/powerbank07.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank07.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank07.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2530,9 +1889,7 @@ export const productData = [
       "Emergency backup"
     ],
     image: "/productImg/p-bank/powerbank08.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank08.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank08.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2572,9 +1929,7 @@ export const productData = [
       "Tablet and phone charging"
     ],
     image: "/productImg/p-bank/powerbank09.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank09.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank09.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2614,9 +1969,7 @@ export const productData = [
       "Gift for Apple & Android users"
     ],
     image: "/productImg/p-bank/powerbank010.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank010.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank010.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2656,10 +2009,7 @@ export const productData = [
       "Minimalist charging"
     ],
     image: "/productImg/p-bank/powerbank011.jpg",
-    gallery: [
-
-      "/productImg/p-bank/powerbank011.jpg",
-    ],
+    gallery: ["/productImg/p-bank/powerbank011.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2699,9 +2049,7 @@ export const productData = [
       "Emergency backup"
     ],
     image: "/productImg/p-bank/powerbank012.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank012.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank012.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2741,10 +2089,7 @@ export const productData = [
       "Precise battery management"
     ],
     image: "/productImg/p-bank/powerbank013.jpg",
-    gallery: [
-
-      "/productImg/p-bank/powerbank013.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank013.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2784,9 +2129,7 @@ export const productData = [
       "Outdoor activities"
     ],
     image: "/productImg/p-bank/powerbank014.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank014.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank014.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2826,9 +2169,7 @@ export const productData = [
       "Quick top‑ups"
     ],
     image: "/productImg/p-bank/powerbank015.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank015.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank015.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2868,10 +2209,7 @@ export const productData = [
       "Charging tablets and laptops"
     ],
     image: "/productImg/p-bank/powerbank016.jpg",
-    gallery: [
-
-      "/productImg/p-bank/powerbank016.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank016.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2911,10 +2249,7 @@ export const productData = [
       "Gift for minimalists"
     ],
     image: "/productImg/p-bank/powerbank017.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank017.jpg"
-
-    ],
+    gallery: ["/productImg/p-bank/powerbank017.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2954,9 +2289,7 @@ export const productData = [
       "Outdoor activities"
     ],
     image: "/productImg/p-bank/powerbank018.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank018.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank018.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -2996,10 +2329,7 @@ export const productData = [
       "Office and travel"
     ],
     image: "/productImg/p-bank/powerbank019.jpg",
-    gallery: [
-
-      "/productImg/p-bank/powerbank019.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank019.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -3083,9 +2413,7 @@ export const productData = [
       "Watch + phone + earbuds all at once"
     ],
     image: "/productImg/p-bank/powerbank021.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank021.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank021.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -3125,10 +2453,7 @@ export const productData = [
       "Minimalist travel"
     ],
     image: "/productImg/p-bank/powerbank022.jpg",
-    gallery: [
-
-      "/productImg/p-bank/powerbank022.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank022.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -3169,10 +2494,7 @@ export const productData = [
       "Watch videos while charging"
     ],
     image: "/productImg/p-bank/powerbank023.jpg",
-    gallery: [
-
-      "/productImg/p-bank/powerbank023.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank023.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -3213,11 +2535,7 @@ export const productData = [
       "Charge multiple devices without extra cables"
     ],
     image: "/productImg/p-bank/powerbank024.jpg",
-    gallery: [
-
-      "/productImg/p-bank/powerbank024.jpg"
-
-    ],
+    gallery: ["/productImg/p-bank/powerbank024.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -3259,10 +2577,7 @@ export const productData = [
       "No need to carry extra cables"
     ],
     image: "/productImg/p-bank/powerbank025.jpg",
-    gallery: [
-
-      "/productImg/p-bank/powerbank025.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank025.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -3303,9 +2618,7 @@ export const productData = [
       "Travel and camping"
     ],
     image: "/productImg/p-bank/powerbank026.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank026.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank026.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -3346,10 +2659,7 @@ export const productData = [
       "Office and home"
     ],
     image: "/productImg/p-bank/powerbank027.jpg",
-    gallery: [
-
-      "/productImg/p-bank/powerbank027.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank027.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -3390,9 +2700,7 @@ export const productData = [
       "Home backup"
     ],
     image: "/productImg/p-bank/powerbank028.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank028.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank028.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -3432,9 +2740,7 @@ export const productData = [
       "Everyday magnetic charging"
     ],
     image: "/productImg/p-bank/powerbank029.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank029.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank029.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
@@ -3475,1050 +2781,868 @@ export const productData = [
       "Family and group outings"
     ],
     image: "/productImg/p-bank/powerbank030.jpg",
-    gallery: [
-      "/productImg/p-bank/powerbank030.jpg"
-    ],
+    gallery: ["/productImg/p-bank/powerbank030.jpg"],
     datasheet: "",
     certifications: ["CE", "FCC", "RoHS"],
     warranty: "18 months",
     inStock: true,
     youtubeVideoId: null
   },
-
-  // ===== POWER BANKS – GROUPED (20+ families) =====
-// Group 1: P012 / P014 / P017 – 4-cable solar series, 20000mAh, PD20W
-{
-  id: "pb-201",
-  slug: "solar-power-bank-4-cables-20000mah",
-  name: "4‑Cable Solar Power Bank 20000mAh",
-  model: "Solar 4‑Cable",
-  modelNumbers: ["P012", "P014", "P017", "PO14", "PO17", "Solar Series 1.65W", "Solar Series 1.6W"],
-  category: "power-bank",
-  type: "solar",
-  description: "20000mAh solar power bank with 4 built‑in cables (USB‑C, Micro, Lightning, USB‑A), PD20W fast charging, and 360‑480LM flashlight.",
-  specifications: {
-    capacity: "20000mAh / 74Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "1.6‑1.65W (5.5V/290‑300mA)",
-    icType: "IP5356",
-    output: {
-      typeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
-      usbA1: "5V/4.5A, 5V/3A, 9V/2A, 12V/1.5A (SCP22.5W)",
-      usbA2: "5V/2.1A",
-      builtInMicro: "5V/2.1A",
-      builtInTypeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
-      builtInLightning: "5V/2.4A"
+  // Group 1: P012 / P014 / P017 – 4-cable solar series, 20000mAh, PD20W
+  {
+    id: "pb-201",
+    slug: "solar-power-bank-4-cables-20000mah",
+    name: "4‑Cable Solar Power Bank 20000mAh",
+    model: "Solar 4‑Cable",
+    modelNumbers: ["P012", "P014", "P017", "PO14", "PO17", "Solar Series 1.65W", "Solar Series 1.6W"],
+    category: "power-bank",
+    type: "solar",
+    description: "20000mAh solar power bank with 4 built‑in cables (USB‑C, Micro, Lightning, USB‑A), PD20W fast charging, and 360‑480LM flashlight.",
+    specifications: {
+      capacity: "20000mAh / 74Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "1.6‑1.65W (5.5V/290‑300mA)",
+      icType: "IP5356",
+      output: {
+        typeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
+        usbA1: "5V/4.5A, 5V/3A, 9V/2A, 12V/1.5A (SCP22.5W)",
+        usbA2: "5V/2.1A",
+        builtInMicro: "5V/2.1A",
+        builtInTypeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
+        builtInLightning: "5V/2.4A"
+      },
+      input: {
+        typeC: "5V/3A, 9V/2.2A, 12V/1.5A (PD18W)",
+        builtInUSBA: "5V/3A, 9V/2A, 12V/1.5A (QC18W)"
+      },
+      ledLight: "360‑480LM",
+      dimensions: "173‑183 × 84‑96 × 25‑39 mm",
+      material: "ABS+PC (V0), silicone, TPU",
+      weight: "500‑560g"
     },
-    input: {
-      typeC: "5V/3A, 9V/2.2A, 12V/1.5A (PD18W)",
-      builtInUSBA: "5V/3A, 9V/2A, 12V/1.5A (QC18W)"
+    features: [
+      "4 built‑in cables – no extra cables needed",
+      "PD20W and SCP22.5W fast charging",
+      "1.6‑1.65W solar panel",
+      "High‑brightness 360‑480LM flashlight",
+      "V0 flame‑retardant casing"
+    ],
+    applications: ["Camping, hiking", "Emergency backup", "Off‑grid work"],
+    image: "/productImg/p-bank/powerbank031.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank031a.jpg",
+      "/productImg/p-bank/powerbank031b.jpg",
+      "/productImg/p-bank/powerbank031.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "FCC", "RoHS", "UL2056"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  // Group 2: HS-43 – Hand crank solar power bank
+  {
+    id: "pb-202",
+    slug: "hand-crank-solar-power-bank",
+    name: "Hand Crank Solar Power Bank",
+    model: "Hand Crank Series",
+    modelNumbers: ["HS-43"],
+    category: "power-bank",
+    type: "solar",
+    description: "20000mAh solar power bank with hand crank generator, 4 built‑in cables, PD20W fast charging, and 480LM flashlight.",
+    specifications: {
+      capacity: "20000mAh / 74Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "1.65W (5.5V/300mA)",
+      handCrank: "5V/400mA",
+      icType: "IP5356",
+      output: {
+        typeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
+        usbA1: "5V/4.5A, 5V/3A, 9V/2A, 12V/1.5A (SCP22.5W)",
+        usbA2: "5V/2.1A",
+        builtInMicro: "5V/2.1A",
+        builtInTypeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
+        builtInLightning: "5V/2.4A"
+      },
+      input: {
+        typeC: "5V/3A, 9V/2.2A, 12V/1.5A (PD18W)",
+        builtInUSBA: "5V/3A, 9V/2A, 12V/1.5A (QC18W)",
+        handCrank: "5V/400mA"
+      },
+      ledLight: "480LM",
+      dimensions: "173.2×84×42.2mm",
+      material: "ABS+PC (V0), silicone, TPU",
+      weight: "580g"
     },
-    ledLight: "360‑480LM",
-    dimensions: "173‑183 × 84‑96 × 25‑39 mm",
-    material: "ABS+PC (V0), silicone, TPU",
-    weight: "500‑560g"
+    features: [
+      "Hand crank generator for emergency power",
+      "20000mAh high capacity",
+      "4 built‑in cables",
+      "PD20W fast charging",
+      "480LM LED flashlight"
+    ],
+    applications: ["Emergency preparedness", "Survival kits", "Off‑grid"],
+    image: "/productImg/p-bank/powerbank034.jpg",
+    gallery: ["/productImg/p-bank/powerbank034.jpg"],
+    datasheet: "",
+    certifications: ["UL2056", "CE", "UKCA", "RoHS", "FCC", "UN38.3", "MSDS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
   },
-  features: [
-    "4 built‑in cables – no extra cables needed",
-    "PD20W and SCP22.5W fast charging",
-    "1.6‑1.65W solar panel",
-    "High‑brightness 360‑480LM flashlight",
-    "V0 flame‑retardant casing"
-  ],
-  applications: ["Camping, hiking", "Emergency backup", "Off‑grid work"],
-  image: "/productImg/p-bank/powerbank031.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank031a.jpg",
-    "/productImg/p-bank/powerbank031b.jpg",
-    "/productImg/p-bank/powerbank031.jpg"
-
-  ],
-  datasheet: "",
-  certifications: ["CE", "FCC", "RoHS", "UL2056"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 2: HS-43 – Hand crank solar power bank
-{
-  id: "pb-202",
-  slug: "hand-crank-solar-power-bank",
-  name: "Hand Crank Solar Power Bank",
-  model: "Hand Crank Series",
-  modelNumbers: ["HS-43"],
-  category: "power-bank",
-  type: "solar",
-  description: "20000mAh solar power bank with hand crank generator, 4 built‑in cables, PD20W fast charging, and 480LM flashlight.",
-  specifications: {
-    capacity: "20000mAh / 74Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "1.65W (5.5V/300mA)",
-    handCrank: "5V/400mA",
-    icType: "IP5356",
-    output: {
-      typeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
-      usbA1: "5V/4.5A, 5V/3A, 9V/2A, 12V/1.5A (SCP22.5W)",
-      usbA2: "5V/2.1A",
-      builtInMicro: "5V/2.1A",
-      builtInTypeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
-      builtInLightning: "5V/2.4A"
+  // Group 3: R-N31 – Emergency solar radio with hand crank
+  {
+    id: "pb-203",
+    slug: "emergency-solar-radio-crank",
+    name: "Emergency Solar Radio with Hand Crank",
+    model: "Emergency Radio",
+    modelNumbers: ["R-N31"],
+    category: "power-bank",
+    type: "solar",
+    description: "Multi‑function emergency radio with solar panel, hand crank, 5000mAh battery, AM/FM radio, SOS alarm, compass, and LED lights.",
+    specifications: {
+      capacity: "5000mAh / 18.5Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarCharging: "5.5V/40mA",
+      handCrank: "5V/400mA",
+      input: { typeC: "5V/2A" },
+      output: { usbA: "5V/2.1A" },
+      radio: { fm: "76‑108 MHz", am: "52‑170 KHz" },
+      ledLight: { near: "1W / 120LM", far: "6W / 500LM" },
+      speakerPower: "4Ω/3W",
+      dimensions: "134×94×46mm",
+      material: "ABS+PC (V0)",
+      weight: "300g"
     },
-    input: {
-      typeC: "5V/3A, 9V/2.2A, 12V/1.5A (PD18W)",
-      builtInUSBA: "5V/3A, 9V/2A, 12V/1.5A (QC18W)",
-      handCrank: "5V/400mA"
+    features: [
+      "AM/FM radio with hand crank power",
+      "5000mAh backup battery",
+      "Solar panel for emergency charging",
+      "Two LED lights (120LM near, 500LM far)",
+      "SOS alarm and compass included"
+    ],
+    applications: ["Emergency kits", "Survival preparedness", "Disaster response"],
+    image: "/productImg/p-bank/powerbank035.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank035a.jpg",
+      "/productImg/p-bank/powerbank035.jpg"
+    ],
+    datasheet: "",
+    certifications: [],
+    warranty: "12 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  // Group 4: LS22 / LS42 / LS43 – Metal body solar power banks
+  {
+    id: "pb-204",
+    slug: "metal-solar-power-bank",
+    name: "Metal Solar Power Bank",
+    model: "Metal Series",
+    modelNumbers: ["LS22", "LS42", "LS43"],
+    category: "power-bank",
+    type: "solar",
+    description: "Metal‑cased solar power bank with 16000‑20000mAh, built‑in cables, and LED torch.",
+    specifications: {
+      capacity: "16000‑20000mAh / 59‑74Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "1.2W (5.5V/220mA)",
+      icType: "MP5216",
+      input: { micro: "5V/2A", typeC: "5V/2A", builtInUSBA: "5V/2A" },
+      output: { usbA: "5V/2.1A", builtInMicro: "5V/2.1A", builtInTypeC: "5V/2.1A" },
+      ledLight: "0.2W / 20LM",
+      dimensions: "152×78×28mm",
+      material: "Metal + ABS+PC (V0)",
+      weight: "350g"
     },
-    ledLight: "480LM",
-    dimensions: "173.2×84×42.2mm",
-    material: "ABS+PC (V0), silicone, TPU",
-    weight: "580g"
+    features: [
+      "Metal casing for durability",
+      "16000‑20000mAh capacity",
+      "Built‑in Micro and USB‑A input cable",
+      "20LM LED torch",
+      "Simple and rugged"
+    ],
+    applications: ["Outdoor activities", "Emergency", "Travel"],
+    image: "/productImg/p-bank/powerbank049.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank049a.jpg",
+      "/productImg/p-bank/powerbank049b.jpg",
+      "/productImg/p-bank/powerbank049.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "CMC", "LVO", "UKCA", "ROHS", "UL2056"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
   },
-  features: [
-    "Hand crank generator for emergency power",
-    "20000mAh high capacity",
-    "4 built‑in cables",
-    "PD20W fast charging",
-    "480LM LED flashlight"
-  ],
-  applications: ["Emergency preparedness", "Survival kits", "Off‑grid"],
-  image: "/productImg/p-bank/powerbank034.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank034.jpg",
-  ],
-  datasheet: "",
-  certifications: ["UL2056", "CE", "UKCA", "RoHS", "FCC", "UN38.3", "MSDS"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 3: R-N31 – Emergency solar radio with hand crank
-{
-  id: "pb-203",
-  slug: "emergency-solar-radio-crank",
-  name: "Emergency Solar Radio with Hand Crank",
-  model: "Emergency Radio",
-  modelNumbers: ["R-N31"],
-  category: "power-bank",
-  type: "solar",
-  description: "Multi‑function emergency radio with solar panel, hand crank, 5000mAh battery, AM/FM radio, SOS alarm, compass, and LED lights.",
-  specifications: {
-    capacity: "5000mAh / 18.5Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarCharging: "5.5V/40mA",
-    handCrank: "5V/400mA",
-    input: { typeC: "5V/2A" },
-    output: { usbA: "5V/2.1A" },
-    radio: { fm: "76‑108 MHz", am: "52‑170 KHz" },
-    ledLight: { near: "1W / 120LM", far: "6W / 500LM" },
-    speakerPower: "4Ω/3W",
-    dimensions: "134×94×46mm",
-    material: "ABS+PC (V0)",
-    weight: "300g"
-  },
-  features: [
-    "AM/FM radio with hand crank power",
-    "5000mAh backup battery",
-    "Solar panel for emergency charging",
-    "Two LED lights (120LM near, 500LM far)",
-    "SOS alarm and compass included"
-  ],
-  applications: ["Emergency kits", "Survival preparedness", "Disaster response"],
-  image: "/productImg/p-bank/powerbank035.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank035a.jpg",
-    "/productImg/p-bank/powerbank035.jpg"
-
-  ],
-  datasheet: "",
-  certifications: [],
-  warranty: "12 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 4: LS22 / LS42 / LS43 – Metal body solar power banks
-{
-  id: "pb-204",
-  slug: "metal-solar-power-bank",
-  name: "Metal Solar Power Bank",
-  model: "Metal Series",
-  modelNumbers: ["LS22", "LS42", "LS43"],
-  category: "power-bank",
-  type: "solar",
-  description: "Metal‑cased solar power bank with 16000‑20000mAh, built‑in cables, and LED torch.",
-  specifications: {
-    capacity: "16000‑20000mAh / 59‑74Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "1.2W (5.5V/220mA)",
-    icType: "MP5216",
-    input: { micro: "5V/2A", typeC: "5V/2A", builtInUSBA: "5V/2A" },
-    output: { usbA: "5V/2.1A", builtInMicro: "5V/2.1A", builtInTypeC: "5V/2.1A" },
-    ledLight: "0.2W / 20LM",
-    dimensions: "152×78×28mm",
-    material: "Metal + ABS+PC (V0)",
-    weight: "350g"
-  },
-  features: [
-    "Metal casing for durability",
-    "16000‑20000mAh capacity",
-    "Built‑in Micro and USB‑A input cable",
-    "20LM LED torch",
-    "Simple and rugged"
-  ],
-  applications: ["Outdoor activities", "Emergency", "Travel"],
-  image: "/productImg/p-bank/powerbank049.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank049a.jpg",
-    "/productImg/p-bank/powerbank049b.jpg",
-    "/productImg/p-bank/powerbank049.jpg"
-  ],
-  datasheet: "",
-  certifications: ["CE", "CMC", "LVO", "UKCA", "ROHS", "UL2056"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 5: YD-887S – Rugged 3‑USB, 100LM torch
-{
-  id: "pb-205",
-  slug: "rugged-solar-power-bank-3usb",
-  name: "Rugged 3‑USB Solar Power Bank",
-  model: "Rugged 3‑USB",
-  modelNumbers: ["YD-887S"],
-  category: "power-bank",
-  type: "rugged",
-  description: "Rugged 20000mAh solar power bank with 3 USB outputs, 1.54W solar panel, and 100LM LED torch.",
-  specifications: {
-    capacity: "20000mAh / 74Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "1.54W (5.5V/280mA), 156.5×71×1.6mm",
-    icType: "MP5216",
-    input: { typeC: "5V/2A", micro: "5V/2A" },
-    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A", usbA3: "5V/2.1A" },
-    ledLight: "0.8W / 100LM",
-    dimensions: "172.8×87.2×25.7mm",
-    material: "ABS+PC (V0)",
-    weight: "480g",
-    colors: "Black-red, all black, black-blue, black-orange"
-  },
-  features: [
-    "20000mAh high capacity",
-    "Three USB‑A ports",
-    "1.54W solar panel",
-    "100LM LED torch",
-    "Rugged construction"
-  ],
-  applications: ["Group camping", "Work sites", "Emergency shelters"],
-  image: "/productImg/p-bank/powerbank054.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank054.jpg"
-
-  ],
-  datasheet: "",
-  certifications: ["UL2056", "CE", "ROHS"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 6: YL-887S – Rugged with detachable cables, 360LM torch
-{
-  id: "pb-206",
-  slug: "rugged-solar-power-bank-detachable-cables",
-  name: "Rugged Solar Power Bank with Detachable Cables",
-  model: "Rugged Detachable",
-  modelNumbers: ["YL-887S"],
-  category: "power-bank",
-  type: "rugged",
-  description: "20000mAh rugged solar power bank with detachable USB‑C, Micro, Lightning cables and 360LM torch.",
-  specifications: {
-    capacity: "20000mAh / 74Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "1.54W (5.5V/280mA), 156.5×71×1.6mm",
-    icType: "MP5216",
-    input: { typeC: "5V/2A", micro: "5V/2A" },
-    output: {
-      usbA1: "5V/2.1A",
-      usbA2: "5V/2.1A",
-      detachableMicro: "5V/2.1A",
-      detachableLightning: "5V/2.1A",
-      detachableTypeC: "5V/2.1A"
+  // Group 5: YD-887S – Rugged 3‑USB, 100LM torch
+  {
+    id: "pb-205",
+    slug: "rugged-solar-power-bank-3usb",
+    name: "Rugged 3‑USB Solar Power Bank",
+    model: "Rugged 3‑USB",
+    modelNumbers: ["YD-887S"],
+    category: "power-bank",
+    type: "rugged",
+    description: "Rugged 20000mAh solar power bank with 3 USB outputs, 1.54W solar panel, and 100LM LED torch.",
+    specifications: {
+      capacity: "20000mAh / 74Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "1.54W (5.5V/280mA), 156.5×71×1.6mm",
+      icType: "MP5216",
+      input: { typeC: "5V/2A", micro: "5V/2A" },
+      output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A", usbA3: "5V/2.1A" },
+      ledLight: "0.8W / 100LM",
+      dimensions: "172.8×87.2×25.7mm",
+      material: "ABS+PC (V0)",
+      weight: "480g",
+      colors: "Black-red, all black, black-blue, black-orange"
     },
-    ledLight: "3W / 360LM",
-    dimensions: "172×87×29mm",
-    weight: "520g"
+    features: [
+      "20000mAh high capacity",
+      "Three USB‑A ports",
+      "1.54W solar panel",
+      "100LM LED torch",
+      "Rugged construction"
+    ],
+    applications: ["Group camping", "Work sites", "Emergency shelters"],
+    image: "/productImg/p-bank/powerbank054.jpg",
+    gallery: ["/productImg/p-bank/powerbank054.jpg"],
+    datasheet: "",
+    certifications: ["UL2056", "CE", "ROHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
   },
-  features: [
-    "20000mAh capacity",
-    "Three detachable cables",
-    "1.54W solar panel",
-    "360LM high‑brightness torch"
-  ],
-  applications: ["Camping with versatile cables", "Emergency backpack"],
-  image: "/productImg/p-bank/powerbank055.jpg",
-  gallery: [
-
-    "/productImg/p-bank/powerbank055.jpg"
-    
-  ],
-  datasheet: "",
-  certifications: ["UL2056", "CE", "ROHS"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 7: P96S – MagSafe wireless solar 10000mAh
-{
-  id: "pb-207",
-  slug: "magsafe-solar-power-bank-10000mah",
-  name: "MagSafe Wireless Solar Power Bank",
-  model: "MagSafe Solar",
-  modelNumbers: ["P96S"],
-  category: "power-bank",
-  type: "wireless",
-  description: "10000mAh MagSafe compatible solar power bank with 15W wireless charging, 20W PD, and 0.55W solar panel.",
-  specifications: {
-    capacity: "10000mAh / 37Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "0.55W (5.5V/100mA)",
-    icType: "Injoinic 5568",
-    input: { typeC: "5V/2A, 9V/2A" },
-    output: {
-      typeC: "5V/3A, 9V/2.22A, 12V/1.67A (PD20W)",
-      usbA: "5V/3A, 9V/2A, 12V/1.5A, 5V/4.5A (SCP22.5W)",
-      wireless: "15W"
+  // Group 6: YL-887S – Rugged with detachable cables, 360LM torch
+  {
+    id: "pb-206",
+    slug: "rugged-solar-power-bank-detachable-cables",
+    name: "Rugged Solar Power Bank with Detachable Cables",
+    model: "Rugged Detachable",
+    modelNumbers: ["YL-887S"],
+    category: "power-bank",
+    type: "rugged",
+    description: "20000mAh rugged solar power bank with detachable USB‑C, Micro, Lightning cables and 360LM torch.",
+    specifications: {
+      capacity: "20000mAh / 74Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "1.54W (5.5V/280mA), 156.5×71×1.6mm",
+      icType: "MP5216",
+      input: { typeC: "5V/2A", micro: "5V/2A" },
+      output: {
+        usbA1: "5V/2.1A",
+        usbA2: "5V/2.1A",
+        detachableMicro: "5V/2.1A",
+        detachableLightning: "5V/2.1A",
+        detachableTypeC: "5V/2.1A"
+      },
+      ledLight: "3W / 360LM",
+      dimensions: "172×87×29mm",
+      weight: "520g"
     },
-    dimensions: "108×69×22mm",
-    weight: "208g",
-    material: "ABS+PC (V0)"
+    features: [
+      "20000mAh capacity",
+      "Three detachable cables",
+      "1.54W solar panel",
+      "360LM high‑brightness torch"
+    ],
+    applications: ["Camping with versatile cables", "Emergency backpack"],
+    image: "/productImg/p-bank/powerbank055.jpg",
+    gallery: ["/productImg/p-bank/powerbank055.jpg"],
+    datasheet: "",
+    certifications: ["UL2056", "CE", "ROHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
   },
-  features: [
-    "10000mAh capacity",
-    "15W MagSafe wireless charging",
-    "20W PD and 22.5W SCP fast charging",
-    "0.55W solar trickle panel",
-    "Ultra‑compact 22mm thick"
-  ],
-  applications: ["Daily iPhone wireless charging", "Solar‑assisted travel"],
-  image: "/productImg/p-bank/powerbank057.jpg",
-  gallery: [
-
-    "/productImg/p-bank/powerbank057.jpg"
-  ],
-  datasheet: "",
-  certifications: ["UN38.3", "MSDS", "UL2056"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 8: T113S – Mini MagSafe solar 5000mAh
-{
-  id: "pb-208",
-  slug: "mini-magsafe-solar-power-bank",
-  name: "Mini MagSafe Solar Power Bank",
-  model: "Mini MagSafe",
-  modelNumbers: ["T113S"],
-  category: "power-bank",
-  type: "wireless",
-  description: "Ultra‑compact 5000mAh MagSafe solar power bank with 15W wireless charging, 20W PD, and 0.55W solar panel.",
-  specifications: {
-    capacity: "5000mAh / 18.5Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "0.55W (5.5V/100mA)",
-    icType: "Injoinic 5568",
-    input: { typeC: "5V/2A, 9V/2A" },
-    output: {
-      typeC: "5V/3A, 9V/2.22A, 12V/1.67A (PD20W)",
-      usbA: "5V/3A, 9V/2A, 12V/1.5A, 5V/4.5A (SCP22.5W)",
-      wireless: "15W"
+  // Group 7: P96S – MagSafe wireless solar 10000mAh
+  {
+    id: "pb-207",
+    slug: "magsafe-solar-power-bank-10000mah",
+    name: "MagSafe Wireless Solar Power Bank",
+    model: "MagSafe Solar",
+    modelNumbers: ["P96S"],
+    category: "power-bank",
+    type: "wireless",
+    description: "10000mAh MagSafe compatible solar power bank with 15W wireless charging, 20W PD, and 0.55W solar panel.",
+    specifications: {
+      capacity: "10000mAh / 37Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "0.55W (5.5V/100mA)",
+      icType: "Injoinic 5568",
+      input: { typeC: "5V/2A, 9V/2A" },
+      output: {
+        typeC: "5V/3A, 9V/2.22A, 12V/1.67A (PD20W)",
+        usbA: "5V/3A, 9V/2A, 12V/1.5A, 5V/4.5A (SCP22.5W)",
+        wireless: "15W"
+      },
+      dimensions: "108×69×22mm",
+      weight: "208g",
+      material: "ABS+PC (V0)"
     },
-    dimensions: "108×69×22mm",
-    weight: "130g"
+    features: [
+      "10000mAh capacity",
+      "15W MagSafe wireless charging",
+      "20W PD and 22.5W SCP fast charging",
+      "0.55W solar trickle panel",
+      "Ultra‑compact 22mm thick"
+    ],
+    applications: ["Daily iPhone wireless charging", "Solar‑assisted travel"],
+    image: "/productImg/p-bank/powerbank057.jpg",
+    gallery: ["/productImg/p-bank/powerbank057.jpg"],
+    datasheet: "",
+    certifications: ["UN38.3", "MSDS", "UL2056"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
   },
-  features: [
-    "5000mAh ultra‑compact",
-    "15W MagSafe wireless",
-    "20W PD and 22.5W SCP",
-    "0.55W solar trickle",
-    "Pocketable"
-  ],
-  applications: ["Everyday carry", "MagSafe iPhone", "Light travel"],
-  image: "/productImg/p-bank/powerbank056.jpg",
-  gallery: [
-
-    "/productImg/p-bank/powerbank056a.jpg",
-    "/productImg/p-bank/powerbank056.jpg"
-
-  ],
-  datasheet: "",
-  certifications: ["UN38.3", "MSDS", "UL2056"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 9: M01 – Ultra‑slim 10000mAh with built‑in cables
-{
-  id: "pb-209",
-  slug: "ultra-slim-solar-power-bank-10000mah",
-  name: "Ultra‑Slim Solar Power Bank",
-  model: "Ultra‑Slim",
-  modelNumbers: ["M01"],
-  category: "power-bank",
-  type: "compact",
-  description: "Ultra‑slim 10000mAh solar power bank with built‑in USB‑C, Micro, Lightning cables and digital display.",
-  specifications: {
-    capacity: "10000mAh / 37Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "0.55W (5.5V/100mA)",
-    icType: "Injoinic 5306",
-    input: { micro: "5V/2A", typeC: "5V/2A", builtInUSBA: "5V/2A" },
-    output: {
-      usbA1: "5V/2.1A",
-      usbA2: "5V/2.1A",
-      builtInTypeC: "5V/2.1A",
-      builtInMicro: "5V/2.1A",
-      builtInLightning: "5V/2.1A"
+  // Group 8: T113S – Mini MagSafe solar 5000mAh
+  {
+    id: "pb-208",
+    slug: "mini-magsafe-solar-power-bank",
+    name: "Mini MagSafe Solar Power Bank",
+    model: "Mini MagSafe",
+    modelNumbers: ["T113S"],
+    category: "power-bank",
+    type: "wireless",
+    description: "Ultra‑compact 5000mAh MagSafe solar power bank with 15W wireless charging, 20W PD, and 0.55W solar panel.",
+    specifications: {
+      capacity: "5000mAh / 18.5Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "0.55W (5.5V/100mA)",
+      icType: "Injoinic 5568",
+      input: { typeC: "5V/2A, 9V/2A" },
+      output: {
+        typeC: "5V/3A, 9V/2.22A, 12V/1.67A (PD20W)",
+        usbA: "5V/3A, 9V/2A, 12V/1.5A, 5V/4.5A (SCP22.5W)",
+        wireless: "15W"
+      },
+      dimensions: "108×69×22mm",
+      weight: "130g"
     },
-    dimensions: "88×78×26mm",
-    weight: "277g",
-    material: "ABS"
+    features: [
+      "5000mAh ultra‑compact",
+      "15W MagSafe wireless",
+      "20W PD and 22.5W SCP",
+      "0.55W solar trickle",
+      "Pocketable"
+    ],
+    applications: ["Everyday carry", "MagSafe iPhone", "Light travel"],
+    image: "/productImg/p-bank/powerbank056.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank056a.jpg",
+      "/productImg/p-bank/powerbank056.jpg"
+    ],
+    datasheet: "",
+    certifications: ["UN38.3", "MSDS", "UL2056"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
   },
-  features: [
-    "10000mAh in ultra‑slim 26mm design",
-    "Built‑in USB‑C, Micro, Lightning cables",
-    "LED digital display",
-    "Simple and affordable"
-  ],
-  applications: ["Everyday carry", "Cable‑free travel", "Solar backup"],
-  image: "/productImg/p-bank/powerbank058.jpg",
-  gallery: [
-
-    "/productImg/p-bank/powerbank058a.jpg"
-  ],
-  datasheet: "",
-  certifications: ["UL2056", "CE", "RoHS"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 10: XS-610 – Budget 18000mAh solar
-{
-  id: "pb-210",
-  slug: "budget-solar-power-bank-18000mah",
-  name: "Budget Solar Power Bank",
-  model: "Budget Solar",
-  modelNumbers: ["XS-610"],
-  category: "power-bank",
-  type: "solar",
-  description: "Cost‑effective 18000mAh solar power bank with 1.4W solar panel and dual USB outputs.",
-  specifications: {
-    capacity: "18000mAh / 66.6Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "1.4W (5.5V/250mA), 122.6×52.6×1.6mm",
-    icType: "MP5016",
-    input: { micro: "5V/2A", typeC: "5V/2A" },
-    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A" },
-    dimensions: "142×72×27mm",
-    weight: "430g"
-  },
-  features: [
-    "18000mAh high capacity",
-    "1.4W solar panel",
-    "Two 2.1A USB ports",
-    "Affordable"
-  ],
-  applications: ["Budget outdoor power", "Emergency backup", "Long trips"],
-  image: "/productImg/p-bank/powerbank059.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank059.jpg"
-  ],
-  datasheet: "",
-  certifications: ["CE", "ROHS", "UL2056"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 11: QC86S – Solar with 15000mAh and 50LM torch
-{
-  id: "pb-211",
-  slug: "solar-power-bank-with-torch-15000mah",
-  name: "Solar Power Bank with LED Torch",
-  model: "Solar Torch",
-  modelNumbers: ["QC86S"],
-  category: "power-bank",
-  type: "solar",
-  description: "15000mAh solar power bank with 0.8W solar panel, 50LM LED torch, and dual USB outputs.",
-  specifications: {
-    capacity: "15000mAh / 55.5Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "0.8W (5V/160mA), 129.3×55.2×1.6mm",
-    icType: "MP5016",
-    input: { micro: "5V/2A", typeC: "5V/2A" },
-    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A" },
-    ledLight: "0.4W / 50LM",
-    dimensions: "154×73×21mm",
-    weight: "360g",
-    color: "Black"
-  },
-  features: [
-    "15000mAh capacity",
-    "0.8W solar panel",
-    "50LM LED torch",
-    "Two USB outputs"
-  ],
-  applications: ["Camping", "Power outage", "Hiking"],
-  image: "/productImg/p-bank/powerbank060.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank060.jpg"
-  ],
-  datasheet: "",
-  certifications: ["CE", "ROHS", "UL2056"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 12: YD-818P family – Basic 20000mAh solar
-{
-  id: "pb-212",
-  slug: "basic-solar-power-bank-20000mah",
-  name: "Basic Solar Power Bank 20000mAh",
-  model: "Basic Solar",
-  modelNumbers: ["YD-818P", "YD-818P (Thin)", "YD-828P", "YD-818PL"],
-  category: "power-bank",
-  type: "solar",
-  description: "Simple 20000mAh solar power bank with 0.88W solar panel and dual USB outputs. Some models include a stronger LED torch.",
-  specifications: {
-    capacity: "20000mAh / 74Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "0.88W (5.5V/160mA), 127.6×54.1×1.6mm",
-    icType: "MP5216",
-    input: { micro: "5V/2.1A", typeC: "5V/2.1A" },
-    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A" },
-    ledLight: "20‑360LM (depends on variant)",
-    dimensions: "142×69×17‑29mm",
-    weight: "234‑455g"
-  },
-  features: [
-    "20000mAh capacity",
-    "0.88W solar panel",
-    "Two USB outputs",
-    "V0 flame‑retardant casing",
-    "Optional strong LED torch"
-  ],
-  applications: ["Long trips", "Emergency power", "Budget solar"],
-  image: "/productImg/p-bank/powerbank063.jpg",
-  gallery: [
-    
-    "/productImg/p-bank/powerbank061.jpg",
-    "/productImg/p-bank/powerbank061a.jpg",
-    "/productImg/p-bank/powerbank062.jpg",
-    "/productImg/p-bank/powerbank064.jpg",
-
-  ],
-  datasheet: "",
-  certifications: ["PSE", "CE", "ROHS", "UL2056", "UKCA", "FCC"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 13: F33W – IP6 waterproof solar with wireless and 360LM torch
-{
-  id: "pb-213",
-  slug: "ip6-waterproof-solar-power-bank",
-  name: "IP6 Waterproof Solar Power Bank",
-  model: "IP6 Waterproof",
-  modelNumbers: ["F33W"],
-  category: "power-bank",
-  type: "rugged",
-  description: "IP6 waterproof 20000mAh solar power bank with 1.6W solar panel, 15W wireless charging, PD20W, and 360LM torch.",
-  specifications: {
-    capacity: "20000mAh / 74Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "1.6W (5.5V/290mA), 150.8×71.3×1.6mm",
-    icType: "IP5356",
-    waterproof: "IP6",
-    input: {
-      typeC: "5V/3A, 9V/2A, 12V/1.5A (PD18W)",
-      micro: "5V/2A, 9V/2A, 12V/1.5A (QC18W)"
+  // Group 9: M01 – Ultra‑slim 10000mAh with built‑in cables
+  {
+    id: "pb-209",
+    slug: "ultra-slim-solar-power-bank-10000mah",
+    name: "Ultra‑Slim Solar Power Bank",
+    model: "Ultra‑Slim",
+    modelNumbers: ["M01"],
+    category: "power-bank",
+    type: "compact",
+    description: "Ultra‑slim 10000mAh solar power bank with built‑in USB‑C, Micro, Lightning cables and digital display.",
+    specifications: {
+      capacity: "10000mAh / 37Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "0.55W (5.5V/100mA)",
+      icType: "Injoinic 5306",
+      input: { micro: "5V/2A", typeC: "5V/2A", builtInUSBA: "5V/2A" },
+      output: {
+        usbA1: "5V/2.1A",
+        usbA2: "5V/2.1A",
+        builtInTypeC: "5V/2.1A",
+        builtInMicro: "5V/2.1A",
+        builtInLightning: "5V/2.1A"
+      },
+      dimensions: "88×78×26mm",
+      weight: "277g",
+      material: "ABS"
     },
-    output: {
-      usbA1: "5V/3A, 9V/2A, 10V/2.25A, 12V/1.5A (SCP22.5W)",
-      usbA2: "5V/3A",
-      usbA3: "5V/3A",
-      typeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
-      wireless: "15W"
+    features: [
+      "10000mAh in ultra‑slim 26mm design",
+      "Built‑in USB‑C, Micro, Lightning cables",
+      "LED digital display",
+      "Simple and affordable"
+    ],
+    applications: ["Everyday carry", "Cable‑free travel", "Solar backup"],
+    image: "/productImg/p-bank/powerbank058.jpg",
+    gallery: ["/productImg/p-bank/powerbank058a.jpg"],
+    datasheet: "",
+    certifications: ["UL2056", "CE", "RoHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  // Group 10: XS-610 – Budget 18000mAh solar
+  {
+    id: "pb-210",
+    slug: "budget-solar-power-bank-18000mah",
+    name: "Budget Solar Power Bank",
+    model: "Budget Solar",
+    modelNumbers: ["XS-610"],
+    category: "power-bank",
+    type: "solar",
+    description: "Cost‑effective 18000mAh solar power bank with 1.4W solar panel and dual USB outputs.",
+    specifications: {
+      capacity: "18000mAh / 66.6Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "1.4W (5.5V/250mA), 122.6×52.6×1.6mm",
+      icType: "MP5016",
+      input: { micro: "5V/2A", typeC: "5V/2A" },
+      output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A" },
+      dimensions: "142×72×27mm",
+      weight: "430g"
     },
-    ledLight: "3W / 360LM",
-    dimensions: "178×93×30mm",
-    weight: "530g",
-    colors: "Black-red, all black, black-blue, black-orange, black-green"
+    features: [
+      "18000mAh high capacity",
+      "1.4W solar panel",
+      "Two 2.1A USB ports",
+      "Affordable"
+    ],
+    applications: ["Budget outdoor power", "Emergency backup", "Long trips"],
+    image: "/productImg/p-bank/powerbank059.jpg",
+    gallery: ["/productImg/p-bank/powerbank059.jpg"],
+    datasheet: "",
+    certifications: ["CE", "ROHS", "UL2056"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
   },
-  features: [
-    "IP6 waterproof rating",
-    "15W wireless and 20W PD fast charging",
-    "1.6W solar panel",
-    "360LM high‑power torch",
-    "Three USB outputs"
-  ],
-  applications: ["Heavy outdoor use in rain", "Marine", "Emergency"],
-  image: "/productImg/p-bank/powerbank065.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank065.jpg"
-  ],
-  datasheet: "",
-  certifications: ["CE", "ROHS", "FCC", "UL2056", "PSE"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 14: YD-819W / YD-819S – IP55, wireless (or not), dual torch
-{
-  id: "pb-214",
-  slug: "ip55-waterproof-solar-power-bank",
-  name: "IP55 Waterproof Solar Power Bank",
-  model: "IP55 Series",
-  modelNumbers: ["YD-819W", "YD-819S"],
-  category: "power-bank",
-  type: "rugged",
-  description: "IP55 water‑resistant 15000‑16000mAh solar power bank with 1.65W solar panel, dual 360LM torches, and optional 5W wireless charging.",
-  specifications: {
-    capacity: "15000‑16000mAh / 55‑59Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "1.65W (5.5V/300mA), 159.2×74.4×1.6mm",
-    icType: "IP5306",
-    waterproof: "IP55",
-    input: { typeC: "5V/2A", micro: "5V/2A" },
-    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A", wireless: "5W (YD-819W only)" },
-    ledLight: "3W / 360LM (dual torches)",
-    dimensions: "177×88×25.6mm",
-    weight: "450g"
-  },
-  features: [
-    "IP55 water‑resistant",
-    "Dual 360LM LED torches",
-    "1.65W solar panel",
-    "5W wireless charging (YD-819W)",
-    "15000‑16000mAh capacity"
-  ],
-  applications: ["Camping in light rain", "Backyard", "Wireless charging convenience"],
-  image: "/productImg/p-bank/powerbank066.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank067.jpg",
-    "/productImg/p-bank/powerbank066.jpg"
-  ],
-  datasheet: "",
-  certifications: ["FCC", "UL2056", "PSE"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 15: i26wLQ / i26wL – IP66, 20000mAh, 430LM lantern, wireless
-{
-  id: "pb-215",
-  slug: "ip66-solar-power-bank-lantern",
-  name: "IP66 Waterproof Solar Power Bank with Lantern",
-  model: "IP66 Lantern",
-  modelNumbers: ["i26wLQ", "i26wL"],
-  category: "power-bank",
-  type: "rugged",
-  description: "IP66 waterproof 20000mAh solar power bank with 430LM camping lantern, wireless charging, and 20W PD on fast version.",
-  specifications: {
-    capacity: "20000mAh / 74Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "1.6W (5.5V/290mA), 150.8×71.3×1.6mm",
-    icType: "IP5328 (PD20W on i26wLQ)",
-    waterproof: "IP66",
-    input: { micro: "5V/3A, 9V/2A", typeC: "5V/3A, 9V/2A" },
-    output: {
-      usbA1: "5V/3A, 9V/2A, 12V/1.5A (QC18W)",
-      usbA2: "5V/3A, 9V/2A, 12V/1.5A (QC18W)",
-      typeC: "5V/3A, 9V/2.22A, 12V/1.67A (PD20W on i26wLQ)",
-      wireless: "5‑10W"
+  // Group 11: QC86S – Solar with 15000mAh and 50LM torch
+  {
+    id: "pb-211",
+    slug: "solar-power-bank-with-torch-15000mah",
+    name: "Solar Power Bank with LED Torch",
+    model: "Solar Torch",
+    modelNumbers: ["QC86S"],
+    category: "power-bank",
+    type: "solar",
+    description: "15000mAh solar power bank with 0.8W solar panel, 50LM LED torch, and dual USB outputs.",
+    specifications: {
+      capacity: "15000mAh / 55.5Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "0.8W (5V/160mA), 129.3×55.2×1.6mm",
+      icType: "MP5016",
+      input: { micro: "5V/2A", typeC: "5V/2A" },
+      output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A" },
+      ledLight: "0.4W / 50LM",
+      dimensions: "154×73×21mm",
+      weight: "360g",
+      color: "Black"
     },
-    ledLight: "3.6W / 430LM",
-    dimensions: "200×130×32mm",
-    weight: "565g",
-    material: "ABS+PC (V0), TPU, silicone, aluminium alloy"
+    features: [
+      "15000mAh capacity",
+      "0.8W solar panel",
+      "50LM LED torch",
+      "Two USB outputs"
+    ],
+    applications: ["Camping", "Power outage", "Hiking"],
+    image: "/productImg/p-bank/powerbank060.jpg",
+    gallery: ["/productImg/p-bank/powerbank060.jpg"],
+    datasheet: "",
+    certifications: ["CE", "ROHS", "UL2056"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
   },
-  features: [
-    "IP66 dust‑tight and water jets resistant",
-    "20000mAh with 20W PD and 10W wireless (fast model)",
-    "430LM camping lantern",
-    "1.6W high‑efficiency solar panel",
-    "Rugged aluminium alloy accents"
-  ],
-  applications: ["Extreme outdoor use", "Professional expeditions", "Marine"],
-  image: "/productImg/p-bank/powerbank075.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank076.jpg",
-    "/productImg/p-bank/powerbank075.jpg"
-  ],
-  datasheet: "",
-  certifications: ["UL2056", "PSE", "CE", "ROHS"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 16: Folding solar series (7W/6W, 15000‑20000mAh, with/without wireless)
-{
-  id: "pb-216",
-  slug: "folding-solar-power-bank",
-  name: "Folding Solar Power Bank",
-  model: "Folding Solar",
-  modelNumbers: ["YD-820S", "YD-820SQ", "L24S", "L24SW", "L24S4W", "L3S4W", "L3SW", "L3S4Q", "L3SQ", "XN-830S"],
-  category: "power-bank",
-  type: "solar",
-  description: "Foldable 3‑4 panel solar power bank with 15000‑20000mAh, LED torch, and fast charging (PD20W on select models).",
-  specifications: {
-    capacity: "15000‑20000mAh / 55‑74Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "5.5‑7W (5.5V/1.0‑1.3A), 3‑4 panels",
-    icType: "IP5306, IP5328, SW6206 or IP5356",
-    output: {
-      usbA: "5V/2.1A or 5V/3A, 9V/2A (fast)",
-      typeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W on fast models)",
-      wireless: "5‑10W on some models"
+  // Group 12: YD-818P family – Basic 20000mAh solar
+  {
+    id: "pb-212",
+    slug: "basic-solar-power-bank-20000mah",
+    name: "Basic Solar Power Bank 20000mAh",
+    model: "Basic Solar",
+    modelNumbers: ["YD-818P", "YD-818P (Thin)", "YD-828P", "YD-818PL"],
+    category: "power-bank",
+    type: "solar",
+    description: "Simple 20000mAh solar power bank with 0.88W solar panel and dual USB outputs. Some models include a stronger LED torch.",
+    specifications: {
+      capacity: "20000mAh / 74Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "0.88W (5.5V/160mA), 127.6×54.1×1.6mm",
+      icType: "MP5216",
+      input: { micro: "5V/2.1A", typeC: "5V/2.1A" },
+      output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A" },
+      ledLight: "20‑360LM (depends on variant)",
+      dimensions: "142×69×17‑29mm",
+      weight: "234‑455g"
     },
-    input: "Type‑C: 5V/2A to 20W PD",
-    ledLight: "150‑680LM (1‑3 LEDs)",
-    dimensions: "Folded: 162‑180 × 86‑105 × 27‑45 mm",
-    material: "ABS+PC (V0) + TPU + silicone",
-    weight: "580‑630g"
+    features: [
+      "20000mAh capacity",
+      "0.88W solar panel",
+      "Two USB outputs",
+      "V0 flame‑retardant casing",
+      "Optional strong LED torch"
+    ],
+    applications: ["Long trips", "Emergency power", "Budget solar"],
+    image: "/productImg/p-bank/powerbank063.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank061.jpg",
+      "/productImg/p-bank/powerbank061a.jpg",
+      "/productImg/p-bank/powerbank062.jpg",
+      "/productImg/p-bank/powerbank064.jpg"
+    ],
+    datasheet: "",
+    certifications: ["PSE", "CE", "ROHS", "UL2056", "UKCA", "FCC"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
   },
-  features: [
-    "Foldable multi‑panel solar array (5.5‑7W)",
-    "15000‑20000mAh capacity",
-    "LED torch (150‑680LM)",
-    "PD20W fast charging on select models",
-    "Wireless charging on some models"
-  ],
-  applications: ["Hiking, trekking", "Remote work", "Survival kits"],
-  image: "/productImg/p-bank/powerbank082.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank042.jpg",
-    "/productImg/p-bank/powerbank042a.jpg",
-    "/productImg/p-bank/powerbank044.jpg",
-
-  ],
-  datasheet: "",
-  certifications: ["CE", "RoHS", "PSE", "UL2056"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 17: YD-820W / YD-810W – Wireless solar banks
-{
-  id: "pb-217",
-  slug: "wireless-solar-power-bank",
-  name: "Wireless Solar Power Bank",
-  model: "Wireless Solar",
-  modelNumbers: ["YD-820W", "YD-810W"],
-  category: "power-bank",
-  type: "wireless",
-  description: "Solar power bank with 5W wireless charging, 0.88W solar panel, and dual USB outputs. Available in 8000‑15000mAh.",
-  specifications: {
-    capacity: "8000‑15000mAh / 29‑55Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "0.88W (5.5V/160mA), 153.8×79.4mm",
-    icType: "IP5306",
-    input: "Type‑C: 5V/2A or Micro: 5V/2A",
-    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A", wireless: "5W" },
-    dimensions: "170×111×40‑48mm",
-    weight: "470‑580g"
-  },
-  features: [
-    "5W wireless charging",
-    "0.88W solar panel",
-    "Dual USB‑A outputs",
-    "Compact design"
-  ],
-  applications: ["Desk charging", "Travel with wireless devices", "Everyday use"],
-  image: "/productImg/p-bank/powerbank085.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank083.jpg",
-    "/productImg/p-bank/powerbank083a.jpg",
-  ],
-  datasheet: "",
-  certifications: ["CE", "ROHS", "PSE"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 18: F16W / F16WQ – Camping lantern solar bank with wireless
-{
-  id: "pb-218",
-  slug: "camping-lantern-solar-power-bank",
-  name: "Camping Lantern Solar Power Bank",
-  model: "Lantern Solar",
-  modelNumbers: ["F16W", "F16WQ"],
-  category: "power-bank",
-  type: "solar",
-  description: "20000mAh solar power bank with 430LM camping lantern, wireless charging (5‑10W), and IP55 water resistance.",
-  specifications: {
-    capacity: "20000mAh / 74Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "1.6W (5.5V/290mA), 150.8×71.3×1.6mm",
-    icType: "IP5328 (PD20W on F16WQ)",
-    waterproof: "IP55",
-    input: { micro: "5V/2‑3A", typeC: "5V/3A" },
-    output: {
-      usbA1: "5V/2.1‑3A",
-      usbA2: "5V/2.1‑3A",
-      typeC: "5V/3.1A to PD20W",
-      wireless: "5‑10W"
+  // Group 13: F33W – IP6 waterproof solar with wireless and 360LM torch
+  {
+    id: "pb-213",
+    slug: "ip6-waterproof-solar-power-bank",
+    name: "IP6 Waterproof Solar Power Bank",
+    model: "IP6 Waterproof",
+    modelNumbers: ["F33W"],
+    category: "power-bank",
+    type: "rugged",
+    description: "IP6 waterproof 20000mAh solar power bank with 1.6W solar panel, 15W wireless charging, PD20W, and 360LM torch.",
+    specifications: {
+      capacity: "20000mAh / 74Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "1.6W (5.5V/290mA), 150.8×71.3×1.6mm",
+      icType: "IP5356",
+      waterproof: "IP6",
+      input: {
+        typeC: "5V/3A, 9V/2A, 12V/1.5A (PD18W)",
+        micro: "5V/2A, 9V/2A, 12V/1.5A (QC18W)"
+      },
+      output: {
+        usbA1: "5V/3A, 9V/2A, 10V/2.25A, 12V/1.5A (SCP22.5W)",
+        usbA2: "5V/3A",
+        usbA3: "5V/3A",
+        typeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W)",
+        wireless: "15W"
+      },
+      ledLight: "3W / 360LM",
+      dimensions: "178×93×30mm",
+      weight: "530g",
+      colors: "Black-red, all black, black-blue, black-orange, black-green"
     },
-    ledLight: "430LM",
-    dimensions: "191×117×25mm",
-    weight: "405g"
+    features: [
+      "IP6 waterproof rating",
+      "15W wireless and 20W PD fast charging",
+      "1.6W solar panel",
+      "360LM high‑power torch",
+      "Three USB outputs"
+    ],
+    applications: ["Heavy outdoor use in rain", "Marine", "Emergency"],
+    image: "/productImg/p-bank/powerbank065.jpg",
+    gallery: ["/productImg/p-bank/powerbank065.jpg"],
+    datasheet: "",
+    certifications: ["CE", "ROHS", "FCC", "UL2056", "PSE"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
   },
-  features: [
-    "20000mAh with 430LM lantern",
-    "IP55 water resistant",
-    "5‑10W wireless charging",
-    "20W PD fast charging (F16WQ)",
-    "1.6W solar panel"
-  ],
-  applications: ["Camping lantern", "Home emergency", "Outdoor parties"],
-  image: "/productImg/p-bank/powerbank071.jpg",
-  gallery: [
-    "/productImg/p-bank/powerbank073.jpg",
-    "/productImg/p-bank/powerbank071.jpg"
-
-  ],
-  datasheet: "",
-  certifications: ["PSE", "UL2056"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 19: YD-819E – 3‑mode solar lantern with wireless
-{
-  id: "pb-219",
-  slug: "3-mode-solar-lantern-power-bank",
-  name: "3‑Mode Solar Lantern Power Bank",
-  model: "3‑Mode Lantern",
-  modelNumbers: ["YD-819E"],
-  category: "power-bank",
-  type: "solar",
-  description: "20000mAh solar power bank with 3‑mode 430LM lantern, 5W wireless charging, and 1.6W solar panel.",
-  specifications: {
-    capacity: "20000mAh / 74Wh",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "1.6W (5.5V/290mA), 150.8×71.3×1.6mm",
-    icType: "IP5328",
-    input: { typeC: "5V/3A, 9V/2A", micro: "5V/2A" },
-    output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A", wireless: "5W" },
-    ledLight: "430LM (3 modes)",
-    dimensions: "175×93×24.5mm",
-    weight: "430g"
+  // Group 14: YD-819W / YD-819S – IP55, wireless (or not), dual torch
+  {
+    id: "pb-214",
+    slug: "ip55-waterproof-solar-power-bank",
+    name: "IP55 Waterproof Solar Power Bank",
+    model: "IP55 Series",
+    modelNumbers: ["YD-819W", "YD-819S"],
+    category: "power-bank",
+    type: "rugged",
+    description: "IP55 water‑resistant 15000‑16000mAh solar power bank with 1.65W solar panel, dual 360LM torches, and optional 5W wireless charging.",
+    specifications: {
+      capacity: "15000‑16000mAh / 55‑59Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "1.65W (5.5V/300mA), 159.2×74.4×1.6mm",
+      icType: "IP5306",
+      waterproof: "IP55",
+      input: { typeC: "5V/2A", micro: "5V/2A" },
+      output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A", wireless: "5W (YD-819W only)" },
+      ledLight: "3W / 360LM (dual torches)",
+      dimensions: "177×88×25.6mm",
+      weight: "450g"
+    },
+    features: [
+      "IP55 water‑resistant",
+      "Dual 360LM LED torches",
+      "1.65W solar panel",
+      "5W wireless charging (YD-819W)",
+      "15000‑16000mAh capacity"
+    ],
+    applications: ["Camping in light rain", "Backyard", "Wireless charging convenience"],
+    image: "/productImg/p-bank/powerbank066.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank067.jpg",
+      "/productImg/p-bank/powerbank066.jpg"
+    ],
+    datasheet: "",
+    certifications: ["FCC", "UL2056", "PSE"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
   },
-  features: [
-    "20000mAh capacity",
-    "3‑mode lantern (high/low/off)",
-    "5W wireless charging",
-    "1.6W solar panel"
-  ],
-  applications: ["Camping", "Workshop", "Emergency"],
-  image: "/productImg/p-bank/powerbank091.jpg",
-  gallery: [
-
-    "/productImg/p-bank/powerbank091a.jpg",
-    "/productImg/p-bank/powerbank091.jpg"
-
-  ],
-  datasheet: "",
-  certifications: ["UL2056"],
-  warranty: "18 months",
-  inStock: true,
-  youtubeVideoId: null
-},
-
-// Group 20: S‑BOX – Solar Bluetooth speaker
-{
-  id: "pb-220",
-  slug: "solar-bluetooth-speaker-power-bank",
-  name: "Solar Bluetooth Speaker",
-  model: "Solar Speaker",
-  modelNumbers: ["S-BOX"],
-  category: "power-bank",
-  type: "solar",
-  description: "Solar Bluetooth speaker with 5000mAh battery, 6W×2 speakers, TF card slot, and USB‑A output for phone charging.",
-  specifications: {
-    capacity: "5000mAh (max)",
-    batteryType: "A‑grade polymer Li‑ion",
-    solarPanel: "1.5W (164×49mm), monocrystalline",
-    speakerPower: "6W×2 + bass radiator",
-    bluetoothVersion: "V4.2, range 10‑15m",
-    audioFormats: "APE/MP3/WMA/WAV/FLAC",
-    tfCardSupport: "Up to 128GB",
-    input: { typeC: "5V/2A" },
-    output: { usbA: "5V/2.1A" },
-    dimensions: "200×85×82mm",
-    material: "ABS + TPU",
-    weight: "480g",
-    color: "Black"
+  // Group 15: i26wLQ / i26wL – IP66, 20000mAh, 430LM lantern, wireless
+  {
+    id: "pb-215",
+    slug: "ip66-solar-power-bank-lantern",
+    name: "IP66 Waterproof Solar Power Bank with Lantern",
+    model: "IP66 Lantern",
+    modelNumbers: ["i26wLQ", "i26wL"],
+    category: "power-bank",
+    type: "rugged",
+    description: "IP66 waterproof 20000mAh solar power bank with 430LM camping lantern, wireless charging, and 20W PD on fast version.",
+    specifications: {
+      capacity: "20000mAh / 74Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "1.6W (5.5V/290mA), 150.8×71.3×1.6mm",
+      icType: "IP5328 (PD20W on i26wLQ)",
+      waterproof: "IP66",
+      input: { micro: "5V/3A, 9V/2A", typeC: "5V/3A, 9V/2A" },
+      output: {
+        usbA1: "5V/3A, 9V/2A, 12V/1.5A (QC18W)",
+        usbA2: "5V/3A, 9V/2A, 12V/1.5A (QC18W)",
+        typeC: "5V/3A, 9V/2.22A, 12V/1.67A (PD20W on i26wLQ)",
+        wireless: "5‑10W"
+      },
+      ledLight: "3.6W / 430LM",
+      dimensions: "200×130×32mm",
+      weight: "565g",
+      material: "ABS+PC (V0), TPU, silicone, aluminium alloy"
+    },
+    features: [
+      "IP66 dust‑tight and water jets resistant",
+      "20000mAh with 20W PD and 10W wireless (fast model)",
+      "430LM camping lantern",
+      "1.6W high‑efficiency solar panel",
+      "Rugged aluminium alloy accents"
+    ],
+    applications: ["Extreme outdoor use", "Professional expeditions", "Marine"],
+    image: "/productImg/p-bank/powerbank075.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank076.jpg",
+      "/productImg/p-bank/powerbank075.jpg"
+    ],
+    datasheet: "",
+    certifications: ["UL2056", "PSE", "CE", "ROHS"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
   },
-  features: [
-    "Solar powered rechargeable speaker",
-    "Bluetooth V4.2 with 10‑15m range",
-    "6W×2 sound with bass radiator",
-    "5000mAh battery – also charges phones",
-    "TF card slot for offline music"
-  ],
-  applications: ["Outdoor parties", "Picnics and camping", "Beach"],
-  image: "/productImg/p-bank/powerbank036.jpg",
-  gallery: [
-
-    "/productImg/p-bank/powerbank036a.jpg",
-    "/productImg/p-bank/powerbank036.jpg"
-
-  ],
-  datasheet: "",
-  certifications: [],
-  warranty: "12 months",
-  inStock: true,
-  youtubeVideoId: null
-}
-
-
+  // Group 16: Folding solar series (7W/6W, 15000‑20000mAh, with/without wireless)
+  {
+    id: "pb-216",
+    slug: "folding-solar-power-bank",
+    name: "Folding Solar Power Bank",
+    model: "Folding Solar",
+    modelNumbers: ["YD-820S", "YD-820SQ", "L24S", "L24SW", "L24S4W", "L3S4W", "L3SW", "L3S4Q", "L3SQ", "XN-830S"],
+    category: "power-bank",
+    type: "solar",
+    description: "Foldable 3‑4 panel solar power bank with 15000‑20000mAh, LED torch, and fast charging (PD20W on select models).",
+    specifications: {
+      capacity: "15000‑20000mAh / 55‑74Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "5.5‑7W (5.5V/1.0‑1.3A), 3‑4 panels",
+      icType: "IP5306, IP5328, SW6206 or IP5356",
+      output: {
+        usbA: "5V/2.1A or 5V/3A, 9V/2A (fast)",
+        typeC: "5V/3A, 9V/2.22A, 12V/1.66A (PD20W on fast models)",
+        wireless: "5‑10W on some models"
+      },
+      input: "Type‑C: 5V/2A to 20W PD",
+      ledLight: "150‑680LM (1‑3 LEDs)",
+      dimensions: "Folded: 162‑180 × 86‑105 × 27‑45 mm",
+      material: "ABS+PC (V0) + TPU + silicone",
+      weight: "580‑630g"
+    },
+    features: [
+      "Foldable multi‑panel solar array (5.5‑7W)",
+      "15000‑20000mAh capacity",
+      "LED torch (150‑680LM)",
+      "PD20W fast charging on select models",
+      "Wireless charging on some models"
+    ],
+    applications: ["Hiking, trekking", "Remote work", "Survival kits"],
+    image: "/productImg/p-bank/powerbank082.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank042.jpg",
+      "/productImg/p-bank/powerbank042a.jpg",
+      "/productImg/p-bank/powerbank044.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "RoHS", "PSE", "UL2056"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  // Group 17: YD-820W / YD-810W – Wireless solar banks
+  {
+    id: "pb-217",
+    slug: "wireless-solar-power-bank",
+    name: "Wireless Solar Power Bank",
+    model: "Wireless Solar",
+    modelNumbers: ["YD-820W", "YD-810W"],
+    category: "power-bank",
+    type: "wireless",
+    description: "Solar power bank with 5W wireless charging, 0.88W solar panel, and dual USB outputs. Available in 8000‑15000mAh.",
+    specifications: {
+      capacity: "8000‑15000mAh / 29‑55Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "0.88W (5.5V/160mA), 153.8×79.4mm",
+      icType: "IP5306",
+      input: "Type‑C: 5V/2A or Micro: 5V/2A",
+      output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A", wireless: "5W" },
+      dimensions: "170×111×40‑48mm",
+      weight: "470‑580g"
+    },
+    features: [
+      "5W wireless charging",
+      "0.88W solar panel",
+      "Dual USB‑A outputs",
+      "Compact design"
+    ],
+    applications: ["Desk charging", "Travel with wireless devices", "Everyday use"],
+    image: "/productImg/p-bank/powerbank085.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank083.jpg",
+      "/productImg/p-bank/powerbank083a.jpg"
+    ],
+    datasheet: "",
+    certifications: ["CE", "ROHS", "PSE"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  // Group 18: F16W / F16WQ – Camping lantern solar bank with wireless
+  {
+    id: "pb-218",
+    slug: "camping-lantern-solar-power-bank",
+    name: "Camping Lantern Solar Power Bank",
+    model: "Lantern Solar",
+    modelNumbers: ["F16W", "F16WQ"],
+    category: "power-bank",
+    type: "solar",
+    description: "20000mAh solar power bank with 430LM camping lantern, wireless charging (5‑10W), and IP55 water resistance.",
+    specifications: {
+      capacity: "20000mAh / 74Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "1.6W (5.5V/290mA), 150.8×71.3×1.6mm",
+      icType: "IP5328 (PD20W on F16WQ)",
+      waterproof: "IP55",
+      input: { micro: "5V/2‑3A", typeC: "5V/3A" },
+      output: {
+        usbA1: "5V/2.1‑3A",
+        usbA2: "5V/2.1‑3A",
+        typeC: "5V/3.1A to PD20W",
+        wireless: "5‑10W"
+      },
+      ledLight: "430LM",
+      dimensions: "191×117×25mm",
+      weight: "405g"
+    },
+    features: [
+      "20000mAh with 430LM lantern",
+      "IP55 water resistant",
+      "5‑10W wireless charging",
+      "20W PD fast charging (F16WQ)",
+      "1.6W solar panel"
+    ],
+    applications: ["Camping lantern", "Home emergency", "Outdoor parties"],
+    image: "/productImg/p-bank/powerbank071.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank073.jpg",
+      "/productImg/p-bank/powerbank071.jpg"
+    ],
+    datasheet: "",
+    certifications: ["PSE", "UL2056"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  // Group 19: YD-819E – 3‑mode solar lantern with wireless
+  {
+    id: "pb-219",
+    slug: "3-mode-solar-lantern-power-bank",
+    name: "3‑Mode Solar Lantern Power Bank",
+    model: "3‑Mode Lantern",
+    modelNumbers: ["YD-819E"],
+    category: "power-bank",
+    type: "solar",
+    description: "20000mAh solar power bank with 3‑mode 430LM lantern, 5W wireless charging, and 1.6W solar panel.",
+    specifications: {
+      capacity: "20000mAh / 74Wh",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "1.6W (5.5V/290mA), 150.8×71.3×1.6mm",
+      icType: "IP5328",
+      input: { typeC: "5V/3A, 9V/2A", micro: "5V/2A" },
+      output: { usbA1: "5V/2.1A", usbA2: "5V/2.1A", wireless: "5W" },
+      ledLight: "430LM (3 modes)",
+      dimensions: "175×93×24.5mm",
+      weight: "430g"
+    },
+    features: [
+      "20000mAh capacity",
+      "3‑mode lantern (high/low/off)",
+      "5W wireless charging",
+      "1.6W solar panel"
+    ],
+    applications: ["Camping", "Workshop", "Emergency"],
+    image: "/productImg/p-bank/powerbank091.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank091a.jpg",
+      "/productImg/p-bank/powerbank091.jpg"
+    ],
+    datasheet: "",
+    certifications: ["UL2056"],
+    warranty: "18 months",
+    inStock: true,
+    youtubeVideoId: null
+  },
+  // Group 20: S‑BOX – Solar Bluetooth speaker
+  {
+    id: "pb-220",
+    slug: "solar-bluetooth-speaker-power-bank",
+    name: "Solar Bluetooth Speaker",
+    model: "Solar Speaker",
+    modelNumbers: ["S-BOX"],
+    category: "power-bank",
+    type: "solar",
+    description: "Solar Bluetooth speaker with 5000mAh battery, 6W×2 speakers, TF card slot, and USB‑A output for phone charging.",
+    specifications: {
+      capacity: "5000mAh (max)",
+      batteryType: "A‑grade polymer Li‑ion",
+      solarPanel: "1.5W (164×49mm), monocrystalline",
+      speakerPower: "6W×2 + bass radiator",
+      bluetoothVersion: "V4.2, range 10‑15m",
+      audioFormats: "APE/MP3/WMA/WAV/FLAC",
+      tfCardSupport: "Up to 128GB",
+      input: { typeC: "5V/2A" },
+      output: { usbA: "5V/2.1A" },
+      dimensions: "200×85×82mm",
+      material: "ABS + TPU",
+      weight: "480g",
+      color: "Black"
+    },
+    features: [
+      "Solar powered rechargeable speaker",
+      "Bluetooth V4.2 with 10‑15m range",
+      "6W×2 sound with bass radiator",
+      "5000mAh battery – also charges phones",
+      "TF card slot for offline music"
+    ],
+    applications: ["Outdoor parties", "Picnics and camping", "Beach"],
+    image: "/productImg/p-bank/powerbank036.jpg",
+    gallery: [
+      "/productImg/p-bank/powerbank036a.jpg",
+      "/productImg/p-bank/powerbank036.jpg"
+    ],
+    datasheet: "",
+    certifications: [],
+    warranty: "12 months",
+    inStock: true,
+    youtubeVideoId: null
+  }
 ];
-
-// =====================================================
-// HELPER FUNCTIONS
-// =====================================================
-
-export const getProductsByCategory = (category) => {
-  return productData.filter((product) => product.category === category);
-};
-
-export const getProductBySlug = (slug) => {
-  return productData.find((product) => product.slug === slug);
-};
-
-export const getRelatedProducts = (product, limit = 3) => {
-  if (!product) return [];
-  return productData
-    .filter((p) => p.category === product.category && p.id !== product.id)
-    .slice(0, limit);
-};
-
-export const getProductsByType = (type) => {
-  return productData.filter((product) => product.type === type);
-};
-
-export const getCategories = () => {
-  return [...new Set(productData.map((product) => product.category))];
-};
-
-export const getTypes = () => {
-  return [...new Set(productData.map((product) => product.type))];
-};
-
-export const getElectricMobilityProducts = () => {
-  return productData.filter((product) => product.category === "electric-mobility");
-};
-
-export const getElectricMotorcycles = () => {
-  return productData.filter((product) => product.category === "electric-mobility" && product.type === "motorcycle");
-};
-
-export const getElectricScooters = () => {
-  return productData.filter((product) => product.category === "electric-mobility" && product.type === "scooter");
-};
-
-// New helper for power banks
-export const getPowerBankProducts = () => {
-  return productData.filter((product) => product.category === "power-bank");
-};
-
-export const getFeaturedProducts = () => {
-  const categories = getCategories();
-  const featured = {};
-  categories.forEach(category => {
-    featured[category] = productData
-      .filter(p => p.category === category)
-      .slice(0, 3);
-  });
-  return featured;
-};
-
-// =====================================================
-// FOOTER DATA
-// =====================================================
-export const footerData = {
-  brandDescription: "ISO 9001:2025 certified manufacturer of premium energy storage systems, solar inverters, and electric mobility solutions. Direct OEM/ODM supply for global distributors.",
-  socialLinks: [
-    { name: "YouTube", url: "https://www.youtube.com/@JoyHandSolar", icon: "youtube" },
-    { name: "TikTok", url: "https://www.tiktok.com/@joyhandsolar", icon: "tiktok" },
-    { name: "Facebook", url: "https://www.facebook.com/JoyHandEnergy", icon: "facebook" },
-    { name: "Instagram", url: "https://www.instagram.com/joyhandenergy/", icon: "instagram" },
-    { name: "Pinterest", url: "https://www.pinterest.com/joyhandenergy/", icon: "pinterest" }
-  ],
-  solutions: [
-    { name: "Storage Batteries", path: "/products/solutions/storage-batteries" },
-    { name: "Solar Inverters", path: "/products/solutions/solar-inverters" },
-    { name: "Portable Power Stations", path: "/products/solutions/portable-power-stations" },
-    { name: "Electric Mobility", path: "/products/solutions/electric-mobility" },
-    { name: "Power Banks", path: "/products/solutions/power-banks" }
-  ],
-  company: [
-    { name: "About Us", path: "/about-us" },
-    { name: "Manufacturing Capabilities", path: "/services" },
-    { name: "Industry Insights", path: "/blog" },
-    { name: "Contact Us", path: "/contact-us" }
-  ],
-  globalOffices: [
-    {
-      name: "USA - Headquarters",
-      location: "Montgomery, AL",
-      address: "445 Dexter Avenue, Suite 4050, Montgomery, AL 36104",
-      icon: "building",
-      link: "https://maps.google.com/?q=445+Dexter+Avenue+Suite+4050+Montgomery+AL+36104"
-    },
-    {
-      name: "China - Manufacturing Facility",
-      location: "Guangzhou, Guangdong",
-      address: "No. 7, Nansha District, Guangzhou 511400, Guangdong, China",
-      icon: "factory",
-      link: "https://maps.google.com/?q=No.+7,+Nansha+District,+Guangzhou+511400,+Guangdong,+China",
-      featured: true
-    },
-    {
-      name: "Australia - Pacific Office",
-      location: "Melbourne, VIC",
-      address: "157 A'Beckett Street, Melbourne VIC 3000, Australia",
-      icon: "globe",
-      link: "https://maps.google.com/?q=157+A%27Beckett+Street+Melbourne+VIC+3000"
-    },
-    {
-      name: "Nigeria - Africa Office",
-      location: "Lagos, Nigeria",
-      address: "New Mandilas International Market, Trade Fair, Ojo, Lagos, Nigeria",
-      icon: "globe",
-      link: "https://maps.google.com/?q=Trade+Fair+Ojo+Lagos+Nigeria"
-    }
-  ],
-  legal: [
-    { name: "Privacy Policy", path: "/privacy" },
-    { name: "Terms of Service", path: "/terms" },
-    { name: "Cookie Policy", path: "/cookie-policy" }
-  ],
-  copyrightYear: new Date().getFullYear(),
-  credits: "ISO 9001:2025 Certified Manufacturer | USA | China | Australia | Nigeria"
-};

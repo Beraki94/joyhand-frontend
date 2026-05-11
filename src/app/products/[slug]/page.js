@@ -11,7 +11,8 @@ import {
   PiPlug,
   PiBatteryCharging,
   PiHouse,
-  PiCaretRight
+  PiCaretRight,
+  PiDeviceMobile,      // added for phone screen protectors
 } from "react-icons/pi";
 import { productData } from "@/data";
 import ProductGallery from "./ProductGallery";
@@ -31,17 +32,19 @@ function getCategoryIcon(category) {
     case "electric-mobility": return <PiMotorcycle size={16} />;
     case "portable-power": return <PiPlug size={16} />;
     case "power-bank": return <PiBatteryCharging size={16} />;
+    case "phone-screen-protector": return <PiDeviceMobile size={16} />;
     default: return <PiFactory size={16} />;
   }
 }
 
 function getCategoryDisplay(category) {
   switch (category) {
-    case "battery": return "Battery Storage";
-    case "inverter": return "Solar Inverter";
-    case "electric-mobility": return "Electric Mobility";
-    case "portable-power": return "Portable Power";
-    case "power-bank": return "Power Bank";
+    case "battery": return "Battery Storage Solutions";
+    case "inverter": return "Smart Hybrid Inverters";
+    case "electric-mobility": return "E-Mobility Solutions";
+    case "portable-power": return "Portable Power Stations";
+    case "power-bank": return "Premium Power Banks";
+    case "phone-screen-protector": return "Screen Protection Solutions";
     default: return "Energy Solution";
   }
 }
@@ -107,6 +110,13 @@ function ProductKeySpecs({ product }) {
       { label: "Wireless", value: specifications.wirelessOutput ? `${specifications.wirelessOutput} MagSafe` : "No" },
       { label: "Weight", value: specifications.weight },
     ].filter(spec => spec.value && spec.value !== "No");
+  } else if (category === "phone-screen-protector") {
+    keySpecs = [
+      { label: "Material", value: specifications.material || "Tempered Glass" },
+      { label: "Hardness", value: specifications.hardness || "9H" },
+      { label: "Thickness", value: specifications.thickness || "0.33mm" },
+      { label: "Finish", value: specifications.finish || "Clear / Matte / Anti‑Spy" },
+    ].filter(spec => spec.value);
   }
 
   if (keySpecs.length === 0) return null;
@@ -251,6 +261,18 @@ function ProductSpecs({ product }) {
       { label: "Total Output", value: specifications.totalOutput },
       { label: "Cycle Life", value: specifications.cycleLife },
     ];
+  } else if (category === "phone-screen-protector") {
+    specsToShow = [
+      { label: "Model", value: product.model },
+      { label: "Type", value: getTypeDisplay(type) },
+      { label: "Material", value: specifications.material || "Tempered Glass" },
+      { label: "Hardness", value: specifications.hardness || "9H" },
+      { label: "Thickness", value: specifications.thickness },
+      { label: "Compatibility", value: specifications.compatibility },
+      { label: "Finish", value: specifications.finish },
+      { label: "Anti‑Spy", value: specifications.antiSpy ? "Yes" : "No" },
+      { label: "Application", value: specifications.application },
+    ].filter(spec => spec.value);
   }
 
   specsToShow = specsToShow.filter(spec => spec.value);
@@ -314,16 +336,45 @@ function ProductWarranty({ warranty }) {
   );
 }
 
-
+import Script from "next/script";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const product = productData.find(p => p.slug === slug);
   if (!product) return { title: "Product Not Found" };
+  
+  const categoryDisplay = getCategoryDisplay(product.category);
+  const plainTextDescription = typeof product.description === 'string' 
+    ? product.description 
+    : `Direct factory supply of ${product.name}. Request wholesale pricing for B2B importers.`;
+
   return {
-    title: `${product.name} ${product.model} | JoyHand Energy Solutions`,
-    description: product.description,
+    title: `${product.name} ${product.model ? `(${product.model})` : ''} | JoyHand Wholesale`,
+    description: plainTextDescription.substring(0, 160),
+    keywords: [`wholesale ${product.name}`, `OEM ${categoryDisplay}`, `${product.model} manufacturer`, "B2B energy supplier"],
+    openGraph: {
+      title: `${product.name} - Direct Factory Supply`,
+      description: plainTextDescription.substring(0, 160),
+      type: "website",
+      images: [
+        {
+          url: product.image || "/homeImg/businessModelImage001.jpg",
+          width: 800,
+          height: 600,
+          alt: product.name,
+        },
+      ],
+    },
+    alternates: {
+      canonical: `/products/${product.slug}`,
+    }
   };
+}
+
+export async function generateStaticParams() {
+  return productData.map((product) => ({
+    slug: product.slug,
+  }));
 }
 
 export default async function ProductDetailsPage({ params }) {
@@ -343,9 +394,47 @@ export default async function ProductDetailsPage({ params }) {
   else if (product.category === "electric-mobility") solutionSlug = "electric-mobility";
   else if (product.category === "portable-power") solutionSlug = "portable-power-stations";
   else if (product.category === "power-bank") solutionSlug = "power-banks";
+  else if (product.category === "phone-screen-protector") solutionSlug = "phone-screen-protectors";
+
+  const plainTextDescription = typeof product.description === 'string' 
+    ? product.description 
+    : `Direct factory supply of ${product.name}. Request wholesale pricing for B2B importers.`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "image": `https://www.joyhand.com${product.image}`,
+    "description": plainTextDescription.substring(0, 200),
+    "brand": {
+      "@type": "Brand",
+      "name": "JoyHand Energy"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "JoyHand Energy"
+    },
+    "model": product.model,
+    "category": categoryDisplay,
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "offerCount": "1",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "JoyHand Energy Manufacturing"
+      }
+    }
+  };
 
   return (
     <main className="product-details">
+      <Script
+        id="product-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="container">
         <Breadcrumbs 
           items={[

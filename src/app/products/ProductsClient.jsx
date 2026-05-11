@@ -2,19 +2,11 @@
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { productData } from "@/data";
+import { productData, solutionLinks } from "@/data";
 import ProductCard from "@/components/productCard/ProductCard";
 import Pagination from "@/components/pagination/Pagination";
 import { PiPackage } from "react-icons/pi";
 import "./Products.css";
-
-const solutionLinks = [
-  { slug: "storage-batteries", name: "Storage Batteries" },
-  { slug: "solar-inverters", name: "Solar Inverters" },
-  { slug: "portable-power-stations", name: "Portable Power" },
-  { slug: "electric-mobility", name: "Electric Mobility" },
-  { slug: "power-banks", name: "Power Banks" },
-];
 
 const PRODUCTS_PER_PAGE = 12;
 
@@ -45,7 +37,7 @@ export default function ProductsClient() {
               href="/products"
               className="products-page__category-link products-page__category-link--active"
             >
-              All Products
+              All
             </Link>
             {solutionLinks.map((cat) => (
               <Link

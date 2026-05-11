@@ -5,6 +5,8 @@ import SectionHeader from "../sectionHeader/SectionHeader";
 import SuperRing from "../superRing/SuperRing";
 import "./GlobalNetwork.css";
 
+import { logisticsFeatures } from "@/data";
+
 const GlobalNetwork = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -25,21 +27,6 @@ const GlobalNetwork = () => {
     observer.observe(section);
     return () => observer.disconnect();
   }, []);
-
-  const logisticsFeatures = [
-    {
-      title: "Strategic Manufacturing Reach",
-      desc: "Our high-capacity production facilities deliver premium energy solutions engineered for reliability, scaling seamlessly to meet worldwide market demands."
-    },
-    {
-      title: "Seamless Border Clearance",
-      desc: "Our dedicated trade compliance experts navigate complex international regulations and certifications, ensuring rapid customs processing without costly delays."
-    },
-    {
-      title: "Optimized Freight Logistics",
-      desc: "Through established partnerships with top-tier global shipping networks, we orchestrate highly efficient sea and air transport straight to your regional distribution centers."
-    }
-  ];
 
   return (
     <section ref={sectionRef} className={`global-network ${isVisible ? "is-visible" : ""}`}>
@@ -69,7 +56,7 @@ const GlobalNetwork = () => {
         <div className="global-network__header">
           <SectionHeader
             badge="Global Logistics"
-            title="Delivering Superiority Worldwide"
+            title="From Our Factory to Your Port"
             align="left"
           />
         </div>

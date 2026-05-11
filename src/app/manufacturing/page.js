@@ -18,112 +18,61 @@ import SectionHeader from "@/components/sectionHeader/SectionHeader";
 import SectionDecor from "@/components/sectionDecor/SectionDecor";
 import Link from "next/link";
 import PopUpModal from "@/components/contactForm/PopUpModal";
-import "./services.css";
+import "./manufacturing.css";
 import SuperRing from "@/components/superRing/SuperRing";
 
-export default function ServicesPage() {
+import { 
+  servicesList, 
+  servicesQC, 
+  servicesProcess, 
+  serviceHighlights 
+} from "@/data";
+import Script from "next/script";
+
+const ICON_MAP = {
+  factory: <PiFactory weight="duotone" />,
+  gear: <PiGear weight="duotone" />,
+  shield: <PiShieldCheck weight="duotone" />,
+  boat: <PiBoat weight="duotone" />,
+  clipboard: <PiClipboardText />,
+  magnifying: <PiMagnifyingGlass />,
+  seal: <PiSealCheckFill />,
+  handshake: <PiHandshake />,
+};
+
+
+
+export default function ManufacturingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const services = [
-    {
-      title: "OEM Manufacturing",
-      desc: "We produce certified solar inverters, storage batteries, and portable power stations under your brand. Custom labeling, packaging, and firmware – all from our factory.",
-      icon: <PiFactory weight="duotone" />,
-      tag: "OEM",
-      bgImage: "/serviceImg/serviceodm.jpg"
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "OEM/ODM Energy Manufacturing",
+    "provider": {
+      "@type": "Organization",
+      "name": "JoyHand Energy"
     },
-    {
-      title: "ODM Engineering",
-      desc: "Full custom design and development of energy storage systems and e-mobility powertrains. Our engineers handle PCB layout, BMS tuning, and mechanical integration.",
-      icon: <PiGear weight="duotone" />,
-      tag: "ODM",
-      bgImage: "/serviceImg/serviceoem.jpg"
-    },
-    {
-      title: "Quality Assurance",
-      desc: "100% in-process inspection and final testing. Our QC lab performs thermal shock, vibration, and cycle life testing on every production batch.",
-      icon: <PiShieldCheck weight="duotone" />,
-      tag: "Quality",
-      bgImage: "/serviceImg/servicequality.jpg"
-    },
-    {
-      title: "Global Logistics",
-      desc: "We handle container consolidation, dangerous goods documentation, and customs clearance – delivering your products to warehouses worldwide.",
-      icon: <PiBoat weight="duotone" />,
-      tag: "Logistics",
-      bgImage: "/serviceImg/servicelogistic.jpg"
+    "areaServed": ["NG", "PK", "BD", "KE", "ZA", "Global"],
+    "description": "Custom manufacturing, white-label branding, and container consolidation for LFP batteries and solar inverters.",
+    "offers": {
+      "@type": "Offer",
+      "description": "Factory-direct B2B wholesale pricing for energy storage systems and e-mobility solutions."
     }
-  ];
-
-  const qcProtocols = [
-    {
-      title: "In-Process Inspection",
-      desc: "Continuous monitoring during assembly; every cell and PCB is tested inline.",
-      icon: <PiClipboardText />
-    },
-    {
-      title: "Batch Testing",
-      desc: "Random sampling and performance testing before shipment release.",
-      icon: <PiMagnifyingGlass />
-    },
-    {
-      title: "Certification Validation",
-      desc: "We maintain CE, UL, UN38.3, and IEC certifications – validated on-site.",
-      icon: <PiSealCheckFill />
-    },
-    {
-      title: "Pre‑Shipment Audit",
-      desc: "Final quality check during container loading; 100% of shipments inspected.",
-      icon: <PiShieldCheck />
-    }
-  ];
-
-  const process = [
-    {
-      step: "01",
-      title: "Consultation",
-      desc: "We discuss your specifications, target markets, and volume requirements.",
-      icon: <PiHandshake />
-    },
-    {
-      step: "02",
-      title: "Engineering & Prototyping",
-      desc: "Our engineers create CAD designs, BOMs, and prototypes for your approval.",
-      icon: <PiGear />
-    },
-    {
-      step: "03",
-      title: "Sample Verification",
-      desc: "Samples are tested against your specifications before production begins.",
-      icon: <PiMagnifyingGlass />
-    },
-    {
-      step: "04",
-      title: "Production Oversight",
-      desc: "Our QC team monitors production and conducts random in-line inspections.",
-      icon: <PiFactory />
-    },
-    {
-      step: "05",
-      title: "Pre‑shipment Inspection",
-      desc: "Final QC check before container loading at our facility.",
-      icon: <PiShieldCheck />
-    },
-    {
-      step: "06",
-      title: "Global Logistics",
-      desc: "We coordinate shipping, customs clearance, and delivery to your warehouse.",
-      icon: <PiBoat />
-    }
-  ];
+  };
 
   return (
     <main className="services-page">
+      <Script
+        id="manufacturing-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PageHeader
-        title="Manufacturing Capabilities"
-        subtitle="From engineering to global delivery."
+        title="End-to-End OEM Production"
+        subtitle="From custom battery assembly to container export, we supply high-volume energy hardware directly to B2B importers."
         pageImage="/pageHeadImg/pageheader-services.jpg"
       />
 
@@ -134,15 +83,13 @@ export default function ServicesPage() {
           <div className="services-intro__grid">
             <div className="services-intro__header">
               <SectionHeader
-                badge="Direct Manufacturing"
-                title="Your End‑to‑End Production Partner"
+                badge="FACTORY CAPABILITIES"
+                title="Scaling Wholesale Supply Chains"
               />
             </div>
             <div className="services-intro__content stagger-2">
               <p className="services-intro__desc">
-                Since 1998, JoyHand has designed, engineered, and manufactured energy solutions.
-                Today, we offer complete OEM/ODM services, quality control, and global logistics –
-                giving distributors a single, reliable partner for the entire product lifecycle.
+                We manage the entire production lifecycle at our Guangzhou facility. Whether you require tailored BMS engineering for hybrid solar setups or white-labeled portable power, our automated assembly lines deliver precision at scale.
               </p>
             </div>
           </div>
@@ -151,10 +98,9 @@ export default function ServicesPage() {
 
       {/* SERVICE CARDS */}
       <section className="services-grid animate-slide-up">
-
         <div className="container">
           <div className="grid grid--2 services-grid__wrapper">
-            {services.map((service, idx) => (
+            {servicesList.map((service, idx) => (
               <div
                 key={idx}
                 className={`service-card stagger-${idx % 6 + 1}`}
@@ -163,7 +109,7 @@ export default function ServicesPage() {
                 <div className="service-card__overlay"></div>
                 <div className="service-card__pattern"></div>
                 <div className="service-card__badge">{service.tag}</div>
-                <div className="service-card__icon-box">{service.icon}</div>
+                <div className="service-card__icon-box">{ICON_MAP[service.iconType]}</div>
                 <div className="service-card__body">
                   <h3 className="service-card__title">{service.title}</h3>
                   <p className="service-card__desc">{service.desc}</p>
@@ -184,9 +130,9 @@ export default function ServicesPage() {
         <div className="container">
           <SectionHeader badge="Our Quality Standards" title="Every Product. Every Batch. Verified." align="center" theme="light" />
           <div className="grid grid--4 qc-protocols__grid">
-            {qcProtocols.map((protocol, idx) => (
+            {servicesQC.map((protocol, idx) => (
               <div key={idx} className={`qc-card stagger-${idx % 6 + 1}`}>
-                <div className="qc-card__icon">{protocol.icon}</div>
+                <div className="qc-card__icon">{ICON_MAP[protocol.iconType]}</div>
                 <h4 className="qc-card__title">{protocol.title}</h4>
                 <p className="qc-card__desc">{protocol.desc}</p>
               </div>
@@ -207,23 +153,23 @@ export default function ServicesPage() {
           <div className="why-distributors__grid">
             <div className="why-item stagger-1">
               <div className="why-item__number">01</div>
-              <h4 className="why-item__title">Direct Factory Access</h4>
-              <p className="why-item__text">You skip the middleman. We manufacture, so you get the best pricing and full traceability.</p>
+              <h4 className="why-item__title">Factory-Direct Pricing</h4>
+              <p className="why-item__text">Bypass trading companies. We own the floor, guaranteeing the lowest B2B cost per unit.</p>
             </div>
             <div className="why-item stagger-2">
               <div className="why-item__number">02</div>
-              <h4 className="why-item__title">Quality Guaranteed</h4>
-              <p className="why-item__text">On-site inspections at every stage. If it doesn’t pass, it doesn’t ship.</p>
+              <h4 className="why-item__title">White-Label Branding</h4>
+              <p className="why-item__text">Build your own regional brand. We apply your logos, packaging, and custom firmwares.</p>
             </div>
             <div className="why-item stagger-3">
               <div className="why-item__number">03</div>
-              <h4 className="why-item__title">Logistics Managed</h4>
-              <p className="why-item__text">From container consolidation to customs clearance – we handle the complexity.</p>
+              <h4 className="why-item__title">Container Consolidation</h4>
+              <p className="why-item__text">Mix batteries, inverters, and accessories into single freight shipments bound directly for Apapa, Mombasa, or Durban.</p>
             </div>
             <div className="why-item stagger-4">
               <div className="why-item__number">04</div>
-              <h4 className="why-item__title">Scale With Us</h4>
-              <p className="why-item__text">Whether you need one container or hundreds, our production lines grow with you.</p>
+              <h4 className="why-item__title">Customs Compliance</h4>
+              <p className="why-item__text">We supply CE, UN38.3, and RoHS documentation for frictionless import processing.</p>
             </div>
           </div>
         </div>
@@ -232,29 +178,17 @@ export default function ServicesPage() {
       {/* CREDENTIALS TICKER */}
       <div className="cred-ticker">
         <div className="cred-ticker__track">
-          {[
-            { label: "CE Certified", dot: true },
-            { label: "ISO 9001:2025", dot: true },
-            { label: "UL Listed Products", dot: true },
-            { label: "IEC 62619 Compliant", dot: true },
-            { label: "10+ Years Manufacturing", dot: true },
-            { label: "50+ Countries Delivered", dot: true },
-            { label: "1,000,000+ Units Shipped", dot: true },
-            { label: "In-House QC Lab", dot: true },
-            { label: "Full OEM/ODM Capability", dot: true },
-            { label: "CE Certified", dot: true },
-            { label: "ISO 9001:2025", dot: true },
-            { label: "UL Listed Products", dot: true },
-            { label: "IEC 62619 Compliant", dot: true },
-            { label: "10+ Years Manufacturing", dot: true },
-            { label: "50+ Countries Delivered", dot: true },
-            { label: "1,000,000+ Units Shipped", dot: true },
-            { label: "In-House QC Lab", dot: true },
-            { label: "Full OEM/ODM Capability", dot: true },
-          ].map((item, i) => (
+          {serviceHighlights.map((label, i) => (
             <span key={i} className="cred-ticker__item">
               <span className="cred-ticker__dot"></span>
-              {item.label}
+              {label}
+            </span>
+          ))}
+          {/* Duplicate for seamless marquee if needed, but the original had it twice manually */}
+          {serviceHighlights.map((label, i) => (
+            <span key={`dup-${i}`} className="cred-ticker__item">
+              <span className="cred-ticker__dot"></span>
+              {label}
             </span>
           ))}
         </div>
@@ -263,19 +197,17 @@ export default function ServicesPage() {
       {/* PROCESS */}
       <section className="sourcing-process animate-slide-up">
         <SectionDecor type="accent" count={4} />
-
         <SuperRing type="primary" size="1400px" thickness="40px" top="50%" left="50%" translateX="-50%" translateY="-50%" opacity={0.06} />
         <SuperRing type="secondary" size="900px" thickness="40px" top="15%" left="70%" translateX="-50%" translateY="-50%" opacity={0.05} />
         <SuperRing type="accent" size="900px" thickness="40px" top="85%" left="30%" translateX="-50%" translateY="-50%" opacity={0.05} />
-
         <div className="container">
           <SectionHeader badge="How We Work" title="From Your Specs to Your Warehouse" center />
           <div className="grid grid--3 sourcing-process__grid">
-            {process.map((item, i) => (
+            {servicesProcess.map((item, i) => (
               <div key={i} className={`process-card stagger-${i % 6 + 1}`}>
                 <div className="process-card__number">{item.step}</div>
                 <div className="process-card__inner">
-                  <div className="process-card__icon">{item.icon}</div>
+                  <div className="process-card__icon">{ICON_MAP[item.iconType]}</div>
                   <h4 className="process-card__title">{item.title}</h4>
                   <p className="process-card__text">{item.desc}</p>
                 </div>
@@ -291,12 +223,13 @@ export default function ServicesPage() {
           <div className="partner-facilities__box">
             <div className="partner-facilities__content">
               <SectionHeader badge="Our Factory" title="Manufacturing Hub in Guangzhou" light />
-              <p className="partner-facilities__text">50,000 m² ISO 9001:2025 certified facility. We specialize in:</p>
+              <p className="partner-facilities__text">50,000 m² ISO 9001:2025 certified facility. We specialise in:</p>
               <ul className="partner-facilities__list">
                 <li><PiCheckCircleFill /> LFP battery assembly (Grade-A prismatic cells)</li>
                 <li><PiCheckCircleFill /> Solar inverter production (Tier-1 components)</li>
-                <li><PiCheckCircleFill /> EV charging infrastructure & e‑mobility platforms</li>
-                <li><PiCheckCircleFill /> Portable power station manufacturing</li>
+                <li><PiCheckCircleFill /> Phone screen protectors (tempered glass, anti‑spy, matte)</li>
+                <li><PiCheckCircleFill /> Portable power stations & power banks</li>
+                <li><PiCheckCircleFill /> Electric motorcycles & e‑mobility platforms</li>
               </ul>
               <Link href="/about-us" className="btn btn--outline-light">Explore Our Facility <PiArrowRight /></Link>
             </div>
@@ -317,12 +250,11 @@ export default function ServicesPage() {
           <div className="services-cta__banner">
             <div className="services-cta__content">
               <div className="services-cta__text">
-                <h2 className="services-cta__title">Ready to Manufacture With <br /> <span className="title--highlight">Confidence?</span></h2>
+                <h2 className="services-cta__title">Ready to Supply Your <br /> <span className="title--highlight">Local Market?</span></h2>
                 <p className="services-cta__subtitle">
-                  Partner with JoyHand for direct factory quality, technical support, and world-class engineering services.
+                  Lock in wholesale pricing and start your mass production run. Join the network of importers across South Asia, East Africa, and Nigeria relying on JoyHand.
                 </p>
               </div>
-
               <div className="services-cta__actions">
                 <Link href="/contact-us" className="btn btn--primary services-cta__btn">
                   Start Your Project <PiArrowRight weight="bold" />

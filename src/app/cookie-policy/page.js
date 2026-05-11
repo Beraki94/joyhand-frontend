@@ -4,6 +4,10 @@ import "../legal.css";
 export const metadata = {
   title: "Cookie Policy | JoyHand Energy",
   description: "Understand how JoyHand uses cookies to improve your browsing experience and analyse site traffic.",
+  robots: {
+    index: false,
+    follow: false,
+  }
 };
 
 export default function CookiePolicyPage() {

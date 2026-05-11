@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { PiArrowRight } from "react-icons/pi";
-import { partners } from "../../data";
+import { partners } from "@/data";
 import SectionHeader from "../sectionHeader/SectionHeader";
 import SectionDecor from "../sectionDecor/SectionDecor";
 import "./TrustSignals.css";
@@ -21,7 +21,7 @@ const TrustSignals = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Only animate once
+          observer.disconnect();
         }
       },
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
@@ -37,16 +37,15 @@ const TrustSignals = () => {
 
       <div className="container trust__container">
         <SectionDecor type="accent" count={4} />
-        {/* Replaced manual header with Reusable SectionHeader */}
         <SectionHeader 
-          badge="Global Trust"
-          title="Partner with a Manufacturer You Can Rely On"
-          subtitle="ISO 9001:2025 certified facility. Every order backed by our engineering team and on‑site quality control."
+          badge="Our Partners"
+          title="Built With China's Best"
+          subtitle="JoyHand manufactures alongside trusted partner factories. You work directly with us — one point of contact, unified quality standards, seamless export."
           align="center"
           className="trust__section-header"
         />
 
-        {/* Partner logos – continuous marquee */}
+        {/* Partner logos */}
         <div className="trust__marquee">
           <div className="trust__track">
             {scrollingPartners.map((partner, idx) => (
@@ -65,17 +64,14 @@ const TrustSignals = () => {
             ))}
           </div>
         </div>
-        <p className="trust__logos-note">*and many more across 20+ countries</p>
+        <p className="trust__logos-note">Strategic manufacturing partners across China</p>
 
-        {/* CTA */}
         <div className="trust__footer">
-          {/* Desktop Button */}
           <a href="/about-us" className="btn btn--outline trust__btn-desktop">
-            Discover our manufacturing process <PiArrowRight />
+            How we partner <PiArrowRight />
           </a>
-          {/* Mobile Inline Link */}
           <a href="/about-us" className="trust__link-mobile">
-            Discover our manufacturing process <PiArrowRight />
+            How we partner <PiArrowRight />
           </a>
         </div>
       </div>
