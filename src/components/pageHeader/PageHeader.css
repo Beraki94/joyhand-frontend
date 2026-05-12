@@ -4,7 +4,7 @@
 .page-header {
   position: relative;
   /* Use min-height instead of fixed height so text never gets cut off */
-  min-height: 300px; 
+  min-height: 300px;
   display: flex;
   align-items: center;
   padding: calc(var(--header-height) + var(--spacing-6)) 0 var(--spacing-5);
@@ -43,11 +43,9 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(
-    90deg, 
-    var(--primary-color) 0%, 
-    var(--accent-color-dark) 100%
-  );
+  background: linear-gradient(90deg,
+      var(--primary-color) 0%,
+      var(--accent-color-dark) 100%);
   z-index: 10;
 }
 
@@ -82,12 +80,10 @@
   inset: 0;
   z-index: -1;
   /* Dark Navy base blending into image */
-  background: linear-gradient(
-    90deg,
-    rgba(18, 27, 45, 0.98) 0%,
-    rgba(18, 27, 45, 0.8) 40%,
-    rgba(18, 27, 45, 0.3) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(18, 27, 45, 0.98) 0%,
+      rgba(18, 27, 45, 0.8) 40%,
+      rgba(18, 27, 45, 0.3) 100%);
 }
 
 .page-header__glow-orange {
@@ -97,11 +93,9 @@
   width: 50vw;
   height: 50vw;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 127, 65, 0.15) 0%,
-    transparent 60%
-  );
+  background: radial-gradient(circle,
+      rgba(255, 127, 65, 0.15) 0%,
+      transparent 60%);
   pointer-events: none;
   z-index: -1;
 }
@@ -113,11 +107,9 @@
   width: 40vw;
   height: 40vw;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(46, 196, 182, 0.08) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(46, 196, 182, 0.08) 0%,
+      transparent 70%);
   pointer-events: none;
   z-index: -1;
 }
@@ -167,19 +159,24 @@
   gap: 8px;
   margin-bottom: var(--spacing-2);
   padding: 6px 16px;
-  background: rgba(255, 127, 65, 0.1); /* User added Orange tint */
+  background: rgba(255, 127, 65, 0.1);
+  /* User added Orange tint */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 127, 65, 0.25); /* Adjusted to match orange background */
-  border-left: 3px solid var(--accent-color-dark); /* Touch of green*/
+  border: 1px solid rgba(255, 127, 65, 0.25);
+  /* Adjusted to match orange background */
+  border-left: 3px solid var(--accent-color-dark);
+  /* Touch of green*/
   border-radius: 50px;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  flex-wrap: nowrap; /* Forces same line no matter what */
+  flex-wrap: nowrap;
+  /* Forces same line no matter what */
   white-space: nowrap;
   max-width: 90vw;
-  box-shadow: 0 4px 15px rgba(255, 127, 65, 0.05); /* Soft orange glow */
+  box-shadow: 0 4px 15px rgba(255, 127, 65, 0.05);
+  /* Soft orange glow */
 }
 
 @media screen and (max-width: 767px) {
@@ -223,7 +220,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 150px; /* Limit on mobile to keep everything on one line */
+  max-width: 150px;
+  /* Limit on mobile to keep everything on one line */
 }
 
 @media screen and (min-width: 768px) {
@@ -267,7 +265,8 @@
 .page-header__description {
   color: rgba(255, 255, 255, 0.85);
   font-size: var(--font-size-sm);
-  max-width: 100%; /* Changed from fixed 600px so it wraps beautifully */
+  max-width: 100%;
+  /* Changed from fixed 600px so it wraps beautifully */
   line-height: 1.6;
 }
 
@@ -276,7 +275,8 @@
     font-size: 1.125rem;
     line-height: 1.7;
     margin-top: var(--spacing-1);
-    max-width: 700px; /* Slightly wider */
+    max-width: 700px;
+    /* Slightly wider */
   }
 }
 
@@ -288,6 +288,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -298,12 +299,14 @@
    ACCESSIBILITY & PERFORMANCE
 ===================================================== */
 @media (prefers-reduced-motion: reduce) {
+
   .page-header__bg,
   .page-header__content {
     animation: none !important;
     transition: none !important;
     transform: none !important;
   }
+
   .page-header__bg {
     opacity: 1 !important;
   }

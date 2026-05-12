@@ -330,47 +330,47 @@ export const aboutSectors = [
     title: "LFP Battery Manufacturing",
     desc: "Wholesale Lithium Iron Phosphate (LFP) storage powered by Grade-A prismatic cells. Engineered for extreme longevity in off-grid residential and commercial setups.",
     features: ["Grade-A Prismatic Cells", "6000+ Cycle Lifespan", "Automotive-Grade Assembly"],
-    img: "/homeImg/energyPlatformImage01.jpg",
+    img: "/aboutImg/aboutProductimg01.jpg",
     tag: "Energy Storage"
   },
   {
     title: "Solar Inverter Production",
     desc: "High-efficiency pure sine wave hybrid inverters with smart grid-switching. Built to handle severe voltage drops and protect electronics in unstable grids.",
     features: ["98% Peak Efficiency", "Pure Sine Wave Tech", "Smart Grid Switching"],
-    img: "/homeImg/energyPlatformImage002.jpg",
+    img: "/aboutImg/aboutProductimg02.jpg",
     tag: "Power Electronics"
   },
   {
     title: "Portable Power Stations",
     desc: "Rugged, fast-charging mobile energy solutions with multi-region AC outlets. Ideal for emergency backup, mobile clinics, and remote industrial sites.",
     features: ["Fast-Charge Capability", "OEM/ODM Branding", "Multi-Output Design"],
-    img: "/homeImg/energyPlatformImage003.jpg",
+    img: "/aboutImg/aboutProductimg3.jpg",
     tag: "Portable Energy"
   },
   {
     title: "High-Capacity Power Banks",
     desc: "PD fast-charging mobile power engineered with high-density lithium polymer. We supply massive volumes to retail networks and telecom providers.",
     features: ["PD Fast Charging", "High Energy Density", "Smart Protection IC"],
-    img: "/homeImg/businessModelImage2.jpg",
+    img: "/aboutImg/aboutProductimg5.jpg",
     tag: "Consumer Tech"
   },
   {
     title: "E-Mobility Engineering",
     desc: "Heavy-duty electric motorcycles and EV powertrains featuring reinforced chassis and IP65 weatherproof motors—built for rugged terrain logistics.",
     features: ["Reinforced EV Frames", "IP65 Weatherproof Motors", "Custom Motor Controllers"],
-    img: "/homeImg/energyPlatformImage04.jpg",
+    img: "/aboutImg/aboutProductimg4.jpg",
     tag: "Electric Mobility"
   },
   {
     title: "Phone Screen Protectors",
     desc: "High-margin mobile accessories including 9H tempered glass, anti-spy, and matte films. Bulk wholesale supply for major tech distributors globally.",
     features: ["9H Hardness", "Anti-Shatter", "Oleophobic Coating"],
-    img: "/homeImg/businessModelImage001.jpg",
+    img: "/aboutImg/aboutProductimg6.jpg",
     tag: "Accessories"
   }
 ];
 
-export const aboutTimeline = [
+export const aboutTimeline = [  
   {
     year: "1998",
     title: "The Production Roots",
@@ -447,7 +447,7 @@ export const servicesList = [
     desc: "100% inline inspection. Our lab runs capacity grading, thermal stress, and cycle life tests on every wholesale batch.",
     iconType: "shield",
     tag: "Quality",
-    bgImage: "/serviceImg/servicequality.jpg"
+    bgImage: "/serviceImg/servicequality1.jpg"
   },
   {
     title: "Global Container Logistics",
@@ -653,14 +653,14 @@ export const solutionConfigs = {
   "power-banks": {
     title: "Premium Power Banks",
     filterCategory: "power-bank",
-    image: "/homeImg/energyPlatformImage05.jpg",
+    image: "/homeImg/energyPlatformImage005.jpg",
     description: "High-density PD fast-charging power banks. Wholesale portable chargers for massive retail networks, telecom providers, and corporate branding.",
     keywords: "power bank wholesale, PD fast charger supplier, high capacity power bank OEM, mobile charger bulk, magnetic power bank manufacturer, telecom power solutions"
   },
   "phone-screen-protectors": {
     title: "Screen Protection Solutions",
     filterCategory: "phone-screen-protector",
-    image: "/homeImg/energyPlatformImage05.jpg",
+    image: "/homeImg/energyPlatformImage06.jpg",
     description: "9H tempered glass and military-grade film protectors. High-margin wholesale mobile accessories for global tech distributors and retail chains.",
     keywords: "phone screen protector wholesale, tempered glass manufacturer, 9H screen guard bulk, anti-spy screen protector OEM, mobile accessory supply chain, tempered glass supplier China"
   }

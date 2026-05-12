@@ -101,7 +101,7 @@
 }
 
 .services-grid__wrapper {
-  margin-top: var(--spacing-6);
+  margin-top: var(--spacing-3);
 }
 
 .service-card {
@@ -233,46 +233,36 @@
   hyphens: auto;
 }
 
-/* Action Link - Transformed to Pill Button */
+/* Action Link - Plain underline + arrow style */
 .service-card__link {
   position: relative;
   z-index: 3;
   margin-top: auto;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  color: var(--neutral-white);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 1.5px;
-  padding: 14px 28px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 100px;
-  transition: all 0.3s ease;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(255, 127, 65, 0.5);
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
   width: fit-content;
 }
 
+.service-card__link:hover,
 .service-card:hover .service-card__link {
-  background: var(--primary-color);
-  border-color: var(--primary-color);
-  transform: translateX(10px);
-  box-shadow: 0 10px 20px rgba(255, 127, 65, 0.2);
-}
-
-.service-card__arrow {
-  font-size: 1.1rem;
-  transition: transform 0.3s ease;
-}
-
-.service-card:hover .service-card__arrow {
-  transform: translateX(5px);
-}
-
-.service-card__link:hover {
-  gap: 14px;
   color: var(--primary-color);
+  text-decoration-color: var(--primary-color);
+  background: none;
+  border: none;
+  transform: none;
+  box-shadow: none;
 }
 
 .service-card__arrow {
@@ -283,12 +273,13 @@
 
 @media screen and (min-width: 768px) {
   .service-card__arrow {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 }
 
-.service-card__link:hover .service-card__arrow {
-  transform: translateX(4px);
+.service-card__link:hover .service-card__arrow,
+.service-card:hover .service-card__arrow {
+  transform: translateX(5px);
 }
 
 /* =====================================================
