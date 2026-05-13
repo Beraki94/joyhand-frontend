@@ -18,8 +18,6 @@ export const metadata = {
   },
   description: "Direct factory wholesale supply of Grade-A LFP batteries, hybrid inverters, and e-mobility solutions. Engineering excellence for off-grid and unstable grid markets in Africa and South Asia.",
   keywords: ["OEM solar manufacturer", "wholesale LFP batteries", "solar factory China", "energy storage distributor supply", "B2B energy supplier"],
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
-  themeColor: "#121b2d",
   robots: {
     index: true,
     follow: true,
@@ -39,6 +37,13 @@ export const metadata = {
       },
     ],
   },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#121b2d',
 };
 
 export default function RootLayout({ children }) {

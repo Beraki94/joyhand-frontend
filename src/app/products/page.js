@@ -33,7 +33,7 @@ export default function ProductsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PageHeader 
-        title="What We Manufacture"
+        title="Product We Manufacture"
         subtitle="Energy storage, power conversion, mobile power, and e‑mobility solutions – direct from our factory."
         pageImage="/pageHeadImg/pageheader-products.jpg"
       />
